@@ -4,7 +4,7 @@ MaVaTS is a Python library for matrix-valued time series methods.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install MaVaTS.
 
 ```bash
 pip install mavats
