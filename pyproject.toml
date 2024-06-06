@@ -1,10 +1,12 @@
 [tool.poetry]
 name = "mavats"
 version = "0.1.0"
-description = ""
+description = "Some methods for matrix-valued time series"
 authors = ["Daniel <danlixuan@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+repository = "https://github.com/dx-li/MaVaTS"
+documentation = "https://dx-li.github.io/MaVaTS/mavats.html"
 
 [tool.poetry.dependencies]
 python = "^3.10"
