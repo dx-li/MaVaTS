@@ -10,12 +10,12 @@ def estimate_factor_model(
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     r"""
     Estimates the high-dimensional matrix factor model in Chen, Yang, Zhang 2020 (https://doi.org/10.1080/01621459.2021.1912757)
-    where $X_t = R F_t C^T + E_t$
+    where $X_t = R F_t C^T + E_t = Q_1 Z_t Q_2^T + E_t$
 
     Parameters
     ----------
     X : (T, p1, p2) ndarray
-        The data matrix.
+        The observed data.
     h0 : int
         Lag parameter.
     k1 : int, optional
@@ -28,7 +28,7 @@ def estimate_factor_model(
     Z : (T, k1, k2) ndarray
         The estimated transformed factor matrix.
     S : (T, p1, p2) ndarray
-        The estimated dynamic signal.
+        The estimated dynamic signal $S_t = Q_1 Z_t Q_2^T$.
     Q1 : (p1, k1) ndarray
         The estimated front loading matrix.
     Q2 : (p2, k2) ndarray

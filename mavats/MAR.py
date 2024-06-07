@@ -16,7 +16,7 @@ def estimate_mar1(
     Parameters
     ----------
     X : (T, m, n) ndarray
-        The data matrix.
+        The observed data.
     method : str, optional
         The estimation method. Must be either "proj", "least_square" or "mle".
         Note MLE assumes Cov(vec($E_t$)) = $\Sigma_c \otimes \Sigma_r$.
@@ -66,7 +66,7 @@ def estimate_residual_cov(X: np.ndarray, A: np.ndarray, B: np.ndarray) -> np.nda
     Parameters
     ----------
     X : (T, m, n) ndarray
-        The data matrix.
+        The observed data.
     A : (m, m) ndarray
         The estimated left matrix.
     B : (n, n) ndarray
