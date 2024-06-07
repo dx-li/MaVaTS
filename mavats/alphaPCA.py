@@ -1,6 +1,6 @@
 import math
-from typing import Tuple, Union
 import warnings
+from typing import Tuple, Union
 
 import numpy as np
 from numpy import linalg as LA
@@ -10,7 +10,10 @@ from mavats.factormodel import _estimate_k
 
 
 def estimate_alpha_PCA(
-    Y: np.ndarray, alpha: Union[float, int], k: Union[int, None] = None, r: Union[int, None] = None
+    Y: np.ndarray,
+    alpha: Union[float, int],
+    k: Union[int, None] = None,
+    r: Union[int, None] = None,
 ):
     r"""
     Estimates the $\alpha$-PCA model in Chen and Fan 2021 (https://doi.org/10.1080/01621459.2021.1970569)
@@ -55,6 +58,7 @@ def estimate_alpha_PCA(
     S = R @ F @ C.T / pq
     return F, S, R, C
 
+
 def _compute_Y_tilde(Y, alpha):
     alpha_tilde = math.sqrt(alpha + 1) - 1
     Y_bar = np.mean(Y, axis=0)
@@ -72,7 +76,15 @@ def _compute_loading(M: np.ndarray, k: Union[int, None]) -> np.ndarray:
     return v
 
 
-def estimate_cov_Ri(Y: np.ndarray, F: np.ndarray, R: np.ndarray, C: np.ndarray, i:int, alpha: Union[float, int], m: int) -> np.ndarray:
+def estimate_cov_Ri(
+    Y: np.ndarray,
+    F: np.ndarray,
+    R: np.ndarray,
+    C: np.ndarray,
+    i: int,
+    alpha: Union[float, int],
+    m: int,
+) -> np.ndarray:
     r"""
     Estimates the covariance matrix of the $i$-th row (0 indexed) of $\hat{R}$.
 
@@ -106,26 +118,36 @@ def estimate_cov_Ri(Y: np.ndarray, F: np.ndarray, R: np.ndarray, C: np.ndarray, 
     _, k, r = F.shape
     E = Y - R @ F @ C.T
     Y_tilde = _compute_Y_tilde(Y, alpha)
-    YYT = (Y_tilde @ Y_tilde.transpose(0, 2, 1)).sum(axis=0) / (p*q*T)
-    V, _ = eigh(YYT, subset_by_index=(p-k, p-1))
+    YYT = (Y_tilde @ Y_tilde.transpose(0, 2, 1)).sum(axis=0) / (p * q * T)
+    V, _ = eigh(YYT, subset_by_index=(p - k, p - 1))
     V_inv = 1 / V
     V_inv = np.diag(V_inv)
     F_bar = np.mean(F, axis=0)
     middle = _compute_D_Rnui(F, F_bar, C, E, alpha, 0, i, q)
-    for nu in range(1, m+1):
+    for nu in range(1, m + 1):
         D_Rnui = _compute_D_Rnui(F, F_bar, C, E, alpha, nu, i, q)
-        middle += (1 - nu / (m+1)) * (D_Rnui + D_Rnui.T)
+        middle += (1 - nu / (m + 1)) * (D_Rnui + D_Rnui.T)
     Sig_Ri = V_inv @ middle @ V_inv
     return Sig_Ri
 
-def _compute_D_Rnui(F: np.ndarray, F_bar: np.ndarray, C: np.ndarray, E: np.ndarray, alpha: Union[float, int], nu: int, i: int, q: int):
+
+def _compute_D_Rnui(
+    F: np.ndarray,
+    F_bar: np.ndarray,
+    C: np.ndarray,
+    E: np.ndarray,
+    alpha: Union[float, int],
+    nu: int,
+    i: int,
+    q: int,
+):
     T, k, r = F.shape
     IaF = np.hstack([np.eye(k), alpha * F_bar])
     if nu > 0:
-        F_nu = F[nu: ]
-        F_0nu = F[: -nu]
-        E_nu = E[nu: ]
-        E_0nu = E[: -nu]
+        F_nu = F[nu:]
+        F_0nu = F[:-nu]
+        E_nu = E[nu:]
+        E_0nu = E[:-nu]
     else:
         F_nu = F
         F_0nu = F
@@ -134,17 +156,26 @@ def _compute_D_Rnui(F: np.ndarray, F_bar: np.ndarray, C: np.ndarray, E: np.ndarr
     F_0nu_trans = F_0nu.transpose(0, 2, 1)
     e_nui = E_nu[:, i]
     e_0i = E_0nu[:, i]
-    e_outer = np.einsum('ti, tj->tij', e_nui, e_0i)
+    e_outer = np.einsum("ti, tj->tij", e_nui, e_0i)
     br = C.T @ e_outer @ C
     bl = br @ F_0nu_trans
     tr = F_nu @ br
     tl = F_nu @ bl
     block = np.block([[tl, tr], [bl, br]]).sum(axis=0)
-    block /= (q*T)
+    block /= q * T
     D_Rnui = IaF @ block @ IaF.T
     return D_Rnui
 
-def estimate_cov_Cj(Y: np.ndarray, F: np.ndarray, R: np.ndarray, C: np.ndarray, j:int, alpha: Union[float, int], m: int) -> np.ndarray:
+
+def estimate_cov_Cj(
+    Y: np.ndarray,
+    F: np.ndarray,
+    R: np.ndarray,
+    C: np.ndarray,
+    j: int,
+    alpha: Union[float, int],
+    m: int,
+) -> np.ndarray:
     r"""
     Estimates the covariance matrix of the $j$-th row (0 indexed) of $\hat{C}$.
 
@@ -178,26 +209,36 @@ def estimate_cov_Cj(Y: np.ndarray, F: np.ndarray, R: np.ndarray, C: np.ndarray, 
     _, k, r = F.shape
     E = Y - R @ F @ C.T
     Y_tilde = _compute_Y_tilde(Y, alpha)
-    YTY = (Y_tilde.transpose(0, 2, 1) @ Y_tilde).sum(axis=0) / (p*q*T)
-    V, _ = eigh(YTY, subset_by_index=(q-r, q-1))
+    YTY = (Y_tilde.transpose(0, 2, 1) @ Y_tilde).sum(axis=0) / (p * q * T)
+    V, _ = eigh(YTY, subset_by_index=(q - r, q - 1))
     V_inv = 1 / V
     V_inv = np.diag(V_inv)
     F_bar = np.mean(F, axis=0)
     middle = _compute_D_Cnuj(F, F_bar, R, E, alpha, 0, j, p)
-    for nu in range(1, m+1):
+    for nu in range(1, m + 1):
         D_Rnui = _compute_D_Cnuj(F, F_bar, R, E, alpha, nu, j, p)
-        middle += (1 - nu / (m+1)) * (D_Rnui + D_Rnui.T)
+        middle += (1 - nu / (m + 1)) * (D_Rnui + D_Rnui.T)
     Sig_Ri = V_inv @ middle @ V_inv
     return Sig_Ri
 
-def _compute_D_Cnuj(F: np.ndarray, F_bar: np.ndarray, R: np.ndarray, E: np.ndarray, alpha: Union[float, int], nu: int, j: int, p: int):
+
+def _compute_D_Cnuj(
+    F: np.ndarray,
+    F_bar: np.ndarray,
+    R: np.ndarray,
+    E: np.ndarray,
+    alpha: Union[float, int],
+    nu: int,
+    j: int,
+    p: int,
+):
     T, k, r = F.shape
     IaFt = np.hstack([np.eye(r), alpha * F_bar.T])
     if nu > 0:
-        F_nu = F[nu: ]
-        F_0nu = F[: -nu]
-        E_nu = E[nu: ]
-        E_0nu = E[: -nu]
+        F_nu = F[nu:]
+        F_0nu = F[:-nu]
+        E_nu = E[nu:]
+        E_0nu = E[:-nu]
     else:
         F_nu = F
         F_0nu = F
@@ -206,12 +247,12 @@ def _compute_D_Cnuj(F: np.ndarray, F_bar: np.ndarray, R: np.ndarray, E: np.ndarr
     F_nu_trans = F_nu.transpose(0, 2, 1)
     e_nuj = E_nu[:, :, j]
     e_0j = E_0nu[:, :, j]
-    e_outer = np.einsum('ti, tj->tij', e_nuj, e_0j)
+    e_outer = np.einsum("ti, tj->tij", e_nuj, e_0j)
     br = R.T @ e_outer @ R
     bl = br @ F_0nu
     tr = F_nu_trans @ br
     tl = tr @ F_0nu
     block = np.block([[tl, tr], [bl, br]]).sum(axis=0)
-    block /= (p*T)
+    block /= p * T
     D_Cnuj = IaFt @ block @ IaFt.T
     return D_Cnuj
