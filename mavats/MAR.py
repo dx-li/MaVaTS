@@ -19,7 +19,8 @@ def estimate_mar1(
         The observed data.
     method : str, optional
         The estimation method. Must be either "proj", "least_square" or "mle".
-        Note MLE assumes Cov(vec($E_t$)) = $\Sigma_c \otimes \Sigma_r$.
+        Note MLE assumes Cov(vec($E_t$)) = $\Sigma_c \otimes \Sigma_r$
+        where $\Sigma_c \in \mathbb{R}^{n \times n}$ and $\Sigma_r \in \mathbb{R}^{m \times m}$.
     **kwargs
         Additional arguments for the estimation method.
 
@@ -112,6 +113,9 @@ def _normalize(A: np.ndarray, B: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
 
 
 def _rearrange_phi(Phi: np.ndarray, m: int, n: int) -> np.ndarray:
+    """
+    Rearranges the mn x mn matrix Phi into an $m^2 \times n^2$ matrix as specified in the paper.
+    """
     col_splits = np.split(Phi, n, axis=1)
     blocks = [np.split(col, n, axis=0) for col in col_splits]
     return np.column_stack(
@@ -190,8 +194,8 @@ def _mle_estimate(
     A = A_init
     B = B_init
     if Sigc_init is None or Sigr_init is None:
-        Sigc_init = np.eye(m)
-        Sigr_init = np.eye(n)
+        Sigc_init = np.eye(n)
+        Sigr_init = np.eye(m)
     Sigc = Sigc_init
     Sigr = Sigr_init
     X_tp1 = X[1:]
