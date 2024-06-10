@@ -9,7 +9,7 @@ def estimate_factor_model(
     X: np.ndarray, h0: int, k1: Union[int, None] = None, k2: Union[int, None] = None
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     r"""
-    Estimates the high-dimensional matrix factor model in Chen, Yang, Zhang 2020 (https://doi.org/10.1080/01621459.2021.1912757)
+    Estimates the high-dimensional matrix factor model in Wang, Liu, Chen 2019 (https://doi.org/10.1016/j.jeconom.2018.09.013)
     where $X_t = R F_t C^T + E_t = Q_1 Z_t Q_2^T + E_t$
 
     Parameters
@@ -90,14 +90,3 @@ def _ensure_positive_eigenvecs(v: np.ndarray) -> np.ndarray:
     return v
 
 
-if __name__ == "__main__":
-
-    k1, k2 = 3, 4
-    p1, p2 = 3, 12
-    R = np.eye(p1)
-    T = 10
-    X = np.zeros((T, p1, p2))
-    C = np.random.randn(p2, k2) * 3
-    for i in range(T):
-        X[i] = R @ np.random.randn(k1, k2) @ C.T + np.random.randn(p1, p2)
-    Z, S, Q1, Q2 = estimate_factor_model(X, 3, k1, k2)

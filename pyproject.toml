@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mavats"
-version = "0.1.4"
+version = "0.1.4.1"
 description = "Some methods for matrix-valued time series"
 authors = ["Daniel <danlixuan@gmail.com>"]
 license = "MIT"
