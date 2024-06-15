@@ -88,5 +88,3 @@ def _ensure_positive_eigenvecs(v: np.ndarray) -> np.ndarray:
     lt_zero = v_summed < 0
     v[:, lt_zero] *= -1
     return v
-
-

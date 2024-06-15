@@ -169,11 +169,13 @@ def _update_lse(
 
     XBXT = np.sum(X_tp1 @ B @ X_t_transpose, axis=0)
     XBTBXT = np.sum(X_t @ B.T @ B @ X_t_transpose, axis=0)
-    A = XBXT @ LA.inv(XBTBXT)
+
+    A = np.linalg.solve(XBTBXT, XBXT)
 
     XTAX = np.sum(X_tp1_transpose @ A @ X_t, axis=0)
     XTATAX = np.sum(X_t_transpose @ A.T @ A @ X_t, axis=0)
-    B = XTAX @ LA.inv(XTATAX)
+
+    B = np.linalg.solve(XTATAX, XTAX)
 
     A, B = _normalize(A, B)
 
@@ -238,9 +240,11 @@ def _update_A_mle(
     X_tp1_transpose = X_tp1.transpose(0, 2, 1)
     X_t_transpose = X_t.transpose(0, 2, 1)
     Sigc_inv = LA.inv(Sigc)
+
     YSBX = np.sum(X_tp1 @ Sigc_inv @ B @ X_t_transpose, axis=0)
     XBSBX = np.sum(X_t @ B.T @ Sigc_inv @ B @ X_t_transpose, axis=0)
-    A = YSBX @ LA.inv(XBSBX)
+
+    A = np.linalg.solve(XBSBX, YSBX)
     return A
 
 
@@ -257,7 +261,8 @@ def _update_B_mle(
     Sigr_inv = LA.inv(Sigr)
     YSAX = np.sum(X_tp1_transpose @ Sigr_inv @ A @ X_t, axis=0)
     XASAX = np.sum(X_t_transpose @ A.T @ Sigr_inv @ A @ X_t, axis=0)
-    B = YSAX @ LA.inv(XASAX)
+
+    B = np.linalg.solve(XASAX, YSAX)
     return B
 
 
