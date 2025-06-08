@@ -85,6 +85,20 @@ def test_initialize_AB():
     assert B.shape == (n, n)
 
 
+def test_initialize_AB_partial():
+    T, m, n = 10, 3, 4
+    X = np.random.randn(T, m, n)
+    A_custom = np.ones((m, m))
+    A, B = _initialize_AB(X, A_custom, None)
+    assert np.allclose(A, A_custom)
+    assert B.shape == (n, n)
+
+    B_custom = np.ones((n, n))
+    A, B = _initialize_AB(X, None, B_custom)
+    assert np.allclose(B, B_custom)
+    assert A.shape == (m, m)
+
+
 def test_least_square_estimate():
     T, m, n = 10, 3, 4
     X = np.random.randn(T, m, n)

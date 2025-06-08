@@ -130,11 +130,25 @@ def _initialize_AB(
     init_method: str = "proj",
 ) -> Tuple[np.ndarray, np.ndarray]:
     T, m, n = X.shape
-    if A_init is None or B_init is None:
+    if A_init is None and B_init is None:
         if init_method == "proj":
             A_init, B_init = _proj_estimate(X)
         elif init_method == "random":
             A_init = np.random.randn(m, m)
+            B_init = np.random.randn(n, n)
+        else:
+            raise ValueError('init_method must be either "proj" or "random"')
+    elif A_init is None:
+        if init_method == "proj":
+            A_init, _ = _proj_estimate(X)
+        elif init_method == "random":
+            A_init = np.random.randn(m, m)
+        else:
+            raise ValueError('init_method must be either "proj" or "random"')
+    elif B_init is None:
+        if init_method == "proj":
+            _, B_init = _proj_estimate(X)
+        elif init_method == "random":
             B_init = np.random.randn(n, n)
         else:
             raise ValueError('init_method must be either "proj" or "random"')
