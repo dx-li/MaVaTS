@@ -5,7 +5,36 @@ time-series methods, with scientific benchmarks, examples, stable numerics and
 an extensible Python library. This checkpoint is substantial implementation
 progress, not a declaration that the literature is fully covered.
 
-## Implemented and integrated
+## Second checkpoint: matrix extensions and inference
+
+Added two-regime threshold factors (including unequal automatic ranks),
+continuous spike-and-slab sparse MAR EMVS, simultaneous matrix decorrelation
+with fixed-threshold and adjacent-ratio grouping, and MAR(1) asymptotic
+inference/specification tests. Each has independent equation tests, a dedicated
+method note and an executable example. Sparse prior-aware scale updates and
+decorrelation supplement boundary conventions are documented modifications.
+
+The combined numerical and benchmark-protocol suite passes 402 tests in both
+dependency environments listed below, with 93% line coverage. All six executable
+examples, source/wheel builds, API docs and formatting checks pass locally.
+CI includes the new examples and benchmark smoke drivers. The retained matrix-extension
+artifact contains 200 runs with zero errors/unconverged fits. The inference
+study contains 4,400 experiments with zero failures, including finite-sample
+undercoverage and violated-separability cases rather than hiding those results.
+Core quick/standard artifacts have been regenerated against the expanded source.
+See [benchmark interpretation](../benchmarks/results/extensions-summary.md).
+
+These additions cover specific branches, not their entire families. Sparse
+posterior MCMC/credible intervals, threshold-variable selection and multiple
+thresholds, decorrelation prewhitening/recursive partitions, and broad factor
+inference remain open. Major absent matrix families still include two-way
+dynamic factors, matrix volatility, online structural breaks, ARMA and
+cointegration. Tensor autoregression and transition-rank methods also remain
+open. The roadmap and full objective are unchanged.
+
+## First checkpoint (retained history)
+
+### Implemented and integrated
 
 MAR projection, ALS, separable MLE, multi-lag and reduced-rank models, joint EBIC
 rank selection; alpha-PCA, projected PCA, lagged matrix factors; constrained,
@@ -14,7 +43,7 @@ iterative tensor variants. Simulators, VAR/naive baselines, subspace/error
 metrics and chronological evaluation support the estimators. Legacy numerical
 bugs are corrected while compatibility entry points remain.
 
-## Verification at this checkpoint
+### Verification at the first checkpoint
 
 - 252 tests pass on Python 3.13 with NumPy 2.5.2 / SciPy 1.18.1.
 - The same 252 tests pass on Python 3.10 with NumPy 1.26.4 / SciPy 1.13.1.
@@ -30,7 +59,7 @@ bugs are corrected while compatibility entry points remain.
 - CI is configured for Linux, macOS and Windows on Python 3.10–3.13, plus a
   minimum-dependency job. Remote CI results must be checked separately.
 
-## Still required toward the full objective
+### Open work recorded at the first checkpoint
 
 Use [methods.md](methods.md) and [roadmap.md](roadmap.md) as the coverage ledger.
 Major open branches include sparse/Bayesian MAR, threshold and regime factors,

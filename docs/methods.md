@@ -18,11 +18,12 @@ These are mathematical ambiguities, not estimation failures.
 
 ## Core estimator inventory
 
-The following point estimators are implemented in the working tree. The focused
-autoregression, factor, tensor, robust, and constrained tests passed on
-2026-09-05. This does not establish reproduction of every source paper's
-simulations or full inferential theory. Public functions return fitted result
-objects; the older `estimate_*` functions are compatibility interfaces.
+The following estimators and inferential procedures are implemented in the
+working tree. Their scope does not establish reproduction of every source
+paper's simulations or full inferential theory. Public functions return fitted
+result objects; the older `estimate_*` functions are compatibility interfaces.
+Tests, examples, and retained benchmark reports provide separate implementation
+and empirical evidence.
 
 | Implemented API | Statistical object | Paper | Coverage boundary |
 | --- | --- | --- | --- |
@@ -31,9 +32,14 @@ objects; the older `estimate_*` functions are compatibility interfaces.
 | `fit_mar(method="mle")` | Bilinear mean and separable innovation covariance | Same paper | Covariance flooring, if applied, produces a stabilized likelihood estimate; diagnostics report it |
 | `fit_mar(order=p)` | Sum of lag-specific bilinear operators | MAR extension | One Kronecker term per lag; no stationarity constraint |
 | `fit_mar(ranks=(r,s))` | Reduced-rank bilinear mean via ALS | Xiao et al. manuscript, `xiao2022rrmar` | RR.LS for order one/ridge zero; the distinct RR.CC estimator is absent |
+| `fit_sparse_mar` | Continuous spike-and-slab EM variable selection for MAR(1) | Celani, Pagnottoni & Jones (2024), `celani2024sparse` | Zero-mean, separable Gaussian innovations; posterior-mode estimation with documented prior-preserving scale updates; no MCMC or credible intervals |
+| `mar_inference` | MAR(1) coefficient/operator plug-in covariance and marginal Wald intervals | Chen, Xiao & Yang (2021), Theorems 2–4 | Projection, ALS, separable MLE; stationary unconstrained fits without intercept/ridge or active covariance flooring; iid innovations; no HAC or post-selection inference |
+| `mar_specification_test` | Wald test of one-Kronecker structure in a VAR(1) operator | Same paper, Section 4.2 | Dense unrestricted VAR and normal-space covariance; asymptotic chi-square calibration, not a test of every MAR assumption |
 | `fit_alpha_pca` | Mean and contemporaneous second-moment loading spaces | Chen & Fan, `chen2021alphapca` | Legacy covariance routines are not a validated full inferential API |
 | `fit_projected_pca` | Refined row/column loading spaces | Yu et al. (2022), `yu2022projection` | Default is one simultaneous projected update; repeated simultaneous updates are an extension; ranks fixed after initialization |
 | `fit_lagged_factor` | Loading spaces from all column-pair lag covariances | Wang, Liu & Chen (2019), `wang2019matrixfactor` | Requires temporal signal; contemporaneous PCA is a different estimator |
+| `fit_threshold_factors` | Two regime-specific loading spaces and observed-variable threshold | Liu & Chen (2022), `liu2022threshold` | Known/estimated threshold, trimmed spectral-complement profile, unequal regime ranks; no multiple-threshold or threshold-variable-selection extension |
+| `fit_matrix_decorrelation` | Invertible bilinear transformation and rectangular component partitions | Han et al. (2024), `han2024decorrelation` | Signed-lag moments and correlation-threshold or adjacent-ratio grouping; no optional VAR prewhitening or recursive irregular partitioning |
 | `fit_tensor_factor(method="topup")`, `method="tipup"` | Tucker loading spaces from outer/inner lag products | Chen, Yang & Zhang (2022), `chen2022tensorfactor` | Inner-product signal cancellation is an actual model limitation |
 | `fit_tensor_factor(iterative=True)` | Sequential loading-space updates after projection along other modes | Han et al. (2024), `han2024iterative` | Ranks fixed after initialization; no full rank-selection/inference implementation |
 | `fit_matrix_kendall` | Robust loading spaces and projected factor scores | He et al. (2025), `he2025kendall` | Exact pairs by default; optional pair sampling is an approximation; projected scores themselves are not robust |
@@ -59,6 +65,48 @@ Frobenius residuals. Gaussian MLE uses covariance `Sigma_c ⊗ Sigma_r`, includi
 log determinants and covariance normalization. Projection solves a different
 problem by rearranging the unrestricted VAR coefficient and taking its leading
 singular triplet. [Paper and open manuscript](https://arxiv.org/abs/1812.08916).
+
+`fit_sparse_mar` implements the continuous-normal-mixture EMVS branch of
+[Celani, Pagnottoni & Jones](https://doi.org/10.1007/s11222-024-10402-y), with
+Beta inclusion weights, inverse-Wishart covariance priors and a shared Gamma
+scale. Conditional GLS coefficient updates and covariance modes optimize a
+recorded observed posterior. Reciprocal coefficient/covariance scaling preserves
+likelihood but changes the priors; the implementation therefore optimizes those
+scale directions instead of applying the paper's arbitrary Frobenius balancing.
+These algorithmic modifications and source-equation corrections are documented
+in [sparse-notes.md](sparse-notes.md). Coefficient scales depend on the priors.
+Inclusion probabilities are conditional plug-in quantities at a local mode,
+and a probability above 0.5 defines support without forcing coefficients to
+zero. Neither global convergence nor posterior uncertainty is established by
+EM convergence. General tensor EMVS, lag-factor MAR*(P), and MCMC remain open.
+
+### MAR inference and specification
+
+`mar_inference` implements the paper's projection delta covariance and constrained
+ALS/MLE covariance sandwiches using `N=T-1` sample moments. Parameters use
+column-major `[vec(A), vec(B)]` throughout, including the permutation from the
+paper's ALS/MLE `vec(B.T)` convention. Unit Frobenius norm identifies A's scale;
+a fixed `sign_anchor` selects its sign and must correspond to a nonzero true
+entry. Operator intervals avoid coefficient-pair sign ambiguity. All intervals
+are marginal, and entries whose underlying A and B coefficients both vanish
+have degenerate first-order variances outside ordinary Wald coverage theory.
+
+The inference API accepts converged stationary MAR(1) fits without an intercept,
+penalty, reduced-rank constraints, or active MLE covariance flooring. Theorems
+2–4 assume iid innovations with finite second moments and nonsingular A, B and
+innovation covariance; ALS/MLE additionally invoke the paper's absolute-continuity
+Condition R, and MLE requires correct covariance separability. Sample numerical
+guards cannot verify these population assumptions. This is not long-run/HAC
+covariance estimation or inference after model selection.
+
+`mar_specification_test` evaluates the paper's Section 4.2 statistic in an
+orthonormal normal-space basis, avoiding an arbitrary pseudoinverse tolerance
+for the structurally singular projected covariance. Under its null assumptions,
+the reference distribution has `(m²-1)(n²-1)` chi-square degrees of freedom.
+It tests one-Kronecker structure of the transition operator, and does not test
+innovation whiteness, covariance separability, or all model assumptions. A
+non-rejection is not evidence that these other conditions hold. Dense dimension
+guards bound allocations; neither API claims high-dimensional asymptotic validity.
 
 ### Static and lagged matrix factors
 
@@ -95,6 +143,38 @@ idiosyncratic noise can therefore invalidate the identifying argument. Taking
 only `sum_t X[t] @ X[t+h].T` contracts column pairs and changes the estimator.
 [Wang, Liu & Chen](https://arxiv.org/abs/1610.01889).
 
+### Threshold factors and simultaneous decorrelation
+
+`fit_threshold_factors` uses the published 2022 Liu–Chen estimator: each lagged
+cross moment masks the origin regime only, divides by T, and retains the original
+temporal offsets. It then sums cross-moment products over all column pairs and
+lags, repeating on transposes for column spaces. This differs from the authors'
+earlier four-partition preprint. With an unknown threshold, extreme observations
+estimate fixed loading-space complements; the sum of four projected spectral
+norms scores every candidate in the trimmed interval. Missing ranks use separate
+eigenvalue ratios and remain fixed through the search. Results retain unequal
+core shapes, original time indices and the complete evaluated profile.
+Informative temporal signal and a true threshold inside the trimming bounds are
+assumptions. The supplied threshold variable must be aligned and available for
+its intended use; projection of observed held-out matrices is not forecasting.
+See [threshold-notes.md](threshold-notes.md) and the
+[author manuscript](https://par.nsf.gov/servlets/purl/10351724).
+
+`fit_matrix_decorrelation` implements marginal whitening, signed-lag all-coordinate
+moments, and two full-dimensional rotations from Han et al. Its separate partially
+transformed row/column series supply the grouping correlations. The default
+correlation threshold is tuning, with no significance interpretation.
+`grouping="ratio"` instead implements equation (11), searching adjacent ratios
+up to half the number of unordered coordinate pairs, as in the authors'
+supplementary code. `ratio_delta` controls smoothing and `ratio_max_edges` can override the
+search bound. This selector always chooses an edge in a nontrivial mode, cannot
+produce all singletons, and cannot use a dimension-two mode with only one pair.
+The transform remains invertible; it does not reduce factor rank or establish
+independence. Marginal nonsingularity and separation of the relevant eigenspaces
+are needed. [Decorrelation notes](decorrelation-notes.md) distinguish the printed
+equations, supplementary-code conventions, and remaining prewhitening and
+recursive-partition extensions.
+
 ### Tucker time-series factors
 
 For tensors, `X_t = F_t ×1 A1 ... ×K AK + E_t`. TOPUP unfolds a lagged outer
@@ -112,9 +192,9 @@ lagged estimators. [Han et al.](https://arxiv.org/abs/2006.02611).
 
 ## Further matrix families and incomplete paper features
 
-These families are required for broad scientific coverage. Where a point
-estimator appears above, the remaining paper features and benchmark evidence
-are still separate deliverables. All other entries below are unimplemented.
+These families are required for broad scientific coverage. Implemented branches
+are identified below; their remaining paper features and benchmark evidence are
+separate deliverables. An implemented branch does not cover an entire family.
 
 | Family | Defining method and assumptions | Implementation acceptance evidence |
 | --- | --- | --- |
@@ -122,15 +202,15 @@ are still separate deliverables. All other entries below are unimplemented.
 | Huber matrix factors | Huber loss on matrix residual norms with weighted projection; [He et al.](https://arxiv.org/abs/2112.04186), `he2024huber` | Actual Huber objective descent, threshold calibration, Gaussian and contamination comparisons; entrywise Huber regression must have a different label |
 | Iterative Huber regression | Entrywise robust regression for factor/loadings inference; [He et al.](https://arxiv.org/abs/2306.03317), `he2023ihr` | Validate each block update and associated inference; not interchangeable with matrixwise residual reweighting |
 | Reduced-rank MAR | Rank-constrained left/right autoregressive matrices; [Xiao, Han, Chen & Liu manuscript](https://yuefenghan.github.io/papers/Reduced_Rank_MAR.pdf), `xiao2022rrmar` | Whitened reduced-rank regression against a dense reference; rank preservation; rank-selection recovery; ordinary truncation of the fitted coefficient is not the weighted solution |
-| Sparse and Bayesian MAR | Spike-and-slab MCMC and EM variable selection; [Celani, Pagnottoni & Jones (2024)](https://doi.org/10.1007/s11222-024-10402-y), `celani2024sparse` | Recover supports, compare posterior/EM targets, convergence diagnostics, interval coverage; a ridge option is not sparse estimation |
+| Sparse and Bayesian MAR | Continuous-normal-mixture MAR(1) EMVS implemented; [Celani, Pagnottoni & Jones (2024)](https://doi.org/10.1007/s11222-024-10402-y), `celani2024sparse` | Remaining: spike-and-slab MCMC, posterior interval coverage, lag-factor MAR*(P), tensor variants, and broader prior/local-mode sensitivity comparisons |
 | CP matrix factors | `X_t = sum_j f_jt a_j b_j.T + E_t`; generalized eigenanalysis with reduced-space refinement; [Chang et al. (2023)](https://arxiv.org/abs/2112.15423), `chang2023cp` | Nonorthogonal identifiable components up to permutation/scale; generalized-eigen residuals; repeated-root diagnostics; compare published refined estimator |
 | Constrained matrix factors | Known linear loading constraints, including partial and multi-term constraints; [Chen, Tsay & Chen (2020)](https://arxiv.org/abs/1710.06075), `chen2020constrained` | Constraint residuals, equivalent orthonormal bases, partial-constraint cases, misspecified-constraint experiment |
 | Two-way dynamic factors | Two-way dynamic dimension reduction; [Yuan et al. (2023)](https://doi.org/10.1093/jrsssb/qkad077), `yuan2023dynamic` | Reproduce the specified dynamic estimation procedure and forecasting protocol; static PCA followed by any VAR is not sufficient |
-| Simultaneous decorrelation | Bilinear transformation to mutually uncorrelated submatrix series; [Han et al. (2024)](https://arxiv.org/abs/2103.09411), `han2024decorrelation` | Recover block partitions and cross-lag decorrelation; retain invertible reconstruction and forecast comparison |
-| Threshold factors | Regime-dependent loadings selected by an observed threshold variable; [Liu & Chen (2022)](https://doi.org/10.1111/sjos.12576), `liu2022threshold` | Regime-specific cross-lag moment sums, threshold-location consistency, trimmed search, unequal regime ranks |
+| Simultaneous decorrelation | Bilinear transform with threshold/ratio grouping implemented; [Han et al. (2024)](https://arxiv.org/abs/2103.09411), `han2024decorrelation` | Remaining: optional VAR prewhitening, recursive irregular partitions, alternative moment spectral functions, and broader partition/forecast comparisons |
+| Threshold factors | Single-threshold, unequal-rank factor estimator implemented; [Liu & Chen (2022)](https://doi.org/10.1111/sjos.12576), `liu2022threshold` | Remaining: multiple thresholds, threshold-variable selection, and broader weak-regime/threshold-location experiments; no threshold confidence interval or existence test is supplied |
 | Matrix GARCH | Conditional row/column covariance dynamics with an identified trace process; [Yu et al.](https://arxiv.org/abs/2306.05169), `yu2024garch` | Positive definite covariance at every step; likelihood reference; covariance forecast scoring and portmanteau size/power |
 | Online structural breaks | Monitor non-spiked eigenvalues with sequential randomization; [He et al. (2024)](https://arxiv.org/abs/2112.13479), `he2024breaks` | Null false-alarm control and detection delay across repetitions; genuinely sequential state with no future observations |
-| Rank and statistical inference | Rank criteria from [Han, Chen & Zhang (2022)](https://arxiv.org/abs/2011.07131), `han2022rank`; loading inference in the alpha-PCA/projection papers | Null/no-factor cases, weak factors, finite-sample coverage and size, long-run covariance checks; an eigenvalue ratio alone does not implement every rank criterion |
+| Rank and statistical inference | MAR(1) Wald covariance and Kronecker specification test implemented; rank criteria from [Han, Chen & Zhang (2022)](https://arxiv.org/abs/2011.07131), `han2022rank`, and modern factor-loading inference remain incomplete | Remaining: factor-loading inference, full rank criteria, null/no-factor cases, weak identification, long-run covariance methods, and inference after selection; an eigenvalue ratio alone does not cover these branches |
 
 The reduced-rank MAR reference is an author manuscript. Secondary bibliographies
 disagree on its publication status; no unverified journal DOI is asserted here.

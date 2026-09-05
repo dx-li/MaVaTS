@@ -60,6 +60,36 @@ an integration sample, not strong statistical evidence.
 - `results/quick.json`: small execution/accuracy run.
 - `results/standard.json`: default-size paired repetitions with raw measurements.
 - [Summary table](results/summary.md): mean errors, replicate SEs and median times.
+- `results/matrix-extensions.json`: 20 paired repetitions of sparse MAR,
+  unequal-rank threshold factors and decorrelation/block forecasting.
+- `results/inference.json` and `results/inference.jsonl`: MAR inference
+  metadata/group summaries and individual replications respectively.
+- [Extension results and calibration](results/extensions-summary.md): accuracy,
+  paired forecast differences, coverage uncertainty and specification size/power.
+
+Run the additional drivers with the same thread environment as above:
+
+```bash
+python -m benchmarks.matrix_extensions --repeats 20 --output benchmarks/results/matrix-extensions.json
+python -m benchmarks.inference --repeats 200 --output benchmarks/results/inference.json
+```
+
+The extension driver offers `--quick` for small CI problems. Decorrelation
+timing includes transformation, block fits and predictions, explicitly labeled
+in each record; sparse/threshold fitting times exclude scoring. Threshold
+held-out reconstruction uses observed held-out matrices and is not forecasting.
+The adjacent-ratio grouping rule cannot produce all singleton groups, so it
+must not be scored as a failed implementation for that outcome.
+
+The inference driver uses sample sizes 200 and 800 by default. It retains all
+errors and reports successful/total counts; unlike an execution smoke runner,
+it does not discard a whole statistical study or exit with an error merely
+because some fitted intervals were unavailable. Rates explicitly condition
+on successful fits. Unit tests separately inject failures to verify that they
+remain visible. MLE under nonseparable innovations is labeled misspecified.
+Coverage standard errors use independent series, and specification rejection
+rates include Wilson bounds. This is asymptotic calibration evidence, not an
+assertion that every interval attains its nominal level.
 
 Regenerate the summary using
 `python -m benchmarks.summarize benchmarks/results/standard.json --output benchmarks/results/summary.md`.
@@ -68,5 +98,5 @@ The raw JSON includes SHA-256 hashes of source modules and the benchmark driver.
 These artifacts were generated locally during the rebuild. Rerun after changing
 algorithms or dependencies. Further benchmark coverage remains tracked in
 [the roadmap](../docs/roadmap.md): weak/no factors, deliberate TIPUP cancellation,
-near instability, nonseparable innovations, rank selection, formal inference,
+near instability, broader nonseparable innovations, rank selection, broader inference,
 real datasets, and profiling across dimension grids.

@@ -3,6 +3,9 @@ __pycache__/
 .venv-min/
 .venv-wheel/
 benchmark-smoke.json
+benchmark-extensions-smoke.json
+benchmark-inference-smoke.json
+benchmark-inference-smoke.jsonl
 benchmark-results.json
 site/
 *.py[cod]

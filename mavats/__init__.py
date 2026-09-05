@@ -16,6 +16,7 @@ from .autoregression import (
 from .baselines import VARResult, fit_naive, fit_var
 from .constrained import fit_constrained_factor
 from .cp import CPIdentificationError, CPResult, fit_cp_factor
+from .decorrelation import MatrixDecorrelationResult, fit_matrix_decorrelation
 from .factors import (
     FactorResult,
     eigenvalue_ratio,
@@ -24,12 +25,30 @@ from .factors import (
     fit_projected_pca,
 )
 from .huber import HuberFactorResult, fit_huber_factor
+from .inference import (
+    MARInferenceResult,
+    MARSpecificationResult,
+    mar_inference,
+    mar_specification_test,
+)
 from .robust import fit_matrix_kendall, matrix_kendall
+from .sparse import SparseMARResult, fit_sparse_mar
 from .tensor import fit_tensor_factor
+from .threshold import ThresholdFactorResult, fit_threshold_factors
 
 __version__ = "0.2.0.dev0"
 
 __all__ = [
+    "MARInferenceResult",
+    "MARSpecificationResult",
+    "MatrixDecorrelationResult",
+    "SparseMARResult",
+    "ThresholdFactorResult",
+    "fit_matrix_decorrelation",
+    "fit_sparse_mar",
+    "fit_threshold_factors",
+    "mar_inference",
+    "mar_specification_test",
     "HuberFactorResult",
     "fit_huber_factor",
     "CPIdentificationError",

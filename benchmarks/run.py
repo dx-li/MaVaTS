@@ -303,6 +303,30 @@ def run_suite(*, quick=False, repeats=5, seed=2026):
     return rows
 
 
+def environment():
+    """Capture software, BLAS and requested thread context for every runner."""
+    buffer = io.StringIO()
+    with redirect_stdout(buffer):
+        np.show_config()
+    return {
+        "python": sys.version,
+        "platform": platform.platform(),
+        "mavats": mavats.__version__,
+        "numpy": np.__version__,
+        "scipy": scipy.__version__,
+        "blas": buffer.getvalue(),
+        "thread_environment": {
+            key: os.environ.get(key)
+            for key in (
+                "OMP_NUM_THREADS",
+                "OPENBLAS_NUM_THREADS",
+                "MKL_NUM_THREADS",
+                "VECLIB_MAXIMUM_THREADS",
+            )
+        },
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--quick", action="store_true")
@@ -312,9 +336,6 @@ def main():
     args = parser.parse_args()
     if args.repeats < 1:
         parser.error("--repeats must be positive")
-    buffer = io.StringIO()
-    with redirect_stdout(buffer):
-        np.show_config()
     rows = run_suite(quick=args.quick, repeats=args.repeats, seed=args.seed)
     report = {
         "schema_version": 1,
@@ -323,23 +344,7 @@ def main():
             "repeats": args.repeats,
             "seed": args.seed,
         },
-        "environment": {
-            "python": sys.version,
-            "platform": platform.platform(),
-            "mavats": mavats.__version__,
-            "numpy": np.__version__,
-            "scipy": scipy.__version__,
-            "blas": buffer.getvalue(),
-            "thread_environment": {
-                key: os.environ.get(key)
-                for key in (
-                    "OMP_NUM_THREADS",
-                    "OPENBLAS_NUM_THREADS",
-                    "MKL_NUM_THREADS",
-                    "VECLIB_MAXIMUM_THREADS",
-                )
-            },
-        },
+        "environment": environment(),
         "results": rows,
     }
     source_root = Path(__file__).resolve().parents[1]

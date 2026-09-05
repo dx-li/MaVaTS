@@ -1,0 +1,814 @@
+{
+  "schema_version": 1,
+  "configuration": {
+    "repeats": 200,
+    "sample_sizes": [
+      200,
+      800
+    ],
+    "seed": 7123
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "mavats": "0.2.0.dev0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.9\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    },\n    \"build\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    },\n    \"lapack\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/private/var/folders/g3/pffjr_y96bq06blnkf72x_hw0000gn/T/build-env-jzdn7by7/bin/python\",\n    \"version\": \"3.13\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"NEON\",\n      \"NEON_FP16\",\n      \"NEON_VFPV4\",\n      \"ASIMD\"\n    ],\n    \"found\": [\n      \"ASIMDHP\",\n      \"ASIMDDP\"\n    ],\n    \"not found\": [\n      \"ASIMDFHM\"\n    ]\n  }\n}\n",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "source_sha256": {
+    "mavats/MAR.py": "72a7f8966ab95ade19666b5919a806f7fb554367c6e8f886bf484a12441a7300",
+    "mavats/__init__.py": "8f651c636e05e29fdc6951887c5804c14c2b2aa8756ae31c656e0548e9d68dde",
+    "mavats/_validation.py": "be956d27a405a9d2a77045ab70ae5f65d25a2d47aad611b76caaff721f5801e5",
+    "mavats/alphaPCA.py": "c977552665e7e86870e5d3078a549fb079bcc8fa7328633f92b22bc84e9a93c4",
+    "mavats/autoregression.py": "2bb7646004c187678db9db597fe68ae7ac5ff296704e0066e06220c62439d909",
+    "mavats/baselines.py": "b022919fbc37fa3c741e97d6b13ab2a2aaf3d57f1b8591b8fa48795193b91eb6",
+    "mavats/constrained.py": "c15a8b7c8d304ed425324098ab2773e5e9b3038855cd28914b878706264ecec3",
+    "mavats/cp.py": "ab9ce6d1494a2b4799ff32894d1be13af2300250c6118b592e39a945601997df",
+    "mavats/decorrelation.py": "64f8368f3b89892be3d296f9692be19fea63af70454c48d8165cc816a0f9b05c",
+    "mavats/factormodel.py": "48bb8d788b1d365c8a7a61c447e3ad5d4779d78a6b275a27c4e7c5176f173360",
+    "mavats/factors.py": "8d9e4b0388805a774737538b6b6274834c97c01901d940237b552740096590dc",
+    "mavats/huber.py": "cdd803f9ffd4f6f53c3dc116e8c5fef2d9c22c9a74b8026647d15bafac355187",
+    "mavats/inference.py": "8527030fa69388ed42c2731bb528e599fc2e8c6a7b84bf9e85ffdd720398cc83",
+    "mavats/metrics.py": "61a183ff671192eaae6f2bccd6b5c192dc095c31c6abaf869e3341c6f670e597",
+    "mavats/model_selection.py": "35be477fc2f464f11504cde1b5b5b845e9c99d8130a90f848aa057715304b3ef",
+    "mavats/robust.py": "e6bb052d756f41bb0655d45f7fd13c208b38f62198b26b24aaa4e7e63796f5f5",
+    "mavats/simulation.py": "8c10dc97feda7b0cbc5370717bc02f62fa5906202aab53201cb1de0e449b8c0c",
+    "mavats/sparse.py": "982abec64c3b858ae302b9d8bff8161ab73ef0d8ead37a405c569b3cf0f6814d",
+    "mavats/tensor.py": "d428d252911ef70e60c5e894c5996656cfa32fd1ba01d246320fbfbecce34092",
+    "mavats/threshold.py": "c6bedefdc30a14531b891ef45d58b3a59ea40f9872faa626abb9b4cd1b38983a",
+    "benchmarks/inference.py": "b50d1b7dece348fffdaa1e73ba73a6b7c6d25411c89d9de1b25a2d412f433897",
+    "benchmarks/run.py": "fe0bdb46f758ecb2d1cc1d0a8bf4d898901612f262537f66ecba5b875eefb033"
+  },
+  "results_file": "inference.jsonl",
+  "summary": [
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "isotropic",
+      "method": "projection",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.92625,
+      "monte_carlo_se": 0.0064320227833417325,
+      "per_entry_coverage": [
+        [
+          0.955,
+          0.935,
+          0.95,
+          0.885
+        ],
+        [
+          0.95,
+          0.905,
+          0.88,
+          0.925
+        ],
+        [
+          0.925,
+          0.915,
+          0.955,
+          0.91
+        ],
+        [
+          0.89,
+          0.935,
+          0.96,
+          0.945
+        ]
+      ],
+      "mean_interval_width": 0.15162014353422382,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "isotropic",
+      "method": "als",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.931875,
+      "monte_carlo_se": 0.006221511706536671,
+      "per_entry_coverage": [
+        [
+          0.96,
+          0.94,
+          0.955,
+          0.885
+        ],
+        [
+          0.945,
+          0.905,
+          0.885,
+          0.94
+        ],
+        [
+          0.94,
+          0.91,
+          0.955,
+          0.915
+        ],
+        [
+          0.92,
+          0.94,
+          0.955,
+          0.96
+        ]
+      ],
+      "mean_interval_width": 0.15074428341541832,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "isotropic",
+      "method": "mle",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.93125,
+      "monte_carlo_se": 0.006186867068282866,
+      "per_entry_coverage": [
+        [
+          0.96,
+          0.935,
+          0.95,
+          0.89
+        ],
+        [
+          0.945,
+          0.9,
+          0.895,
+          0.94
+        ],
+        [
+          0.94,
+          0.915,
+          0.955,
+          0.915
+        ],
+        [
+          0.915,
+          0.945,
+          0.955,
+          0.945
+        ]
+      ],
+      "mean_interval_width": 0.1508085786775352,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "specification",
+      "n": 200,
+      "regime": "null",
+      "method": "kronecker-wald",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.07,
+      "monte_carlo_se": 0.018086892447072265,
+      "binomial_wilson_95": [
+        0.042152171828342806,
+        0.11405480885610647
+      ]
+    },
+    {
+      "task": "specification",
+      "n": 200,
+      "regime": "alternative",
+      "method": "kronecker-wald",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 1.0,
+      "monte_carlo_se": 0.0,
+      "binomial_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ]
+    },
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "separable",
+      "method": "projection",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.924375,
+      "monte_carlo_se": 0.006857847492922316,
+      "per_entry_coverage": [
+        [
+          0.935,
+          0.915,
+          0.955,
+          0.9
+        ],
+        [
+          0.96,
+          0.91,
+          0.915,
+          0.935
+        ],
+        [
+          0.895,
+          0.905,
+          0.945,
+          0.9
+        ],
+        [
+          0.95,
+          0.9,
+          0.955,
+          0.915
+        ]
+      ],
+      "mean_interval_width": 0.1678988619298312,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "separable",
+      "method": "als",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.93625,
+      "monte_carlo_se": 0.0060902962606685694,
+      "per_entry_coverage": [
+        [
+          0.94,
+          0.925,
+          0.955,
+          0.885
+        ],
+        [
+          0.96,
+          0.92,
+          0.935,
+          0.95
+        ],
+        [
+          0.935,
+          0.91,
+          0.97,
+          0.93
+        ],
+        [
+          0.935,
+          0.94,
+          0.95,
+          0.94
+        ]
+      ],
+      "mean_interval_width": 0.17172181156476352,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "separable",
+      "method": "mle",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.93,
+      "monte_carlo_se": 0.006413685704928799,
+      "per_entry_coverage": [
+        [
+          0.935,
+          0.915,
+          0.94,
+          0.895
+        ],
+        [
+          0.965,
+          0.915,
+          0.91,
+          0.945
+        ],
+        [
+          0.935,
+          0.9,
+          0.96,
+          0.92
+        ],
+        [
+          0.935,
+          0.925,
+          0.95,
+          0.935
+        ]
+      ],
+      "mean_interval_width": 0.16420885738178473,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "nonseparable",
+      "method": "projection",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.9278125,
+      "monte_carlo_se": 0.006329542519906674,
+      "per_entry_coverage": [
+        [
+          0.945,
+          0.94,
+          0.945,
+          0.925
+        ],
+        [
+          0.925,
+          0.9,
+          0.915,
+          0.935
+        ],
+        [
+          0.945,
+          0.9,
+          0.95,
+          0.9
+        ],
+        [
+          0.915,
+          0.92,
+          0.94,
+          0.945
+        ]
+      ],
+      "mean_interval_width": 0.15814733587390997,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "nonseparable",
+      "method": "als",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.9328125,
+      "monte_carlo_se": 0.005792581503190571,
+      "per_entry_coverage": [
+        [
+          0.955,
+          0.94,
+          0.95,
+          0.925
+        ],
+        [
+          0.94,
+          0.915,
+          0.89,
+          0.945
+        ],
+        [
+          0.955,
+          0.91,
+          0.955,
+          0.91
+        ],
+        [
+          0.91,
+          0.94,
+          0.945,
+          0.94
+        ]
+      ],
+      "mean_interval_width": 0.15693440515656618,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 200,
+      "regime": "nonseparable",
+      "method": "mle",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.92875,
+      "monte_carlo_se": 0.006281953493818023,
+      "per_entry_coverage": [
+        [
+          0.955,
+          0.94,
+          0.94,
+          0.9
+        ],
+        [
+          0.94,
+          0.925,
+          0.88,
+          0.94
+        ],
+        [
+          0.935,
+          0.905,
+          0.95,
+          0.915
+        ],
+        [
+          0.93,
+          0.94,
+          0.95,
+          0.915
+        ]
+      ],
+      "mean_interval_width": 0.1519294483441801,
+      "assumptions_satisfied": false
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "isotropic",
+      "method": "projection",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.945,
+      "monte_carlo_se": 0.005418277044472095,
+      "per_entry_coverage": [
+        [
+          0.945,
+          0.98,
+          0.93,
+          0.945
+        ],
+        [
+          0.95,
+          0.92,
+          0.935,
+          0.965
+        ],
+        [
+          0.93,
+          0.96,
+          0.93,
+          0.93
+        ],
+        [
+          0.925,
+          0.955,
+          0.955,
+          0.965
+        ]
+      ],
+      "mean_interval_width": 0.07561684774023844,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "isotropic",
+      "method": "als",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.9478125,
+      "monte_carlo_se": 0.005600299971214751,
+      "per_entry_coverage": [
+        [
+          0.95,
+          0.98,
+          0.94,
+          0.95
+        ],
+        [
+          0.955,
+          0.92,
+          0.935,
+          0.965
+        ],
+        [
+          0.93,
+          0.96,
+          0.93,
+          0.94
+        ],
+        [
+          0.935,
+          0.955,
+          0.965,
+          0.955
+        ]
+      ],
+      "mean_interval_width": 0.07531807435867839,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "isotropic",
+      "method": "mle",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.9484375,
+      "monte_carlo_se": 0.005488064868306836,
+      "per_entry_coverage": [
+        [
+          0.955,
+          0.98,
+          0.935,
+          0.95
+        ],
+        [
+          0.96,
+          0.915,
+          0.935,
+          0.965
+        ],
+        [
+          0.94,
+          0.96,
+          0.93,
+          0.945
+        ],
+        [
+          0.925,
+          0.955,
+          0.97,
+          0.955
+        ]
+      ],
+      "mean_interval_width": 0.0753301994521554,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "specification",
+      "n": 800,
+      "regime": "null",
+      "method": "kronecker-wald",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.07,
+      "monte_carlo_se": 0.018086892447072265,
+      "binomial_wilson_95": [
+        0.042152171828342806,
+        0.11405480885610647
+      ]
+    },
+    {
+      "task": "specification",
+      "n": 800,
+      "regime": "alternative",
+      "method": "kronecker-wald",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 1.0,
+      "monte_carlo_se": 0.0,
+      "binomial_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ]
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "separable",
+      "method": "projection",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.9371875,
+      "monte_carlo_se": 0.006503911113137075,
+      "per_entry_coverage": [
+        [
+          0.925,
+          0.975,
+          0.93,
+          0.945
+        ],
+        [
+          0.955,
+          0.91,
+          0.93,
+          0.965
+        ],
+        [
+          0.91,
+          0.93,
+          0.95,
+          0.95
+        ],
+        [
+          0.895,
+          0.915,
+          0.95,
+          0.96
+        ]
+      ],
+      "mean_interval_width": 0.08338024991451459,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "separable",
+      "method": "als",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.940625,
+      "monte_carlo_se": 0.0060869111057288506,
+      "per_entry_coverage": [
+        [
+          0.935,
+          0.975,
+          0.94,
+          0.95
+        ],
+        [
+          0.93,
+          0.93,
+          0.93,
+          0.97
+        ],
+        [
+          0.925,
+          0.93,
+          0.95,
+          0.94
+        ],
+        [
+          0.9,
+          0.92,
+          0.965,
+          0.96
+        ]
+      ],
+      "mean_interval_width": 0.0857775291394918,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "separable",
+      "method": "mle",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.94,
+      "monte_carlo_se": 0.0066728797472008295,
+      "per_entry_coverage": [
+        [
+          0.95,
+          0.985,
+          0.94,
+          0.95
+        ],
+        [
+          0.96,
+          0.91,
+          0.935,
+          0.965
+        ],
+        [
+          0.92,
+          0.935,
+          0.95,
+          0.95
+        ],
+        [
+          0.88,
+          0.915,
+          0.945,
+          0.95
+        ]
+      ],
+      "mean_interval_width": 0.0819812574387059,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "nonseparable",
+      "method": "projection",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.944375,
+      "monte_carlo_se": 0.005529976271451268,
+      "per_entry_coverage": [
+        [
+          0.955,
+          0.975,
+          0.94,
+          0.95
+        ],
+        [
+          0.945,
+          0.93,
+          0.945,
+          0.95
+        ],
+        [
+          0.92,
+          0.975,
+          0.94,
+          0.925
+        ],
+        [
+          0.935,
+          0.94,
+          0.95,
+          0.935
+        ]
+      ],
+      "mean_interval_width": 0.07861988659909047,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "nonseparable",
+      "method": "als",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.9403125,
+      "monte_carlo_se": 0.006332642995249012,
+      "per_entry_coverage": [
+        [
+          0.955,
+          0.98,
+          0.925,
+          0.95
+        ],
+        [
+          0.945,
+          0.93,
+          0.925,
+          0.93
+        ],
+        [
+          0.905,
+          0.94,
+          0.945,
+          0.945
+        ],
+        [
+          0.94,
+          0.935,
+          0.945,
+          0.95
+        ]
+      ],
+      "mean_interval_width": 0.07834138606966375,
+      "assumptions_satisfied": true
+    },
+    {
+      "task": "coverage",
+      "n": 800,
+      "regime": "nonseparable",
+      "method": "mle",
+      "successful": 200,
+      "total": 200,
+      "rates_condition_on_success": true,
+      "mean_rate": 0.9490625,
+      "monte_carlo_se": 0.005640464156276608,
+      "per_entry_coverage": [
+        [
+          0.955,
+          0.97,
+          0.94,
+          0.955
+        ],
+        [
+          0.955,
+          0.94,
+          0.94,
+          0.93
+        ],
+        [
+          0.94,
+          0.96,
+          0.955,
+          0.945
+        ],
+        [
+          0.95,
+          0.95,
+          0.945,
+          0.955
+        ]
+      ],
+      "mean_interval_width": 0.07580656872288286,
+      "assumptions_satisfied": false
+    }
+  ]
+}

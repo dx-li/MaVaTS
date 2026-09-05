@@ -1,0 +1,6208 @@
+{
+  "schema_version": 1,
+  "configuration": {
+    "quick": false,
+    "repeats": 20,
+    "seed": 48
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "mavats": "0.2.0.dev0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.9\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    },\n    \"build\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    },\n    \"lapack\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/private/var/folders/g3/pffjr_y96bq06blnkf72x_hw0000gn/T/build-env-jzdn7by7/bin/python\",\n    \"version\": \"3.13\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"NEON\",\n      \"NEON_FP16\",\n      \"NEON_VFPV4\",\n      \"ASIMD\"\n    ],\n    \"found\": [\n      \"ASIMDHP\",\n      \"ASIMDDP\"\n    ],\n    \"not found\": [\n      \"ASIMDFHM\"\n    ]\n  }\n}\n",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "source_sha256": {
+    "mavats/MAR.py": "72a7f8966ab95ade19666b5919a806f7fb554367c6e8f886bf484a12441a7300",
+    "mavats/__init__.py": "8f651c636e05e29fdc6951887c5804c14c2b2aa8756ae31c656e0548e9d68dde",
+    "mavats/_validation.py": "be956d27a405a9d2a77045ab70ae5f65d25a2d47aad611b76caaff721f5801e5",
+    "mavats/alphaPCA.py": "c977552665e7e86870e5d3078a549fb079bcc8fa7328633f92b22bc84e9a93c4",
+    "mavats/autoregression.py": "2bb7646004c187678db9db597fe68ae7ac5ff296704e0066e06220c62439d909",
+    "mavats/baselines.py": "b022919fbc37fa3c741e97d6b13ab2a2aaf3d57f1b8591b8fa48795193b91eb6",
+    "mavats/constrained.py": "c15a8b7c8d304ed425324098ab2773e5e9b3038855cd28914b878706264ecec3",
+    "mavats/cp.py": "ab9ce6d1494a2b4799ff32894d1be13af2300250c6118b592e39a945601997df",
+    "mavats/decorrelation.py": "64f8368f3b89892be3d296f9692be19fea63af70454c48d8165cc816a0f9b05c",
+    "mavats/factormodel.py": "48bb8d788b1d365c8a7a61c447e3ad5d4779d78a6b275a27c4e7c5176f173360",
+    "mavats/factors.py": "8d9e4b0388805a774737538b6b6274834c97c01901d940237b552740096590dc",
+    "mavats/huber.py": "cdd803f9ffd4f6f53c3dc116e8c5fef2d9c22c9a74b8026647d15bafac355187",
+    "mavats/inference.py": "8527030fa69388ed42c2731bb528e599fc2e8c6a7b84bf9e85ffdd720398cc83",
+    "mavats/metrics.py": "61a183ff671192eaae6f2bccd6b5c192dc095c31c6abaf869e3341c6f670e597",
+    "mavats/model_selection.py": "35be477fc2f464f11504cde1b5b5b845e9c99d8130a90f848aa057715304b3ef",
+    "mavats/robust.py": "e6bb052d756f41bb0655d45f7fd13c208b38f62198b26b24aaa4e7e63796f5f5",
+    "mavats/simulation.py": "8c10dc97feda7b0cbc5370717bc02f62fa5906202aab53201cb1de0e449b8c0c",
+    "mavats/sparse.py": "982abec64c3b858ae302b9d8bff8161ab73ef0d8ead37a405c569b3cf0f6814d",
+    "mavats/tensor.py": "d428d252911ef70e60c5e894c5996656cfa32fd1ba01d246320fbfbecce34092",
+    "mavats/threshold.py": "c6bedefdc30a14531b891ef45d58b3a59ea40f9872faa626abb9b4cd1b38983a",
+    "benchmarks/matrix_extensions.py": "4ee32683c11da723da519a8f6c12b66e4765e335ba5dc6306cfacc868a79d549",
+    "benchmarks/run.py": "fe0bdb46f758ecb2d1cc1d0a8bf4d898901612f262537f66ecba5b875eefb033"
+  },
+  "results": [
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04574270872399211,
+      "forecast_mse": 0.9866200298358514,
+      "operator_error": 0.04963464853416802,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.002609875053167343,
+      "forecast_mse": 0.9871887685150681,
+      "operator_error": 0.061120924820617116,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.006520207971334457,
+      "forecast_mse": 0.9872174516441056,
+      "operator_error": 0.06073767316500868,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0002438751980662346,
+      "forecast_mse": 0.9894122093772957,
+      "operator_error": 0.12222407030133349,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.6589883747510612,
+      "signal_error": 0.023448841610533715,
+      "held_out_signal_error": 0.10508968929943902,
+      "subspace_error": 0.0037232197971948738,
+      "threshold_error": 0.0005862033529600019,
+      "regime_error": 0.02,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0008517499081790447,
+      "signal_error": 0.023448841610533715,
+      "held_out_signal_error": 0.022820513328947866,
+      "subspace_error": 0.0037232197971948738,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0005855420604348183,
+      "signal_error": 0.04878961303627417,
+      "held_out_signal_error": 0.04536465960381718,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.031180583406239748,
+      "forecast_mse": 0.9809595656160394,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 4.315359152428764e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.023740625008940697,
+      "forecast_mse": 0.9795742135690277,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 4.315359152428764e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 0,
+      "seed": 48,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0052231671288609505,
+      "forecast_mse": 0.983349884912441,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.0578748332336545,
+      "forecast_mse": 1.003081047120536,
+      "operator_error": 0.039981638842863876,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.001786375418305397,
+      "forecast_mse": 1.0033282318586116,
+      "operator_error": 0.04467240791714503,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.0063242497853934765,
+      "forecast_mse": 1.0032700370996779,
+      "operator_error": 0.044622881466769924,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00032412493601441383,
+      "forecast_mse": 0.9983664396071397,
+      "operator_error": 0.09459474818926025,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.30953787500038743,
+      "signal_error": 0.025045107850335747,
+      "held_out_signal_error": 0.138727344491259,
+      "subspace_error": 0.0040001073130532085,
+      "threshold_error": 0.004321786933294547,
+      "regime_error": 0.02,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006828331388533115,
+      "signal_error": 0.025045107850335747,
+      "held_out_signal_error": 0.028914987907212128,
+      "subspace_error": 0.0040001073130532085,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004719579592347145,
+      "signal_error": 0.05136740533826412,
+      "held_out_signal_error": 0.055951585502975125,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.03168525034561753,
+      "forecast_mse": 0.8903292329179283,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 4.505518343159284e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.022118250373750925,
+      "forecast_mse": 0.8896630827311025,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 4.507522449840273e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 1,
+      "seed": 49,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0037749591283500195,
+      "forecast_mse": 0.8907536109086607,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04294800013303757,
+      "forecast_mse": 1.055344963009099,
+      "operator_error": 0.052352987189727584,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0028977501206099987,
+      "forecast_mse": 1.0569242558619247,
+      "operator_error": 0.062495033845766816,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.005125125404447317,
+      "forecast_mse": 1.0568845157698596,
+      "operator_error": 0.06260098409715335,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0003710421733558178,
+      "forecast_mse": 1.0694317220530978,
+      "operator_error": 0.11195213473578496,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.22696750005707145,
+      "signal_error": 0.024016151645333047,
+      "held_out_signal_error": 0.022980978960127966,
+      "subspace_error": 0.003080116309425037,
+      "threshold_error": 0.0005910644079412108,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006616250611841679,
+      "signal_error": 0.024016151645333047,
+      "held_out_signal_error": 0.022980978960127966,
+      "subspace_error": 0.003080116309425037,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.00044350000098347664,
+      "signal_error": 0.04835950474045898,
+      "held_out_signal_error": 0.05348747562467102,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.07504170807078481,
+      "forecast_mse": 0.9649778371986221,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 2.912399319507531e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.047759249806404114,
+      "forecast_mse": 0.9636968539792413,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 2.915963909504848e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 2,
+      "seed": 50,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.004286875016987324,
+      "forecast_mse": 0.963196269557866,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.08358233328908682,
+      "forecast_mse": 1.138010979851156,
+      "operator_error": 0.04382895131552837,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.006575708743184805,
+      "forecast_mse": 1.1407239691402353,
+      "operator_error": 0.05894519537777403,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.0090036247856915,
+      "forecast_mse": 1.1407719797451483,
+      "operator_error": 0.058651913898533845,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00022124964743852615,
+      "forecast_mse": 1.145592626405023,
+      "operator_error": 0.11727994495110232,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.26805225014686584,
+      "signal_error": 0.025410749864298563,
+      "held_out_signal_error": 0.02873397559603708,
+      "subspace_error": 0.004876362293282291,
+      "threshold_error": 0.006221755548080354,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006891251541674137,
+      "signal_error": 0.025410749864298563,
+      "held_out_signal_error": 0.02873397559603708,
+      "subspace_error": 0.004876362293282291,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0006043338216841221,
+      "signal_error": 0.05093506165182335,
+      "held_out_signal_error": 0.055623550850019375,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.04360320931300521,
+      "forecast_mse": 0.9352574488835963,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 4.482503971181504e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.026670957915484905,
+      "forecast_mse": 0.9361544290533997,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 4.482503971181504e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 3,
+      "seed": 51,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.008184332866221666,
+      "forecast_mse": 0.9360130524067904,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.0962306666187942,
+      "forecast_mse": 0.9296423576460593,
+      "operator_error": 0.04852352411416135,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.00492687476798892,
+      "forecast_mse": 0.9308590940751154,
+      "operator_error": 0.05788427271571394,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.010002000257372856,
+      "forecast_mse": 0.9307360487910582,
+      "operator_error": 0.057891207845460216,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0003632497973740101,
+      "forecast_mse": 0.9384248135412402,
+      "operator_error": 0.11828568682828752,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.17357079219073057,
+      "signal_error": 0.02575318134203158,
+      "held_out_signal_error": 0.0257420312679254,
+      "subspace_error": 0.0042414439189167345,
+      "threshold_error": 0.0022601639714066035,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006617908366024494,
+      "signal_error": 0.02575318134203158,
+      "held_out_signal_error": 0.0257420312679254,
+      "subspace_error": 0.0042414439189167345,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.00044966721907258034,
+      "signal_error": 0.05437685050357654,
+      "held_out_signal_error": 0.05014309500477324,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.025090249720960855,
+      "forecast_mse": 0.9348230968599506,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 3.755416178303463e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.06176620768383145,
+      "forecast_mse": 0.9347623952488437,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 3.755416178303463e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 4,
+      "seed": 52,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00425729202106595,
+      "forecast_mse": 0.9392303088499959,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.07658683322370052,
+      "forecast_mse": 1.0740283230758398,
+      "operator_error": 0.04511715930567246,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0035195830278098583,
+      "forecast_mse": 1.0746730556518338,
+      "operator_error": 0.05549508926952874,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.005575415678322315,
+      "forecast_mse": 1.0746483245141254,
+      "operator_error": 0.05570991715950287,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0002217092551290989,
+      "forecast_mse": 1.0729474537795756,
+      "operator_error": 0.10931366754415162,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.22612645803019404,
+      "signal_error": 0.024599839439828856,
+      "held_out_signal_error": 0.2022574794634167,
+      "subspace_error": 0.003825161958682121,
+      "threshold_error": 0.005861352872094772,
+      "regime_error": 0.04,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006774161010980606,
+      "signal_error": 0.024599839439828856,
+      "held_out_signal_error": 0.01619934274901332,
+      "subspace_error": 0.003825161958682121,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004404578357934952,
+      "signal_error": 0.0506505227071347,
+      "held_out_signal_error": 0.03282748172304199,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.02453270833939314,
+      "forecast_mse": 0.9657448299687793,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 9.18024978334985e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.0508929998613894,
+      "forecast_mse": 0.9684170911177046,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 9.18024978334985e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 5,
+      "seed": 53,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00536416657269001,
+      "forecast_mse": 0.9687787747519857,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.06898645916953683,
+      "forecast_mse": 0.9933689759130935,
+      "operator_error": 0.05937346342303139,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.006035208702087402,
+      "forecast_mse": 0.9941709906339739,
+      "operator_error": 0.07122621685933045,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.014191875234246254,
+      "forecast_mse": 0.9944544609727562,
+      "operator_error": 0.07188320132270729,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00021674996241927147,
+      "forecast_mse": 0.9995444166561962,
+      "operator_error": 0.11969339930986748,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.22144250012934208,
+      "signal_error": 0.023590858278707022,
+      "held_out_signal_error": 0.023921826286766465,
+      "subspace_error": 0.0036602197605683047,
+      "threshold_error": 0.0005278207466978824,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006687091663479805,
+      "signal_error": 0.023590858278707022,
+      "held_out_signal_error": 0.023921826286766465,
+      "subspace_error": 0.0036602197605683047,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004560002125799656,
+      "signal_error": 0.05001307508701482,
+      "held_out_signal_error": 0.054714877640834374,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.029399666003882885,
+      "forecast_mse": 0.8900076228071253,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 3.1800798966426285e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.028874417301267385,
+      "forecast_mse": 0.8905835228872991,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 3.1800798966426285e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 6,
+      "seed": 54,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.003727666102349758,
+      "forecast_mse": 0.8914116764782571,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.05795358307659626,
+      "forecast_mse": 0.9558089909364921,
+      "operator_error": 0.05275043911392757,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0024999999441206455,
+      "forecast_mse": 0.955054779276426,
+      "operator_error": 0.06044754707644648,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.007740790955722332,
+      "forecast_mse": 0.9550413794322157,
+      "operator_error": 0.060292839955825406,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00022829091176390648,
+      "forecast_mse": 0.9602639074385615,
+      "operator_error": 0.10419254761924174,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.1518846252001822,
+      "signal_error": 0.027066312448109146,
+      "held_out_signal_error": 0.023668926249910908,
+      "subspace_error": 0.004916038215279686,
+      "threshold_error": 0.0074745587137645675,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006681252270936966,
+      "signal_error": 0.027066312448109146,
+      "held_out_signal_error": 0.023668926249910908,
+      "subspace_error": 0.004916038215279686,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.00044554099440574646,
+      "signal_error": 0.05482793329421866,
+      "held_out_signal_error": 0.047126607456718,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.027173624839633703,
+      "forecast_mse": 0.9477031410598541,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 5.8639646406940975e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.037149916868656874,
+      "forecast_mse": 0.9481520378586229,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 5.8639646406940975e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 7,
+      "seed": 55,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.004655249882489443,
+      "forecast_mse": 0.9511219085618677,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04027399979531765,
+      "forecast_mse": 0.9023089135665427,
+      "operator_error": 0.0432364727068489,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0017734584398567677,
+      "forecast_mse": 0.9025117607383403,
+      "operator_error": 0.05160881248912681,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.00506762508302927,
+      "forecast_mse": 0.9025894989681716,
+      "operator_error": 0.051119569555133276,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00021750014275312424,
+      "forecast_mse": 0.9057398595289812,
+      "operator_error": 0.09487288111121052,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.1236823326908052,
+      "signal_error": 0.040634060461911634,
+      "held_out_signal_error": 0.07437984726910567,
+      "subspace_error": 0.004118439131982075,
+      "threshold_error": 0.009980053742469241,
+      "regime_error": 0.02,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0015007499605417252,
+      "signal_error": 0.024094918738333696,
+      "held_out_signal_error": 0.024538674251362885,
+      "subspace_error": 0.004129568202977942,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.00046345917508006096,
+      "signal_error": 0.050841789410754824,
+      "held_out_signal_error": 0.05370846423565196,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.09289295878261328,
+      "forecast_mse": 0.9269644922890863,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 4.1027744552070056e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.03246445767581463,
+      "forecast_mse": 0.928333619563788,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 4.1027744552070056e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 8,
+      "seed": 56,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.004925999790430069,
+      "forecast_mse": 0.9254944700704877,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.07546395808458328,
+      "forecast_mse": 1.0936551971222106,
+      "operator_error": 0.05642576929667337,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0023822495713829994,
+      "forecast_mse": 1.0939284791459276,
+      "operator_error": 0.06384258522892329,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.004989875014871359,
+      "forecast_mse": 1.0939186499152622,
+      "operator_error": 0.06315841111159737,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00033904192969202995,
+      "forecast_mse": 1.0962166546834202,
+      "operator_error": 0.11740757888568153,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.2267794581130147,
+      "signal_error": 0.024904996112755838,
+      "held_out_signal_error": 0.023293673628833157,
+      "subspace_error": 0.003241744014284424,
+      "threshold_error": 0.003943389371859007,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0007424582727253437,
+      "signal_error": 0.024904996112755838,
+      "held_out_signal_error": 0.023293673628833157,
+      "subspace_error": 0.003241744014284424,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004690829664468765,
+      "signal_error": 0.05221272273620723,
+      "held_out_signal_error": 0.05366543358595332,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.04657162493094802,
+      "forecast_mse": 0.9847839695628979,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 6.031431293144355e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.019345957785844803,
+      "forecast_mse": 0.9837632588500255,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 6.031431293144355e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 9,
+      "seed": 57,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.009424666874110699,
+      "forecast_mse": 0.9829486644317901,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.06916212476789951,
+      "forecast_mse": 1.0983303059772223,
+      "operator_error": 0.03737020063640112,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0023934999480843544,
+      "forecast_mse": 1.0980720843034943,
+      "operator_error": 0.05252441347385643,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.005110125057399273,
+      "forecast_mse": 1.0981820596960024,
+      "operator_error": 0.0526494036279674,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00023754220455884933,
+      "forecast_mse": 1.100720346968942,
+      "operator_error": 0.09897327888763635,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.11912691593170166,
+      "signal_error": 0.023996437290619604,
+      "held_out_signal_error": 0.025830541902484006,
+      "subspace_error": 0.004438381518263045,
+      "threshold_error": 0.0019093645886938404,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0007333750836551189,
+      "signal_error": 0.023996437290619604,
+      "held_out_signal_error": 0.025830541902484006,
+      "subspace_error": 0.004438381518263045,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.00048620766028761864,
+      "signal_error": 0.04966948496834212,
+      "held_out_signal_error": 0.048134050594721374,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.025548292323946953,
+      "forecast_mse": 0.9584128345536637,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 3.6613472147524506e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.01806783303618431,
+      "forecast_mse": 0.9564809788522466,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 3.6613472147524506e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 10,
+      "seed": 58,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0039809998124837875,
+      "forecast_mse": 0.9556148026122482,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04615933308377862,
+      "forecast_mse": 0.9975404275360928,
+      "operator_error": 0.055175081167567676,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.001873041968792677,
+      "forecast_mse": 0.9985444531896329,
+      "operator_error": 0.06691014148003172,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.005054375156760216,
+      "forecast_mse": 0.9982813456902356,
+      "operator_error": 0.06778805655869374,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00026920903474092484,
+      "forecast_mse": 1.0026075987660898,
+      "operator_error": 0.10857594340138993,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.1227136249653995,
+      "signal_error": 0.02601181218839095,
+      "held_out_signal_error": 0.021962922719251782,
+      "subspace_error": 0.0037366338353639807,
+      "threshold_error": 0.0012348638842394344,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006958753801882267,
+      "signal_error": 0.02601181218839095,
+      "held_out_signal_error": 0.021962922719251782,
+      "subspace_error": 0.0037366338353639807,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004907920956611633,
+      "signal_error": 0.054925229312637235,
+      "held_out_signal_error": 0.04582694804699601,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.028279125224798918,
+      "forecast_mse": 0.9857681624285816,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 3.964210983912857e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.018626249860972166,
+      "forecast_mse": 0.9848447530653005,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 3.964210983912857e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 11,
+      "seed": 59,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0038296659477055073,
+      "forecast_mse": 0.9862489070572314,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04207308404147625,
+      "forecast_mse": 1.04150596161124,
+      "operator_error": 0.03671627432594965,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0026139169931411743,
+      "forecast_mse": 1.0433952080540259,
+      "operator_error": 0.04909097001891996,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.006382833234965801,
+      "forecast_mse": 1.0433263887086908,
+      "operator_error": 0.048568398603831664,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00024804240092635155,
+      "forecast_mse": 1.045436491671794,
+      "operator_error": 0.11119363136516167,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.1199977919459343,
+      "signal_error": 0.024726694479655927,
+      "held_out_signal_error": 0.020798633172881522,
+      "subspace_error": 0.0041430454787318195,
+      "threshold_error": 0.0019926389645463782,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006896252743899822,
+      "signal_error": 0.024726694479655927,
+      "held_out_signal_error": 0.020798633172881522,
+      "subspace_error": 0.0041430454787318195,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004470408894121647,
+      "signal_error": 0.05154718913516396,
+      "held_out_signal_error": 0.0411706796703204,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.026525999885052443,
+      "forecast_mse": 0.925353032237527,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 3.8561534612694765e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.01896745804697275,
+      "forecast_mse": 0.9251532709032001,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 3.858723221999325e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 12,
+      "seed": 60,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0038174171932041645,
+      "forecast_mse": 0.9256504170370784,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.0431338339112699,
+      "forecast_mse": 0.9812683300799455,
+      "operator_error": 0.0511971938434851,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0024962499737739563,
+      "forecast_mse": 0.981618016070288,
+      "operator_error": 0.060687996743490014,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.005249375011771917,
+      "forecast_mse": 0.9815957521876757,
+      "operator_error": 0.06075501162081291,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00022237515076994896,
+      "forecast_mse": 0.9885531532056099,
+      "operator_error": 0.0893398011261576,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.1195503338240087,
+      "signal_error": 0.024148677740140047,
+      "held_out_signal_error": 0.023456023097730483,
+      "subspace_error": 0.0033618529663702254,
+      "threshold_error": 0.0035593560166564675,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0007148752920329571,
+      "signal_error": 0.024148677740140047,
+      "held_out_signal_error": 0.023456023097730483,
+      "subspace_error": 0.0033618529663702254,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004581669345498085,
+      "signal_error": 0.05064131873141771,
+      "held_out_signal_error": 0.05000621517331478,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.029046916868537664,
+      "forecast_mse": 0.9638651739271827,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 5.607129371470356e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.018727791029959917,
+      "forecast_mse": 0.9656568800561135,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 5.607129371470356e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 13,
+      "seed": 61,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.003910417202860117,
+      "forecast_mse": 0.9687104119680483,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.042955500073730946,
+      "forecast_mse": 0.9783620753634922,
+      "operator_error": 0.06989674241768719,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0018837079405784607,
+      "forecast_mse": 0.9784513346789991,
+      "operator_error": 0.07913861819464625,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.0049699582159519196,
+      "forecast_mse": 0.9784911891230441,
+      "operator_error": 0.07875898757811897,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0002121669240295887,
+      "forecast_mse": 0.9810517873630895,
+      "operator_error": 0.12463438400494933,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.1186074591241777,
+      "signal_error": 0.029084525160594635,
+      "held_out_signal_error": 0.023469345502029608,
+      "subspace_error": 0.0035903691535173967,
+      "threshold_error": 0.001652823602348974,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006809579208493233,
+      "signal_error": 0.02474053149569002,
+      "held_out_signal_error": 0.023471030866345423,
+      "subspace_error": 0.0035975339447549097,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004593748599290848,
+      "signal_error": 0.05244938797331837,
+      "held_out_signal_error": 0.04793248590485034,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.02562129171565175,
+      "forecast_mse": 0.8954568245582564,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 1.0434968482240852e-15,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.018391791731119156,
+      "forecast_mse": 0.8967229701122963,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 1.0436284904876683e-15,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 14,
+      "seed": 62,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0039046253077685833,
+      "forecast_mse": 0.8956740147195634,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04129408299922943,
+      "forecast_mse": 0.9906359118906867,
+      "operator_error": 0.03819569972878536,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0027698338963091373,
+      "forecast_mse": 0.9915353968639317,
+      "operator_error": 0.046597286487468456,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.004923457745462656,
+      "forecast_mse": 0.9915383052444985,
+      "operator_error": 0.04623366822703375,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00021337484940886497,
+      "forecast_mse": 0.9973907656981522,
+      "operator_error": 0.09439795249915285,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.12162066670134664,
+      "signal_error": 0.025453986363914535,
+      "held_out_signal_error": 0.02718172270693964,
+      "subspace_error": 0.004576203516043852,
+      "threshold_error": 0.0008920064111608283,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0009627910330891609,
+      "signal_error": 0.025453986363914535,
+      "held_out_signal_error": 0.02718172270693964,
+      "subspace_error": 0.004576203516043852,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004768748767673969,
+      "signal_error": 0.05453007631287773,
+      "held_out_signal_error": 0.05707391838214638,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.025062374770641327,
+      "forecast_mse": 0.9497511902447179,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 4.659446184465332e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.018229125067591667,
+      "forecast_mse": 0.9503605976240879,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 4.663737683798516e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 15,
+      "seed": 63,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.004119791090488434,
+      "forecast_mse": 0.9512208208498998,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04368679178878665,
+      "forecast_mse": 1.165079202094609,
+      "operator_error": 0.04558822005562686,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.002642541192471981,
+      "forecast_mse": 1.1653163165289042,
+      "operator_error": 0.05593046440291437,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.006508208811283112,
+      "forecast_mse": 1.1651960708396316,
+      "operator_error": 0.05499409767089502,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0002692500129342079,
+      "forecast_mse": 1.1736230358137303,
+      "operator_error": 0.10975067129545898,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.12003450002521276,
+      "signal_error": 0.025595031347022117,
+      "held_out_signal_error": 0.024250179774229847,
+      "subspace_error": 0.005029354911362357,
+      "threshold_error": 0.0023659316231210425,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006680418737232685,
+      "signal_error": 0.025595031347022117,
+      "held_out_signal_error": 0.024250179774229847,
+      "subspace_error": 0.005029354911362357,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004459996707737446,
+      "signal_error": 0.052479125023469055,
+      "held_out_signal_error": 0.05274241167516519,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.025831665843725204,
+      "forecast_mse": 0.9830409023452166,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 2.609365972013699e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.018591292202472687,
+      "forecast_mse": 0.9843416396833314,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 2.611100169057252e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 16,
+      "seed": 64,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.004023249726742506,
+      "forecast_mse": 0.9817183419673345,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04095900012180209,
+      "forecast_mse": 0.9209449821372375,
+      "operator_error": 0.04967930864249836,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0024819588288664818,
+      "forecast_mse": 0.9209167379112053,
+      "operator_error": 0.0642913728287927,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.006195208057761192,
+      "forecast_mse": 0.9210030231843596,
+      "operator_error": 0.06330152810556275,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0002672923728823662,
+      "forecast_mse": 0.9303249723148924,
+      "operator_error": 0.11930076253782189,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.1437532501295209,
+      "signal_error": 0.024993055497665697,
+      "held_out_signal_error": 0.03102028105246269,
+      "subspace_error": 0.004270254770044148,
+      "threshold_error": 0.0021152529089782934,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.000889291986823082,
+      "signal_error": 0.024993055497665697,
+      "held_out_signal_error": 0.03102028105246269,
+      "subspace_error": 0.004270254770044148,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.00048274965956807137,
+      "signal_error": 0.05181174952919256,
+      "held_out_signal_error": 0.06237228201209646,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.026461750268936157,
+      "forecast_mse": 0.971843486427986,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 3.0571551067495046e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.01894466672092676,
+      "forecast_mse": 0.9713147563811539,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 3.0571551067495046e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 17,
+      "seed": 65,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0038125826977193356,
+      "forecast_mse": 0.9698003579256915,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04153404198586941,
+      "forecast_mse": 1.0314564635540076,
+      "operator_error": 0.04750419574541045,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0017783748917281628,
+      "forecast_mse": 1.0305461868458248,
+      "operator_error": 0.05638234155439987,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.004953583236783743,
+      "forecast_mse": 1.0305336704111163,
+      "operator_error": 0.05657150657204274,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00020750006660819054,
+      "forecast_mse": 1.035090462595972,
+      "operator_error": 0.09866112240631592,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.13800779217854142,
+      "signal_error": 0.026403008046596996,
+      "held_out_signal_error": 0.027603327041827937,
+      "subspace_error": 0.005783820739823744,
+      "threshold_error": 0.010001084342238675,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0006838752888143063,
+      "signal_error": 0.026403008046596996,
+      "held_out_signal_error": 0.027603327041827937,
+      "subspace_error": 0.005783820739823744,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004824576899409294,
+      "signal_error": 0.052987085393982544,
+      "held_out_signal_error": 0.06234847227149159,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.025654499884694815,
+      "forecast_mse": 1.005434457542347,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 2.695053479639368e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.018372040707617998,
+      "forecast_mse": 1.0061389701729186,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 2.698267290558916e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 18,
+      "seed": 66,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.004396500065922737,
+      "forecast_mse": 1.0069676862710955,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {
+        "spike_variance": 0.001,
+        "slab_variance": 4.0,
+        "inclusion_prior": [
+          1.0,
+          1.0
+        ]
+      },
+      "method": "sparse-emvs",
+      "fit_seconds": 0.04279420804232359,
+      "forecast_mse": 1.1980415849916621,
+      "operator_error": 0.059106743266176605,
+      "support_error": 0.0,
+      "true_positive_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.001958792097866535,
+      "forecast_mse": 1.198260189169986,
+      "operator_error": 0.06631859686233059,
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "mar-mle",
+      "fit_seconds": 0.005052582826465368,
+      "forecast_mse": 1.1983843557301288,
+      "operator_error": 0.06646921976592352,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "sparse-forecast",
+      "regime": "diagonal-sparse",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        3,
+        2
+      ],
+      "n_train": 1100,
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.00021912483498454094,
+      "forecast_mse": 1.194528989970175,
+      "operator_error": 0.10107411658047179,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-estimated",
+      "fit_seconds": 0.11892383405938745,
+      "signal_error": 0.024324980266857425,
+      "held_out_signal_error": 0.02207039047816084,
+      "subspace_error": 0.004352885483292213,
+      "threshold_error": 0.007271207618328779,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "threshold-known-oracle",
+      "fit_seconds": 0.0008538328111171722,
+      "signal_error": 0.024324980266857425,
+      "held_out_signal_error": 0.02207039047816084,
+      "subspace_error": 0.004352885483292213,
+      "threshold_error": 0.0,
+      "regime_error": 0.0,
+      "ranks": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "threshold-factor",
+      "regime": "unequal-ranks",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 400,
+      "options": {
+        "max_lag": 2,
+        "trim": [
+          0.1,
+          0.9
+        ]
+      },
+      "method": "global-factor-union-ranks",
+      "fit_seconds": 0.0004669167101383209,
+      "signal_error": 0.05154960964171382,
+      "held_out_signal_error": 0.04423351289619005,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "threshold"
+      },
+      "method": "decorrelated-block-var",
+      "fit_seconds": 0.026177624706178904,
+      "forecast_mse": 0.9069085230954903,
+      "row_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": true,
+      "round_trip_error": 3.996903904778871e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {
+        "lags": 1,
+        "correlation_lags": 5,
+        "correlation_threshold": 0.15,
+        "grouping": "ratio"
+      },
+      "method": "ratio-decorrelated-block-var",
+      "fit_seconds": 0.018357499968260527,
+      "forecast_mse": 0.9065239102138015,
+      "row_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "column_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "all_scalar_blocks": false,
+      "round_trip_error": 3.996903904778871e-16,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "decorrelation-forecast",
+      "regime": "scalar-blocks",
+      "replicate": 19,
+      "seed": 67,
+      "shape": [
+        3,
+        3
+      ],
+      "n_train": 10000,
+      "timing_scope": "fit transformation and predictors plus one-step predictions",
+      "options": {},
+      "method": "var",
+      "fit_seconds": 0.0038449158892035484,
+      "forecast_mse": 0.9072091411197243,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    }
+  ]
+}

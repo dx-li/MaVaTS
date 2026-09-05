@@ -64,6 +64,26 @@ and tuning conditions hold. The default cannot detect a zero-factor model.
 Use fixed ranks when comparing methods at equal information, and separate oracle
 rank results from data-selected ranks.
 
+Threshold factors retain the original time indices when masking lag origins.
+Their moment eigenvalues and threshold profile scores use normalized fourth-order
+units; reconstructed signals use original units. Decorrelation is invertible,
+not rank reduction: its two marginal whitenings imply latent coordinates scale
+as `1/c` when the observations scale as `c`. See the dedicated
+[threshold](threshold-notes.md) and [decorrelation](decorrelation-notes.md) notes.
+
+Sparse EMVS has priors in specified data units. Arbitrarily rescaling its
+coefficient/covariance factors preserves the likelihood but changes those priors.
+Its additional scale updates maximize the conditional posterior, not an arbitrary
+unit-norm convention. Inclusion scores are plug-in probabilities, not marginal
+posterior draws; support masks do not truncate forecast coefficients. See
+[sparse notes](sparse-notes.md).
+
+MAR inference uses a fixed nonzero coefficient sign anchor for local
+identification and normalized-data moments for unit-invariant standard errors.
+Conditioning guards cannot certify population identification or finite-sample
+coverage. Supported assumptions and allocation limits are in
+[inference notes](inference-notes.md).
+
 ## Migration from 0.1
 
 Legacy imports from `mavats.MAR`, `mavats.alphaPCA` and `mavats.factormodel` remain.
