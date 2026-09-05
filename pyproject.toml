@@ -1,27 +1,48 @@
-[tool.poetry]
-name = "mavats"
-version = "0.1.5"
-description = "Some methods for matrix-valued time series"
-authors = ["Daniel <danlixuan@gmail.com>"]
-license = "MIT"
-readme = "README.md"
-repository = "https://github.com/dx-li/MaVaTS"
-documentation = "https://dx-li.github.io/MaVaTS/mavats.html"
-
-[tool.poetry.dependencies]
-python = "^3.10"
-numpy = "^1.26.4"
-scipy = "^1.13.1"
-
-[tool.poetry.group.dev.dependencies]
-black = ">=24.4.2,<27.0.0"
-mypy = "^1.10.0"
-isort = "^5.13.2"
-pytest = ">=8.2.2,<10.0.0"
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mavats"
+version = "0.2.0.dev0"
+description = "Scientific methods for matrix- and tensor-valued time series"
+authors = [{name = "Daniel", email = "danlixuan@gmail.com"}]
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "scipy>=1.13"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.urls]
+Repository = "https://github.com/dx-li/MaVaTS"
+Documentation = "https://dx-li.github.io/MaVaTS/mavats.html"
+Issues = "https://github.com/dx-li/MaVaTS/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2,<10", "pytest-cov>=5", "black>=24.4,<27", "isort>=5.13", "build>=1"]
+docs = ["pdoc>=15"]
+
+[tool.setuptools.packages.find]
+include = ["mavats*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
 
 [tool.isort]
 profile = "black"
+
+[tool.black]
+target-version = ["py310"]
+
+[tool.coverage.run]
+source = ["mavats"]
+
+[tool.coverage.report]
+show_missing = true

@@ -1,23 +1,95 @@
 # MaVaTS
 
-MaVaTS is a Python library for matrix-valued time series methods.
+Scientific Python methods for matrix- and tensor-valued time series: structured
+autoregression, factor estimation, simulation, and reproducible comparisons.
 
-## Installation
+This is the **0.2 development rebuild**. The aim is broad, dependable coverage
+of published methodology. It is not yet a complete replacement for specialist
+research implementations. The [method inventory](docs/methods.md) states exactly
+which estimators are implemented and which paper features remain open.
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install MaVaTS.
+## Install the development checkout
+
+Requires Python 3.10 or newer, NumPy and SciPy. From this repository:
 
 ```bash
-pip install mavats
+python -m pip install -e '.[dev]'
+python -m pytest
+python -m examples.quickstart
 ```
 
-## Usage
+The older package on PyPI does not contain this development API.
 
-Please refer to the [documentation](https://dx-li.github.io/MaVaTS/mavats.html)
+## Forecast matrix observations
 
-## Contributing
+```python
+import numpy as np
+from mavats import fit_mar
+from mavats.simulation import simulate_mar
 
-Pull requests are welcome.
+X = simulate_mar(
+    300, np.diag([0.6, 0.8]), np.diag([0.7, 0.5, 0.6]), random_state=42
+)
+model = fit_mar(X, method="als")
+future = model.forecast(5)       # (5, 2, 3)
+print(model.converged, model.spectral_radius)
+```
 
-## License
+MAR supports projection, alternating least squares, separable Gaussian MLE,
+multiple lags, intercepts, reduced-rank coefficients and EBIC rank selection.
+Iterative fits report their objective history and convergence. Stability is
+diagnosed rather than imposed; a converged fit need not be stationary.
 
-[MIT](https://github.com/dx-li/MaVaTS/blob/main/LICENSE)
+## Recover factor spaces
+
+```python
+from mavats import fit_projected_pca, fit_tensor_factor
+from mavats.simulation import simulate_factor
+
+data = simulate_factor(200, shape=(12, 15), ranks=(2, 3), random_state=7)
+fit = fit_projected_pca(data.observations, ranks=(2, 3))
+signal = fit.signal
+scores = fit.transform(data.observations)
+reconstruction = fit.inverse_transform(scores)
+
+tensor = simulate_factor(200, (6, 8, 5), (2, 2, 2), random_state=7)
+tensor_fit = fit_tensor_factor(
+    tensor.observations, ranks=(2, 2, 2), method="tipup", iterative=True
+)
+```
+
+Matrix factor methods include alpha-PCA, projected PCA, all-pair lag covariance
+estimation, robust matrix Kendall and Huber estimation, known loading constraints,
+and refined CP generalized eigenanalysis with nonorthogonal components.
+TOPUP, TIPUP, iTOPUP and iTIPUP accept matrices and higher-order tensors.
+Modern Tucker results use orthonormal loadings and expose scores, signal,
+residuals and transformations. Compare loading **spaces**, since individual
+factor coordinates are not identified.
+
+## Methods, examples and comparisons
+
+- [Scientific coverage and primary citations](docs/methods.md)
+- [Numerical conventions and compatibility](docs/numerics.md)
+- [Executable examples](examples/quickstart.py)
+- [Complete method gallery](examples/method_gallery.py)
+- [Benchmark protocol and retained results](benchmarks/README.md)
+- [Remaining work and acceptance criteria](docs/roadmap.md)
+- [Contributing](CONTRIBUTING.md)
+
+```bash
+python -m benchmarks.run --quick --repeats 2 --output benchmark-smoke.json
+python -m benchmarks.run --repeats 20 --output benchmark-results.json
+```
+
+Benchmarks retain per-replicate errors, failures, convergence, seeds, wall times,
+and environment details. Forecasting uses chronological test observations;
+factor studies compare estimated spaces and reconstructed signals to known truth.
+Oracle constraints and ranks are labeled explicitly. These synthetic stress
+tests are not full reproductions of the source papers' simulation studies.
+
+## Citation and license
+
+Please cite the methodological papers associated with the estimators you use;
+[references.bib](docs/references.bib) provides citations. Code is licensed under
+the [MIT license](LICENSE). Implementations are derived from published equations,
+with paper-specific limitations and extensions documented beside each API.

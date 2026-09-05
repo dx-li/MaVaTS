@@ -1,5 +1,10 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.venv-min/
+.venv-wheel/
+benchmark-smoke.json
+benchmark-results.json
+site/
 *.py[cod]
 *$py.class
 

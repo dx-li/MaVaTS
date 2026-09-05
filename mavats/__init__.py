@@ -1,3 +1,55 @@
-r"""
-Implementations of matrix-valued time series methods.
+"""Scientific methods for matrix- and tensor-valued time series.
+
+Arrays are time-first. Modern factor estimators use orthonormal loadings;
+legacy submodules retain their documented conventions. See the repository's
+docs/methods.md for assumptions, references and coverage gaps. This development
+release is not a claim of complete literature coverage.
 """
+
+from .autoregression import (
+    MARRankSelection,
+    MARResult,
+    fit_mar,
+    nearest_kronecker_product,
+    select_mar_rank,
+)
+from .baselines import VARResult, fit_naive, fit_var
+from .constrained import fit_constrained_factor
+from .cp import CPIdentificationError, CPResult, fit_cp_factor
+from .factors import (
+    FactorResult,
+    eigenvalue_ratio,
+    fit_alpha_pca,
+    fit_lagged_factor,
+    fit_projected_pca,
+)
+from .huber import HuberFactorResult, fit_huber_factor
+from .robust import fit_matrix_kendall, matrix_kendall
+from .tensor import fit_tensor_factor
+
+__version__ = "0.2.0.dev0"
+
+__all__ = [
+    "HuberFactorResult",
+    "fit_huber_factor",
+    "CPIdentificationError",
+    "CPResult",
+    "fit_cp_factor",
+    "FactorResult",
+    "MARResult",
+    "MARRankSelection",
+    "VARResult",
+    "eigenvalue_ratio",
+    "fit_alpha_pca",
+    "fit_constrained_factor",
+    "fit_lagged_factor",
+    "fit_mar",
+    "fit_matrix_kendall",
+    "fit_naive",
+    "fit_projected_pca",
+    "fit_tensor_factor",
+    "fit_var",
+    "matrix_kendall",
+    "nearest_kronecker_product",
+    "select_mar_rank",
+]
