@@ -53,7 +53,11 @@ def random_generator(random_state=None):
 
 
 def finite_scalar(value, name, *, minimum=None):
-    if isinstance(value, (bool, np.bool_)) or np.ndim(value) != 0:
+    if (
+        isinstance(value, (bool, np.bool_))
+        or np.ndim(value) != 0
+        or np.iscomplexobj(value)
+    ):
         raise ValueError(f"{name} must be a finite real scalar")
     try:
         value = float(value)

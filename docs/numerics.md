@@ -84,6 +84,31 @@ Conditioning guards cannot certify population identification or finite-sample
 coverage. Supported assumptions and allocation limits are in
 [inference notes](inference-notes.md).
 
+Additive two-way dynamic factors have a different identification from Tucker
+factors: the row/column loadings have Gram matrices equal to their spatial
+dimension times identity, and separate F/G effects overlap. Conditional
+Gaussian scores apportion that overlap. The covariance EM noise update includes
+cross-effects; omitting them changes the estimator. Variance flooring and mean
+centering are explicit extensions, with activation diagnostics. See
+[dynamic notes](dynamic-notes.md).
+
+Matrix GARCH filters preserve unnormalized row/column shape recursions while
+normalizing the output covariance traces. Positivity comes from triangular
+intercepts, positive scalar trace and Cholesky checks, not an undocumented
+floor. Numerical scaling transforms observation-shock parameters consistently;
+constraint diagnostics refer to original units. Gaussian conditional likelihood
+gradients differentiate the complete state recursion. Optimization remains
+local, and an earlier feasible iterate can be retained after failed termination
+without marking that run converged. See [volatility notes](volatility-notes.md).
+
+Sequential monitoring recomputes the opposite-mode projection on every trailing
+window. Drift powers, randomized partial sums and crossings use signed-log
+arithmetic, so display saturation does not determine the alarm. State snapshots
+preserve the local random stream and stop policy. One-based alarm indices are
+explicit and are not delay-corrected change-point estimates. Finite-horizon
+Gaussian reference [calibration](calibration-notes.md) is separate from the
+paper's asymptotic matrix-data validity conditions.
+
 ## Migration from 0.1
 
 Legacy imports from `mavats.MAR`, `mavats.alphaPCA` and `mavats.factormodel` remain.

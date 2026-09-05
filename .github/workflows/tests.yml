@@ -1,6 +1,15 @@
 name: Numerical tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  VECLIB_MAXIMUM_THREADS: '1'
 
 permissions:
   contents: read
@@ -23,12 +32,17 @@ jobs:
       - run: python -m benchmarks.run --quick --repeats 1 --output benchmark-smoke.json
       - run: python -m benchmarks.matrix_extensions --quick --repeats 1 --output benchmark-extensions-smoke.json
       - run: python -m benchmarks.inference --repeats 2 --sample-sizes 200 --output benchmark-inference-smoke.json
+      - run: python -m benchmarks.advanced_matrix --quick --repeats 1 --output benchmark-advanced-smoke.json
+      - run: python -m benchmarks.monitoring --quick --repeats 1 --calibration-repeats 99 --output benchmark-monitoring-smoke.json
       - run: python -m examples.quickstart
       - run: python -m examples.method_gallery
       - run: python -m examples.sparse_mar
       - run: python -m examples.threshold_factors
       - run: python -m examples.decorrelation
       - run: python -m examples.mar_inference
+      - run: python -m examples.two_way_dynamic
+      - run: python -m examples.matrix_garch
+      - run: python -m examples.online_monitoring
       - run: python -m build
       - uses: actions/upload-artifact@v4
         if: always()
@@ -39,6 +53,9 @@ jobs:
             benchmark-extensions-smoke.json
             benchmark-inference-smoke.json
             benchmark-inference-smoke.jsonl
+            benchmark-advanced-smoke.json
+            benchmark-monitoring-smoke.json
+            benchmark-monitoring-smoke.jsonl
 
   minimum-dependencies:
     runs-on: ubuntu-latest

@@ -23,29 +23,34 @@
     }
   },
   "source_sha256": {
+    "benchmarks/inference.py": "79eae723eca67677991074d8750838b29e517eff907e9db79b691242d3dd936a",
+    "benchmarks/run.py": "f497a85e467b1e6f783a7e040aaf8faad30143b00db197263a5bb1fd13699d78",
     "mavats/MAR.py": "72a7f8966ab95ade19666b5919a806f7fb554367c6e8f886bf484a12441a7300",
-    "mavats/__init__.py": "8f651c636e05e29fdc6951887c5804c14c2b2aa8756ae31c656e0548e9d68dde",
-    "mavats/_validation.py": "be956d27a405a9d2a77045ab70ae5f65d25a2d47aad611b76caaff721f5801e5",
+    "mavats/__init__.py": "7cbb98f2ce11ac64026bfe5935a26d5cd3da1f0f807857e5e693ea2c97eca705",
+    "mavats/_validation.py": "a2a8d09990cd0d4c28f5d7a4fb5ee2ae08acf62e4d764e46db9c6060ed7143b3",
     "mavats/alphaPCA.py": "c977552665e7e86870e5d3078a549fb079bcc8fa7328633f92b22bc84e9a93c4",
     "mavats/autoregression.py": "2bb7646004c187678db9db597fe68ae7ac5ff296704e0066e06220c62439d909",
     "mavats/baselines.py": "b022919fbc37fa3c741e97d6b13ab2a2aaf3d57f1b8591b8fa48795193b91eb6",
+    "mavats/calibration.py": "d4b6ed75f7a91b8681e561433474b830efe22a3ae7a9cfcd3cdd2e583eea1993",
     "mavats/constrained.py": "c15a8b7c8d304ed425324098ab2773e5e9b3038855cd28914b878706264ecec3",
     "mavats/cp.py": "ab9ce6d1494a2b4799ff32894d1be13af2300250c6118b592e39a945601997df",
     "mavats/decorrelation.py": "64f8368f3b89892be3d296f9692be19fea63af70454c48d8165cc816a0f9b05c",
+    "mavats/dynamic.py": "28f206b78fedcd7e55a830483f66070eed219d97e5922fe345eefa7205d790e9",
     "mavats/factormodel.py": "48bb8d788b1d365c8a7a61c447e3ad5d4779d78a6b275a27c4e7c5176f173360",
     "mavats/factors.py": "8d9e4b0388805a774737538b6b6274834c97c01901d940237b552740096590dc",
     "mavats/huber.py": "cdd803f9ffd4f6f53c3dc116e8c5fef2d9c22c9a74b8026647d15bafac355187",
     "mavats/inference.py": "8527030fa69388ed42c2731bb528e599fc2e8c6a7b84bf9e85ffdd720398cc83",
     "mavats/metrics.py": "61a183ff671192eaae6f2bccd6b5c192dc095c31c6abaf869e3341c6f670e597",
     "mavats/model_selection.py": "35be477fc2f464f11504cde1b5b5b845e9c99d8130a90f848aa057715304b3ef",
+    "mavats/monitoring.py": "6f706b5c0cfef0f755add11f24614642a32c68860f047e3848f895e2c1d76b98",
     "mavats/robust.py": "e6bb052d756f41bb0655d45f7fd13c208b38f62198b26b24aaa4e7e63796f5f5",
     "mavats/simulation.py": "8c10dc97feda7b0cbc5370717bc02f62fa5906202aab53201cb1de0e449b8c0c",
     "mavats/sparse.py": "982abec64c3b858ae302b9d8bff8161ab73ef0d8ead37a405c569b3cf0f6814d",
     "mavats/tensor.py": "d428d252911ef70e60c5e894c5996656cfa32fd1ba01d246320fbfbecce34092",
     "mavats/threshold.py": "c6bedefdc30a14531b891ef45d58b3a59ea40f9872faa626abb9b4cd1b38983a",
-    "benchmarks/inference.py": "b50d1b7dece348fffdaa1e73ba73a6b7c6d25411c89d9de1b25a2d412f433897",
-    "benchmarks/run.py": "fe0bdb46f758ecb2d1cc1d0a8bf4d898901612f262537f66ecba5b875eefb033"
+    "mavats/volatility.py": "2716e519464aca5a00e7b82fe909afa7ab32eb84cf368b2c858197e571e4b125"
   },
+  "source_changed_during_run": [],
   "results_file": "inference.jsonl",
   "summary": [
     {

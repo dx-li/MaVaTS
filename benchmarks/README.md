@@ -94,6 +94,63 @@ assertion that every interval attains its nominal level.
 Regenerate the summary using
 `python -m benchmarks.summarize benchmarks/results/standard.json --output benchmarks/results/summary.md`.
 The raw JSON includes SHA-256 hashes of source modules and the benchmark driver.
+Runners snapshot those files before starting their experiments and record
+`source_changed_during_run` afterward. A nonempty list makes the runner exit
+unsuccessfully, preventing a long run from being silently attributed to source
+edits made while it was executing. The source snapshot describes the checkout
+at the beginning of the run; do not edit numerical source during experiments.
+
+## Additive dynamics, covariance forecasts and sequential monitoring
+
+```bash
+python -m benchmarks.advanced_matrix --repeats 5 --output benchmarks/results/advanced-matrix.json
+python -m benchmarks.monitoring --repeats 200 --output benchmarks/results/monitoring.json
+```
+
+Use the thread environment shown above for retained performance measurements.
+Both drivers support `--quick` for smaller smoke problems. The advanced driver
+compares additive two-way dynamics with MAR, ridge VAR, zero and inaccessible
+latent-state oracle forecasts. Known-rank fits receive the simulation's true
+ranks; auto-rank fits must select them from training data. Optimization and rank
+selection convergence are separate diagnostics. Coupled factor dynamics are
+explicitly a misspecified comparison, not a validation of diagonal-AR assumptions.
+
+Its volatility design fits both full and diagonal-dynamics Matrix GARCH to
+nonsymmetric full-model data, then filters held-out observations from the
+training state without refitting. Each covariance precedes its scored matrix.
+The `negative_gaussian_log_score` includes the Gaussian normalizing constant;
+**lower is better**. Dense covariance relative errors use the simulation truth.
+Constant covariance is estimated from training only; the oracle covariance
+receives extra information. Local failures, active constraints and unconverged
+selected starts remain visible. Five replications provide integration evidence,
+not a comprehensive volatility estimation study or a warmed-up speed ranking.
+
+The monitoring driver runs five arms spanning all boundary families: asymptotic
+maximum, finite-horizon Gaussian maximum, partial sum (eta=.25), Darling–Erdős
+(eta=.5), and delayed Rényi (eta=.75). Gaussian calibrations are fixed before
+the data study, using separate calibration seeds and 20,000 reference paths
+where needed. Each method/regime shares the replication's matrix-data seed
+and independent Gaussian-randomization seed. Comparisons are therefore paired.
+
+The standard design has 50 training matrices of size 20×15, a monitoring horizon
+of 100, a rank-one strong Gaussian factor, projection rank two and power eight.
+Regimes are stationary null, loading-space switch, factor increase and unchanged
+space with doubled factor amplitude. The last is a nonstationary negative
+control, not a stationary-null size experiment. The common one-based event or
+comparison step is 34; it remains a reference split in the null scenario.
+
+Records stop at the first alarm or horizon and retain the consumed count and
+indices. `max_drift` refers only to consumed observations. Summaries distinguish
+pre-event alarms from detections among paths still at risk at the change.
+Missed detections remain right-censored rather than being assigned zero delay.
+Reported mean delay conditions on detection. Wilson intervals use independent
+matrix-series replications, not time points or pooled methods. Summary JSON
+points to raw JSONL rows, including failed experiments. A Gaussian reference
+boundary does not imply exact finite-sample matrix-data false-alarm control.
+
+See [advanced matrix results](results/advanced-summary.md) for retained outcomes
+and limitations. Strong alternatives here do not establish local power,
+disappearing-factor detection, or robustness to weak factors/heavy tails.
 
 These artifacts were generated locally during the rebuild. Rerun after changing
 algorithms or dependencies. Further benchmark coverage remains tracked in

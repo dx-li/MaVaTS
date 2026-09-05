@@ -1,14 +1,13 @@
 """Paired sparse, threshold and decorrelation matrix-method benchmarks."""
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 from types import SimpleNamespace
 
 import numpy as np
 
-from benchmarks.run import _measure, environment
+from benchmarks.run import _measure, environment, source_provenance, source_snapshot
 from mavats.autoregression import fit_mar
 from mavats.baselines import fit_var
 from mavats.decorrelation import fit_matrix_decorrelation
@@ -271,20 +270,13 @@ def main():
     args = parser.parse_args()
     if args.repeats < 1:
         parser.error("--repeats must be positive")
+    snapshot = source_snapshot(__file__)
     records = run_suite(quick=args.quick, repeats=args.repeats, seed=args.seed)
-    root = Path(__file__).resolve().parents[1]
-    sources = sorted((root / "mavats").glob("*.py")) + [
-        Path(__file__).resolve(),
-        root / "benchmarks/run.py",
-    ]
     report = dict(
         schema_version=1,
         configuration=dict(quick=args.quick, repeats=args.repeats, seed=args.seed),
         environment=environment(),
-        source_sha256={
-            str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sources
-        },
+        **source_provenance(snapshot),
         results=records,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -295,7 +287,7 @@ def main():
     )
     for failure in failures:
         print(failure["method"], failure["error"])
-    if failures:
+    if failures or report["source_changed_during_run"]:
         raise SystemExit(1)
 
 

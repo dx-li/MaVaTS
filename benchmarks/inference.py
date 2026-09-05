@@ -6,14 +6,13 @@ of the same fitted operator treated as independent observations.
 """
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 from time import perf_counter
 
 import numpy as np
 
-from benchmarks.run import environment
+from benchmarks.run import environment, source_provenance, source_snapshot
 from mavats.autoregression import fit_mar
 from mavats.inference import mar_inference, mar_specification_test
 
@@ -186,22 +185,17 @@ def main():
     args = parser.parse_args()
     if args.repeats < 1 or min(args.sample_sizes) < 20:
         parser.error("need positive repeats and sample sizes >= 20")
+    if args.output.suffix == ".jsonl":
+        parser.error("summary output must differ from .jsonl raw output")
+    snapshot = source_snapshot(__file__)
     results = run_study(args.repeats, tuple(args.sample_sizes), args.seed)
-    root = Path(__file__).resolve().parents[1]
-    sources = sorted((root / "mavats").glob("*.py")) + [
-        Path(__file__).resolve(),
-        root / "benchmarks/run.py",
-    ]
     report = dict(
         schema_version=1,
         configuration=dict(
             repeats=args.repeats, sample_sizes=args.sample_sizes, seed=args.seed
         ),
         environment=environment(),
-        source_sha256={
-            str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sources
-        },
+        **source_provenance(snapshot),
         results_file=args.output.with_suffix(".jsonl").name,
         summary=summary(results),
     )
@@ -213,6 +207,8 @@ def main():
     print(
         f"Saved {len(results)} experiments to {args.output}; {sum(r['status']!='ok' for r in results)} failures retained"
     )
+    if report["source_changed_during_run"]:
+        raise SystemExit("Source changed during the experiment; see provenance flags")
 
 
 if __name__ == "__main__":

@@ -327,6 +327,29 @@ def environment():
     }
 
 
+def source_snapshot(*drivers):
+    """Fingerprint source files before any long experiment, not after it."""
+    root = Path(__file__).resolve().parents[1]
+    paths = set((root / "mavats").glob("*.py"))
+    paths.update(Path(p).resolve() for p in (*drivers, __file__))
+    return {
+        str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in sorted(paths)
+    }
+
+
+def source_provenance(snapshot):
+    """Expose source edits during a run instead of attributing results to them."""
+    root = Path(__file__).resolve().parents[1]
+    changed = [
+        name
+        for name, digest in snapshot.items()
+        if not (root / name).is_file()
+        or hashlib.sha256((root / name).read_bytes()).hexdigest() != digest
+    ]
+    return dict(source_sha256=snapshot, source_changed_during_run=changed)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--quick", action="store_true")
@@ -336,6 +359,7 @@ def main():
     args = parser.parse_args()
     if args.repeats < 1:
         parser.error("--repeats must be positive")
+    snapshot = source_snapshot(__file__)
     rows = run_suite(quick=args.quick, repeats=args.repeats, seed=args.seed)
     report = {
         "schema_version": 1,
@@ -346,14 +370,7 @@ def main():
         },
         "environment": environment(),
         "results": rows,
-    }
-    source_root = Path(__file__).resolve().parents[1]
-    sources = sorted((source_root / "mavats").glob("*.py")) + [Path(__file__).resolve()]
-    report["source_sha256"] = {
-        str(path.relative_to(source_root)): hashlib.sha256(
-            path.read_bytes()
-        ).hexdigest()
-        for path in sources
+        **source_provenance(snapshot),
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
@@ -364,7 +381,7 @@ def main():
     print(
         f"{len(rows)} runs; {errors} errors; {unconverged} unconverged. Results: {args.output}"
     )
-    if errors:
+    if errors or report["source_changed_during_run"]:
         raise SystemExit(1)
 
 

@@ -38,6 +38,7 @@ and empirical evidence.
 | `fit_alpha_pca` | Mean and contemporaneous second-moment loading spaces | Chen & Fan, `chen2021alphapca` | Legacy covariance routines are not a validated full inferential API |
 | `fit_projected_pca` | Refined row/column loading spaces | Yu et al. (2022), `yu2022projection` | Default is one simultaneous projected update; repeated simultaneous updates are an extension; ranks fixed after initialization |
 | `fit_lagged_factor` | Loading spaces from all column-pair lag covariances | Wang, Liu & Chen (2019), `wang2019matrixfactor` | Requires temporal signal; contemporaneous PCA is a different estimator |
+| `fit_two_way_dynamic` | Additive row/column factors with covariance quasi-likelihood and pooled diagonal AR dynamics | Yuan et al. (2023), `yuan2023dynamic` | Algorithms A1/1/2, conditional scores, explicit/selected ranks and plug-in forecasts; not a Tucker factor model or full temporal likelihood; no inference or Kalman smoothing |
 | `fit_threshold_factors` | Two regime-specific loading spaces and observed-variable threshold | Liu & Chen (2022), `liu2022threshold` | Known/estimated threshold, trimmed spectral-complement profile, unequal regime ranks; no multiple-threshold or threshold-variable-selection extension |
 | `fit_matrix_decorrelation` | Invertible bilinear transformation and rectangular component partitions | Han et al. (2024), `han2024decorrelation` | Signed-lag moments and correlation-threshold or adjacent-ratio grouping; no optional VAR prewhitening or recursive irregular partitioning |
 | `fit_tensor_factor(method="topup")`, `method="tipup"` | Tucker loading spaces from outer/inner lag products | Chen, Yang & Zhang (2022), `chen2022tensorfactor` | Inner-product signal cancellation is an actual model limitation |
@@ -46,6 +47,10 @@ and empirical evidence.
 | `fit_constrained_factor` | Loading spaces within supplied row/column spans | Chen, Tsay & Chen (2020), `chen2020constrained` | Single-term fully constrained model; partial and multi-term estimators are absent |
 | `fit_cp_factor` | Nonorthogonal rank-one matrix components via refined generalized eigenanalysis | Chang et al. (2023), `chang2023cp` | Specified rank, unthresholded moments; rejects singular, complex or unseparated eigenproblems |
 | `fit_huber_factor` | Matrixwise Huber factor loss with weighted projection | He et al., `he2024huber` | Fixed threshold and explicit ranks; simultaneous paper update has a documented sequential descent safeguard; entrywise Huber inference is absent |
+| `fit_matrix_garch` | Trace-identified first-order conditional covariance QMLE | Yu, Li, Jiang & Zhu, `yu2024garch` | Full or diagonal dynamic matrices, multiple starts and constraint diagnostics; zero conditional mean; no QMLE standard errors, factor-GARCH or estimation-adjusted portmanteau test |
+| `filter_matrix_garch`, `simulate_matrix_garch` | Fixed-parameter covariance recursion, Gaussian simulation and exact next-step covariance | Same paper, accepted equations (4)–(9) | Zero-state conditional initialization or supplied chronological state; no closed-form multistep covariance forecast |
+| `MatrixFactorMonitor` | Sequential randomized test of increases in factor rank or joint loading span | He, Kong, Trapani & Yu (2024), `he2024breaks` | Journal power transformation and per-window PCA; fixed ranks/horizon, maximum/partial-sum procedures, first-alarm stopping and resumable state; no disappearing-factor branch or simultaneous-mode calibration |
+| `calibrate_monitor` | Finite-horizon zero-drift iid Gaussian reference critical values | Explicit calibration extension | Exact Gaussian maxima; simulated whole-path partial-sum quantiles with Monte Carlo uncertainty; not finite-sample matrix-data false-alarm control |
 
 ### Bilinear autoregression
 
@@ -143,6 +148,39 @@ idiosyncratic noise can therefore invalidate the identifying argument. Taking
 only `sum_t X[t] @ X[t+h].T` contracts column pairs and changes the estimator.
 [Wang, Liu & Chen](https://arxiv.org/abs/1610.01889).
 
+### Additive two-way dynamic factors
+
+`fit_two_way_dynamic` implements Yuan et al.'s additive model
+`Y_t = F_t L.T + Lambda G_t.T + E_t`, with `Y_t` of shape `(n,m)`,
+`F_t` of shape `(n,r)` and `G_t` of shape `(m,c)`. Public `ranks=(c,r)`
+and `orders=(q,p)` follow row/column order; the paper lists the opposite order.
+Loadings satisfy `L.T L=m I_r` and `Lambda.T Lambda=n I_c`. Factor marginal
+covariances are diagonalized, sorted, and paired with a sign convention;
+coincident factor variances still prevent individual-coordinate identification.
+
+Supplement Algorithm A1 initializes through alternating residual PCA. Main
+Algorithm 1 then optimizes an additive covariance quasi-likelihood through
+heterogeneous quadratic loading updates and full conditional-moment covariance
+EM. The noise update includes the conditional cross-effects between F and G;
+dropping those terms changes the estimator. A spectral inverse action avoids
+materializing the full vectorized covariance. Final conditional factor scores
+are Gaussian linear predictors under the working covariance, not ordinary
+projections or Kalman-smoothed states. Step two fits a scalar AR to each factor
+column, pooling across units. The paper's innovation-variance denominators
+are `n*T` and `m*T`; they differ from lag-adjusted effective sample sizes.
+
+Algorithm 2 selects positive ranks using iterated opposite-mode projections
+and residual-moment eigenvalue ratios. It reports stabilization, cycles and
+iteration limits. Outer and inner optimization diagnostics remain separate
+from rank-selection convergence. Mean centering and an optional reported
+variance floor are explicit computational extensions. Forecasts recurse the
+factor AR processes and predict the idiosyncratic component as zero; they need
+not be full observation conditional means when residuals are serially dependent.
+No automated noise-start search, lag selection, factor inference or Kalman
+filtering is supplied. [Primary paper](https://doi.org/10.1093/jrsssb/qkad077),
+[implementation notes](dynamic-notes.md), and
+[example](../examples/two_way_dynamic.py).
+
 ### Threshold factors and simultaneous decorrelation
 
 `fit_threshold_factors` uses the published 2022 Liu–Chen estimator: each lagged
@@ -175,6 +213,100 @@ are needed. [Decorrelation notes](decorrelation-notes.md) distinguish the printe
 equations, supplementary-code conventions, and remaining prewhitening and
 recursive-partition extensions.
 
+### Trace-identified matrix GARCH
+
+`fit_matrix_garch` implements the accepted first-order model of Yu, Li, Jiang
+and Zhu. Unnormalized row/column shape states follow BEKK-type recursions
+driven by the preceding observation and preceding shape state. A separate
+scalar recursion tracks `y_t=E(||X_t||_F² | past)`. Covariance factors are
+`U_t=y_t*S1_t/tr(S1_t)` and `V_t=S2_t/tr(S2_t)`, so
+`Cov(vec_F(X_t) | past)=V_t ⊗ U_t` and its trace is `y_t`.
+The code distinguishes trace-one column factors V from column marginal
+covariances `y_t*V_t`. The recursions never substitute trace-normalized factors
+for the unnormalized states.
+
+`dynamics="full"` estimates all entries of the four dynamic matrices;
+`"diagonal"` restricts those matrices and still permits full triangular
+intercepts. Intercept diagonals are positive and their first entries fixed
+at one. Scalar modes omit unidentified shape dynamics. Fitting uses the
+paper's zero-state conditional Gaussian quasi-likelihood, analytic recursive
+objective gradients and multiple constrained starts. Numerical parameter
+boxes, selected starts, invalid evaluations and active constraints are visible.
+An optimizer success flag does not establish global optimality or identification;
+dynamic-matrix signs are observationally ambiguous.
+
+The default spectral constraints implement accepted Assumption 3.3(i), which
+alone does not prove stationarity. A separate `constraint="sufficient"` uses
+the stronger Frobenius bound in accepted Theorem 1; failure of that sufficient
+bound does not prove nonstationarity. `constraint="none"` retains positivity
+and numerical optimization bounds. These constraints operate in the original
+data units. No implicit mean subtraction or mean-model estimation is performed.
+
+Filtering supports exact chronological continuation through its returned state.
+`forecast_one()` computes the next conditional covariance exactly. Multistep
+expectations of the normalized shape ratios do not close under substitution
+of expected states, and no such approximation is offered. Gaussian simulation
+returns the covariance states used to generate observations. Standardized
+residuals use Cholesky whitening; they do not implement the paper's symmetric-root
+residual coordinates or estimation-adjusted portmanteau inference. QMLE
+standard errors, the portmanteau test and the matrix factor-GARCH branch remain
+open. [Accepted publication](https://doi.org/10.1080/01621459.2024.2415719),
+[implementation notes](volatility-notes.md), and
+[example](../examples/matrix_garch.py).
+
+### Sequential factor monitoring and reference calibration
+
+`MatrixFactorMonitor` implements the journal-version procedure of He, Kong,
+Trapani and Yu. The monitored baseline rank and opposite-mode projection rank
+are fixed using a stable training period. Each arriving matrix replaces the
+oldest observation in a fixed-length trailing window. Opposite-mode PCA is
+re-estimated on that window, and **all** its observations are projected using
+the new loading estimate. The next non-spiked eigenvalue is normalized by
+the average projected eigenvalue and the dimension-dependent rate. The
+journal's power transformation, followed by independent Gaussian randomization,
+differs from the exponential transformation in the early arXiv version.
+The default power eight entails the paper's finite 32nd-moment assumptions;
+smaller powers have their corresponding moment requirements.
+
+Maximum and weighted partial-sum statistics are implemented, including
+Darling–Erdos normalization at eta=1/2 and delayed Renyi monitoring at eta>1/2.
+The horizon is fixed before observing the monitoring sequence. Default Gumbel
+boundaries are available for maxima and eta=1/2; other partial-sum exponents
+require a supplied critical value. The procedure stops at the first strict
+crossing or horizon exhaustion. `update_many` consumes only that prefix;
+it does not restart automatically or revise ranks after an alarm. All reported
+time indices are one-based, with observation index equal to training length
+plus monitoring index. An alarm index includes detection delay and is not a
+retrospective change-point estimate. Saved state includes the chronological
+window, accumulated statistics, diagnostics and local random-number state.
+
+The implemented alternatives cover newly appearing factors and changes that
+enlarge the combined pre/post loading span. Disappearing factors, zero baseline
+ranks, weak-factor extensions, and calibration across simultaneous modes or
+restarts remain absent. Population moment, factor-strength and training-stability
+assumptions cannot be verified by numerical input checks.
+[Published paper](https://doi.org/10.1214/24-AOS2410),
+[monitoring notes](monitoring-notes.md), and
+[example](../examples/online_monitoring.py).
+
+`calibrate_monitor` is a separate extension targeting a **finite, discrete
+horizon of iid N(0,1) draws with zero drift**. Maxima use an exact Gaussian
+quantile expressed on the monitor's normalized scale. Partial sums simulate
+entire independent paths and calibrate their maximal statistic, including
+the chosen delay and exponent. The conservative order-statistic choice has
+an unconditional reference exceedance bound averaging over calibration
+randomness; it is not a conditional guarantee for a particular simulated
+threshold. Binomial order-statistic intervals describe quantile Monte Carlo
+uncertainty, not matrix-data false-alarm uncertainty. `monitor_kwargs` transfers
+the calibrated horizon/statistic/exponent/delay without changing the design.
+
+Actual matrix-monitor scores retain a nonnegative data-dependent drift, even
+under a finite-sample no-break model. Thus neither Gaussian-reference calibration
+nor the asymptotic boundary supplies exact finite-sample matrix-data false-alarm
+control. Empirical null rejection and detection-delay studies remain distinct
+evidence, and multiple monitors require separate multiplicity control.
+[Calibration notes](calibration-notes.md).
+
 ### Tucker time-series factors
 
 For tensors, `X_t = F_t ×1 A1 ... ×K AK + E_t`. TOPUP unfolds a lagged outer
@@ -205,11 +337,11 @@ separate deliverables. An implemented branch does not cover an entire family.
 | Sparse and Bayesian MAR | Continuous-normal-mixture MAR(1) EMVS implemented; [Celani, Pagnottoni & Jones (2024)](https://doi.org/10.1007/s11222-024-10402-y), `celani2024sparse` | Remaining: spike-and-slab MCMC, posterior interval coverage, lag-factor MAR*(P), tensor variants, and broader prior/local-mode sensitivity comparisons |
 | CP matrix factors | `X_t = sum_j f_jt a_j b_j.T + E_t`; generalized eigenanalysis with reduced-space refinement; [Chang et al. (2023)](https://arxiv.org/abs/2112.15423), `chang2023cp` | Nonorthogonal identifiable components up to permutation/scale; generalized-eigen residuals; repeated-root diagnostics; compare published refined estimator |
 | Constrained matrix factors | Known linear loading constraints, including partial and multi-term constraints; [Chen, Tsay & Chen (2020)](https://arxiv.org/abs/1710.06075), `chen2020constrained` | Constraint residuals, equivalent orthonormal bases, partial-constraint cases, misspecified-constraint experiment |
-| Two-way dynamic factors | Two-way dynamic dimension reduction; [Yuan et al. (2023)](https://doi.org/10.1093/jrsssb/qkad077), `yuan2023dynamic` | Reproduce the specified dynamic estimation procedure and forecasting protocol; static PCA followed by any VAR is not sufficient |
+| Two-way dynamic factors | Additive quasi-likelihood estimator, conditional scores, pooled diagonal AR and iterative rank selection implemented; [Yuan et al. (2023)](https://doi.org/10.1093/jrsssb/qkad077), `yuan2023dynamic` | Remaining: automated noise-start sensitivity, factor-loading/bias-corrected inference, lag-selection assessment and broader misspecification comparisons; Kalman filtering is a separate extension |
 | Simultaneous decorrelation | Bilinear transform with threshold/ratio grouping implemented; [Han et al. (2024)](https://arxiv.org/abs/2103.09411), `han2024decorrelation` | Remaining: optional VAR prewhitening, recursive irregular partitions, alternative moment spectral functions, and broader partition/forecast comparisons |
 | Threshold factors | Single-threshold, unequal-rank factor estimator implemented; [Liu & Chen (2022)](https://doi.org/10.1111/sjos.12576), `liu2022threshold` | Remaining: multiple thresholds, threshold-variable selection, and broader weak-regime/threshold-location experiments; no threshold confidence interval or existence test is supplied |
-| Matrix GARCH | Conditional row/column covariance dynamics with an identified trace process; [Yu et al.](https://arxiv.org/abs/2306.05169), `yu2024garch` | Positive definite covariance at every step; likelihood reference; covariance forecast scoring and portmanteau size/power |
-| Online structural breaks | Monitor non-spiked eigenvalues with sequential randomization; [He et al. (2024)](https://arxiv.org/abs/2112.13479), `he2024breaks` | Null false-alarm control and detection delay across repetitions; genuinely sequential state with no future observations |
+| Matrix GARCH | Full/diagonal first-order trace-identified QMLE, chronological filtering, simulation and exact next covariance implemented; [accepted Yu et al. paper](https://doi.org/10.1080/01621459.2024.2415719), `yu2024garch` | Remaining: QMLE covariance/standard errors, estimation-adjusted portmanteau size/power, factor-GARCH, and validated multistep forecasting; default spectral feasibility is not stationarity proof |
+| Online structural breaks | Journal-version power randomization, per-window projected eigenvalues, maximum/partial sums and resumable state implemented; [He et al. (2024)](https://doi.org/10.1214/24-AOS2410), `he2024breaks` | Remaining: disappearing/weak factors, zero-rank baselines, restart/multiple-mode calibration and broader null-size/delay evidence; the separate finite-H Gaussian reference does not prove finite-sample matrix null control |
 | Rank and statistical inference | MAR(1) Wald covariance and Kronecker specification test implemented; rank criteria from [Han, Chen & Zhang (2022)](https://arxiv.org/abs/2011.07131), `han2022rank`, and modern factor-loading inference remain incomplete | Remaining: factor-loading inference, full rank criteria, null/no-factor cases, weak identification, long-run covariance methods, and inference after selection; an eigenvalue ratio alone does not cover these branches |
 
 The reduced-rank MAR reference is an author manuscript. Secondary bibliographies

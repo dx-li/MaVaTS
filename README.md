@@ -1,8 +1,8 @@
 # MaVaTS
 
 Scientific Python methods for matrix- and tensor-valued time series: structured
-autoregression, factor estimation, decorrelation, inference, simulation, and
-reproducible comparisons.
+autoregression, factor estimation, volatility, sequential monitoring,
+decorrelation, inference, simulation, and reproducible comparisons.
 
 This is the **0.2 development rebuild**. The aim is broad, dependable coverage
 of published methodology. It is not yet a complete replacement for specialist
@@ -82,6 +82,13 @@ Modern Tucker results use orthonormal loadings and expose scores, signal,
 residuals and transformations. Compare loading **spaces**, since individual
 factor coordinates are not identified.
 
+`fit_two_way_dynamic` fits the additive model `X[t] = F[t] L.T + Lambda G[t].T`.
+It combines covariance quasi-likelihood, conditional scores and pooled scalar
+autoregressions, with separate row and column effects rather than a Tucker core.
+Ranks can be supplied or selected through iterative residual projections.
+See the [two-way dynamic example](examples/two_way_dynamic.py) and
+[normalization and forecasting conventions](docs/dynamic-notes.md).
+
 `fit_threshold_factors` estimates two regimes controlled by an observed variable
 aligned with each matrix observation. It supports known or estimated thresholds,
 unequal row/column ranks across regimes, and an inspectable trimmed search
@@ -98,6 +105,40 @@ and requires at least three coordinates in each nontrivial mode. `blocks()` and
 estimator does not fit those forecasting models itself. See the
 [decorrelation notes](docs/decorrelation-notes.md) for equations and limitations.
 
+## Model conditional covariance
+
+`fit_matrix_garch` estimates the trace-identified first-order matrix GARCH model
+with full dynamic matrices or `dynamics="diagonal"`. Both retain full triangular
+covariance intercepts. It fits zero-conditional-mean observations or residuals;
+no mean model is fitted implicitly. `filter_matrix_garch` applies fixed parameters
+chronologically, and `forecast_one()` returns the exact next conditional
+covariance. Multistep covariance forecasts, standard errors and an
+estimation-adjusted portmanteau test remain unimplemented.
+
+Optimization reports all starts, convergence, feasibility and active bounds.
+The default spectral constraints do not by themselves prove stationarity.
+See the [matrix GARCH example](examples/matrix_garch.py) and
+[model and constraint notes](docs/volatility-notes.md).
+
+## Monitor matrix factor changes
+
+`MatrixFactorMonitor` processes one new matrix at a time with fixed training
+length, ranks and monitoring horizon. It re-estimates the opposite-mode PCA
+projection on every trailing window and implements the journal-version power
+randomization. Maximum and weighted partial-sum procedures are available.
+Monitoring stops at its first alarm or horizon exhaustion; reported indices
+are one-based, and an alarm time is not an estimated break location.
+`state_dict()` and `from_state()` preserve the window, diagnostics and local
+randomization state for continuation.
+
+`calibrate_monitor` separately supplies finite-horizon, zero-drift iid Gaussian
+reference thresholds: exact for maxima and simulated for partial sums. These
+are an explicit extension, not finite-sample false-alarm guarantees for matrix
+data, whose randomized scores retain a data-dependent drift. See the
+[online monitoring example](examples/online_monitoring.py),
+[monitor assumptions](docs/monitoring-notes.md), and
+[calibration scope](docs/calibration-notes.md).
+
 ## Methods, examples and comparisons
 
 - [Scientific coverage and primary citations](docs/methods.md)
@@ -105,6 +146,7 @@ estimator does not fit those forecasting models itself. See the
 - [Executable examples](examples/quickstart.py)
 - [Core method gallery](examples/method_gallery.py)
 - [MAR inference example](examples/mar_inference.py) and [assumptions](docs/inference-notes.md)
+- [Additive dynamic factors](examples/two_way_dynamic.py), [matrix GARCH](examples/matrix_garch.py), and [online monitoring](examples/online_monitoring.py)
 - [Benchmark protocol and retained results](benchmarks/README.md)
 - [Remaining work and acceptance criteria](docs/roadmap.md)
 - [Contributing](CONTRIBUTING.md)

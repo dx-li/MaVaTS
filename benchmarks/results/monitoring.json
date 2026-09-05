@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "configuration": {
+    "repeats": 200,
+    "quick": false,
+    "seed": 672,
+    "calibration_repeats": 20000
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "mavats": "0.2.0.dev0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.9\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    },\n    \"build\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    },\n    \"lapack\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/private/var/folders/g3/pffjr_y96bq06blnkf72x_hw0000gn/T/build-env-jzdn7by7/bin/python\",\n    \"version\": \"3.13\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"NEON\",\n      \"NEON_FP16\",\n      \"NEON_VFPV4\",\n      \"ASIMD\"\n    ],\n    \"found\": [\n      \"ASIMDHP\",\n      \"ASIMDDP\"\n    ],\n    \"not found\": [\n      \"ASIMDFHM\"\n    ]\n  }\n}\n",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "calibrations": [
+    {
+      "method": "maximum-gaussian",
+      "critical_value": 2.5578138541352606,
+      "replications": 0,
+      "calibration_method": "exact-gaussian-maximum",
+      "quantile_interval": [
+        2.5578138541352606,
+        2.5578138541352606
+      ],
+      "calibration_seed": 100672
+    },
+    {
+      "method": "partial-sum-gaussian",
+      "critical_value": 2.3073468400701227,
+      "replications": 20000,
+      "calibration_method": "monte-carlo-gaussian-paths",
+      "quantile_interval": [
+        2.288134931094497,
+        2.328828033309122
+      ],
+      "calibration_seed": 100672
+    },
+    {
+      "method": "darling-erdos-gaussian",
+      "critical_value": 2.3076032671720204,
+      "replications": 20000,
+      "calibration_method": "monte-carlo-gaussian-paths",
+      "quantile_interval": [
+        2.269980850083621,
+        2.347092279380574
+      ],
+      "calibration_seed": 100672
+    },
+    {
+      "method": "renyi-gaussian",
+      "critical_value": 2.183098826121111,
+      "replications": 20000,
+      "calibration_method": "monte-carlo-gaussian-paths",
+      "quantile_interval": [
+        2.16061317509882,
+        2.205450701942311
+      ],
+      "calibration_seed": 100672
+    }
+  ],
+  "source_sha256": {
+    "benchmarks/monitoring.py": "a40426bf0fbb753c356ab955ddd302a44769ba17e9c501acf2e353400602dc06",
+    "benchmarks/run.py": "f497a85e467b1e6f783a7e040aaf8faad30143b00db197263a5bb1fd13699d78",
+    "benchmarks/scenarios.py": "5690bae0aba5aada8f28180519db3df8ad1b0ce786de98ea7605ededc130242f",
+    "mavats/MAR.py": "72a7f8966ab95ade19666b5919a806f7fb554367c6e8f886bf484a12441a7300",
+    "mavats/__init__.py": "7cbb98f2ce11ac64026bfe5935a26d5cd3da1f0f807857e5e693ea2c97eca705",
+    "mavats/_validation.py": "a2a8d09990cd0d4c28f5d7a4fb5ee2ae08acf62e4d764e46db9c6060ed7143b3",
+    "mavats/alphaPCA.py": "c977552665e7e86870e5d3078a549fb079bcc8fa7328633f92b22bc84e9a93c4",
+    "mavats/autoregression.py": "2bb7646004c187678db9db597fe68ae7ac5ff296704e0066e06220c62439d909",
+    "mavats/baselines.py": "b022919fbc37fa3c741e97d6b13ab2a2aaf3d57f1b8591b8fa48795193b91eb6",
+    "mavats/calibration.py": "d4b6ed75f7a91b8681e561433474b830efe22a3ae7a9cfcd3cdd2e583eea1993",
+    "mavats/constrained.py": "c15a8b7c8d304ed425324098ab2773e5e9b3038855cd28914b878706264ecec3",
+    "mavats/cp.py": "ab9ce6d1494a2b4799ff32894d1be13af2300250c6118b592e39a945601997df",
+    "mavats/decorrelation.py": "64f8368f3b89892be3d296f9692be19fea63af70454c48d8165cc816a0f9b05c",
+    "mavats/dynamic.py": "28f206b78fedcd7e55a830483f66070eed219d97e5922fe345eefa7205d790e9",
+    "mavats/factormodel.py": "48bb8d788b1d365c8a7a61c447e3ad5d4779d78a6b275a27c4e7c5176f173360",
+    "mavats/factors.py": "8d9e4b0388805a774737538b6b6274834c97c01901d940237b552740096590dc",
+    "mavats/huber.py": "cdd803f9ffd4f6f53c3dc116e8c5fef2d9c22c9a74b8026647d15bafac355187",
+    "mavats/inference.py": "8527030fa69388ed42c2731bb528e599fc2e8c6a7b84bf9e85ffdd720398cc83",
+    "mavats/metrics.py": "61a183ff671192eaae6f2bccd6b5c192dc095c31c6abaf869e3341c6f670e597",
+    "mavats/model_selection.py": "35be477fc2f464f11504cde1b5b5b845e9c99d8130a90f848aa057715304b3ef",
+    "mavats/monitoring.py": "6f706b5c0cfef0f755add11f24614642a32c68860f047e3848f895e2c1d76b98",
+    "mavats/robust.py": "e6bb052d756f41bb0655d45f7fd13c208b38f62198b26b24aaa4e7e63796f5f5",
+    "mavats/simulation.py": "8c10dc97feda7b0cbc5370717bc02f62fa5906202aab53201cb1de0e449b8c0c",
+    "mavats/sparse.py": "982abec64c3b858ae302b9d8bff8161ab73ef0d8ead37a405c569b3cf0f6814d",
+    "mavats/tensor.py": "d428d252911ef70e60c5e894c5996656cfa32fd1ba01d246320fbfbecce34092",
+    "mavats/threshold.py": "c6bedefdc30a14531b891ef45d58b3a59ea40f9872faa626abb9b4cd1b38983a",
+    "mavats/volatility.py": "2716e519464aca5a00e7b82fe909afa7ab32eb84cf368b2c858197e571e4b125"
+  },
+  "source_changed_during_run": [],
+  "results_file": "monitoring.jsonl",
+  "summary": [
+    {
+      "regime": "factor-increase",
+      "method": "darling-erdos-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.025,
+      "pre_event_alarm_wilson_95": [
+        0.010724719651761264,
+        0.05717834040664198
+      ],
+      "at_risk_at_change": 195,
+      "post_event_detections": 195,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9806807954262788,
+        1.0
+      ],
+      "mean_delay_conditional_on_detection": 5.1179487179487175
+    },
+    {
+      "regime": "factor-increase",
+      "method": "maximum-asymptotic",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.005,
+      "pre_event_alarm_wilson_95": [
+        0.0008831687156009814,
+        0.02777370439789293
+      ],
+      "at_risk_at_change": 199,
+      "post_event_detections": 199,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9810617669433649,
+        0.9999999999999999
+      ],
+      "mean_delay_conditional_on_detection": 4.396984924623116
+    },
+    {
+      "regime": "factor-increase",
+      "method": "maximum-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.01,
+      "pre_event_alarm_wilson_95": [
+        0.0027466581335444384,
+        0.0357217617161768
+      ],
+      "at_risk_at_change": 198,
+      "post_event_detections": 198,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9809679396733518,
+        1.0
+      ],
+      "mean_delay_conditional_on_detection": 4.3686868686868685
+    },
+    {
+      "regime": "factor-increase",
+      "method": "partial-sum-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.0,
+      "pre_event_alarm_wilson_95": [
+        1.734723475976807e-18,
+        0.018845326377266575
+      ],
+      "at_risk_at_change": 200,
+      "post_event_detections": 200,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_delay_conditional_on_detection": 5.18
+    },
+    {
+      "regime": "factor-increase",
+      "method": "renyi-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.05,
+      "pre_event_alarm_wilson_95": [
+        0.02738264560076393,
+        0.08957814813877599
+      ],
+      "at_risk_at_change": 190,
+      "post_event_detections": 190,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9801824705402803,
+        0.9999999999999999
+      ],
+      "mean_delay_conditional_on_detection": 5.352631578947369
+    },
+    {
+      "regime": "null",
+      "method": "darling-erdos-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.04,
+      "alarm_wilson_95": [
+        0.020405632066152306,
+        0.07693206820093293
+      ],
+      "pre_event_alarm_rate": 0.025,
+      "pre_event_alarm_wilson_95": [
+        0.010724719651761264,
+        0.05717834040664198
+      ]
+    },
+    {
+      "regime": "null",
+      "method": "maximum-asymptotic",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.04,
+      "alarm_wilson_95": [
+        0.020405632066152306,
+        0.07693206820093293
+      ],
+      "pre_event_alarm_rate": 0.005,
+      "pre_event_alarm_wilson_95": [
+        0.0008831687156009814,
+        0.02777370439789293
+      ]
+    },
+    {
+      "regime": "null",
+      "method": "maximum-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.07,
+      "alarm_wilson_95": [
+        0.042152171828342806,
+        0.11405480885610647
+      ],
+      "pre_event_alarm_rate": 0.01,
+      "pre_event_alarm_wilson_95": [
+        0.0027466581335444384,
+        0.0357217617161768
+      ]
+    },
+    {
+      "regime": "null",
+      "method": "partial-sum-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.035,
+      "alarm_wilson_95": [
+        0.017055542008567192,
+        0.07047061152229073
+      ],
+      "pre_event_alarm_rate": 0.0,
+      "pre_event_alarm_wilson_95": [
+        1.734723475976807e-18,
+        0.018845326377266575
+      ]
+    },
+    {
+      "regime": "null",
+      "method": "renyi-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.05,
+      "alarm_wilson_95": [
+        0.02738264560076393,
+        0.08957814813877599
+      ],
+      "pre_event_alarm_rate": 0.05,
+      "pre_event_alarm_wilson_95": [
+        0.02738264560076393,
+        0.08957814813877599
+      ]
+    },
+    {
+      "regime": "same-space-volatility",
+      "method": "darling-erdos-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.04,
+      "alarm_wilson_95": [
+        0.020405632066152306,
+        0.07693206820093293
+      ],
+      "pre_event_alarm_rate": 0.025,
+      "pre_event_alarm_wilson_95": [
+        0.010724719651761264,
+        0.05717834040664198
+      ]
+    },
+    {
+      "regime": "same-space-volatility",
+      "method": "maximum-asymptotic",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.04,
+      "alarm_wilson_95": [
+        0.020405632066152306,
+        0.07693206820093293
+      ],
+      "pre_event_alarm_rate": 0.005,
+      "pre_event_alarm_wilson_95": [
+        0.0008831687156009814,
+        0.02777370439789293
+      ]
+    },
+    {
+      "regime": "same-space-volatility",
+      "method": "maximum-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.07,
+      "alarm_wilson_95": [
+        0.042152171828342806,
+        0.11405480885610647
+      ],
+      "pre_event_alarm_rate": 0.01,
+      "pre_event_alarm_wilson_95": [
+        0.0027466581335444384,
+        0.0357217617161768
+      ]
+    },
+    {
+      "regime": "same-space-volatility",
+      "method": "partial-sum-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.035,
+      "alarm_wilson_95": [
+        0.017055542008567192,
+        0.07047061152229073
+      ],
+      "pre_event_alarm_rate": 0.0,
+      "pre_event_alarm_wilson_95": [
+        1.734723475976807e-18,
+        0.018845326377266575
+      ]
+    },
+    {
+      "regime": "same-space-volatility",
+      "method": "renyi-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 0.05,
+      "alarm_wilson_95": [
+        0.02738264560076393,
+        0.08957814813877599
+      ],
+      "pre_event_alarm_rate": 0.05,
+      "pre_event_alarm_wilson_95": [
+        0.02738264560076393,
+        0.08957814813877599
+      ]
+    },
+    {
+      "regime": "space-switch",
+      "method": "darling-erdos-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.025,
+      "pre_event_alarm_wilson_95": [
+        0.010724719651761264,
+        0.05717834040664198
+      ],
+      "at_risk_at_change": 195,
+      "post_event_detections": 195,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9806807954262788,
+        1.0
+      ],
+      "mean_delay_conditional_on_detection": 4.420512820512821
+    },
+    {
+      "regime": "space-switch",
+      "method": "maximum-asymptotic",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.005,
+      "pre_event_alarm_wilson_95": [
+        0.0008831687156009814,
+        0.02777370439789293
+      ],
+      "at_risk_at_change": 199,
+      "post_event_detections": 199,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9810617669433649,
+        0.9999999999999999
+      ],
+      "mean_delay_conditional_on_detection": 3.8391959798994977
+    },
+    {
+      "regime": "space-switch",
+      "method": "maximum-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.01,
+      "pre_event_alarm_wilson_95": [
+        0.0027466581335444384,
+        0.0357217617161768
+      ],
+      "at_risk_at_change": 198,
+      "post_event_detections": 198,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9809679396733518,
+        1.0
+      ],
+      "mean_delay_conditional_on_detection": 3.8434343434343434
+    },
+    {
+      "regime": "space-switch",
+      "method": "partial-sum-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.0,
+      "pre_event_alarm_wilson_95": [
+        1.734723475976807e-18,
+        0.018845326377266575
+      ],
+      "at_risk_at_change": 200,
+      "post_event_detections": 200,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "mean_delay_conditional_on_detection": 4.445
+    },
+    {
+      "regime": "space-switch",
+      "method": "renyi-gaussian",
+      "total": 200,
+      "successful": 200,
+      "rates_condition_on_success": true,
+      "alarm_rate": 1.0,
+      "alarm_wilson_95": [
+        0.9811546736227335,
+        1.0
+      ],
+      "pre_event_alarm_rate": 0.05,
+      "pre_event_alarm_wilson_95": [
+        0.02738264560076393,
+        0.08957814813877599
+      ],
+      "at_risk_at_change": 190,
+      "post_event_detections": 190,
+      "right_censored": 0,
+      "detection_rate_conditional_on_no_pre_alarm": 1.0,
+      "detection_wilson_95": [
+        0.9801824705402803,
+        0.9999999999999999
+      ],
+      "mean_delay_conditional_on_detection": 4.557894736842106
+    }
+  ]
+}

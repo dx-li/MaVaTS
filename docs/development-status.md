@@ -5,7 +5,46 @@ time-series methods, with scientific benchmarks, examples, stable numerics and
 an extensible Python library. This checkpoint is substantial implementation
 progress, not a declaration that the literature is fully covered.
 
-## Second checkpoint: matrix extensions and inference
+## Third checkpoint: additive dynamics, volatility and online monitoring
+
+Added additive two-way dynamic factors with automatic spatial rank selection,
+conditional latent-factor scoring and forecasting; Matrix GARCH filtering,
+simulation, full/diagonal conditional Gaussian QMLE and covariance forecasting;
+and sequential matrix-factor monitoring with all four boundary families.
+Finite-horizon Gaussian-reference calibration is a documented extension, not
+an exact finite-sample guarantee for matrix-data false alarms. Each family has
+independent equation tests, method notes and an executable example.
+
+The combined suite passes 582 tests in both dependency environments listed
+below, with 94% line coverage. All nine examples run locally and against an
+independently installed wheel. Source/wheel
+builds, generated API docs and formatting checks pass. Extreme-scale GARCH
+tests cover unrepresentable covariance rejection, inactive-energy overflow,
+and invalid multistart fallback without losing earlier valid fits. NumPy complex
+scalar options are rejected instead of silently discarding imaginary parts.
+
+The new retained studies add 80 paired dynamic/volatility experiments and 4,000
+monitoring paths, with zero execution failures; all fitted advanced-model
+optimizers and automatic-rank iterations converged for these retained seeds.
+They report failures, optimization and rank convergence,
+active constraints, early alarms, right-censored detections and Monte Carlo
+uncertainty explicitly. The full GARCH fit does not outperform the diagonal
+restriction in this small design; this is retained, not explained away as an
+implementation success criterion. See the
+[results and limitations](../benchmarks/results/advanced-summary.md).
+All benchmark drivers now fingerprint numerical source before execution and
+flag edits during a run. Timings are not warmed-up performance rankings.
+
+These implementations remain scoped branches. Dynamic factors do not yet offer
+automatic lag selection or general latent-state filtering; Matrix GARCH lacks
+inferential APIs and multistep covariance forecasts; monitoring does not cover
+disappearing factors, automatic baseline-rank selection or multiplicity control.
+Major open families include matrix ARMA/cointegration, tensor autoregression,
+transition-rank methods, iterative Huber factors and partial constraints.
+Real-data studies and wider stress/performance grids remain necessary. The
+comprehensive-library goal remains active; this is not a release-completeness claim.
+
+## Second checkpoint: matrix extensions and inference (retained history)
 
 Added two-regime threshold factors (including unequal automatic ranks),
 continuous spike-and-slab sparse MAR EMVS, simultaneous matrix decorrelation
@@ -27,7 +66,7 @@ See [benchmark interpretation](../benchmarks/results/extensions-summary.md).
 These additions cover specific branches, not their entire families. Sparse
 posterior MCMC/credible intervals, threshold-variable selection and multiple
 thresholds, decorrelation prewhitening/recursive partitions, and broad factor
-inference remain open. Major absent matrix families still include two-way
+inference remain open. At that checkpoint, absent matrix families included two-way
 dynamic factors, matrix volatility, online structural breaks, ARMA and
 cointegration. Tensor autoregression and transition-rank methods also remain
 open. The roadmap and full objective are unchanged.
