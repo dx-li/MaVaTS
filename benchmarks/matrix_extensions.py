@@ -178,7 +178,6 @@ def run_suite(*, quick=False, repeats=5, seed=48):
             seed=current,
             shape=[6, 5],
             n_train=n,
-            options={"max_lag": 2, "trim": [0.1, 0.9]},
         )
         factories = {
             "threshold-estimated": lambda: fit_threshold_factors(
@@ -191,8 +190,24 @@ def run_suite(*, quick=False, repeats=5, seed=48):
                 x[:n], (3, 3), lags=2
             ),
         }
+        threshold_options = {
+            "threshold-estimated": {"max_lag": 2, "trim": [0.1, 0.9], "ranks": None},
+            "threshold-known-oracle": {
+                "max_lag": 2,
+                "threshold": 0,
+                "ranks": [[1, 2], [2, 1]],
+            },
+            "global-factor-union-ranks": {"lags": 2, "ranks": [3, 3]},
+        }
         for name, factory in factories.items():
-            records.append(_measure(name, factory, threshold_score, metadata))
+            records.append(
+                _measure(
+                    name,
+                    factory,
+                    threshold_score,
+                    dict(metadata, options=threshold_options[name]),
+                )
+            )
 
         n = 2000 if quick else 10000
         x = _decorrelation_data(n + 100, current)

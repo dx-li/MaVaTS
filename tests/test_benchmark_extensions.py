@@ -183,4 +183,18 @@ def test_quick_matrix_extension_suite_records_methods_and_scores():
         assert 0 <= sparse[metric] <= 1
     block = next(row for row in rows if row["method"] == "decorrelated-block-var")
     assert block["round_trip_error"] < 1e-10
+    by_method = {
+        row["method"]: row for row in rows if row["task"] == "threshold-factor"
+    }
+    assert by_method["global-factor-union-ranks"]["options"] == {
+        "lags": 2,
+        "ranks": [3, 3],
+    }
+    oracle = by_method["threshold-known-oracle"]["options"]
+    assert oracle == {"max_lag": 2, "threshold": 0, "ranks": [[1, 2], [2, 1]]}
+    assert by_method["threshold-estimated"]["options"] == {
+        "max_lag": 2,
+        "trim": [0.1, 0.9],
+        "ranks": None,
+    }
     json.dumps(rows, allow_nan=False)
