@@ -105,7 +105,12 @@ def test_per_mode_penalties_and_exclusive_log_alternative():
     direct = select_tensor_rank(X, penalty_multiplier=(0.001, 10), **kwargs)
     logs = select_tensor_rank(X, log_penalty_multiplier=np.log([0.001, 10]), **kwargs)
     assert direct.ranks == logs.ranks == (2, 0)
-    assert direct.log_penalty_multipliers == logs.log_penalty_multipliers
+    # NumPy's vector log and the scalar math.log path can round differently
+    # across CPU/libm builds. Rank equality remains exact; logarithmic inputs
+    # must agree to floating-point precision, not bit for bit.
+    np.testing.assert_array_max_ulp(
+        direct.log_penalty_multipliers, logs.log_penalty_multipliers, maxulp=2
+    )
 
 
 def test_extreme_er_rounding_does_not_hide_best_ratio():
