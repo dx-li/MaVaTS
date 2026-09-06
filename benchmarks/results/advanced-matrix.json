@@ -1,0 +1,2267 @@
+{
+  "schema_version": 1,
+  "configuration": {
+    "quick": false,
+    "repeats": 5,
+    "seed": 893
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "mavats": "0.2.0.dev0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.9\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    },\n    \"build\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    },\n    \"lapack\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/private/var/folders/g3/pffjr_y96bq06blnkf72x_hw0000gn/T/build-env-jzdn7by7/bin/python\",\n    \"version\": \"3.13\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"NEON\",\n      \"NEON_FP16\",\n      \"NEON_VFPV4\",\n      \"ASIMD\"\n    ],\n    \"found\": [\n      \"ASIMDHP\",\n      \"ASIMDDP\"\n    ],\n    \"not found\": [\n      \"ASIMDFHM\"\n    ]\n  }\n}\n",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "source_sha256": {
+    "benchmarks/advanced_matrix.py": "7c90d9f0d852981c281a2715d369af2dd1c86990f146d9a2f9ad8995582412df",
+    "benchmarks/run.py": "c659ed699acb8442c0011e6df4191eca22b2a46ffdb2281949d02d325675ee90",
+    "benchmarks/scenarios.py": "5690bae0aba5aada8f28180519db3df8ad1b0ce786de98ea7605ededc130242f",
+    "mavats/MAR.py": "72a7f8966ab95ade19666b5919a806f7fb554367c6e8f886bf484a12441a7300",
+    "mavats/__init__.py": "6b95a98c2ac37090a2c51e90d0d962ccccb85ce5688a30245784447e80728848",
+    "mavats/_validation.py": "a2a8d09990cd0d4c28f5d7a4fb5ee2ae08acf62e4d764e46db9c6060ed7143b3",
+    "mavats/alphaPCA.py": "c977552665e7e86870e5d3078a549fb079bcc8fa7328633f92b22bc84e9a93c4",
+    "mavats/autoregression.py": "2bb7646004c187678db9db597fe68ae7ac5ff296704e0066e06220c62439d909",
+    "mavats/baselines.py": "b022919fbc37fa3c741e97d6b13ab2a2aaf3d57f1b8591b8fa48795193b91eb6",
+    "mavats/calibration.py": "d4b6ed75f7a91b8681e561433474b830efe22a3ae7a9cfcd3cdd2e583eea1993",
+    "mavats/cointegration.py": "244c6a7ad0555470fd28dadad52a4a2bb7ef8b4e088dff1f9202561ab14662cf",
+    "mavats/constrained.py": "c15a8b7c8d304ed425324098ab2773e5e9b3038855cd28914b878706264ecec3",
+    "mavats/cp.py": "ab9ce6d1494a2b4799ff32894d1be13af2300250c6118b592e39a945601997df",
+    "mavats/decorrelation.py": "64f8368f3b89892be3d296f9692be19fea63af70454c48d8165cc816a0f9b05c",
+    "mavats/dynamic.py": "28f206b78fedcd7e55a830483f66070eed219d97e5922fe345eefa7205d790e9",
+    "mavats/factormodel.py": "48bb8d788b1d365c8a7a61c447e3ad5d4779d78a6b275a27c4e7c5176f173360",
+    "mavats/factors.py": "8d9e4b0388805a774737538b6b6274834c97c01901d940237b552740096590dc",
+    "mavats/huber.py": "cdd803f9ffd4f6f53c3dc116e8c5fef2d9c22c9a74b8026647d15bafac355187",
+    "mavats/ihr.py": "71823d39a923e2f4dd461739776347b3b15784553d5d6d8679954ba25578c049",
+    "mavats/inference.py": "8527030fa69388ed42c2731bb528e599fc2e8c6a7b84bf9e85ffdd720398cc83",
+    "mavats/metrics.py": "61a183ff671192eaae6f2bccd6b5c192dc095c31c6abaf869e3341c6f670e597",
+    "mavats/model_selection.py": "35be477fc2f464f11504cde1b5b5b845e9c99d8130a90f848aa057715304b3ef",
+    "mavats/monitoring.py": "6f706b5c0cfef0f755add11f24614642a32c68860f047e3848f895e2c1d76b98",
+    "mavats/robust.py": "e6bb052d756f41bb0655d45f7fd13c208b38f62198b26b24aaa4e7e63796f5f5",
+    "mavats/simulation.py": "8c10dc97feda7b0cbc5370717bc02f62fa5906202aab53201cb1de0e449b8c0c",
+    "mavats/sparse.py": "982abec64c3b858ae302b9d8bff8161ab73ef0d8ead37a405c569b3cf0f6814d",
+    "mavats/tensor.py": "d428d252911ef70e60c5e894c5996656cfa32fd1ba01d246320fbfbecce34092",
+    "mavats/tensor_autoregression.py": "a80335fa5dd08406e030696a08ee1b41a2833069c3ecbda7e42b9771fd8403c6",
+    "mavats/threshold.py": "c6bedefdc30a14531b891ef45d58b3a59ea40f9872faa626abb9b4cd1b38983a",
+    "mavats/volatility.py": "2716e519464aca5a00e7b82fe909afa7ab32eb84cf368b2c858197e571e4b125"
+  },
+  "source_changed_during_run": [],
+  "results": [
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.033306625206023455,
+      "forecast_mse": 2.190494519608545,
+      "signal_error": 0.1330861122694786,
+      "subspace_error": 0.00693428290378544,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.029385665897279978,
+      "forecast_mse": 2.190494519608545,
+      "signal_error": 0.1330861122694786,
+      "subspace_error": 0.00693428290378544,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.0178456655703485,
+      "forecast_mse": 2.313882342153542,
+      "converged": true,
+      "iterations": 8,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.002533415798097849,
+      "forecast_mse": 2.6393571925834474,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 3.9431424116447267,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.1541156248634197,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.034999958239495754,
+      "forecast_mse": 2.258825552024576,
+      "signal_error": 0.12916665080218834,
+      "subspace_error": 0.006697757143680783,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.034264083951711655,
+      "forecast_mse": 2.258825552024576,
+      "signal_error": 0.12916665080218834,
+      "subspace_error": 0.006697757143680783,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.020120084285736084,
+      "forecast_mse": 2.3451329660353966,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.00232691690325737,
+      "forecast_mse": 2.644328833097198,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 4.202001573292139,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.154115624863419,
+      "options": {}
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "diagonal",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 893
+      },
+      "method": "matrix-garch-diagonal",
+      "fit_seconds": 37.932384375017136,
+      "negative_gaussian_log_score": 4.465818538441292,
+      "covariance_error": 0.10775435907887823,
+      "constraint_violation": 0.0,
+      "active_bounds": [],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 182,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "full",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 893
+      },
+      "method": "matrix-garch-full",
+      "fit_seconds": 36.63914158381522,
+      "negative_gaussian_log_score": 4.478155755598541,
+      "covariance_error": 0.13482448621530138,
+      "constraint_violation": 3.568167561418534e-08,
+      "active_bounds": [
+        "spectral constraint 0"
+      ],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 200,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "constant-covariance",
+      "fit_seconds": 1.0826624929904938e-06,
+      "negative_gaussian_log_score": 4.472196719881792,
+      "covariance_error": 0.18020477732845683,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 0,
+      "seed": 893,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "oracle-conditional-covariance",
+      "fit_seconds": 5.00120222568512e-07,
+      "negative_gaussian_log_score": 4.454805894215204,
+      "covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.026615583337843418,
+      "forecast_mse": 2.218608922004894,
+      "signal_error": 0.1301313733907453,
+      "subspace_error": 0.007730837935469889,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.027722500264644623,
+      "forecast_mse": 2.218608922004894,
+      "signal_error": 0.1301313733907453,
+      "subspace_error": 0.007730837935469889,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.02201445819810033,
+      "forecast_mse": 2.3313163784737507,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.002405208069831133,
+      "forecast_mse": 2.7195263841268646,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 4.453735419609443,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.1684857164435547,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.025091125164180994,
+      "forecast_mse": 2.246588266049843,
+      "signal_error": 0.12591926106754667,
+      "subspace_error": 0.007716116918077846,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.02735862508416176,
+      "forecast_mse": 2.246588266049843,
+      "signal_error": 0.12591926106754667,
+      "subspace_error": 0.007716116918077846,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.021375165786594152,
+      "forecast_mse": 2.3458203978642818,
+      "converged": true,
+      "iterations": 10,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.002344499807804823,
+      "forecast_mse": 2.684335182799659,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 4.790543139148183,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.1684857164435547,
+      "options": {}
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "diagonal",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 894
+      },
+      "method": "matrix-garch-diagonal",
+      "fit_seconds": 11.026674709282815,
+      "negative_gaussian_log_score": 5.44716671797605,
+      "covariance_error": 0.17028735649300003,
+      "constraint_violation": 0.0,
+      "active_bounds": [],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 58,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "full",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 894
+      },
+      "method": "matrix-garch-full",
+      "fit_seconds": 32.53782966686413,
+      "negative_gaussian_log_score": 5.589847723833075,
+      "covariance_error": 0.26597779953255796,
+      "constraint_violation": 8.574709609021625e-09,
+      "active_bounds": [
+        "spectral constraint 0"
+      ],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 170,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "constant-covariance",
+      "fit_seconds": 8.749775588512421e-07,
+      "negative_gaussian_log_score": 5.609590630298985,
+      "covariance_error": 0.3177669209068381,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 1,
+      "seed": 894,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "oracle-conditional-covariance",
+      "fit_seconds": 3.3387914299964905e-07,
+      "negative_gaussian_log_score": 5.38259063209988,
+      "covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.025229415856301785,
+      "forecast_mse": 2.2379945476023355,
+      "signal_error": 0.1325646446669851,
+      "subspace_error": 0.005879556250981176,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.028141542337834835,
+      "forecast_mse": 2.2379945476023355,
+      "signal_error": 0.1325646446669851,
+      "subspace_error": 0.005879556250981176,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.019509832840412855,
+      "forecast_mse": 2.3474171312782857,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.002322874963283539,
+      "forecast_mse": 2.7450094544027217,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 4.814819079074088,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.208600020811163,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.025380415841937065,
+      "forecast_mse": 2.29106991697838,
+      "signal_error": 0.12987038267532594,
+      "subspace_error": 0.006113791654869786,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.027505874633789062,
+      "forecast_mse": 2.29106991697838,
+      "signal_error": 0.12987038267532594,
+      "subspace_error": 0.006113791654869786,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.019244125112891197,
+      "forecast_mse": 2.352682112068939,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.0026898332871496677,
+      "forecast_mse": 2.7680135785255238,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 5.210175162193323,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.208600020811163,
+      "options": {}
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "diagonal",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 895
+      },
+      "method": "matrix-garch-diagonal",
+      "fit_seconds": 24.233611959032714,
+      "negative_gaussian_log_score": 4.470554489554306,
+      "covariance_error": 0.0785575460748055,
+      "constraint_violation": 5.613173703622465e-09,
+      "active_bounds": [
+        "spectral constraint 0"
+      ],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 108,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "full",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 895
+      },
+      "method": "matrix-garch-full",
+      "fit_seconds": 47.81300262501463,
+      "negative_gaussian_log_score": 4.508888582928699,
+      "covariance_error": 0.1473451027721529,
+      "constraint_violation": 2.88702950435038e-10,
+      "active_bounds": [
+        "spectral constraint 1"
+      ],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 285,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "constant-covariance",
+      "fit_seconds": 8.749775588512421e-07,
+      "negative_gaussian_log_score": 4.509551600369508,
+      "covariance_error": 0.20810489265955256,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 2,
+      "seed": 895,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "oracle-conditional-covariance",
+      "fit_seconds": 3.748573362827301e-07,
+      "negative_gaussian_log_score": 4.482343163209822,
+      "covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.025538125075399876,
+      "forecast_mse": 2.3454182536372357,
+      "signal_error": 0.13123560570297435,
+      "subspace_error": 0.006041070856676457,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.027084708213806152,
+      "forecast_mse": 2.3454182536372357,
+      "signal_error": 0.13123560570297435,
+      "subspace_error": 0.006041070856676457,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.01988158281892538,
+      "forecast_mse": 2.4182019582903362,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.00240899994969368,
+      "forecast_mse": 2.7590248852229178,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 4.750091619811084,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.3094994234564816,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.025129583198577166,
+      "forecast_mse": 2.3994257753538704,
+      "signal_error": 0.12806176250354495,
+      "subspace_error": 0.006003334450397508,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.027502957731485367,
+      "forecast_mse": 2.3994257753538704,
+      "signal_error": 0.12806176250354495,
+      "subspace_error": 0.006003334450397508,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.019025125075131655,
+      "forecast_mse": 2.4586778407543544,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.0022975001484155655,
+      "forecast_mse": 2.763542981351524,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 5.1578223124745906,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.309499423456481,
+      "options": {}
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "diagonal",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 896
+      },
+      "method": "matrix-garch-diagonal",
+      "fit_seconds": 28.848827291745692,
+      "negative_gaussian_log_score": 4.425308334206013,
+      "covariance_error": 0.06163403496002329,
+      "constraint_violation": 0.0,
+      "active_bounds": [],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 134,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "full",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 896
+      },
+      "method": "matrix-garch-full",
+      "fit_seconds": 40.763423083815724,
+      "negative_gaussian_log_score": 4.4216587938083505,
+      "covariance_error": 0.19925275142713494,
+      "constraint_violation": 2.843743795999387e-09,
+      "active_bounds": [
+        "spectral constraint 0"
+      ],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 260,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "constant-covariance",
+      "fit_seconds": 9.578652679920197e-07,
+      "negative_gaussian_log_score": 4.473322499940365,
+      "covariance_error": 0.19156721172108607,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 3,
+      "seed": 896,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "oracle-conditional-covariance",
+      "fit_seconds": 3.3387914299964905e-07,
+      "negative_gaussian_log_score": 4.430812987543661,
+      "covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.02463412517681718,
+      "forecast_mse": 2.211174129623282,
+      "signal_error": 0.13266593473280944,
+      "subspace_error": 0.006642896621610465,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.039389458019286394,
+      "forecast_mse": 2.211174129623282,
+      "signal_error": 0.13266593473280944,
+      "subspace_error": 0.006642896621610465,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.019690500106662512,
+      "forecast_mse": 2.3097826228204967,
+      "converged": true,
+      "iterations": 9,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.0022895000874996185,
+      "forecast_mse": 2.6502050216687163,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 4.501409596799588,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "diagonal-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": true,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.1826572466656513,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": [
+          1,
+          2
+        ],
+        "orders": [
+          1,
+          1
+        ]
+      },
+      "method": "two-way-known-ranks",
+      "fit_seconds": 0.024709457997232676,
+      "forecast_mse": 2.237025749387413,
+      "signal_error": 0.1286078275051529,
+      "subspace_error": 0.006487874437011003,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ranks": null,
+        "orders": [
+          1,
+          1
+        ],
+        "ratio_ridge": 0.01
+      },
+      "method": "two-way-auto-ranks",
+      "fit_seconds": 0.026634667068719864,
+      "forecast_mse": 2.237025749387413,
+      "signal_error": 0.1286078275051529,
+      "subspace_error": 0.006487874437011003,
+      "ranks": [
+        1,
+        2
+      ],
+      "rank_converged": true,
+      "final_inner_converged": true,
+      "variance_regularized": false,
+      "is_stable": true,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {},
+      "method": "mar-als",
+      "fit_seconds": 0.021093667019158602,
+      "forecast_mse": 2.3333054046889257,
+      "converged": true,
+      "iterations": 10,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "options": {
+        "ridge": 1.0,
+        "intercept": false
+      },
+      "method": "var-ridge",
+      "fit_seconds": 0.0022467500530183315,
+      "forecast_mse": 2.6535713278304573,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "zero",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 4.776272025904834,
+      "options": {}
+    },
+    {
+      "task": "additive-dynamic-forecast",
+      "regime": "coupled-dynamics",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "diagonal_dynamics_assumption": false,
+      "method": "oracle-latent-conditional-mean",
+      "status": "ok",
+      "converged": true,
+      "fit_seconds": 0.0,
+      "iterations": 0,
+      "warnings": [],
+      "forecast_mse": 2.182657246665651,
+      "options": {}
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "diagonal",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 897
+      },
+      "method": "matrix-garch-diagonal",
+      "fit_seconds": 11.601626791991293,
+      "negative_gaussian_log_score": 4.673665457487245,
+      "covariance_error": 0.09878557304017435,
+      "constraint_violation": 0.0,
+      "active_bounds": [],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 61,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {
+        "dynamics": "full",
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-07,
+        "constraint": "spectral",
+        "random_state": 897
+      },
+      "method": "matrix-garch-full",
+      "fit_seconds": 26.896354250144213,
+      "negative_gaussian_log_score": 4.677133830510482,
+      "covariance_error": 0.20230649716731794,
+      "constraint_violation": 0.0,
+      "active_bounds": [],
+      "n_starts": 2,
+      "successful_starts": 2,
+      "converged": true,
+      "iterations": 156,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "constant-covariance",
+      "fit_seconds": 1.0421499609947205e-06,
+      "negative_gaussian_log_score": 4.6622888677380825,
+      "covariance_error": 0.23261163950931396,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "volatility-covariance",
+      "regime": "full-matrix-garch",
+      "replicate": 4,
+      "seed": 897,
+      "shape": [
+        2,
+        2
+      ],
+      "n_train": 600,
+      "n_test": 50,
+      "true_sufficient_stationarity_bound": 0.8754,
+      "options": {},
+      "method": "oracle-conditional-covariance",
+      "fit_seconds": 4.172325134277344e-07,
+      "negative_gaussian_log_score": 4.680643642251085,
+      "covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    }
+  ]
+}

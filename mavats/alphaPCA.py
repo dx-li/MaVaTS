@@ -1,12 +1,18 @@
+"""Legacy alpha-PCA and loading-covariance interfaces.
+
+References
+----------
+Chen and Fan (2023; online 2021), Statistical Inference for High-Dimensional
+Matrix-Variate Factor Models. https://doi.org/10.1080/01621459.2021.1970569
+"""
+
 import math
-import warnings
-from typing import Tuple, Union
+from typing import Union
 
 import numpy as np
-from numpy import linalg as LA
-from scipy.linalg import eigh
 
-from mavats.factormodel import _estimate_k
+from mavats._validation import as_series, finite_scalar, positive_int
+from mavats.factors import _eigenspace, _factor_ranks, fit_alpha_pca
 
 
 def estimate_alpha_PCA(
@@ -16,7 +22,7 @@ def estimate_alpha_PCA(
     r: Union[int, None] = None,
 ):
     r"""
-    Estimates the $\alpha$-PCA model in Chen and Fan 2021 (https://doi.org/10.1080/01621459.2021.1970569)
+    Estimate the alpha-PCA model through the legacy tuple-returning interface,
     where $Y_t = R F_t C^T + E_t$
 
     Parameters
@@ -41,22 +47,21 @@ def estimate_alpha_PCA(
     C : (q, r) ndarray
         The estimated back loading matrix.
 
+    References
+    ----------
+    Chen and Fan (2023; online 2021), Statistical Inference for
+    High-Dimensional Matrix-Variate Factor Models.
+    https://doi.org/10.1080/01621459.2021.1970569
+    This wrapper retains sqrt(d)-normalized loadings and legacy column order.
+    Automatic ranks use the numerical ratio convention of ``eigenvalue_ratio``.
     """
-    if not (alpha >= -1):
-        raise ValueError("alpha must be greater than or equal to -1")
-    T, p, q = Y.shape
-    pqT = p * q * T
-    pq = p * q
-    Y_tilde = _compute_Y_tilde(Y, alpha)
-    M_R = np.einsum("tij,tkj->ik", Y_tilde, Y_tilde) / pqT
-    M_C = np.einsum("tji,tjk->ik", Y_tilde, Y_tilde) / pqT
-    R = _compute_loading(M_R, k)
-    R *= math.sqrt(p)
-    C = _compute_loading(M_C, r)
-    C *= math.sqrt(q)
-    F = R.T @ Y @ C / pq
-    S = R @ F @ C.T / pq
-    return F, S, R, C
+    result = fit_alpha_pca(Y, (k, r), alpha=alpha)
+    p, q = result.signal.shape[1:]
+    # Keep the legacy ascending eigenvector order and sqrt(d) normalization.
+    R = result.loadings[0][:, ::-1] * math.sqrt(p)
+    C = result.loadings[1][:, ::-1] * math.sqrt(q)
+    F = result.factors[:, ::-1, ::-1] / math.sqrt(p * q)
+    return F, result.signal, R, C
 
 
 def _compute_Y_tilde(Y, alpha):
@@ -67,13 +72,16 @@ def _compute_Y_tilde(Y, alpha):
 
 
 def _compute_loading(M: np.ndarray, k: Union[int, None]) -> np.ndarray:
-    if k is None:
-        w, v = eigh(M)
-        k = _estimate_k(w)
-        w, v = w[-k:], v[:, -k:]
-    else:
-        w, v = eigh(M, subset_by_index=(M.shape[0] - k, M.shape[0] - 1))
-    return v
+    M = np.asarray(M, dtype=float)
+    if (
+        M.ndim != 2
+        or M.shape[0] != M.shape[1]
+        or not M.size
+        or not np.isfinite(M).all()
+    ):
+        raise ValueError("M must be a finite nonempty square matrix")
+    k = _factor_ranks((k,), (len(M),))[0]
+    return _eigenspace(M, k)[0][:, ::-1]
 
 
 def estimate_cov_Ri(
@@ -109,26 +117,53 @@ def estimate_cov_Ri(
     -------
     Sig_Ri : (k, k) ndarray
         The estimated covariance matrix of the $i$-th row of $\hat{R}$.
+
+    References
+    ----------
+    Chen and Fan (2023; online 2021), Statistical Inference for
+    High-Dimensional Matrix-Variate Factor Models.
+    https://doi.org/10.1080/01621459.2021.1970569
+    Implements the Bartlett-weighted lag-covariance sandwich in the supplied
+    legacy loading basis. This helper alone does not validate the paper's
+    inferential assumptions or supply calibrated confidence intervals.
     """
-    if not (alpha >= -1):
-        raise ValueError("alpha must be greater than or equal to -1")
+    Y = as_series(Y)
+    F = as_series(F)
+    alpha = finite_scalar(alpha, "alpha", minimum=-1)
+    m = positive_int(m, "m", minimum=0)
+    i = positive_int(i, "i", minimum=0)
+    R, C = np.asarray(R, dtype=float), np.asarray(C, dtype=float)
     T, p, q = Y.shape
-    if m >= T:
-        warnings.warn("m is greater than T, unexpected results may occur.")
     _, k, r = F.shape
+    if len(F) != T or R.shape != (p, k) or C.shape != (q, r):
+        raise ValueError("Y, F, R and C dimensions are incompatible")
+    if not np.isfinite(R).all() or not np.isfinite(C).all():
+        raise ValueError("loadings must be finite")
+    if i >= p or m >= T:
+        raise ValueError(
+            "row index must be in range and bandwidth m must be smaller than T"
+        )
+    if not np.allclose(R.T @ R / p, np.eye(k)) or not np.allclose(
+        C.T @ C / q, np.eye(r)
+    ):
+        raise ValueError("loadings must use the legacy sqrt(d) normalization")
     E = Y - R @ F @ C.T
     Y_tilde = _compute_Y_tilde(Y, alpha)
     YYT = (Y_tilde @ Y_tilde.transpose(0, 2, 1)).sum(axis=0) / (p * q * T)
-    V, _ = eigh(YYT, subset_by_index=(p - k, p - 1))
-    V_inv = 1 / V
-    V_inv = np.diag(V_inv)
+    # Express the information matrix in the supplied loading basis, so column
+    # permutations or orthogonal rotations give correspondingly rotated CIs.
+    information = R.T @ YYT @ R / p
     F_bar = np.mean(F, axis=0)
     middle = _compute_D_Rnui(F, F_bar, C, E, alpha, 0, i, q)
     for nu in range(1, m + 1):
         D_Rnui = _compute_D_Rnui(F, F_bar, C, E, alpha, nu, i, q)
         middle += (1 - nu / (m + 1)) * (D_Rnui + D_Rnui.T)
-    Sig_Ri = V_inv @ middle @ V_inv
-    return Sig_Ri
+    if np.linalg.matrix_rank(information) < k:
+        raise ValueError(
+            "loading covariance is unidentified: singular factor information"
+        )
+    covariance = np.linalg.solve(information, np.linalg.solve(information, middle).T).T
+    return (covariance + covariance.T) / 2
 
 
 def _compute_D_Rnui(
@@ -200,26 +235,20 @@ def estimate_cov_Cj(
     -------
     Sig_Cj : (r, r) ndarray
         The estimated covariance matrix of the $j$-th row of $\hat{C}$.
+
+    References
+    ----------
+    Chen and Fan (2023; online 2021), Statistical Inference for
+    High-Dimensional Matrix-Variate Factor Models.
+    https://doi.org/10.1080/01621459.2021.1970569
+    Transposed counterpart of ``estimate_cov_Ri`` with the same Bartlett
+    sandwich and inferential limitations; not a confidence-interval procedure.
     """
-    if not (alpha >= -1):
-        raise ValueError("alpha must be greater than or equal to -1")
-    T, p, q = Y.shape
-    if m >= T:
-        warnings.warn("m is greater than T, unexpected results may occur.")
-    _, k, r = F.shape
-    E = Y - R @ F @ C.T
-    Y_tilde = _compute_Y_tilde(Y, alpha)
-    YTY = (Y_tilde.transpose(0, 2, 1) @ Y_tilde).sum(axis=0) / (p * q * T)
-    V, _ = eigh(YTY, subset_by_index=(q - r, q - 1))
-    V_inv = 1 / V
-    V_inv = np.diag(V_inv)
-    F_bar = np.mean(F, axis=0)
-    middle = _compute_D_Cnuj(F, F_bar, R, E, alpha, 0, j, p)
-    for nu in range(1, m + 1):
-        D_Rnui = _compute_D_Cnuj(F, F_bar, R, E, alpha, nu, j, p)
-        middle += (1 - nu / (m + 1)) * (D_Rnui + D_Rnui.T)
-    Sig_Ri = V_inv @ middle @ V_inv
-    return Sig_Ri
+    Y = as_series(Y)
+    F = as_series(F)
+    return estimate_cov_Ri(
+        Y.transpose(0, 2, 1), F.transpose(0, 2, 1), C, R, j, alpha, m
+    )
 
 
 def _compute_D_Cnuj(

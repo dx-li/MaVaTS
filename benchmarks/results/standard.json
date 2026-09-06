@@ -1,0 +1,6385 @@
+{
+  "schema_version": 1,
+  "configuration": {
+    "quick": false,
+    "repeats": 5,
+    "seed": 2026
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "mavats": "0.2.0.dev0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.9\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    },\n    \"build\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    },\n    \"lapack\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/private/var/folders/g3/pffjr_y96bq06blnkf72x_hw0000gn/T/build-env-jzdn7by7/bin/python\",\n    \"version\": \"3.13\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"NEON\",\n      \"NEON_FP16\",\n      \"NEON_VFPV4\",\n      \"ASIMD\"\n    ],\n    \"found\": [\n      \"ASIMDHP\",\n      \"ASIMDDP\"\n    ],\n    \"not found\": [\n      \"ASIMDFHM\"\n    ]\n  }\n}\n",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "results": [
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.008240875322371721,
+      "forecast_mse": 1.0519564112499336,
+      "operator_error": 0.2197381888097003,
+      "spectral_radius": 0.6595145389693153,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.03196741687133908,
+      "forecast_mse": 1.0427861176309645,
+      "operator_error": 0.11672189546252108,
+      "spectral_radius": 0.7283781626555551,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.03587604220956564,
+      "forecast_mse": 1.0428759193532935,
+      "operator_error": 0.11739899460287556,
+      "spectral_radius": 0.7282551013609767,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.003120916895568371,
+      "forecast_mse": 1.27427433727451,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.002396250143647194,
+      "forecast_mse": 1.273473702731898,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.3875309377908707e-05,
+      "forecast_mse": 1.4127514856230612,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 6.504170596599579e-05,
+      "forecast_mse": 1.4267384795972091,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.4162767946323844
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.0381307944218698
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.003302457742393017,
+      "forecast_mse": 1.1699929385418375,
+      "operator_error": 0.2945875311626931,
+      "spectral_radius": 0.6516278967179151,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.014556957874447107,
+      "forecast_mse": 1.150634507077514,
+      "operator_error": 0.1765870026749576,
+      "spectral_radius": 0.7168596692756835,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.03148475009948015,
+      "forecast_mse": 1.1477338237585628,
+      "operator_error": 0.13900128621127808,
+      "spectral_radius": 0.7274198434840355,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.004391583148390055,
+      "forecast_mse": 1.4708730944965072,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.004513750318437815,
+      "forecast_mse": 1.4661550395710472,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.3334210962057114e-05,
+      "forecast_mse": 1.6446066903925132,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.708308890461922e-05,
+      "forecast_mse": 1.6488793572793823,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.4710872886423467
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.139601088441607
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.0033434578217566013,
+      "forecast_mse": 1.0482761996698966,
+      "operator_error": 0.2243505669296683,
+      "spectral_radius": 0.6299949518142569,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.00901758298277855,
+      "forecast_mse": 1.0429853778649265,
+      "operator_error": 0.14336830497059747,
+      "spectral_radius": 0.6807396488422731,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.02146516600623727,
+      "forecast_mse": 1.0429911257381135,
+      "operator_error": 0.14426842612569046,
+      "spectral_radius": 0.6796974275511012,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.003548291977494955,
+      "forecast_mse": 1.2720291043066048,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.0024410421028733253,
+      "forecast_mse": 1.27105538361175,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.3249926269054413e-05,
+      "forecast_mse": 1.2682858206277194,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.804188549518585e-05,
+      "forecast_mse": 1.2802906661535636,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "rr-mar-oracle-ranks",
+      "fit_seconds": 0.02520941663533449,
+      "forecast_mse": 1.0426754814293866,
+      "operator_error": 0.1413751396283961,
+      "spectral_radius": 0.6804888574075781,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.5450874493383633
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.0381307944218698
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.0064197080209851265,
+      "signal_error": 0.04542023409114791,
+      "subspace_error": 0.0062112299881580645,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.005689249839633703,
+      "signal_error": 0.04537958821972756,
+      "subspace_error": 0.00607114242700612,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.01511724991723895,
+      "signal_error": 0.04769373234460212,
+      "subspace_error": 0.011818205418347473,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.7256937501952052,
+      "signal_error": 0.04551327235676623,
+      "subspace_error": 0.006537284247760314,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.008954375050961971,
+      "signal_error": 0.04538431882362436,
+      "subspace_error": 0.006088365294202201,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.005622874945402145,
+      "signal_error": 0.04773685705239124,
+      "subspace_error": 0.01191589043007506,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.021218084264546633,
+      "signal_error": 0.04770621567121249,
+      "subspace_error": 0.011782950788371618,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.026929792016744614,
+      "signal_error": 0.047731368388312066,
+      "subspace_error": 0.011881275617814454,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0018041669391095638,
+      "signal_error": 0.0445567759043338,
+      "subspace_error": 3.046648980073483e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.0034589171409606934,
+      "signal_error": 0.05512472021910845,
+      "subspace_error": 0.01851718847737252,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.007406999822705984,
+      "signal_error": 0.055150381117308266,
+      "subspace_error": 0.018614082536251644,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.017208333127200603,
+      "signal_error": 0.05323751768811851,
+      "subspace_error": 0.015574974646026134,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.7267898749560118,
+      "signal_error": 0.04944984451649733,
+      "subspace_error": 0.006551635898682642,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.036361875012516975,
+      "signal_error": 0.04963117047531587,
+      "subspace_error": 0.007192486419905762,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.005056499969214201,
+      "signal_error": 0.05366820604061856,
+      "subspace_error": 0.016267730227335554,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.02137874998152256,
+      "signal_error": 0.05343745487174214,
+      "subspace_error": 0.01584382960513051,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.02286991709843278,
+      "signal_error": 0.05340461879185656,
+      "subspace_error": 0.015858503752413187,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0016397503204643726,
+      "signal_error": 0.04848600553984426,
+      "subspace_error": 2.464889935811518e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.00325270788744092,
+      "signal_error": 0.44959395545591707,
+      "subspace_error": 0.22269610585749955,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.004121667239814997,
+      "signal_error": 0.35060454933170654,
+      "subspace_error": 0.08540961446226406,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.016137875150889158,
+      "signal_error": 0.6808094919247689,
+      "subspace_error": 0.43411141284351806,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.8336710422299802,
+      "signal_error": 0.3021675310297859,
+      "subspace_error": 0.007411785870110325,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.012745958287268877,
+      "signal_error": 0.30294587486330815,
+      "subspace_error": 0.006270953984850401,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.0046780407428741455,
+      "signal_error": 0.35489382989913854,
+      "subspace_error": 0.12850617549829374,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.021832041908055544,
+      "signal_error": 0.32829419484631533,
+      "subspace_error": 0.0800384416164657,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.025663415901362896,
+      "signal_error": 0.3317252090615045,
+      "subspace_error": 0.08314827538429315,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 7,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0016885409131646156,
+      "signal_error": 0.30224232472141155,
+      "subspace_error": 2.1345715725218797e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-cp",
+      "regime": "distinct-ar",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 500,
+      "method": "cp-refined",
+      "fit_seconds": 0.00186608312651515,
+      "signal_error": 0.02045103581553223,
+      "component_error": 0.00036001735936253,
+      "condition_number": 18.346901781779692,
+      "rank": 3,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.02517475001513958,
+      "signal_error": 0.03402120794751831,
+      "subspace_error": 0.004088972528069056,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.04196083312854171,
+      "signal_error": 0.03402716212845099,
+      "subspace_error": 0.0040969921687747666,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "topup",
+      "fit_seconds": 0.06551000010222197,
+      "signal_error": 0.033977761945288745,
+      "subspace_error": 0.003984162128843564,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.07414912478998303,
+      "signal_error": 0.03398053936239817,
+      "subspace_error": 0.003991956060167849,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.0031740409322082996,
+      "forecast_mse": 1.0405261906586976,
+      "operator_error": 0.22042722633423847,
+      "spectral_radius": 0.6277460484697438,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.009651666041463614,
+      "forecast_mse": 1.0214000951101034,
+      "operator_error": 0.11480927327968875,
+      "spectral_radius": 0.6840329397471471,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.019655583426356316,
+      "forecast_mse": 1.021133352882526,
+      "operator_error": 0.11595290742733808,
+      "spectral_radius": 0.6838025203857292,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.0032225833274424076,
+      "forecast_mse": 1.2932595843531458,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.002459291834384203,
+      "forecast_mse": 1.2923963236193436,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.2625008821487427e-05,
+      "forecast_mse": 1.462176336413677,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.6333839893341064e-05,
+      "forecast_mse": 1.4911659529391341,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.3618682115694651
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.0190506211261725
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.0034342091530561447,
+      "forecast_mse": 1.131010315171375,
+      "operator_error": 0.26209525235547326,
+      "spectral_radius": 0.6711048493529624,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.0117763327434659,
+      "forecast_mse": 1.114110422946679,
+      "operator_error": 0.19665324566988682,
+      "spectral_radius": 0.7043951923048153,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.04550866596400738,
+      "forecast_mse": 1.1074933370025166,
+      "operator_error": 0.15693725608606912,
+      "spectral_radius": 0.6952021127219458,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.0020939167588949203,
+      "forecast_mse": 1.4187264031949287,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.011973708402365446,
+      "forecast_mse": 1.4157576087113755,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.333281397819519e-05,
+      "forecast_mse": 1.5275425531963147,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.745887756347656e-05,
+      "forecast_mse": 1.5530210391332107,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.4409043812154119
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.1008621655479285
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.0038969172164797783,
+      "forecast_mse": 1.0316422724972125,
+      "operator_error": 0.2232760545084064,
+      "spectral_radius": 0.6117490286909038,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.07605237513780594,
+      "forecast_mse": 1.0200864870486988,
+      "operator_error": 0.14267041019619933,
+      "spectral_radius": 0.6720495913068829,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.025761375203728676,
+      "forecast_mse": 1.0198073361167004,
+      "operator_error": 0.14356032500406044,
+      "spectral_radius": 0.6734268386900273,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.007780749816447496,
+      "forecast_mse": 1.261529190744544,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.0024995002895593643,
+      "forecast_mse": 1.2606056034621227,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.2457836419343948e-05,
+      "forecast_mse": 1.3115304096925315,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.608284845948219e-05,
+      "forecast_mse": 1.3353500128744271,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "rr-mar-oracle-ranks",
+      "fit_seconds": 0.011591915972530842,
+      "forecast_mse": 1.0197252474557474,
+      "operator_error": 0.1412898190364226,
+      "spectral_radius": 0.6720726329167569,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.5569403993142823
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.0190506211261723
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.013504709117114544,
+      "signal_error": 0.04696844609931152,
+      "subspace_error": 0.006555604670179804,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.00448279082775116,
+      "signal_error": 0.0469348246337081,
+      "subspace_error": 0.006444037106855433,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.016073291189968586,
+      "signal_error": 0.0495499431640787,
+      "subspace_error": 0.013012792810184508,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.7196622909978032,
+      "signal_error": 0.047022338031004,
+      "subspace_error": 0.006752506424954251,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.009563458152115345,
+      "signal_error": 0.04693736443877328,
+      "subspace_error": 0.006451852737224099,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.005892165936529636,
+      "signal_error": 0.04963886435087624,
+      "subspace_error": 0.01315941602794165,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.014561207965016365,
+      "signal_error": 0.04948605816468518,
+      "subspace_error": 0.012865154970014215,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.020777333062142134,
+      "signal_error": 0.049594343103084894,
+      "subspace_error": 0.013097328586049553,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0016939588822424412,
+      "signal_error": 0.04604434563491977,
+      "subspace_error": 3.2415743140776384e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.005834249779582024,
+      "signal_error": 0.05663123352895093,
+      "subspace_error": 0.02219542906824909,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.006159166805446148,
+      "signal_error": 0.05643268934864677,
+      "subspace_error": 0.02205877935343584,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.028026667423546314,
+      "signal_error": 0.05696251531183223,
+      "subspace_error": 0.022721760237862737,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.7610425418242812,
+      "signal_error": 0.04769889380056511,
+      "subspace_error": 0.007293898381595126,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.01189816603437066,
+      "signal_error": 0.04833723204816937,
+      "subspace_error": 0.009060816238764358,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.004873250145465136,
+      "signal_error": 0.05547115912695403,
+      "subspace_error": 0.02090916785371584,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.01558745838701725,
+      "signal_error": 0.05515414211151501,
+      "subspace_error": 0.020555461583693577,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.018944833427667618,
+      "signal_error": 0.05688984679100252,
+      "subspace_error": 0.022650272277454923,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.001675584353506565,
+      "signal_error": 0.046601712951884415,
+      "subspace_error": 3.321393444425248e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.003509417176246643,
+      "signal_error": 0.461131997099527,
+      "subspace_error": 0.21334097244776995,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.004534250125288963,
+      "signal_error": 0.3599748302150286,
+      "subspace_error": 0.08325262393830907,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.01836700038984418,
+      "signal_error": 0.5325246781206144,
+      "subspace_error": 0.2906283697045374,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.76434037508443,
+      "signal_error": 0.31845161600665434,
+      "subspace_error": 0.00752044137134174,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.01274083275347948,
+      "signal_error": 0.3188939808583338,
+      "subspace_error": 0.007576707098599398,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.0046510412357747555,
+      "signal_error": 0.36214188066522685,
+      "subspace_error": 0.11741990957297277,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.021324291825294495,
+      "signal_error": 0.3414005360399314,
+      "subspace_error": 0.08529911444453633,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.027020541951060295,
+      "signal_error": 0.3435813788521426,
+      "subspace_error": 0.08769087082099881,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.002339417114853859,
+      "signal_error": 0.3178076896898904,
+      "subspace_error": 3.4629376525236e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-cp",
+      "regime": "distinct-ar",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 500,
+      "method": "cp-refined",
+      "fit_seconds": 0.001611792016774416,
+      "signal_error": 0.017129910149870326,
+      "component_error": 0.00019839353914574698,
+      "condition_number": 6.424349484667409,
+      "rank": 3,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.019738707691431046,
+      "signal_error": 0.03399152597772735,
+      "subspace_error": 0.004108835906428697,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.043333583045750856,
+      "signal_error": 0.033979469760699814,
+      "subspace_error": 0.004084713707486465,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "topup",
+      "fit_seconds": 0.04682404221966863,
+      "signal_error": 0.03398945228773499,
+      "subspace_error": 0.004160999381809801,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.058709584176540375,
+      "signal_error": 0.034000144791057896,
+      "subspace_error": 0.004190537289081759,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.006709499750286341,
+      "forecast_mse": 0.9492441676654446,
+      "operator_error": 0.2115107887814954,
+      "spectral_radius": 0.6747759273576734,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.018028167076408863,
+      "forecast_mse": 0.9402553139808603,
+      "operator_error": 0.10508050460618647,
+      "spectral_radius": 0.7499000577857338,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.01718979189172387,
+      "forecast_mse": 0.9402077395574797,
+      "operator_error": 0.10425458803506234,
+      "spectral_radius": 0.7515208293819696,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.0021387911401689053,
+      "forecast_mse": 1.139980849708261,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.002334000077098608,
+      "forecast_mse": 1.1391790664655355,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.2167263776063919e-05,
+      "forecast_mse": 1.248765208302959,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.537504330277443e-05,
+      "forecast_mse": 1.2557479891851209,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.2556652722009871
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.9334500070522244
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.009409041609615088,
+      "forecast_mse": 0.9699150558898638,
+      "operator_error": 0.25826041211841455,
+      "spectral_radius": 0.6205074699732408,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.012933833990246058,
+      "forecast_mse": 0.9633274735855726,
+      "operator_error": 0.2032361871988838,
+      "spectral_radius": 0.7176432085102629,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.023151790723204613,
+      "forecast_mse": 0.9580872774860255,
+      "operator_error": 0.13864763208956554,
+      "spectral_radius": 0.7384071589630578,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.002401332836598158,
+      "forecast_mse": 1.1790230592436655,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.0024281246587634087,
+      "forecast_mse": 1.1754530031685158,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.4042016118764877e-05,
+      "forecast_mse": 1.2629026907267038,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.7874713093042374e-05,
+      "forecast_mse": 1.2731650640575036,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.3182386087220077
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.9544163307247192
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.003245249856263399,
+      "forecast_mse": 0.9425982318193157,
+      "operator_error": 0.2188496931248013,
+      "spectral_radius": 0.6231137918087041,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.009548208210617304,
+      "forecast_mse": 0.9368843232111809,
+      "operator_error": 0.13666565997089408,
+      "spectral_radius": 0.6540942313613961,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.018386291805654764,
+      "forecast_mse": 0.936805236459879,
+      "operator_error": 0.13631296192036826,
+      "spectral_radius": 0.6548135224958278,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.003714000340551138,
+      "forecast_mse": 1.1320205469589397,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.0024910420179367065,
+      "forecast_mse": 1.1310985207559103,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.2540724128484726e-05,
+      "forecast_mse": 1.1478170461937611,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.595805123448372e-05,
+      "forecast_mse": 1.1476589733728781,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "rr-mar-oracle-ranks",
+      "fit_seconds": 0.011628041043877602,
+      "forecast_mse": 0.9368106324387799,
+      "operator_error": 0.13596890307112686,
+      "spectral_radius": 0.6538265230076604,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.4109898484555707
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.9334500070522244
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.008557458408176899,
+      "signal_error": 0.04589627391073893,
+      "subspace_error": 0.006369236375707306,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.004773540887981653,
+      "signal_error": 0.045900566191106336,
+      "subspace_error": 0.006397997791857275,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.016222540754824877,
+      "signal_error": 0.04790465910810151,
+      "subspace_error": 0.011714828702107334,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.7528943750075996,
+      "signal_error": 0.045920907139632025,
+      "subspace_error": 0.006453074604765699,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.00996487494558096,
+      "signal_error": 0.04590160274488096,
+      "subspace_error": 0.00640125659766326,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.004739916883409023,
+      "signal_error": 0.048315535051969685,
+      "subspace_error": 0.012561061586908577,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.017333040945231915,
+      "signal_error": 0.04819337367276146,
+      "subspace_error": 0.012321923339765152,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.03399933408945799,
+      "signal_error": 0.047965261414499444,
+      "subspace_error": 0.011844223507447509,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0017550000920891762,
+      "signal_error": 0.04499061346847753,
+      "subspace_error": 2.9347097172681666e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.0035669170320034027,
+      "signal_error": 0.045512289885798946,
+      "subspace_error": 0.012334793333137768,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.007126874756067991,
+      "signal_error": 0.0454943034308285,
+      "subspace_error": 0.012299818749751848,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.023390000220388174,
+      "signal_error": 0.04762774360002273,
+      "subspace_error": 0.01625157222272936,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.9110201671719551,
+      "signal_error": 0.043190124465520105,
+      "subspace_error": 0.007356849332486013,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.012231832835823298,
+      "signal_error": 0.043641672733214405,
+      "subspace_error": 0.008449939982150514,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.010667250026017427,
+      "signal_error": 0.04810301549247471,
+      "subspace_error": 0.016899220027361057,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.02620125003159046,
+      "signal_error": 0.04781576913332487,
+      "subspace_error": 0.01650047784600093,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.029294666834175587,
+      "signal_error": 0.04772122612272437,
+      "subspace_error": 0.0163899206264337,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0019096252508461475,
+      "signal_error": 0.041913364645813224,
+      "subspace_error": 3.2094038637695787e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.0036636670120060444,
+      "signal_error": 0.37755741646023244,
+      "subspace_error": 0.17566717411022914,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.005377499852329493,
+      "signal_error": 0.3067571654821606,
+      "subspace_error": 0.07576458911434658,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.02338816598057747,
+      "signal_error": 0.368033050559406,
+      "subspace_error": 0.17206301325314538,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.7818166250362992,
+      "signal_error": 0.2632671391833913,
+      "subspace_error": 0.006656022309605878,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.009242875035852194,
+      "signal_error": 0.2639201443270914,
+      "subspace_error": 0.00690233559527592,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.009365709032863379,
+      "signal_error": 0.2972773496998505,
+      "subspace_error": 0.09694731499921014,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.030799416359513998,
+      "signal_error": 0.2846805354944663,
+      "subspace_error": 0.07341223621358654,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.040494624990969896,
+      "signal_error": 0.2842905788941083,
+      "subspace_error": 0.0686765570687982,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.00350787490606308,
+      "signal_error": 0.2629272774259503,
+      "subspace_error": 2.2837529676458485e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-cp",
+      "regime": "distinct-ar",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 500,
+      "method": "cp-refined",
+      "fit_seconds": 0.0024848338216543198,
+      "signal_error": 0.015504686667588712,
+      "component_error": 0.00017259751917597654,
+      "condition_number": 14.028076454424989,
+      "rank": 3,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.01713466690853238,
+      "signal_error": 0.03345269645662487,
+      "subspace_error": 0.004179453938732219,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.03738045785576105,
+      "signal_error": 0.03343731660666784,
+      "subspace_error": 0.004130414650049312,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "topup",
+      "fit_seconds": 0.048564666882157326,
+      "signal_error": 0.03336493229046347,
+      "subspace_error": 0.003918322623901446,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2028,
+      "replicate": 2,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.058998082764446735,
+      "signal_error": 0.03337733862423612,
+      "subspace_error": 0.003950717770337204,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.003544917330145836,
+      "forecast_mse": 1.0199044274071822,
+      "operator_error": 0.21816902581053027,
+      "spectral_radius": 0.6662466206068633,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.008548208978027105,
+      "forecast_mse": 1.009713195052785,
+      "operator_error": 0.11216596633363123,
+      "spectral_radius": 0.7256084534157661,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.02245283266529441,
+      "forecast_mse": 1.009838554647328,
+      "operator_error": 0.11255183794609272,
+      "spectral_radius": 0.7274179025143169,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.0022789170034229755,
+      "forecast_mse": 1.2635026961060036,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.0023919171653687954,
+      "forecast_mse": 1.262524098464551,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.2833159416913986e-05,
+      "forecast_mse": 1.3455994940218818,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.7209283113479614e-05,
+      "forecast_mse": 1.3400441170327884,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.3806395114972925
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.0051919130144744
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.004013291094452143,
+      "forecast_mse": 1.0034372457995129,
+      "operator_error": 0.276069855963841,
+      "spectral_radius": 0.6412861807622954,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.011027500033378601,
+      "forecast_mse": 0.9830950100580559,
+      "operator_error": 0.18545533257931154,
+      "spectral_radius": 0.6894462454640335,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.020586166996508837,
+      "forecast_mse": 0.9864292966961951,
+      "operator_error": 0.14752920475474457,
+      "spectral_radius": 0.7113145693998746,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.00206091720610857,
+      "forecast_mse": 1.243463534692891,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.0023944168351590633,
+      "forecast_mse": 1.240165214618506,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.3249926269054413e-05,
+      "forecast_mse": 1.2930813355221575,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.5999960750341415e-05,
+      "forecast_mse": 1.2825655238891998,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.3164278108767433
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.9823630907645934
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.0031863339245319366,
+      "forecast_mse": 1.0122825322790077,
+      "operator_error": 0.21627077831506547,
+      "spectral_radius": 0.6490603453086703,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.008376541547477245,
+      "forecast_mse": 1.0092890597062898,
+      "operator_error": 0.14071684043761887,
+      "spectral_radius": 0.6829860908312103,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.01641774969175458,
+      "forecast_mse": 1.0092882314071776,
+      "operator_error": 0.14104918293394667,
+      "spectral_radius": 0.6830650235047746,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.003084917087107897,
+      "forecast_mse": 1.2408473339416721,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.002992125228047371,
+      "forecast_mse": 1.2397182912380618,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.2916047126054764e-05,
+      "forecast_mse": 1.2094540768222788,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.587516352534294e-05,
+      "forecast_mse": 1.2064457583841486,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "rr-mar-oracle-ranks",
+      "fit_seconds": 0.011619207914918661,
+      "forecast_mse": 1.0089977664345635,
+      "operator_error": 0.1389881732929385,
+      "spectral_radius": 0.6826394085244707,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.5185649715776717
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.0051919130144744
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.0036847093142569065,
+      "signal_error": 0.04526862683152117,
+      "subspace_error": 0.0059408786399756,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.0041902498342096806,
+      "signal_error": 0.04527188888389112,
+      "subspace_error": 0.0059568106199928885,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.01691791694611311,
+      "signal_error": 0.0476313847812277,
+      "subspace_error": 0.012007966975836488,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.6735912910662591,
+      "signal_error": 0.04537412803237583,
+      "subspace_error": 0.006362125896157601,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.007539167068898678,
+      "signal_error": 0.0452768429921586,
+      "subspace_error": 0.005973494065701617,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.0060340831987559795,
+      "signal_error": 0.04735578775714205,
+      "subspace_error": 0.011495404419443753,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.01222558319568634,
+      "signal_error": 0.04732835056980778,
+      "subspace_error": 0.011423357035112483,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.016642875038087368,
+      "signal_error": 0.04765712873817731,
+      "subspace_error": 0.012059442115983242,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0017034593038260937,
+      "signal_error": 0.044469208980882545,
+      "subspace_error": 3.844710841656398e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.003402791917324066,
+      "signal_error": 0.05516477666388109,
+      "subspace_error": 0.0230388649854492,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.004571167286485434,
+      "signal_error": 0.05501485348476734,
+      "subspace_error": 0.02274910731042967,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.012941459193825722,
+      "signal_error": 0.05078623068041675,
+      "subspace_error": 0.01722626202755591,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.7386781666427851,
+      "signal_error": 0.04593936200888225,
+      "subspace_error": 0.007305863288810417,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.01288249995559454,
+      "signal_error": 0.04631479334315484,
+      "subspace_error": 0.008344307764242675,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.004883875139057636,
+      "signal_error": 0.05119149047488205,
+      "subspace_error": 0.017814339676645585,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.01871404191479087,
+      "signal_error": 0.05119031239466141,
+      "subspace_error": 0.0178091265026647,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.021770500112324953,
+      "signal_error": 0.050893350759364166,
+      "subspace_error": 0.017382642917596978,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0027312920428812504,
+      "signal_error": 0.04471779827789198,
+      "subspace_error": 3.7181564157254727e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.003276458941400051,
+      "signal_error": 0.4383609433219603,
+      "subspace_error": 0.2220503146122441,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.004115208983421326,
+      "signal_error": 0.3301877570316611,
+      "subspace_error": 0.0911636357108902,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.015277958940714598,
+      "signal_error": 0.43481570484899124,
+      "subspace_error": 0.22636228696772165,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.8933420828543603,
+      "signal_error": 0.2772473067215623,
+      "subspace_error": 0.00691486583955944,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.010403209365904331,
+      "signal_error": 0.27779064254833497,
+      "subspace_error": 0.006488573858157733,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.00477949995547533,
+      "signal_error": 0.3139556084697113,
+      "subspace_error": 0.09744080579901673,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.019620792008936405,
+      "signal_error": 0.30600669597715724,
+      "subspace_error": 0.08865667879352979,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.022053707856684923,
+      "signal_error": 0.31182769929172055,
+      "subspace_error": 0.09509082260423488,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 7,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0016345423646271229,
+      "signal_error": 0.27691700740145486,
+      "subspace_error": 3.4100042110403883e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-cp",
+      "regime": "distinct-ar",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 500,
+      "method": "cp-refined",
+      "fit_seconds": 0.0014515412040054798,
+      "signal_error": 0.019411263977828053,
+      "component_error": 0.00043445263945096624,
+      "condition_number": 16.481559756562554,
+      "rank": 3,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.020720750093460083,
+      "signal_error": 0.031731015242165504,
+      "subspace_error": 0.0036379614563975186,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.06506854202598333,
+      "signal_error": 0.03172129812591293,
+      "subspace_error": 0.003596456634053034,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "topup",
+      "fit_seconds": 0.06188187515363097,
+      "signal_error": 0.031771655158922,
+      "subspace_error": 0.003742727816507609,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2029,
+      "replicate": 3,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.06960091693326831,
+      "signal_error": 0.031778176885036,
+      "subspace_error": 0.0037611948201276605,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.0032498748041689396,
+      "forecast_mse": 1.0214655965507449,
+      "operator_error": 0.2129765956330754,
+      "spectral_radius": 0.6449074836407407,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.008720625191926956,
+      "forecast_mse": 1.0082780622447336,
+      "operator_error": 0.10909656872404751,
+      "spectral_radius": 0.7007360868253841,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.021442000288516283,
+      "forecast_mse": 1.0082488291238878,
+      "operator_error": 0.10872975990572893,
+      "spectral_radius": 0.699895585907022,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.0023038326762616634,
+      "forecast_mse": 1.247187623913866,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.0023504579439759254,
+      "forecast_mse": 1.2463498941602797,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.6582664102315903e-05,
+      "forecast_mse": 1.3822729306489883,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.9165991842746735e-05,
+      "forecast_mse": 1.3958366553377497,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.349017996129118
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.9996962552554021
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.003183540888130665,
+      "forecast_mse": 1.0574417976738753,
+      "operator_error": 0.2431968480419634,
+      "spectral_radius": 0.6408684690754431,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.011306791566312313,
+      "forecast_mse": 1.0564726187807034,
+      "operator_error": 0.19894263688737243,
+      "spectral_radius": 0.7392334879375393,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.02186179207637906,
+      "forecast_mse": 1.049630351715958,
+      "operator_error": 0.13808104547877842,
+      "spectral_radius": 0.7236677253890341,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.0021942919120192528,
+      "forecast_mse": 1.2641881186349966,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.0027505001053214073,
+      "forecast_mse": 1.2612308636588814,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.3333279639482498e-05,
+      "forecast_mse": 1.3840546926295056,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.8957841247320175e-05,
+      "forecast_mse": 1.3986799972433548,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.3870308826201603
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.0411386466758654
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-projection",
+      "fit_seconds": 0.0032317079603672028,
+      "forecast_mse": 1.0108922993761813,
+      "operator_error": 0.20853797486842457,
+      "spectral_radius": 0.6316170729151307,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-als",
+      "fit_seconds": 0.008673707954585552,
+      "forecast_mse": 1.0040483053122442,
+      "operator_error": 0.1328104913064475,
+      "spectral_radius": 0.6548442699967021,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "mar-mle",
+      "fit_seconds": 0.017054707743227482,
+      "forecast_mse": 1.0041073621880239,
+      "operator_error": 0.1325408202267678,
+      "spectral_radius": 0.6560665599658584,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var",
+      "fit_seconds": 0.002108457963913679,
+      "forecast_mse": 1.2164259915079725,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "var-ridge",
+      "fit_seconds": 0.006617249920964241,
+      "forecast_mse": 1.215545297857808,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "zero",
+      "fit_seconds": 1.3333279639482498e-05,
+      "forecast_mse": 1.2370275789727685,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "training-mean",
+      "fit_seconds": 5.65405935049057e-05,
+      "forecast_mse": 1.242432470462568,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "rr-mar-oracle-ranks",
+      "fit_seconds": 0.015557167120277882,
+      "forecast_mse": 1.004317228791818,
+      "operator_error": 0.13249833541184208,
+      "spectral_radius": 0.654893533378118,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.513704114561705
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        8,
+        10
+      ],
+      "n_train": 500,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.9996962552554021
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.003763249609619379,
+      "signal_error": 0.045861708371031026,
+      "subspace_error": 0.00666832616339352,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.004205165896564722,
+      "signal_error": 0.04581742836479239,
+      "subspace_error": 0.006494786150993835,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.014847584068775177,
+      "signal_error": 0.047951113697125326,
+      "subspace_error": 0.01190289386928085,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.9276677910238504,
+      "signal_error": 0.045852159756812984,
+      "subspace_error": 0.006636422193768079,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.024680667091161013,
+      "signal_error": 0.04582651355560229,
+      "subspace_error": 0.006527713067003903,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 2,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.010261000134050846,
+      "signal_error": 0.04808602845520998,
+      "subspace_error": 0.012169607649832173,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.026059584226459265,
+      "signal_error": 0.04792225047231293,
+      "subspace_error": 0.01185674476642526,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.027783208061009645,
+      "signal_error": 0.047971714082480826,
+      "subspace_error": 0.011950401493484718,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0019624168053269386,
+      "signal_error": 0.04487143306706693,
+      "subspace_error": 3.974892370631577e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.003951957914978266,
+      "signal_error": 0.07725984658972135,
+      "subspace_error": 0.045033996838815205,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.006564999930560589,
+      "signal_error": 0.07676931700547528,
+      "subspace_error": 0.044553483533787935,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.029147207736968994,
+      "signal_error": 0.04952609847740727,
+      "subspace_error": 0.019447044075831067,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.8546869158744812,
+      "signal_error": 0.04283368886353393,
+      "subspace_error": 0.007582685933030534,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.012729957699775696,
+      "signal_error": 0.04390994377310325,
+      "subspace_error": 0.010069038518148696,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.004751415923237801,
+      "signal_error": 0.04875038301944146,
+      "subspace_error": 0.018336808255285546,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.01881962502375245,
+      "signal_error": 0.048781595654146255,
+      "subspace_error": 0.018471921843366813,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.029060957953333855,
+      "signal_error": 0.049513839733086804,
+      "subspace_error": 0.019428922845288868,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.003757625352591276,
+      "signal_error": 0.04153772175090457,
+      "subspace_error": 3.960906633965603e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "alpha-pca",
+      "fit_seconds": 0.003343875054270029,
+      "signal_error": 0.4014958109117869,
+      "subspace_error": 0.18437814534333127,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "projected-pca",
+      "fit_seconds": 0.005744541995227337,
+      "signal_error": 0.3264718484854347,
+      "subspace_error": 0.07024417826039465,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "lagged-factor",
+      "fit_seconds": 0.022367666941136122,
+      "signal_error": 0.3015677022414987,
+      "subspace_error": 0.056362031556936504,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.8784614577889442,
+      "signal_error": 0.2924733514917283,
+      "subspace_error": 0.007546443555502715,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "huber-factor",
+      "fit_seconds": 0.008762083947658539,
+      "signal_error": 0.29305551382874756,
+      "subspace_error": 0.007227390284310628,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.005500166676938534,
+      "signal_error": 0.3122967738564225,
+      "subspace_error": 0.08204075214211595,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.0318571669049561,
+      "signal_error": 0.3108678375247533,
+      "subspace_error": 0.07978096633487665,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.024599332828074694,
+      "signal_error": 0.31251928262786755,
+      "subspace_error": 0.07911390103657931,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        20,
+        25
+      ],
+      "n_train": 500,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0017331251874566078,
+      "signal_error": 0.2921535149285482,
+      "subspace_error": 3.419194802847985e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-cp",
+      "regime": "distinct-ar",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 500,
+      "method": "cp-refined",
+      "fit_seconds": 0.0015982077457010746,
+      "signal_error": 0.07987077296442888,
+      "component_error": 0.007711498888095414,
+      "condition_number": 114.00046331474779,
+      "rank": 3,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "tipup",
+      "fit_seconds": 0.020918124821037054,
+      "signal_error": 0.03219011670842366,
+      "subspace_error": 0.0033446501466084452,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itipup",
+      "fit_seconds": 0.047931999899446964,
+      "signal_error": 0.03217397140094461,
+      "subspace_error": 0.003296140699457524,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "topup",
+      "fit_seconds": 0.07670379104092717,
+      "signal_error": 0.03217430276056836,
+      "subspace_error": 0.0032699046421030883,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2030,
+      "replicate": 4,
+      "shape": [
+        10,
+        12,
+        8
+      ],
+      "n_train": 500,
+      "method": "itopup",
+      "fit_seconds": 0.07027170807123184,
+      "signal_error": 0.03217524922341289,
+      "subspace_error": 0.0032634406112538434,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    }
+  ],
+  "source_sha256": {
+    "benchmarks/run.py": "c659ed699acb8442c0011e6df4191eca22b2a46ffdb2281949d02d325675ee90",
+    "mavats/MAR.py": "72a7f8966ab95ade19666b5919a806f7fb554367c6e8f886bf484a12441a7300",
+    "mavats/__init__.py": "6b95a98c2ac37090a2c51e90d0d962ccccb85ce5688a30245784447e80728848",
+    "mavats/_validation.py": "a2a8d09990cd0d4c28f5d7a4fb5ee2ae08acf62e4d764e46db9c6060ed7143b3",
+    "mavats/alphaPCA.py": "c977552665e7e86870e5d3078a549fb079bcc8fa7328633f92b22bc84e9a93c4",
+    "mavats/autoregression.py": "2bb7646004c187678db9db597fe68ae7ac5ff296704e0066e06220c62439d909",
+    "mavats/baselines.py": "b022919fbc37fa3c741e97d6b13ab2a2aaf3d57f1b8591b8fa48795193b91eb6",
+    "mavats/calibration.py": "d4b6ed75f7a91b8681e561433474b830efe22a3ae7a9cfcd3cdd2e583eea1993",
+    "mavats/cointegration.py": "244c6a7ad0555470fd28dadad52a4a2bb7ef8b4e088dff1f9202561ab14662cf",
+    "mavats/constrained.py": "c15a8b7c8d304ed425324098ab2773e5e9b3038855cd28914b878706264ecec3",
+    "mavats/cp.py": "ab9ce6d1494a2b4799ff32894d1be13af2300250c6118b592e39a945601997df",
+    "mavats/decorrelation.py": "64f8368f3b89892be3d296f9692be19fea63af70454c48d8165cc816a0f9b05c",
+    "mavats/dynamic.py": "28f206b78fedcd7e55a830483f66070eed219d97e5922fe345eefa7205d790e9",
+    "mavats/factormodel.py": "48bb8d788b1d365c8a7a61c447e3ad5d4779d78a6b275a27c4e7c5176f173360",
+    "mavats/factors.py": "8d9e4b0388805a774737538b6b6274834c97c01901d940237b552740096590dc",
+    "mavats/huber.py": "cdd803f9ffd4f6f53c3dc116e8c5fef2d9c22c9a74b8026647d15bafac355187",
+    "mavats/ihr.py": "71823d39a923e2f4dd461739776347b3b15784553d5d6d8679954ba25578c049",
+    "mavats/inference.py": "8527030fa69388ed42c2731bb528e599fc2e8c6a7b84bf9e85ffdd720398cc83",
+    "mavats/metrics.py": "61a183ff671192eaae6f2bccd6b5c192dc095c31c6abaf869e3341c6f670e597",
+    "mavats/model_selection.py": "35be477fc2f464f11504cde1b5b5b845e9c99d8130a90f848aa057715304b3ef",
+    "mavats/monitoring.py": "6f706b5c0cfef0f755add11f24614642a32c68860f047e3848f895e2c1d76b98",
+    "mavats/robust.py": "e6bb052d756f41bb0655d45f7fd13c208b38f62198b26b24aaa4e7e63796f5f5",
+    "mavats/simulation.py": "8c10dc97feda7b0cbc5370717bc02f62fa5906202aab53201cb1de0e449b8c0c",
+    "mavats/sparse.py": "982abec64c3b858ae302b9d8bff8161ab73ef0d8ead37a405c569b3cf0f6814d",
+    "mavats/tensor.py": "d428d252911ef70e60c5e894c5996656cfa32fd1ba01d246320fbfbecce34092",
+    "mavats/tensor_autoregression.py": "a80335fa5dd08406e030696a08ee1b41a2833069c3ecbda7e42b9771fd8403c6",
+    "mavats/threshold.py": "c6bedefdc30a14531b891ef45d58b3a59ea40f9872faa626abb9b4cd1b38983a",
+    "mavats/volatility.py": "2716e519464aca5a00e7b82fe909afa7ab32eb84cf368b2c858197e571e4b125"
+  },
+  "source_changed_during_run": []
+}

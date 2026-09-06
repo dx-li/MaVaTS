@@ -1,15 +1,31 @@
+"""Legacy interface to lagged matrix factor estimation.
+
+References
+----------
+Wang, Liu and Chen (2019), Factor Models for Matrix-Valued High-Dimensional
+Time Series. https://doi.org/10.1016/j.jeconom.2018.09.013
+"""
+
 from typing import Tuple, Union
 
 import numpy as np
-from numpy import linalg as LA
-from scipy.linalg import eigh
+
+from mavats._validation import as_series, positive_int
+from mavats.factors import (
+    _eigenspace,
+    _factor_ranks,
+    _lagged_moment,
+    _lags,
+    eigenvalue_ratio,
+    fit_lagged_factor,
+)
 
 
 def estimate_factor_model(
     X: np.ndarray, h0: int, k1: Union[int, None] = None, k2: Union[int, None] = None
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     r"""
-    Estimates the high-dimensional matrix factor model in Wang, Liu, Chen 2019 (https://doi.org/10.1016/j.jeconom.2018.09.013)
+    Estimate the lagged matrix factor model through the legacy tuple interface,
     where $X_t = R F_t C^T + E_t = Q_1 Z_t Q_2^T + E_t$
 
     Parameters
@@ -34,18 +50,23 @@ def estimate_factor_model(
     Q2 : (p2, k2) ndarray
         The estimated back loading matrix.
 
+    References
+    ----------
+    Wang, Liu and Chen (2019), Factor Models for Matrix-Valued
+    High-Dimensional Time Series, Section 3.
+    https://doi.org/10.1016/j.jeconom.2018.09.013
+    Automatic ranks follow the numerical ratio convention in ``eigenvalue_ratio``.
     """
-    M1 = _compute_M(X, h0)
-    Q1 = _compute_Q(M1, k1)
-    M2 = _compute_M(X.transpose(0, 2, 1), h0)
-    Q2 = _compute_Q(M2, k2)
-    Z = Q1.T @ X @ Q2
-    S = Q1 @ Z @ Q2.T
-    return Z, S, Q1, Q2
+    result = fit_lagged_factor(X, (k1, k2), lags=h0)
+    return result.factors, result.signal, *result.loadings
 
 
 def _compute_omega_hat(X: np.ndarray, h: int) -> np.ndarray:
+    X = as_series(X)
+    h = positive_int(h, "h")
     T, p1, p2 = X.shape
+    if h >= T:
+        raise ValueError("h must be smaller than the sample count")
     omega_hat = np.zeros((p2, p2, p1, p1))
     X_t = X[: T - h]
     X_th = X[h:T]
@@ -56,31 +77,25 @@ def _compute_omega_hat(X: np.ndarray, h: int) -> np.ndarray:
 
 
 def _compute_M(X: np.ndarray, h0: int) -> np.ndarray:
-    T, p1, p2 = X.shape
-    M = np.zeros((p1, p1))
-    for h in range(1, h0 + 1):
-        omega_hat = _compute_omega_hat(X, h)
-        for i in range(p2):
-            for j in range(p2):
-                M += omega_hat[i, j] @ omega_hat[i, j].T
-    return M
+    X = as_series(X)
+    return _lagged_moment(X, _lags(h0, len(X)), "topup")
 
 
 def _compute_Q(M: np.ndarray, k: Union[int, None]) -> np.ndarray:
-    if k is None:
-        w, v = eigh(M)
-        k = _estimate_k(w)
-        w, v = w[-k:], v[:, -k:]
-    else:
-        w, v = eigh(M, subset_by_index=(M.shape[0] - k, M.shape[0] - 1))
-    v = _ensure_positive_eigenvecs(v)
-    return v
+    M = np.asarray(M, dtype=float)
+    if (
+        M.ndim != 2
+        or M.shape[0] != M.shape[1]
+        or not M.size
+        or not np.isfinite(M).all()
+    ):
+        raise ValueError("M must be a finite nonempty square matrix")
+    k = _factor_ranks((k,), (len(M),))[0]
+    return _eigenspace(M, k)[0]
 
 
 def _estimate_k(w: np.ndarray) -> int:
-    w = np.flipud(w)[: len(w) // 2 + 1]
-    ratios = w[1:] / w[:-1]
-    return int(np.argmin(ratios)) + 1
+    return eigenvalue_ratio(w)
 
 
 def _ensure_positive_eigenvecs(v: np.ndarray) -> np.ndarray:

@@ -23,15 +23,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      # ADJUST THIS: install all dependencies (including pdoc)
-      - run: pip install numpy scipy pdoc
-      # ADJUST THIS: build your documentation into docs/.
-      # We use a custom build script for pdoc itself, ideally you just run `pdoc -o docs/ ...` here.
-      - run: pdoc -o docs/ --docformat=numpy --math mavats
+      - run: pip install '.[docs]'
+      - run: pdoc -o site/ --docformat=numpy --math mavats
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/
+          path: site/
 
   # Deploy the artifact to GitHub pages.
   # This is a separate job so that only actions/deploy-pages has the necessary permissions.

@@ -1,0 +1,2587 @@
+{
+  "schema_version": 1,
+  "configuration": {
+    "quick": true,
+    "repeats": 2,
+    "seed": 2026
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "mavats": "0.2.0.dev0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.9\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    },\n    \"build\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    },\n    \"lapack\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/private/var/folders/g3/pffjr_y96bq06blnkf72x_hw0000gn/T/build-env-jzdn7by7/bin/python\",\n    \"version\": \"3.13\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"NEON\",\n      \"NEON_FP16\",\n      \"NEON_VFPV4\",\n      \"ASIMD\"\n    ],\n    \"found\": [\n      \"ASIMDHP\",\n      \"ASIMDDP\"\n    ],\n    \"not found\": [\n      \"ASIMDFHM\"\n    ]\n  }\n}\n",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "results": [
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-projection",
+      "fit_seconds": 0.0004942910745739937,
+      "forecast_mse": 1.27754782706735,
+      "operator_error": 0.2610216446273338,
+      "spectral_radius": 0.5504064093790757,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-als",
+      "fit_seconds": 0.0009335000067949295,
+      "forecast_mse": 1.265683580028592,
+      "operator_error": 0.20388676040552234,
+      "spectral_radius": 0.6109628591581117,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-mle",
+      "fit_seconds": 0.0040690843015909195,
+      "forecast_mse": 1.266169205953476,
+      "operator_error": 0.20477224002635658,
+      "spectral_radius": 0.6180166452926226,
+      "converged": true,
+      "iterations": 7,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var",
+      "fit_seconds": 0.00017075007781386375,
+      "forecast_mse": 1.3851749030764757,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var-ridge",
+      "fit_seconds": 0.00016137538477778435,
+      "forecast_mse": 1.3842778354913465,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "zero",
+      "fit_seconds": 7.5409188866615295e-06,
+      "forecast_mse": 1.731481844309653,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "training-mean",
+      "fit_seconds": 2.7708709239959717e-05,
+      "forecast_mse": 1.7844593107403433,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.6937818036583128
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.2320799688192794
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-projection",
+      "fit_seconds": 0.0003780829720199108,
+      "forecast_mse": 1.1737308013252987,
+      "operator_error": 0.3511800488300419,
+      "spectral_radius": 0.6476849082991601,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-als",
+      "fit_seconds": 0.0012297090142965317,
+      "forecast_mse": 1.1383296799376217,
+      "operator_error": 0.3090601265235527,
+      "spectral_radius": 0.6780181895809974,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-mle",
+      "fit_seconds": 0.0025278329849243164,
+      "forecast_mse": 1.1281674839172504,
+      "operator_error": 0.2318199912518543,
+      "spectral_radius": 0.6627533746892705,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var",
+      "fit_seconds": 0.00013008341193199158,
+      "forecast_mse": 1.2680482997851676,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var-ridge",
+      "fit_seconds": 0.00012762472033500671,
+      "forecast_mse": 1.2630654127764112,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "zero",
+      "fit_seconds": 6.082933396100998e-06,
+      "forecast_mse": 1.5493885239990843,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "training-mean",
+      "fit_seconds": 1.8459279090166092e-05,
+      "forecast_mse": 1.5682298161049941,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.4953810133323178
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.0822566842580128
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-projection",
+      "fit_seconds": 0.0005400832742452621,
+      "forecast_mse": 1.224425678899692,
+      "operator_error": 0.6192989955033896,
+      "spectral_radius": 0.46132888254661386,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-als",
+      "fit_seconds": 0.0013727080076932907,
+      "forecast_mse": 1.2262568358554227,
+      "operator_error": 0.5745337520350318,
+      "spectral_radius": 0.46768580994146564,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-mle",
+      "fit_seconds": 0.00538070872426033,
+      "forecast_mse": 1.2271981189078198,
+      "operator_error": 0.5537767656560294,
+      "spectral_radius": 0.44997189020267564,
+      "converged": true,
+      "iterations": 7,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var",
+      "fit_seconds": 0.00016562500968575478,
+      "forecast_mse": 1.3739772430040975,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var-ridge",
+      "fit_seconds": 0.0001666247844696045,
+      "forecast_mse": 1.3718569209700227,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "zero",
+      "fit_seconds": 6.00004568696022e-06,
+      "forecast_mse": 1.3999382031404586,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "training-mean",
+      "fit_seconds": 1.808302477002144e-05,
+      "forecast_mse": 1.4550707788379107,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "rr-mar-oracle-ranks",
+      "fit_seconds": 0.001431874930858612,
+      "forecast_mse": 1.241798014786791,
+      "operator_error": 0.5344463383824528,
+      "spectral_radius": 0.47621474906338074,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 2.3010400970144893
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.2320799688192796
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "alpha-pca",
+      "fit_seconds": 0.00039787497371435165,
+      "signal_error": 0.1827010341680914,
+      "subspace_error": 0.024148684249296344,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "projected-pca",
+      "fit_seconds": 0.0007394999265670776,
+      "signal_error": 0.18226318149141923,
+      "subspace_error": 0.023381165653320227,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "lagged-factor",
+      "fit_seconds": 0.00039733340963721275,
+      "signal_error": 0.18753798555465806,
+      "subspace_error": 0.04066103994893102,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.014161999803036451,
+      "signal_error": 0.18464698842567073,
+      "subspace_error": 0.030256213116984003,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "huber-factor",
+      "fit_seconds": 0.004064499866217375,
+      "signal_error": 0.18199106525126085,
+      "subspace_error": 0.022503095443398187,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "tipup",
+      "fit_seconds": 0.00034179165959358215,
+      "signal_error": 0.19173215995233028,
+      "subspace_error": 0.05157549440611843,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itipup",
+      "fit_seconds": 0.0010414579883217812,
+      "signal_error": 0.1931915929496194,
+      "subspace_error": 0.05541015250717462,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itopup",
+      "fit_seconds": 0.000978290569037199,
+      "signal_error": 0.18767847153259948,
+      "subspace_error": 0.04169177218744398,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0003255000337958336,
+      "signal_error": 0.17878810244916502,
+      "subspace_error": 1.7103220331993836e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "alpha-pca",
+      "fit_seconds": 0.00022087479010224342,
+      "signal_error": 0.2041052370408138,
+      "subspace_error": 0.0651331045792087,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "projected-pca",
+      "fit_seconds": 0.0003199158236384392,
+      "signal_error": 0.2043695866449141,
+      "subspace_error": 0.06484118713826542,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "lagged-factor",
+      "fit_seconds": 0.0015905420295894146,
+      "signal_error": 0.19980017504362318,
+      "subspace_error": 0.06181565955992737,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.008018708322197199,
+      "signal_error": 0.19365235575286588,
+      "subspace_error": 0.03677201067315662,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "huber-factor",
+      "fit_seconds": 0.0013917083851993084,
+      "signal_error": 0.19393294106516704,
+      "subspace_error": 0.0401009052959926,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "tipup",
+      "fit_seconds": 0.00026466697454452515,
+      "signal_error": 0.20008539916131862,
+      "subspace_error": 0.06145049207923048,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itipup",
+      "fit_seconds": 0.0011235829442739487,
+      "signal_error": 0.20148325592348687,
+      "subspace_error": 0.06420122611928936,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itopup",
+      "fit_seconds": 0.0035979580134153366,
+      "signal_error": 0.20013091531869429,
+      "subspace_error": 0.06300039796206824,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0004092496819794178,
+      "signal_error": 0.18806764767108813,
+      "subspace_error": 2.0454646833123983e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "alpha-pca",
+      "fit_seconds": 0.00041674962267279625,
+      "signal_error": 2.0742632871573288,
+      "subspace_error": 0.681604789282245,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "projected-pca",
+      "fit_seconds": 0.00047450000420212746,
+      "signal_error": 2.153356333217371,
+      "subspace_error": 0.7215083387329805,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "lagged-factor",
+      "fit_seconds": 0.0009943749755620956,
+      "signal_error": 1.691611764699222,
+      "subspace_error": 0.6631949264851478,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.006617624778300524,
+      "signal_error": 1.2724649264001677,
+      "subspace_error": 0.034415075894379824,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "huber-factor",
+      "fit_seconds": 0.004174957983195782,
+      "signal_error": 1.3706325520949012,
+      "subspace_error": 0.07415443036283248,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 7,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "tipup",
+      "fit_seconds": 0.00028625037521123886,
+      "signal_error": 1.4620738213529865,
+      "subspace_error": 0.5122516395419696,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itipup",
+      "fit_seconds": 0.011567458976060152,
+      "signal_error": 1.563740741477688,
+      "subspace_error": 0.5069112706846595,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 67,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itopup",
+      "fit_seconds": 0.00790691701695323,
+      "signal_error": 1.6106110129460907,
+      "subspace_error": 0.6006879804527452,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 37,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0009161671623587608,
+      "signal_error": 1.2602630244664546,
+      "subspace_error": 2.986213582650194e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-cp",
+      "regime": "distinct-ar",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 200,
+      "method": "cp-refined",
+      "fit_seconds": 0.0033583329059183598,
+      "signal_error": 0.017796384687735447,
+      "component_error": 0.00024720973066294505,
+      "condition_number": 7.085764496370777,
+      "rank": 3,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        4,
+        5,
+        3
+      ],
+      "n_train": 120,
+      "method": "tipup",
+      "fit_seconds": 0.0007424592040479183,
+      "signal_error": 0.13645197028077466,
+      "subspace_error": 0.010786737575161664,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        4,
+        5,
+        3
+      ],
+      "n_train": 120,
+      "method": "itipup",
+      "fit_seconds": 0.002200125250965357,
+      "signal_error": 0.1364161323992689,
+      "subspace_error": 0.011140704852859453,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        4,
+        5,
+        3
+      ],
+      "n_train": 120,
+      "method": "topup",
+      "fit_seconds": 0.0005976250395178795,
+      "signal_error": 0.13729478435280834,
+      "subspace_error": 0.014103089444879318,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2026,
+      "replicate": 0,
+      "shape": [
+        4,
+        5,
+        3
+      ],
+      "n_train": 120,
+      "method": "itopup",
+      "fit_seconds": 0.005306791979819536,
+      "signal_error": 0.1373484169558207,
+      "subspace_error": 0.014347399437374888,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-projection",
+      "fit_seconds": 0.00031250016763806343,
+      "forecast_mse": 0.9828709956945875,
+      "operator_error": 0.2583151194730429,
+      "spectral_radius": 0.7124337507891675,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-als",
+      "fit_seconds": 0.0018436247482895851,
+      "forecast_mse": 0.9629915476701972,
+      "operator_error": 0.19827330732242077,
+      "spectral_radius": 0.7366580680064326,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-mle",
+      "fit_seconds": 0.004089457914233208,
+      "forecast_mse": 0.9635008703040148,
+      "operator_error": 0.19411661888320875,
+      "spectral_radius": 0.7399393761390543,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var",
+      "fit_seconds": 0.00013758428394794464,
+      "forecast_mse": 1.1000645112900047,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var-ridge",
+      "fit_seconds": 0.00014083320274949074,
+      "forecast_mse": 1.0980688975029502,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "zero",
+      "fit_seconds": 9.832903742790222e-06,
+      "forecast_mse": 1.2436701762527314,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "training-mean",
+      "fit_seconds": 7.195770740509033e-05,
+      "forecast_mse": 1.2380253034218427,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.259892036155424
+    },
+    {
+      "task": "forecast",
+      "regime": "isotropic",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.9418873349647374
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-projection",
+      "fit_seconds": 0.0004638340324163437,
+      "forecast_mse": 0.8105797769839658,
+      "operator_error": 0.2946225284055697,
+      "spectral_radius": 0.7577611128156538,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-als",
+      "fit_seconds": 0.0010348325595259666,
+      "forecast_mse": 0.8848056304609029,
+      "operator_error": 0.33147004383670864,
+      "spectral_radius": 0.6091678601864916,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-mle",
+      "fit_seconds": 0.0023175831884145737,
+      "forecast_mse": 0.8307684335320688,
+      "operator_error": 0.22827175283689075,
+      "spectral_radius": 0.7038861194643711,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var",
+      "fit_seconds": 0.00013141660019755363,
+      "forecast_mse": 1.0347798905123773,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var-ridge",
+      "fit_seconds": 0.00012175040319561958,
+      "forecast_mse": 1.0297386795958006,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "zero",
+      "fit_seconds": 5.749985575675964e-06,
+      "forecast_mse": 0.9957003779784858,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "training-mean",
+      "fit_seconds": 2.0292121917009354e-05,
+      "forecast_mse": 0.9759241130736653,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.346872254262044
+    },
+    {
+      "task": "forecast",
+      "regime": "correlated",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.8498753421400347
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-projection",
+      "fit_seconds": 0.00036629196256399155,
+      "forecast_mse": 0.9855325588457418,
+      "operator_error": 0.5266749040953405,
+      "spectral_radius": 0.43947191175943884,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-als",
+      "fit_seconds": 0.0018362500704824924,
+      "forecast_mse": 0.97614191112037,
+      "operator_error": 0.45272524583330315,
+      "spectral_radius": 0.3909114258981565,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "mar-mle",
+      "fit_seconds": 0.006466125138103962,
+      "forecast_mse": 0.9794520135372915,
+      "operator_error": 0.4716644174327223,
+      "spectral_radius": 0.39669010326066034,
+      "converged": true,
+      "iterations": 8,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var",
+      "fit_seconds": 0.0001427088864147663,
+      "forecast_mse": 1.1076621866811152,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "var-ridge",
+      "fit_seconds": 0.0001610000617802143,
+      "forecast_mse": 1.1057843053553296,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "zero",
+      "fit_seconds": 7.2089023888111115e-06,
+      "forecast_mse": 1.0950586506137712,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "training-mean",
+      "fit_seconds": 1.8999911844730377e-05,
+      "forecast_mse": 1.0971394538677275,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "rr-mar-oracle-ranks",
+      "fit_seconds": 0.0037375418469309807,
+      "forecast_mse": 0.9807412830399471,
+      "operator_error": 0.44146730409654544,
+      "spectral_radius": 0.39031782170253476,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "last-value",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 1.7357989791050719
+    },
+    {
+      "task": "forecast",
+      "regime": "reduced-rank",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        3,
+        4
+      ],
+      "n_train": 120,
+      "method": "oracle-mar",
+      "status": "ok",
+      "converged": true,
+      "iterations": 0,
+      "fit_seconds": 0.0,
+      "warnings": [],
+      "forecast_mse": 0.9418873349647374
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "alpha-pca",
+      "fit_seconds": 0.0008209170773625374,
+      "signal_error": 0.1901010266833694,
+      "subspace_error": 0.015029330551941545,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "projected-pca",
+      "fit_seconds": 0.000423249788582325,
+      "signal_error": 0.19004248859766318,
+      "subspace_error": 0.01490328593965561,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "lagged-factor",
+      "fit_seconds": 0.0002917083911597729,
+      "signal_error": 0.19356714079956283,
+      "subspace_error": 0.03045608710095787,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.006623249966651201,
+      "signal_error": 0.19056892171005715,
+      "subspace_error": 0.017451123207018915,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "huber-factor",
+      "fit_seconds": 0.0011629997752606869,
+      "signal_error": 0.19011975474293072,
+      "subspace_error": 0.015365543023815438,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "tipup",
+      "fit_seconds": 0.0002611670643091202,
+      "signal_error": 0.194389222062769,
+      "subspace_error": 0.032469866093546865,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itipup",
+      "fit_seconds": 0.0012501250021159649,
+      "signal_error": 0.19357436250381443,
+      "subspace_error": 0.030070850650522535,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itopup",
+      "fit_seconds": 0.0014952090568840504,
+      "signal_error": 0.19355606539980832,
+      "subspace_error": 0.030524795665508874,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0007505831308662891,
+      "signal_error": 0.18889583367849724,
+      "subspace_error": 3.0421626910286776e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "alpha-pca",
+      "fit_seconds": 0.00039670802652835846,
+      "signal_error": 0.18951270775726986,
+      "subspace_error": 0.06109565459387646,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "projected-pca",
+      "fit_seconds": 0.00043120793998241425,
+      "signal_error": 0.18932960808388574,
+      "subspace_error": 0.06113534589350157,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "lagged-factor",
+      "fit_seconds": 0.0004322091117501259,
+      "signal_error": 0.1766721392399673,
+      "subspace_error": 0.04757181114561458,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.009077291935682297,
+      "signal_error": 0.16603705354801637,
+      "subspace_error": 0.018740896639479566,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "huber-factor",
+      "fit_seconds": 0.002228375058621168,
+      "signal_error": 0.16796445037520408,
+      "subspace_error": 0.02459649469357993,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "tipup",
+      "fit_seconds": 0.00029799994081258774,
+      "signal_error": 0.17834193526558728,
+      "subspace_error": 0.05076181631019833,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itipup",
+      "fit_seconds": 0.0011515412479639053,
+      "signal_error": 0.17627173575313446,
+      "subspace_error": 0.04535545619313204,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itopup",
+      "fit_seconds": 0.0010928749106824398,
+      "signal_error": 0.1764250899065749,
+      "subspace_error": 0.04642820863446542,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "elliptical-t3",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0002980409190058708,
+      "signal_error": 0.16398445056274968,
+      "subspace_error": 3.336743192101486e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "alpha-pca",
+      "fit_seconds": 0.00022704200819134712,
+      "signal_error": 2.338786983698872,
+      "subspace_error": 0.7331326423113433,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "projected-pca",
+      "fit_seconds": 0.000323666725307703,
+      "signal_error": 2.4077432238343515,
+      "subspace_error": 0.7211059552518355,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 1,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "lagged-factor",
+      "fit_seconds": 0.000256457831710577,
+      "signal_error": 2.2216494032758867,
+      "subspace_error": 0.7567134511269925,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "matrix-kendall",
+      "fit_seconds": 0.006529666017740965,
+      "signal_error": 1.509118834925821,
+      "subspace_error": 0.023828566327454594,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "huber-factor",
+      "fit_seconds": 0.0028048749081790447,
+      "signal_error": 1.6690534535486439,
+      "subspace_error": 0.09882889075904791,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 7,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "tipup",
+      "fit_seconds": 0.0003948751837015152,
+      "signal_error": 2.118935300877523,
+      "subspace_error": 0.6988349560723628,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itipup",
+      "fit_seconds": 0.012552792206406593,
+      "signal_error": 2.342423328982988,
+      "subspace_error": 0.8194022165138048,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 57,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "itopup",
+      "fit_seconds": 0.005455958656966686,
+      "signal_error": 2.2694716584510366,
+      "subspace_error": 0.7614593944536011,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 27,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-factor",
+      "regime": "outliers",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        5,
+        6
+      ],
+      "n_train": 120,
+      "method": "constrained-oracle-spans",
+      "fit_seconds": 0.0003447500057518482,
+      "signal_error": 1.489015319281018,
+      "subspace_error": 2.465818718458988e-16,
+      "ranks": [
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-cp",
+      "regime": "distinct-ar",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        6,
+        5
+      ],
+      "n_train": 200,
+      "method": "cp-refined",
+      "fit_seconds": 0.0011368338018655777,
+      "signal_error": 0.05943611272039011,
+      "component_error": 0.004404578076526389,
+      "condition_number": 14.176122343995942,
+      "rank": 3,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        4,
+        5,
+        3
+      ],
+      "n_train": 120,
+      "method": "tipup",
+      "fit_seconds": 0.0005096248351037502,
+      "signal_error": 0.13783771839660094,
+      "subspace_error": 0.014148401693589913,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        4,
+        5,
+        3
+      ],
+      "n_train": 120,
+      "method": "itipup",
+      "fit_seconds": 0.002006291877478361,
+      "signal_error": 0.13786504261983837,
+      "subspace_error": 0.014038141677142959,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        4,
+        5,
+        3
+      ],
+      "n_train": 120,
+      "method": "topup",
+      "fit_seconds": 0.000513874925673008,
+      "signal_error": 0.13733583441777092,
+      "subspace_error": 0.012879658497775046,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "tensor-factor",
+      "regime": "gaussian",
+      "seed": 2027,
+      "replicate": 1,
+      "shape": [
+        4,
+        5,
+        3
+      ],
+      "n_train": 120,
+      "method": "itopup",
+      "fit_seconds": 0.0019194157794117928,
+      "signal_error": 0.13725841343213038,
+      "subspace_error": 0.012622338134417474,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    }
+  ],
+  "source_sha256": {
+    "benchmarks/run.py": "c659ed699acb8442c0011e6df4191eca22b2a46ffdb2281949d02d325675ee90",
+    "mavats/MAR.py": "72a7f8966ab95ade19666b5919a806f7fb554367c6e8f886bf484a12441a7300",
+    "mavats/__init__.py": "6b95a98c2ac37090a2c51e90d0d962ccccb85ce5688a30245784447e80728848",
+    "mavats/_validation.py": "a2a8d09990cd0d4c28f5d7a4fb5ee2ae08acf62e4d764e46db9c6060ed7143b3",
+    "mavats/alphaPCA.py": "c977552665e7e86870e5d3078a549fb079bcc8fa7328633f92b22bc84e9a93c4",
+    "mavats/autoregression.py": "2bb7646004c187678db9db597fe68ae7ac5ff296704e0066e06220c62439d909",
+    "mavats/baselines.py": "b022919fbc37fa3c741e97d6b13ab2a2aaf3d57f1b8591b8fa48795193b91eb6",
+    "mavats/calibration.py": "d4b6ed75f7a91b8681e561433474b830efe22a3ae7a9cfcd3cdd2e583eea1993",
+    "mavats/cointegration.py": "244c6a7ad0555470fd28dadad52a4a2bb7ef8b4e088dff1f9202561ab14662cf",
+    "mavats/constrained.py": "c15a8b7c8d304ed425324098ab2773e5e9b3038855cd28914b878706264ecec3",
+    "mavats/cp.py": "ab9ce6d1494a2b4799ff32894d1be13af2300250c6118b592e39a945601997df",
+    "mavats/decorrelation.py": "64f8368f3b89892be3d296f9692be19fea63af70454c48d8165cc816a0f9b05c",
+    "mavats/dynamic.py": "28f206b78fedcd7e55a830483f66070eed219d97e5922fe345eefa7205d790e9",
+    "mavats/factormodel.py": "48bb8d788b1d365c8a7a61c447e3ad5d4779d78a6b275a27c4e7c5176f173360",
+    "mavats/factors.py": "8d9e4b0388805a774737538b6b6274834c97c01901d940237b552740096590dc",
+    "mavats/huber.py": "cdd803f9ffd4f6f53c3dc116e8c5fef2d9c22c9a74b8026647d15bafac355187",
+    "mavats/ihr.py": "71823d39a923e2f4dd461739776347b3b15784553d5d6d8679954ba25578c049",
+    "mavats/inference.py": "8527030fa69388ed42c2731bb528e599fc2e8c6a7b84bf9e85ffdd720398cc83",
+    "mavats/metrics.py": "61a183ff671192eaae6f2bccd6b5c192dc095c31c6abaf869e3341c6f670e597",
+    "mavats/model_selection.py": "35be477fc2f464f11504cde1b5b5b845e9c99d8130a90f848aa057715304b3ef",
+    "mavats/monitoring.py": "6f706b5c0cfef0f755add11f24614642a32c68860f047e3848f895e2c1d76b98",
+    "mavats/robust.py": "e6bb052d756f41bb0655d45f7fd13c208b38f62198b26b24aaa4e7e63796f5f5",
+    "mavats/simulation.py": "8c10dc97feda7b0cbc5370717bc02f62fa5906202aab53201cb1de0e449b8c0c",
+    "mavats/sparse.py": "982abec64c3b858ae302b9d8bff8161ab73ef0d8ead37a405c569b3cf0f6814d",
+    "mavats/tensor.py": "d428d252911ef70e60c5e894c5996656cfa32fd1ba01d246320fbfbecce34092",
+    "mavats/tensor_autoregression.py": "a80335fa5dd08406e030696a08ee1b41a2833069c3ecbda7e42b9771fd8403c6",
+    "mavats/threshold.py": "c6bedefdc30a14531b891ef45d58b3a59ea40f9872faa626abb9b4cd1b38983a",
+    "mavats/volatility.py": "2716e519464aca5a00e7b82fe909afa7ab32eb84cf368b2c858197e571e4b125"
+  },
+  "source_changed_during_run": []
+}
