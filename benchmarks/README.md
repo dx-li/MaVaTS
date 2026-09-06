@@ -371,6 +371,10 @@ report records its exact seed and configuration.
 
 ## Envelope MAR
 
+[Retained results and initialization audit](results/envelope-summary.md) report
+both the initial and updated 720-fit studies, with source fingerprints and paired
+Monte Carlo uncertainty. The same 80 series are reused, not independent reruns.
+
 ```bash
 python -m benchmarks.envelope --quick --repeats 1 --output benchmark-envelope-smoke.json
 python -m benchmarks.envelope --repeats 10 --output benchmarks/results/envelope.json
