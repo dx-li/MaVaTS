@@ -27,11 +27,17 @@ def _public_definitions():
         ("structured_ar", "_fit_vector_vecm"),
         ("monitoring", "_wilson"),
         ("inference", "summary"),
+        ("marma", "_TrueMARMA"),
+        ("constrained_extensions", "_KnownLoadingProjection"),
+        ("constrained_extensions", "_IndependentSum"),
+        ("advanced_matrix", "_gaussian_score"),
     ):
         path = ROOT / f"benchmarks/{module}.py"
         tree = ast.parse(path.read_text(encoding="utf-8"))
         node = next(
-            n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == name
+            n
+            for n in tree.body
+            if isinstance(n, (ast.FunctionDef, ast.ClassDef)) and n.name == name
         )
         definitions[f"benchmarks.{module}.{name}"] = node
     return definitions

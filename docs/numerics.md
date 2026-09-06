@@ -135,6 +135,25 @@ from changing an earlier observation's stopping criterion. Paper-normalized
 rank spectra, public orthonormal loadings and physical threshold units are
 distinguished in [IHR notes](ihr-notes.md).
 
+## ARMA and overlapping constraints
+
+Matrix ARMA differentiates the full conditional innovation recursion with an
+analytic reverse pass. Centering and scaling are numerical reparameterizations
+when the intercept is fitted; returned parameters and likelihoods use original
+units. Default local optimization constrains both full companion radii, not
+individual mode radii. Optimizer termination, feasibility, LS initialization of
+MLE, and structural identification are separate diagnostics. Dense allocation
+limits apply to full-polynomial checks and forecast covariance. Conditional
+prefix innovations are zero; covariance forecasts omit parameter uncertainty.
+See [MARMA notes](marma-notes.md) for sign and conditioning conventions.
+
+Partial constrained factors use a single observation normalization before
+computing and summing separate block moments. Multi-term constrained factors
+annihilate competing spaces, check surviving loading ranks, and solve scores
+with a full-column-rank joint SVD. Independent projections are not the joint
+score solution for overlapping components. Allocation and identification
+guards are explicit; see [constraint notes](partial-constraints-notes.md).
+
 ## Migration from 0.1
 
 Legacy imports from `mavats.MAR`, `mavats.alphaPCA` and `mavats.factormodel` remain.

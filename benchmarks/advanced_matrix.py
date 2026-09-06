@@ -39,16 +39,45 @@ def _garch_parameters():
 
 
 def _gaussian_score(observations, covariances):
-    """Dense negative Gaussian log score including constants; lower is better."""
+    """Dense negative Gaussian log score including constants; lower is better.
+
+    References
+    ----------
+    Tsay (2024), https://doi.org/10.1111/insr.12558. Conventional Gaussian
+    density evaluation, including its required quadratic one-half factor;
+    not a separately proposed matrix estimator.
+    """
+    observations = np.asarray(observations)
+    covariances = np.asarray(covariances)
+    if observations.ndim != 3 or not len(observations):
+        raise ValueError("score observations must be a nonempty matrix series")
     flat = observations.transpose(0, 2, 1).reshape(len(observations), -1)
+    if covariances.shape != (len(flat), flat.shape[1], flat.shape[1]):
+        raise ValueError("score requires one matching covariance per observation")
+    if not np.isfinite(flat).all() or not np.isfinite(covariances).all():
+        raise ValueError("score observations and covariances must be finite")
     scores = []
     for x, cov in zip(flat, covariances):
-        sign, logdet = np.linalg.slogdet(cov)
-        if sign != 1:
-            raise ValueError("covariance score requires positive definiteness")
+        scale = np.max(np.abs(cov))
+        if scale == 0 or not np.allclose(
+            cov / scale, cov.T / scale, rtol=1e-12, atol=1e-12
+        ):
+            raise ValueError(
+                "covariance score requires symmetric positive definiteness"
+            )
+        try:
+            chol = np.linalg.cholesky((cov / scale + cov.T / scale) / 2)
+        except np.linalg.LinAlgError as error:
+            raise ValueError(
+                "covariance score requires positive definiteness"
+            ) from error
+        logdet = 2 * np.log(np.diag(chol)).sum() + len(x) * np.log(scale)
+        standardized = np.linalg.solve(chol, x / np.sqrt(scale))
         scores.append(
-            0.5 * (len(x) * np.log(2 * np.pi) + logdet + x @ np.linalg.solve(cov, x))
+            0.5 * (len(x) * np.log(2 * np.pi) + logdet + standardized @ standardized)
         )
+    if not np.isfinite(scores).all():
+        raise ValueError("Gaussian score is not representable in float64")
     return float(np.mean(scores))
 
 
