@@ -30,6 +30,14 @@ The two new examples demonstrate rank selection and explicit stability tuning;
 all 16 examples run successfully. Historical raw benchmark fingerprints are
 preserved; new studies are recorded against their own frozen sources.
 
+The complete suite passes 1,128 tests in both current and minimum dependency
+environments, with 94% coverage. Builds, API docs, formatting and all 16 examples
+against an independently installed wheel pass. New retained studies contain
+3,260 rank-comparison records and 80 paths containing 6,000 subsample cells,
+with no execution errors. They preserve 137 unconverged comparison fits,
+47 unconverged path cells and 28 incomplete tuning choices. All 52 selected
+joint refits converged. See the [results and uncertainty](../benchmarks/results/factor-rank-summary.md).
+
 The broad rebuild remains active. Missing major matrix families, transition-rank
 tensor autoregression, broader inference, real-data studies and larger statistical
 and performance grids remain on the roadmap.
