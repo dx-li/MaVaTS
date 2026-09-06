@@ -38,6 +38,12 @@ with no execution errors. They preserve 137 unconverged comparison fits,
 47 unconverged path cells and 28 incomplete tuning choices. All 52 selected
 joint refits converged. See the [results and uncertainty](../benchmarks/results/factor-rank-summary.md).
 
+A post-merge minimum-dependency runner exposed a one-ULP difference between
+scalar and NumPy logarithms in a test that incorrectly required bitwise equality.
+The portability follow-up uses a two-ULP bound for those log values while
+keeping rank equality exact. Estimator code and benchmark source fingerprints
+are unchanged.
+
 The broad rebuild remains active. Missing major matrix families, transition-rank
 tensor autoregression, broader inference, real-data studies and larger statistical
 and performance grids remain on the roadmap.
