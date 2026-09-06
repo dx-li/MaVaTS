@@ -58,11 +58,12 @@ does not give repeated-sample uncertainty or assess all seasons and locations.
 
 ## Reproduce a walkthrough
 
-The gallery was added after `0.2.0a1`: use the development checkout, not just the
-published wheel. Core numerical functions are unchanged by this documentation work.
+The gallery is included in the `0.2.0a2` source distribution and matching release
+checkout; the wheel contains the library, not example scripts or data. Core
+numerical functions are unchanged from `0.2.0a1`.
 
 ```bash
-git clone https://github.com/dx-li/MaVaTS.git
+git clone --branch v0.2.0a2 https://github.com/dx-li/MaVaTS.git
 cd MaVaTS
 python -m pip install -e '.[examples]'
 python -m examples.air_quality --methods mar-als projected-pca --output /tmp/mavats-gallery

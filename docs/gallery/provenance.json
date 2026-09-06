@@ -3,7 +3,7 @@
   "numpy": "2.5.2",
   "scipy": "1.18.1",
   "matplotlib": "3.11.1",
-  "mavats": "0.2.0a1",
+  "mavats": "0.2.0a2",
   "source_sha256": {
     "examples/air_quality/__init__.py": "d356972813c8b9fc18e84c05582d4009691388e3c3fb30f853d8eddd44ab3277",
     "examples/air_quality/__main__.py": "7416f8c9c823655f8f8c2c94d3f969aeb514eef87571d1ec653471c21b15a494",
@@ -11,7 +11,7 @@
     "examples/air_quality/data.py": "e321895570f112ff8c8f60a07b4db26c8871a1121e3e5852fd7d5e5f87ddc9d4",
     "examples/air_quality/prepare.py": "7c48b3b17f879b710d54f952600484997b45af52ccf0f856c073a195fe0ebc00",
     "mavats/MAR.py": "00b4f156bc161761341eb792c72baf71185a54d11aa6685ff4fb003de9771356",
-    "mavats/__init__.py": "ac88113359d86c576566cffc91c1707f268f5637a6f65d7f54f5e163b20237be",
+    "mavats/__init__.py": "b1d6d1b0519053c41a94b845128cf878aa62efddc58806e54825a713a51d5919",
     "mavats/_envelope_optimization.py": "1b480a6c02308b0cba8f7d639b12e0cde51745f57a17df544a91e8787d7c6580",
     "mavats/_validation.py": "a2a8d09990cd0d4c28f5d7a4fb5ee2ae08acf62e4d764e46db9c6060ed7143b3",
     "mavats/alphaPCA.py": "afff3be6730f54590396d7650a2827f236163da3192388aeb7b8581f6bf1ac27",

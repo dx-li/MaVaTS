@@ -28,6 +28,8 @@ def test_readme_guide_links_are_absolute_and_point_to_existing_release_sources()
     assert links
     for link in links:
         assert link.startswith(("https://", "#")), link
+        if link.startswith("https://github.com/dx-li/MaVaTS/blob/"):
+            assert link.startswith(prefix), link
         if link.startswith(prefix):
             path = link.removeprefix(prefix).split("#", 1)[0]
             assert (ROOT / path).is_file(), path

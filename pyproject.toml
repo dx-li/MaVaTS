@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mavats"
-version = "0.2.0a1"
+version = "0.2.0a2"
 description = "Scientific methods for matrix- and tensor-valued time series"
 authors = [{name = "Daniel", email = "danlixuan@gmail.com"}]
 license = "MIT"

@@ -102,6 +102,7 @@ def test_every_case_has_auditable_page_figure_and_numerical_results(case):
 
 def test_gallery_fingerprints_match_the_recorded_source_and_data():
     provenance = json.loads((GALLERY / "provenance.json").read_text())
+    assert provenance["mavats"] == mavats.__version__
     assert set(provenance["methods"]) == {c.id for c in CASES}
     for source, sha in provenance["source_sha256"].items():
         assert hashlib.sha256((ROOT / source).read_bytes()).hexdigest() == sha, source

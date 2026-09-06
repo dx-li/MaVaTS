@@ -49,7 +49,7 @@ jobs:
               assert os.environ['GITHUB_REF_NAME'] == 'v' + version
           print('Validated release version:', version)
           PY
-      - run: python -m pip install '.[dev]'
+      - run: python -m pip install '.[dev,examples]'
       - run: python -m pytest
       - run: python -m build --outdir release-dist
       - run: python -m twine check --strict release-dist/*
@@ -76,7 +76,11 @@ jobs:
               for folder, pattern in [('mavats', '*.py'), ('docs', '*.md'),
                                       ('docs', '*.bib'), ('examples', '*.py'),
                                       ('benchmarks', '*.py')]:
-                  required.extend(Path(folder).glob(pattern))
+                  required.extend(Path(folder).rglob(pattern))
+              for folder, extensions in [('docs/gallery', {'.png', '.json', '.npz'}),
+                                         ('examples/air_quality/data', {'.csv', '.json', '.md'})]:
+                  required.extend(p for p in Path(folder).rglob('*')
+                                  if p.is_file() and p.suffix in extensions)
               for source in required:
                   assert archive.extractfile(prefix + source.as_posix()).read() == source.read_bytes(), source
           print('Verified wheel/source metadata and packaged code, guides, citations and examples')
@@ -85,7 +89,12 @@ jobs:
         shell: bash
         run: |
           python -m venv "$RUNNER_TEMP/mavats-release-wheel"
-          "$RUNNER_TEMP/mavats-release-wheel/bin/python" -m pip install release-dist/*.whl
+          python - <<'PY'
+          import os, pathlib, subprocess
+          executable = pathlib.Path(os.environ['RUNNER_TEMP']) / 'mavats-release-wheel/bin/python'
+          wheel = next(pathlib.Path('release-dist').glob('*.whl')).resolve()
+          subprocess.run([str(executable), '-m', 'pip', 'install', str(wheel) + '[examples]'], check=True)
+          PY
           cd "$RUNNER_TEMP"
           "$RUNNER_TEMP/mavats-release-wheel/bin/python" - <<'PY'
           import importlib.metadata, os, pathlib, tomllib
@@ -99,6 +108,15 @@ jobs:
           for example in "$GITHUB_WORKSPACE"/examples/*.py; do
             "$RUNNER_TEMP/mavats-release-wheel/bin/python" "$example"
           done
+          "$RUNNER_TEMP/mavats-release-wheel/bin/python" - --output "$RUNNER_TEMP/mavats-wheel-gallery" <<'PY'
+          import os, pathlib, runpy, sys
+          import mavats
+          root = pathlib.Path(os.environ['GITHUB_WORKSPACE']).resolve()
+          assert not pathlib.Path(mavats.__file__).resolve().is_relative_to(root)
+          # Expose only the example package, never the checkout's mavats package.
+          sys.path.insert(0, str(root / 'examples'))
+          runpy.run_module('air_quality', run_name='__main__')
+          PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: release-distributions
