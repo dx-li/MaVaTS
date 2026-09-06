@@ -66,6 +66,9 @@ section with a primary-paper link. New APIs must update this index.
 | `mavats.decorrelation.fit_matrix_decorrelation` | [han2024decorrelation](#han2024decorrelation) | Threshold/ratio grouping; supplement boundary choices documented. |
 | `mavats.dynamic.TwoWayDynamicResult` | [yuan2023dynamic](#yuan2023dynamic) | Additive two-way model, residual rank iteration and scoped latent-factor forecasting. |
 | `mavats.dynamic.fit_two_way_dynamic` | [yuan2023dynamic](#yuan2023dynamic) | Additive two-way model, residual rank iteration and scoped latent-factor forecasting. |
+| `mavats.envelope.EnvelopeMARResult` | [samadi2026envelope](#samadi2026envelope) | Fixed-dimension Gaussian EMAR(p), shared response reducing spaces; local Grassmann likelihood optimization, explicit source corrections; no SEMAR, selection or inference. |
+| `mavats.envelope.fit_envelope_mar` | [samadi2026envelope](#samadi2026envelope) | Equations (13), (15)–(16), Algorithm 1; fixed positive envelope dimensions, joint-lag likelihood and free intercept; numerical choices and source discrepancies documented. |
+| `benchmarks.envelope._KnownEMAR` | [samadi2026envelope](#samadi2026envelope) | Known-parameter conditional mean and impulse-response forecast noise floor for equation (13); extra oracle information, not estimation. |
 | `mavats.alphaPCA.estimate_alpha_PCA` | [chen2021alphapca](#chen2021alphapca) | Legacy loading/scoring and covariance APIs; normalizations documented. |
 | `mavats.alphaPCA.estimate_cov_Ri` | [chen2021alphapca](#chen2021alphapca) | Legacy loading/scoring and covariance APIs; normalizations documented. |
 | `mavats.alphaPCA.estimate_cov_Cj` | [chen2021alphapca](#chen2021alphapca) | Legacy loading/scoring and covariance APIs; normalizations documented. |
@@ -268,3 +271,7 @@ Han, Yuefeng, Chen, Rong, and Zhang, Cun-Hui (2022). Rank Determination in Tenso
 ### tsay2024marma
 
 [Tsay (2024; online 2023). Matrix-Variate Time Series Analysis: A Brief Review and Some New Developments.](https://doi.org/10.1111/insr.12558)
+
+### samadi2026envelope
+
+[Samadi & De Alwis (2026; online 2025). Envelope Matrix Autoregressive Models.](https://doi.org/10.1080/07350015.2025.2537404)

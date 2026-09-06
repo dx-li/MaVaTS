@@ -46,6 +46,13 @@ multiple lags, intercepts, reduced-rank coefficients and EBIC rank selection.
 Iterative fits report their objective history and convergence. Stability is
 diagnosed rather than imposed; a converged fit need not be stationary.
 
+`fit_envelope_mar(X, envelope_dims=(2, 2))` links shared row/column response
+spaces with reducing blocks of the innovation covariance. It fits the EMAR
+likelihood, not reduced-rank ALS. Dimensions and lag order are fixed; local
+optimization, warmup and failure diagnostics are explicit. See the
+[envelope example](examples/envelope_mar.py) and
+[paper equations, numerical choices and limitations](docs/envelope-notes.md).
+
 `fit_sparse_mar` adds continuous spike-and-slab EM variable selection for
 zero-mean MAR(1). Its inclusion probabilities are conditional on a fitted
 posterior mode; they are not posterior averages or credible intervals.
