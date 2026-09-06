@@ -1,28 +1,28 @@
 # MaVaTS
 
 Every public method has paper attribution in its API docstring and the
-[method-to-paper citation index](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/citations.md). [BibTeX references](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/references.bib)
-and [method notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/methods.md) distinguish published algorithms from
+[method-to-paper citation index](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/citations.md). [BibTeX references](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/references.bib)
+and [method notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/methods.md) distinguish published algorithms from
 documented extensions, simulations and conventional baselines.
 
 Scientific Python methods for matrix- and tensor-valued time series: structured
 autoregression, cointegration, factor estimation, volatility, sequential monitoring,
 decorrelation, inference, simulation, and reproducible comparisons.
 
-This is the **0.2.0a1 alpha prerelease** of the development rebuild. The aim is broad, dependable coverage
+This is the **0.2.0a2 alpha prerelease** of the development rebuild. The aim is broad, dependable coverage
 of published methodology. It is not yet a complete replacement for specialist
-research implementations. The [method inventory](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/methods.md) states exactly
+research implementations. The [method inventory](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/methods.md) states exactly
 which estimators are implemented and which paper features remain open.
 
 ## Install the alpha prerelease
 
 ```bash
-python -m pip install "mavats==0.2.0a1"
+python -m pip install "mavats==0.2.0a2"
 ```
 
 An explicit version selects this alpha; it is not a stable-release upgrade.
 The API may change before 0.2.0 final. See the
-[release notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/CHANGELOG.md) for compatibility and coverage limits.
+[release notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/CHANGELOG.md) for compatibility and coverage limits.
 
 ## Install the development checkout
 
@@ -40,19 +40,22 @@ the wheel contains the importable library. The live API website tracks `main`.
 
 ## Forecast matrix observations
 
-### Real-world walkthroughs and figures (development docs)
+### Real-world walkthroughs and figures
 
-Start with the [air-quality data protocol](https://github.com/dx-li/MaVaTS/blob/main/docs/real-world-examples.md)
-and [method-by-method visual gallery](https://github.com/dx-li/MaVaTS/blob/main/docs/gallery/index.md).
+Start with the [air-quality data protocol](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/real-world-examples.md)
+and [method-by-method visual gallery](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/gallery/index.md).
 These new examples use openly licensed observed data, training-only preprocessing,
 explicit missingness, chronological evaluation and retained numerical diagnostics.
 Forecasts, same-day reconstruction, and assumption-sensitive inference are labelled
 separately. They are teaching applications, not a claim that every model fits this dataset.
 
-The gallery is newer than the `0.2.0a1` release. To reproduce it, use a current
-repository checkout (the released wheel does not include examples):
+The gallery is included in the `0.2.0a2` source distribution. To reproduce it,
+use that source archive or the matching release checkout (the wheel contains
+the library, not the example scripts or dataset):
 
 ```bash
+git clone --branch v0.2.0a2 https://github.com/dx-li/MaVaTS.git
+cd MaVaTS
 python -m pip install -e '.[examples]'
 python -m examples.air_quality --methods mar-als projected-pca --output /tmp/mavats-gallery
 ```
@@ -84,15 +87,15 @@ diagnosed rather than imposed; a converged fit need not be stationary.
 spaces with reducing blocks of the innovation covariance. It fits the EMAR
 likelihood, not reduced-rank ALS. Dimensions and lag order are fixed; local
 optimization, warmup and failure diagnostics are explicit. See the
-[envelope example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/envelope_mar.py) and
-[paper equations, numerical choices and limitations](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/envelope-notes.md).
+[envelope example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/envelope_mar.py) and
+[paper equations, numerical choices and limitations](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/envelope-notes.md).
 
 `fit_sparse_mar` adds continuous spike-and-slab EM variable selection for
 zero-mean MAR(1). Its inclusion probabilities are conditional on a fitted
 posterior mode; they are not posterior averages or credible intervals.
 Forecasts use all fitted coefficients, including those outside selected support.
-See the [sparse MAR example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/sparse_mar.py) and
-[prior and algorithm conventions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/sparse-notes.md).
+See the [sparse MAR example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/sparse_mar.py) and
+[prior and algorithm conventions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/sparse-notes.md).
 
 For stationary, unconstrained, unpenalized zero-intercept MAR(1),
 `mar_inference` supplies plug-in standard errors and marginal Wald intervals;
@@ -108,8 +111,8 @@ Gaussian likelihood use local multistart optimization; full-polynomial stability
 and invertibility are enforced by default. These checks do not establish minimal
 orders or structural identification. Forecasts refilter supplied history without
 refitting, and covariance forecasts condition on fitted parameters. See the
-[matrix ARMA example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/matrix_arma.py) and
-[conditioning and optimization notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/marma-notes.md).
+[matrix ARMA example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/matrix_arma.py) and
+[conditioning and optimization notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/marma-notes.md).
 
 ## Recover factor spaces
 
@@ -142,22 +145,22 @@ outside supplied constraint spaces, including their cross-factor blocks.
 `fit_multiterm_constrained_factor` separates identifiable overlapping constrained
 components and solves their scores jointly. Transforming held-out observations
 is contemporaneous denoising, not forecasting. See the
-[partial-constraint example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/partial_constraints.py) and
-[paper-version, rank and identification limits](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/partial-constraints-notes.md).
+[partial-constraint example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/partial_constraints.py) and
+[paper-version, rank and identification limits](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/partial-constraints-notes.md).
 
 `fit_two_way_dynamic` fits the additive model `X[t] = F[t] L.T + Lambda G[t].T`.
 It combines covariance quasi-likelihood, conditional scores and pooled scalar
 autoregressions, with separate row and column effects rather than a Tucker core.
 Ranks can be supplied or selected through iterative residual projections.
-See the [two-way dynamic example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/two_way_dynamic.py) and
-[normalization and forecasting conventions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/dynamic-notes.md).
+See the [two-way dynamic example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/two_way_dynamic.py) and
+[normalization and forecasting conventions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/dynamic-notes.md).
 
 `fit_threshold_factors` estimates two regimes controlled by an observed variable
 aligned with each matrix observation. It supports known or estimated thresholds,
 unequal row/column ranks across regimes, and an inspectable trimmed search
 profile. It uses the published regime-specific lagged cross moments. The
-[threshold example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/threshold_factors.py) includes held-out projection;
-[method notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/threshold-notes.md) explain identification and time alignment.
+[threshold example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/threshold_factors.py) includes held-out projection;
+[method notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/threshold-notes.md) explain identification and time alignment.
 
 `fit_matrix_decorrelation` instead keeps all coordinates and estimates an
 invertible transformation into rectangular component series. Grouping uses a
@@ -166,7 +169,7 @@ correlation-ratio selector. Ratio grouping cannot select all-singleton partition
 and requires at least three coordinates in each nontrivial mode. `blocks()` and
 `inverse_blocks()` connect separate component models with reconstruction; the
 estimator does not fit those forecasting models itself. See the
-[decorrelation notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/decorrelation-notes.md) for equations and limitations.
+[decorrelation notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/decorrelation-notes.md) for equations and limitations.
 
 ## Cointegration and multi-term autoregression
 
@@ -176,24 +179,24 @@ and separable Gaussian likelihood fits are distinct options. Its forecasts are
 matrix **levels**, not differences. `i1_diagnostics()` checks the full companion
 and cointegration rank condition; it is not a statistical test or an automatic
 stationarity constraint. Ranks must be specified. See the
-[cointegration example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/cointegrated_mar.py) and
-[assumptions and conventions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/cointegration-notes.md).
+[cointegration example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/cointegrated_mar.py) and
+[assumptions and conventions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/cointegration-notes.md).
 
 `fit_tensor_ar` supports multiple Kronecker terms at each specified lag for
 matrices and higher-order tensors. `terms=(2,1)` means two terms at lag one and
 one term at lag two. Projection, least squares and separable likelihood have
 different objectives. Higher-order projection uses local CP approximation and
 retains its own convergence diagnostics; it is not a globally best CP guarantee.
-See the [tensor autoregression example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/tensor_autoregression.py) and
-[identification and allocation limits](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/tensor-autoregression-notes.md).
+See the [tensor autoregression example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/tensor_autoregression.py) and
+[identification and allocation limits](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/tensor-autoregression-notes.md).
 
 `fit_ihr_factor` separately fits entrywise Huber regressions for loadings **and**
 factor scores, with robust out-of-sample transforms. `select_ihr_ranks` exposes
 the preprint's oversized-pilot rank rules. This implementation explicitly targets
 the 2023 IHR preprint; equivalence with the renamed accepted work remains
 unverified. It supplies no inferential standard errors. See the
-[entrywise contamination example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/entrywise_huber.py) and
-[version boundary and threshold policy](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/ihr-notes.md).
+[entrywise contamination example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/entrywise_huber.py) and
+[version boundary and threshold policy](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/ihr-notes.md).
 
 ## Model conditional covariance
 
@@ -207,8 +210,8 @@ estimation-adjusted portmanteau test remain unimplemented.
 
 Optimization reports all starts, convergence, feasibility and active bounds.
 The default spectral constraints do not by themselves prove stationarity.
-See the [matrix GARCH example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/matrix_garch.py) and
-[model and constraint notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/volatility-notes.md).
+See the [matrix GARCH example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/matrix_garch.py) and
+[model and constraint notes](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/volatility-notes.md).
 
 ## Monitor matrix factor changes
 
@@ -225,9 +228,9 @@ randomization state for continuation.
 reference thresholds: exact for maxima and simulated for partial sums. These
 are an explicit extension, not finite-sample false-alarm guarantees for matrix
 data, whose randomized scores retain a data-dependent drift. See the
-[online monitoring example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/online_monitoring.py),
-[monitor assumptions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/monitoring-notes.md), and
-[calibration scope](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/calibration-notes.md).
+[online monitoring example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/online_monitoring.py),
+[monitor assumptions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/monitoring-notes.md), and
+[calibration scope](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/calibration-notes.md).
 
 ## Methods, examples and comparisons
 
@@ -237,19 +240,19 @@ penalties per criterion are available; strength and physical-unit penalty
 constants are explicit. `tensor_rank_stability` evaluates supplied nested
 subsamples and penalty grids, retaining failed or unconverged fits and
 reporting when no admissible stability interval exists. See the
-[rank-selection example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/factor_rank_selection.py),
-[stability example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/rank_stability.py), and
-[paper-version and numerical scope](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/rank-selection-notes.md).
+[rank-selection example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/factor_rank_selection.py),
+[stability example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/rank_stability.py), and
+[paper-version and numerical scope](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/rank-selection-notes.md).
 
-- [Scientific coverage and primary citations](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/methods.md)
-- [Numerical conventions and compatibility](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/numerics.md)
-- [Executable examples](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/quickstart.py)
-- [Core method gallery](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/method_gallery.py)
-- [MAR inference example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/mar_inference.py) and [assumptions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/inference-notes.md)
-- [Additive dynamic factors](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/two_way_dynamic.py), [matrix GARCH](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/matrix_garch.py), and [online monitoring](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/examples/online_monitoring.py)
-- [Benchmark protocol and retained results](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/benchmarks/README.md)
-- [Remaining work and acceptance criteria](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/roadmap.md)
-- [Contributing](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/CONTRIBUTING.md)
+- [Scientific coverage and primary citations](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/methods.md)
+- [Numerical conventions and compatibility](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/numerics.md)
+- [Executable examples](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/quickstart.py)
+- [Core method gallery](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/method_gallery.py)
+- [MAR inference example](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/mar_inference.py) and [assumptions](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/inference-notes.md)
+- [Additive dynamic factors](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/two_way_dynamic.py), [matrix GARCH](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/matrix_garch.py), and [online monitoring](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/examples/online_monitoring.py)
+- [Benchmark protocol and retained results](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/benchmarks/README.md)
+- [Remaining work and acceptance criteria](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/roadmap.md)
+- [Contributing](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/CONTRIBUTING.md)
 
 ```bash
 python -m benchmarks.run --quick --repeats 2 --output benchmark-smoke.json
@@ -269,6 +272,6 @@ uncertainty, not guarantees for other data-generating processes.
 ## Citation and license
 
 Please cite the methodological papers associated with the estimators you use;
-[references.bib](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/docs/references.bib) provides citations. Code is licensed under
-the [MIT license](https://github.com/dx-li/MaVaTS/blob/v0.2.0a1/LICENSE). Implementations are derived from published equations,
+[references.bib](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/references.bib) provides citations. Code is licensed under
+the [MIT license](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/LICENSE). Implementations are derived from published equations,
 with paper-specific limitations and extensions documented beside each API.

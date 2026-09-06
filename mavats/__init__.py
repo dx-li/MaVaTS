@@ -6,9 +6,9 @@ See the repository's
 docs/methods.md for assumptions, references and coverage gaps. This development
 release is not a claim of complete literature coverage.
 
-Start with the [real-world data protocol](https://github.com/dx-li/MaVaTS/blob/main/docs/real-world-examples.md)
-and [method-by-method visual gallery](https://github.com/dx-li/MaVaTS/blob/main/docs/gallery/index.md).
-These development-checkout examples distinguish forecasts from same-day
+Start with the [real-world data protocol](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/real-world-examples.md)
+and [method-by-method visual gallery](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/gallery/index.md).
+These source-distribution examples distinguish forecasts from same-day
 reconstruction and retain failed fits and scientific applicability warnings.
 """
 
@@ -90,7 +90,7 @@ from .volatility import (
     simulate_matrix_garch,
 )
 
-__version__ = "0.2.0a1"
+__version__ = "0.2.0a2"
 
 __all__ = [
     "EnvelopeMARResult",

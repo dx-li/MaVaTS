@@ -1,5 +1,30 @@
 # Release notes
 
+## 0.2.0a2 — 2026-09-06
+
+Documentation and reproducibility alpha release; numerical estimators are
+unchanged from 0.2.0a1. APIs remain experimental.
+
+- Forty-nine executable real-data method/variant walkthroughs with computed
+  figures, paper links, diagnostics and downloadable numerical arrays.
+- Bundled Beijing air-quality teaching extract with CC BY 4.0 attribution,
+  source/data hashes, retained missingness and a fixed chronological split.
+- Training-only preprocessing and observed-target scoring; forecasting is
+  explicitly separated from contemporaneous factor reconstruction. Unverified
+  assumptions and unconverged fits remain visible, not treated as validation.
+- Optional `examples` extra for Matplotlib. Guides, figures, data and example
+  scripts ship in the source distribution; the wheel contains the library.
+- Release validation checks nested documentation/data assets and executes the
+  complete observational gallery against an independently installed wheel.
+
+Install with `python -m pip install "mavats==0.2.0a2"`.
+For runnable examples use the
+[matching release source](https://github.com/dx-li/MaVaTS/tree/v0.2.0a2),
+[data protocol](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/real-world-examples.md)
+and [visual gallery](https://github.com/dx-li/MaVaTS/blob/v0.2.0a2/docs/gallery/index.md).
+One observational dataset does not establish every model's assumptions,
+inference validity, or suitability for a particular application.
+
 ## 0.2.0a1 — 2026-09-06
 
 First alpha release of the MaVaTS development rebuild. This is not a claim of
