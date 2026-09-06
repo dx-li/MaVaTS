@@ -62,7 +62,7 @@ separable covariance with 100 flip-flop updates. This fixed flip-flop budget is
 an initializer, not the final MLE convergence criterion. A user-provided MLE
 start with both covariance factors bypasses LS warm-up. Failed attempts remain
 in `runs`; finite unconverged candidates can be returned and are explicitly
-marked unconverged. Selection uses the smallest terminal objective, not the
+marked unconverged. Selection uses the smallest retained objective, not the
 optimizer's success flag.
 
 The exact gradient differentiates through the entire innovation recursion.

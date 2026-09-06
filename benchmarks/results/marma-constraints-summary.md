@@ -22,7 +22,7 @@ near-cancellation LS fits and the MLE fits at seeds 1973 and 1974 reached their
 full-polynomial bounds; none certifies structural identification. All 40 MLE
 LS warm-up solves converged under their separately documented looser tolerance.
 One near-cancellation LS record retains an earlier feasible iterate. Selection
-uses the smallest terminal objective, so a selected unconverged start can have
+uses the smallest retained objective, so a selected unconverged start can have
 a converged alternative; convergence flags are not overwritten.
 
 Models use 500 training and 50 test matrices, with identical 46 forecast origins
