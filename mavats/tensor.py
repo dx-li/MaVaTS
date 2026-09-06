@@ -69,8 +69,9 @@ def fit_tensor_factor(
     ----------
     Chen, Yang and Zhang (2022), Factor Models for High-Dimensional Tensor
     Time Series. https://arxiv.org/abs/1905.07530
-    Han, Chen, Yang and Zhang, Tensor Factor Model Estimation by Iterative
-    Projection. Algorithm and implementation described in tensorTS, eq. (14):
+    Han, Chen, Yang and Zhang (2024), Tensor Factor Model Estimation by Iterative
+    Projection. https://doi.org/10.1214/24-AOS2412
+    Algorithm and sequential implementation described in tensorTS, eq. (14):
     https://yuefenghan.github.io/papers/R_software_paper_tensorTS.pdf
     """
     method = str(method).lower()

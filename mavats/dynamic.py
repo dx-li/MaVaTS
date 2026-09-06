@@ -4,6 +4,15 @@ The estimator follows Algorithms 1/2 and supplement Algorithm A1 in
 https://doi.org/10.1093/jrsssb/qkad077. Its additive covariance quasi-likelihood,
 conditional factor scores, and pooled scalar autoregressions are different
 from bilinear matrix PCA followed by a VAR. See docs/dynamic-notes.md.
+
+References
+----------
+Yuan, C., Gao, Z., He, X., Huang, W. and Guo, J. (2023).
+Two-Way Dynamic Factor Models for High-Dimensional Matrix-Valued
+Time Series. JRSS B, 85, 1517-1537.
+https://doi.org/10.1093/jrsssb/qkad077
+Algorithms 1/2 and supplement Algorithm A1; centering and numerical
+safeguards are implementation extensions described in the module notes.
 """
 
 from dataclasses import dataclass, field
@@ -302,6 +311,15 @@ class TwoWayDynamicResult:
     -2*n*m*log(data_scale) to objective history for the physical quasi-
     likelihood. This objective omits fixed constants and is not the joint
     temporal likelihood. History tolerances do not certify global optima.
+
+    References
+    ----------
+    Yuan, C., Gao, Z., He, X., Huang, W. and Guo, J. (2023).
+    Two-Way Dynamic Factor Models for High-Dimensional Matrix-Valued
+    Time Series. JRSS B, 85, 1517-1537.
+    https://doi.org/10.1093/jrsssb/qkad077
+    Algorithms 1/2 and supplement Algorithm A1; centering and numerical
+    safeguards are implementation extensions described in the module notes.
     """
 
     row_loadings: np.ndarray
@@ -349,6 +367,17 @@ class TwoWayDynamicResult:
 
     @property
     def is_stable(self):
+        """Check stability of every fitted pooled scalar autoregression.
+
+        References
+        ----------
+        Yuan, C., Gao, Z., He, X., Huang, W. and Guo, J. (2023).
+        Two-Way Dynamic Factor Models for High-Dimensional Matrix-Valued
+        Time Series. JRSS B, 85, 1517-1537.
+        https://doi.org/10.1093/jrsssb/qkad077
+        Algorithms 1/2 and supplement Algorithm A1; centering and numerical
+        safeguards are implementation extensions described in the module notes.
+        """
         return bool(
             np.all(_ar_radii(self.row_ar) < 1) and np.all(_ar_radii(self.column_ar) < 1)
         )
@@ -358,6 +387,15 @@ class TwoWayDynamicResult:
 
         These use only each supplied matrix, not a Kalman smoother or data
         from the future. F/G represent deviations from the training mean.
+
+        References
+        ----------
+        Yuan, C., Gao, Z., He, X., Huang, W. and Guo, J. (2023).
+        Two-Way Dynamic Factor Models for High-Dimensional Matrix-Valued
+        Time Series. JRSS B, 85, 1517-1537.
+        https://doi.org/10.1093/jrsssb/qkad077
+        Algorithms 1/2 and supplement Algorithm A1; centering and numerical
+        safeguards are implementation extensions described in the module notes.
         """
         X = as_series(X, min_samples=1)
         if X.shape[1:] != self.mean.shape:
@@ -374,7 +412,17 @@ class TwoWayDynamicResult:
         return F * self.data_scale, G * self.data_scale
 
     def inverse_transform(self, F, G):
-        """Reconstruct the additive signal from F and G scores."""
+        """Reconstruct the additive signal from F and G scores.
+
+        References
+        ----------
+        Yuan, C., Gao, Z., He, X., Huang, W. and Guo, J. (2023).
+        Two-Way Dynamic Factor Models for High-Dimensional Matrix-Valued
+        Time Series. JRSS B, 85, 1517-1537.
+        https://doi.org/10.1093/jrsssb/qkad077
+        Algorithms 1/2 and supplement Algorithm A1; centering and numerical
+        safeguards are implementation extensions described in the module notes.
+        """
         F, G = as_series(F, min_samples=1), as_series(G, min_samples=1)
         n, m = self.mean.shape
         c, r = self.ranks
@@ -387,6 +435,17 @@ class TwoWayDynamicResult:
         )
 
     def reconstruct(self, X):
+        """Reconstruct contemporaneous additive signals with fitted parameters.
+
+        References
+        ----------
+        Yuan, C., Gao, Z., He, X., Huang, W. and Guo, J. (2023).
+        Two-Way Dynamic Factor Models for High-Dimensional Matrix-Valued
+        Time Series. JRSS B, 85, 1517-1537.
+        https://doi.org/10.1093/jrsssb/qkad077
+        Algorithms 1/2 and supplement Algorithm A1; centering and numerical
+        safeguards are implementation extensions described in the module notes.
+        """
         return self.inverse_transform(*self.transform(X))
 
     def forecast(self, steps, history=None):
@@ -395,6 +454,15 @@ class TwoWayDynamicResult:
         Uses the last p/q contemporaneous scores, predicting the residual
         component as zero. Under serially correlated idiosyncratic errors
         these need not equal full conditional-mean observation forecasts.
+
+        References
+        ----------
+        Yuan, C., Gao, Z., He, X., Huang, W. and Guo, J. (2023).
+        Two-Way Dynamic Factor Models for High-Dimensional Matrix-Valued
+        Time Series. JRSS B, 85, 1517-1537.
+        https://doi.org/10.1093/jrsssb/qkad077
+        Algorithms 1/2 and supplement Algorithm A1; centering and numerical
+        safeguards are implementation extensions described in the module notes.
         """
         steps = positive_int(steps, "steps")
         q, p = self.orders
@@ -469,6 +537,15 @@ def fit_two_way_dynamic(
     All convergence/rank diagnostics are retained. Stability is diagnosed,
     not enforced. This is a local quasi-likelihood solution, not a global
     optimization certificate or a fit of the full temporal likelihood.
+
+    References
+    ----------
+    Yuan, C., Gao, Z., He, X., Huang, W. and Guo, J. (2023).
+    Two-Way Dynamic Factor Models for High-Dimensional Matrix-Valued
+    Time Series. JRSS B, 85, 1517-1537.
+    https://doi.org/10.1093/jrsssb/qkad077
+    Algorithms 1/2 and supplement Algorithm A1; centering and numerical
+    safeguards are implementation extensions described in the module notes.
     """
     X = as_series(X, min_samples=3)
     if not isinstance(center, (bool, np.bool_)):

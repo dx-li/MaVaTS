@@ -9,6 +9,16 @@ independent implementation of those equations, not a translation of GPL code.
 Primary manuscript and supplement:
 https://github.com/heyongstat/Paper/tree/main/Online%20Change-point%20Detection%20for%20Matrix-valued%20Time%20Series%20with%20Latent%20Two-way%20Factor%20Structure
 Publication: https://doi.org/10.1214/24-AOS2410
+
+References
+----------
+He, Y., Kong, X., Trapani, L. and Yu, L. (2024).
+Online Change-Point Detection for Matrix-Valued Time Series with
+Latent Two-Way Factor Structure. Annals of Statistics, 52, 1646-1670.
+https://doi.org/10.1214/24-AOS2410
+Uses the accepted-manuscript power transformation and equations
+(3.9)-(3.20), (3.28)-(3.32), not the earlier arXiv v1 transformation.
+State management is a software interface, not an additional estimator.
 """
 
 from copy import deepcopy
@@ -106,6 +116,16 @@ class MonitorStep:
     diagnostics are finite. If ``saturated`` is true, an under/overflowed
     diagnostic has been clipped; the crossing decision still uses signed-log
     arithmetic, not the clipped value.
+
+    References
+    ----------
+    He, Y., Kong, X., Trapani, L. and Yu, L. (2024).
+    Online Change-Point Detection for Matrix-Valued Time Series with
+    Latent Two-Way Factor Structure. Annals of Statistics, 52, 1646-1670.
+    https://doi.org/10.1214/24-AOS2410
+    Uses the accepted-manuscript power transformation and equations
+    (3.9)-(3.20), (3.28)-(3.32), not the earlier arXiv v1 transformation.
+    State management is a software interface, not an additional estimator.
     """
 
     monitoring_index: int
@@ -207,6 +227,16 @@ class MatrixFactorMonitor:
     appearing factors. Disappearing factors, zero baseline ranks, weak-factor
     extensions, and simultaneous row/column multiplicity calibration are not
     implemented. See docs/monitoring-notes.md for population assumptions.
+
+    References
+    ----------
+    He, Y., Kong, X., Trapani, L. and Yu, L. (2024).
+    Online Change-Point Detection for Matrix-Valued Time Series with
+    Latent Two-Way Factor Structure. Annals of Statistics, 52, 1646-1670.
+    https://doi.org/10.1214/24-AOS2410
+    Uses the accepted-manuscript power transformation and equations
+    (3.9)-(3.20), (3.28)-(3.32), not the earlier arXiv v1 transformation.
+    State management is a software interface, not an additional estimator.
     """
 
     def __init__(
@@ -418,6 +448,16 @@ class MatrixFactorMonitor:
         intended for reproducible external randomization and equation oracles;
         supplying deterministic/non-Gaussian values forfeits Gaussian reference
         calibration. An explicit value does not consume the monitor's RNG.
+
+        References
+        ----------
+        He, Y., Kong, X., Trapani, L. and Yu, L. (2024).
+        Online Change-Point Detection for Matrix-Valued Time Series with
+        Latent Two-Way Factor Structure. Annals of Statistics, 52, 1646-1670.
+        https://doi.org/10.1214/24-AOS2410
+        Uses the accepted-manuscript power transformation and equations
+        (3.9)-(3.20), (3.28)-(3.32), not the earlier arXiv v1 transformation.
+        State management is a software interface, not an additional estimator.
         """
         if self.is_stopped:
             raise RuntimeError(f"monitoring already stopped: {self.stop_reason}")
@@ -474,6 +514,16 @@ class MatrixFactorMonitor:
         per observation, matching successive update calls: a bad later value
         does not roll back earlier updates, and values after stopping are not
         inspected. An empty batch or an already stopped monitor returns ().
+
+        References
+        ----------
+        He, Y., Kong, X., Trapani, L. and Yu, L. (2024).
+        Online Change-Point Detection for Matrix-Valued Time Series with
+        Latent Two-Way Factor Structure. Annals of Statistics, 52, 1646-1670.
+        https://doi.org/10.1214/24-AOS2410
+        Uses the accepted-manuscript power transformation and equations
+        (3.9)-(3.20), (3.28)-(3.32), not the earlier arXiv v1 transformation.
+        State management is a software interface, not an additional estimator.
         """
         if self.is_stopped:
             return ()

@@ -1,6 +1,9 @@
 """Matrix Kendall's tau and robust loading-space estimation.
 
-He, Wang, Yu, Zhou and Zhou (2025), *Bernoulli* 31, 3331--3355.
+References
+----------
+He, Wang, Yu, Zhou and Zhou (2025), A New Non-Parametric Kendall's Tau for
+Matrix-Valued Elliptical Observations, *Bernoulli* 31, 3331--3355.
 Algorithm source: https://arxiv.org/abs/2207.09633, equations (2.3)--(2.4).
 """
 
@@ -24,6 +27,14 @@ def matrix_kendall(X, *, max_pairs=None, batch_size=256, random_state=None):
     uniform unordered pairs are sampled *with replacement*. This is unbiased
     for the exact pair average, but it is not the paper's exact U-statistic.
     ``random_state`` controls only this approximation.
+
+    References
+    ----------
+    He, Wang, Yu, Zhou and Zhou (2025), A New Non-Parametric Kendall's Tau for
+    Matrix-Valued Elliptical Observations, equations (2.3)--(2.4).
+    https://arxiv.org/abs/2207.09633
+    Earlier manuscript title: Matrix Kendall's Tau in High-Dimensions:
+    A Robust Statistic for Matrix Factor Model.
     """
     X = as_series(X)
     batch_size = positive_int(batch_size, "batch_size")
@@ -91,6 +102,13 @@ def fit_matrix_kendall(
     ``ranks=None`` uses eigenvalue ratios with a relative machine-precision
     floor and a half-dimension search bound, not the paper's optional tuned
     statistical ridge. Explicit ranks are recommended in comparative studies.
+
+    References
+    ----------
+    He, Wang, Yu, Zhou and Zhou (2025), A New Non-Parametric Kendall's Tau for
+    Matrix-Valued Elliptical Observations. https://arxiv.org/abs/2207.09633
+    The implementation's optional sampled-pair approximation is described in
+    ``matrix_kendall``; it is not the exact U-statistic used in the theory.
     """
     X = as_series(X)
     ranks = _factor_ranks(ranks, X.shape[1:])

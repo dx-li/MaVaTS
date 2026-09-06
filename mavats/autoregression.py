@@ -1,10 +1,19 @@
 """Bilinear matrix autoregression with column-major vectorization.
 
 The MAR(1) projection, least-squares and separable Gaussian likelihood
-estimators follow Chen, Xiao and Yang (2021), *Journal of Econometrics* 222,
-539--560, https://doi.org/10.1016/j.jeconom.2020.07.015 (Section 3).
+estimators follow the first reference below (Section 3).
 Multiple lags, intercept profiling and the optional ridge penalty are
 extensions implemented here; the paper's asymptotic results concern MAR(1).
+Result forecasting and covariance accessors evaluate this fitted model;
+they are not separate estimation methods.
+
+References
+----------
+Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+Matrix-Valued Time Series", https://doi.org/10.1016/j.jeconom.2020.07.015.
+Xiao, H., Han, Y., Chen, R. and Liu, C., "Reduced Rank Autoregressive
+Models for Matrix Time Series",
+https://yuefenghan.github.io/papers/Reduced_Rank_MAR.pdf.
 """
 
 from dataclasses import dataclass, field
@@ -53,6 +62,12 @@ def nearest_kronecker_product(coefficient, shape):
     approximation is obtained by the leading singular triplet after the
     Van Loan rearrangement; repeated leading singular values imply a
     nonunique answer. No explicit inverse or normal equations are used.
+
+    References
+    ----------
+    Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+    Matrix-Valued Time Series", Section 3.1 (rearranged-SVD projection),
+    https://doi.org/10.1016/j.jeconom.2020.07.015.
     """
     if len(shape) != 2:
         raise ValueError("shape must contain row and column dimensions")
@@ -187,6 +202,9 @@ class MARResult:
     shared between factors: ``||row_covariance||_F = data_scale``. Their
     Kronecker product is the physical innovation covariance; this product
     need not itself fit floating-point range at extreme data scales.
+
+    Model references and extension boundaries are those of :func:`fit_mar`
+    and this module, including for the forecast and covariance accessors.
     """
 
     left: np.ndarray
@@ -392,6 +410,18 @@ def fit_mar(
     for large matrices. No estimator constrains stationarity or handles
     missing observations. Finite separable MLEs need not exist for small or
     degenerate samples; singular updates raise when flooring is disabled.
+
+    References
+    ----------
+    Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+    Matrix-Valued Time Series", Section 3,
+    https://doi.org/10.1016/j.jeconom.2020.07.015.
+    Xiao, H., Han, Y., Chen, R. and Liu, C., "Reduced Rank Autoregressive
+    Models for Matrix Time Series", Section 3.1 (RR.LS),
+    https://yuefenghan.github.io/papers/Reduced_Rank_MAR.pdf.
+    Multiple lags, intercept profiling, ridge penalties and covariance
+    flooring are package extensions, not the papers' unregularized MAR(1)
+    estimators or their asymptotic guarantees.
 
     Examples
     --------
@@ -606,10 +636,6 @@ class MARRankSelection:
 def select_mar_rank(X, *, max_ranks=None, max_iter=200, tol=1e-8, init="auto"):
     """Select MAR(1) coefficient ranks with the published joint RR.LS EBIC.
 
-    Implements Equation (13), Section 5 of Xiao, Han, Chen and Liu,
-    *Reduced Rank Autoregressive Models for Matrix Time Series*,
-    https://yuefenghan.github.io/papers/Reduced_Rank_MAR.pdf.
-
     Every candidate fits a zero-intercept, unpenalized RR.LS model. The score
     uses T total observations, exactly as in the paper:
     ``log(SSE/(T*m*n)) + (log(T*n)*r*(2*m-r) + log(T*m)*s*(2*n-s))/(T*m*n)``.
@@ -618,6 +644,12 @@ def select_mar_rank(X, *, max_ranks=None, max_iter=200, tol=1e-8, init="auto"):
     (default matrix dimensions). Candidate convergence is exposed; local
     minima and unconverged fits can affect selection. The separate rank
     search approximation and the likelihood RR.CC criterion are not used.
+
+    References
+    ----------
+    Xiao, H., Han, Y., Chen, R. and Liu, C., "Reduced Rank Autoregressive
+    Models for Matrix Time Series", Equation (13), Section 5,
+    https://yuefenghan.github.io/papers/Reduced_Rank_MAR.pdf.
     """
     X = as_series(X)
     T, m, n = X.shape

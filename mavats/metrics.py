@@ -1,4 +1,8 @@
-"""Scale- and rotation-aware errors for matrix and tensor methods."""
+"""Scale- and rotation-aware errors for matrix and tensor methods.
+
+References are attached to each metric. These are evaluation utilities, not
+new statistical estimators; their explicit formulas define the conventions.
+"""
 
 import numpy as np
 
@@ -21,6 +25,13 @@ def mean_squared_error(actual, predicted):
 
     Scaling avoids overflow in intermediate squaring and reduction. Returns
     infinity only when the resulting MSE exceeds floating-point range.
+
+    References
+    ----------
+    Hyndman and Koehler (2006), *Another Look at Measures of Forecast Accuracy*,
+    https://doi.org/10.1016/j.ijforecast.2006.03.001, reviews squared forecast
+    errors. Here all supplied scalar entries are pooled; the utility does not
+    implement the paper's distinct MASE proposal.
     """
     actual, predicted = _pair(actual, predicted)
     with np.errstate(over="ignore"):
@@ -40,7 +51,16 @@ def mean_squared_error(actual, predicted):
 
 
 def relative_frobenius_error(actual, predicted):
-    """Frobenius error divided by truth norm; inf for nonzero error at zero truth."""
+    """Frobenius error divided by truth norm; inf for nonzero error at zero truth.
+
+    References
+    ----------
+    Chen, Yang and Zhang (2022), *Factor Models for High-Dimensional Tensor
+    Time Series*, https://doi.org/10.1080/01621459.2021.1912757, provides the
+    tensor reconstruction setting. This is the conventional relative norm
+    utility, with the zero-truth convention stated above, not a paper-specific
+    estimator or a claim to reproduce all of that paper's evaluation losses.
+    """
     actual, predicted = _pair(actual, predicted)
     scale = max(np.max(np.abs(actual)), np.max(np.abs(predicted)))
     if scale == 0:
@@ -68,6 +88,15 @@ def subspace_distance(actual, estimated):
     Returns ``||P_actual - P_estimated||_F / sqrt(r_actual + r_estimated)``.
     The result lies in [0, 1]; unequal-rank subspaces are allowed. Input bases
     must have full column rank. SVD orthogonalization handles non-unit loadings.
+
+    References
+    ----------
+    Wang, Liu and Chen (2019), *Factor Models for Matrix-Valued
+    High-Dimensional Time Series*, https://doi.org/10.1016/j.jeconom.2018.09.013,
+    uses rotation-invariant loading-space comparisons. The displayed symmetric
+    normalization is this library's convention; it agrees with the usual
+    normalized projector loss at equal ranks and explicitly extends it to
+    unequal ranks. It is not an inferential distance test.
     """
     bases = []
     for basis in (actual, estimated):

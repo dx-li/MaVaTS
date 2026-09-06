@@ -2,6 +2,12 @@
 
 This is not matrixwise residual-norm reweighting. The accepted work is listed
 under a different title; equivalence with that unavailable text is unverified.
+
+References
+----------
+He, Kong, Liu and Zhao (2023), Robust Statistical Inference for
+Large-Dimensional Matrix-Valued Time Series via Iterative Huber Regression.
+https://arxiv.org/abs/2306.03317v1
 """
 
 import warnings
@@ -216,6 +222,15 @@ class IHRFactorResult(FactorResult):
         Uses only that observation and fitted loadings/mean. By default a warning
         reports unfinished inner solves; return_diagnostics=True instead returns
         (factors, per-observation diagnostics). No refit or future observations.
+
+        References
+        ----------
+        He, Kong, Liu and Zhao (2023), Robust Statistical Inference for
+        Large-Dimensional Matrix-Valued Time Series via Iterative Huber
+        Regression, Algorithm 1 factor-regression block.
+        https://arxiv.org/abs/2306.03317v1
+        Holding training loadings and threshold fixed is the out-of-sample
+        scoring convention used here, not a forecasting or inference method.
         """
         X = as_series(X, min_samples=1)
         if X.shape[1:] != self.mean.shape:
@@ -264,7 +279,15 @@ class IHRFactorResult(FactorResult):
         return core
 
     def inverse_transform(self, factors):
-        """Reconstruct robust cores, rejecting unrepresentable original-unit output."""
+        """Reconstruct robust cores, rejecting unrepresentable original-unit output.
+
+        References
+        ----------
+        He, Kong, Liu and Zhao (2023), Robust Statistical Inference for
+        Large-Dimensional Matrix-Valued Time Series via Iterative Huber
+        Regression. https://arxiv.org/abs/2306.03317v1
+        The optional training-mean restoration is an implementation convention.
+        """
         factors = as_series(factors, min_samples=1)
         if factors.shape[1:] != self.ranks:
             raise ValueError("factor dimensions must match fitted ranks")
@@ -313,6 +336,11 @@ def fit_ihr_factor(
     The accepted work's new title is Winsorized Mean Matrix Factor Model; its
     full text was unavailable for reconciliation. No equivalence, inferential
     standard errors or guarantees for the finite algorithm path are claimed.
+    References
+    ----------
+    He, Kong, Liu and Zhao (2023), Robust Statistical Inference for
+    Large-Dimensional Matrix-Valued Time Series via Iterative Huber Regression,
+    equation (2.2), Algorithm 1 and Section 4.4.
     https://arxiv.org/html/2306.03317v1
     """
     X, work, mean, scale = _prepare(X, center)
@@ -468,6 +496,14 @@ def select_ihr_ranks(X, max_ranks, *, method="ratio", ridge=1e-4, **fit_options)
     Threshold selection implements Section 4.3's P_l=sigma_(l,1)*D^(-2/3).
     It can select zero and is scale invariant. Neither rule tests a no-factor
     null with calibrated size. No post-selection inference is provided.
+
+    References
+    ----------
+    He, Kong, Liu and Zhao (2023), Robust Statistical Inference for
+    Large-Dimensional Matrix-Valued Time Series via Iterative Huber Regression,
+    Section 4.3. https://arxiv.org/abs/2306.03317v1
+    The pilot uses the fixed-threshold implementation in ``fit_ihr_factor``;
+    equivalence to the renamed accepted successor remains unverified.
     """
     if method not in ("ratio", "threshold"):
         raise ValueError("method must be 'ratio' or 'threshold'")

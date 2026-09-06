@@ -57,6 +57,14 @@ an integration sample, not strong statistical evidence.
 
 ## Retained artifacts
 
+The retained studies were generated at implementation checkpoint
+`cf8948774929a75e52b1e9491154db3dacdb4d1c`. Subsequent citation-only source edits
+change byte-level hashes; removing docstrings leaves identical executable ASTs.
+Their original source fingerprints remain unmodified and must not be read as
+hashes of the later citation-edited files. New smoke runs fingerprint their own
+checkout normally. Method attribution, including the benchmark VECM and Wilson
+intervals, is in [the citation index](../docs/citations.md).
+
 - `results/quick.json`: small execution/accuracy run.
 - `results/standard.json`: default-size paired repetitions with raw measurements.
 - [Summary table](results/summary.md): mean errors, replicate SEs and median times.

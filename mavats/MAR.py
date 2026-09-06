@@ -2,6 +2,13 @@
 
 New code should use :func:`mavats.autoregression.fit_mar`, which also provides
 forecasting, intercepts, multiple lags and numerical diagnostics.
+
+References
+----------
+Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+Matrix-Valued Time Series", https://doi.org/10.1016/j.jeconom.2020.07.015.
+The compatibility API preserves these MAR(1) estimators; optional ridge and
+covariance flooring are package regularization extensions.
 """
 
 import numpy as np
@@ -28,6 +35,14 @@ def estimate_mar1(X, method="least_square", **kwargs):
     ``A_init``, ``B_init`` and initial covariances are copied, never mutated.
     MLE's default covariance eigenvalue floor is 1e-8; use ``fit_mar`` to
     inspect whether stabilization was active and whether fitting converged.
+
+    References
+    ----------
+    Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+    Matrix-Valued Time Series", Section 3,
+    https://doi.org/10.1016/j.jeconom.2020.07.015.
+    Optional ridge and active covariance flooring change the unregularized
+    paper objective; see :func:`mavats.autoregression.fit_mar`.
     """
     mapping = {"proj": "projection", "least_square": "als", "mle": "mle"}
     if method not in mapping:
@@ -81,7 +96,16 @@ def estimate_mar1(X, method="least_square", **kwargs):
 
 
 def estimate_residual_cov(X, A, B):
-    """Centered sample covariance (ddof=1), stacking residual columns."""
+    """Centered sample covariance (ddof=1), stacking residual columns.
+
+    References
+    ----------
+    Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+    Matrix-Valued Time Series", https://doi.org/10.1016/j.jeconom.2020.07.015.
+    This is a descriptive sample-covariance utility for the paper's MAR(1)
+    residuals, not its separable Gaussian covariance MLE. Centering and
+    ddof=1 are the compatibility API's explicit conventions.
+    """
     X = as_series(X, min_samples=3)
     for coefficient, dim, name in ((A, X.shape[1], "A"), (B, X.shape[2], "B")):
         if np.iscomplexobj(coefficient) or np.shape(coefficient) != (dim, dim):

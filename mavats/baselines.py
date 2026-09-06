@@ -1,4 +1,16 @@
-"""Unstructured and naive forecasting baselines for honest comparisons."""
+"""Unstructured and naive forecasting baselines for honest comparisons.
+
+References
+----------
+Chen, Xiao and Yang (2021), *Autoregressive Models for Matrix-Valued Time
+Series*, https://doi.org/10.1016/j.jeconom.2020.07.015, motivates the vector
+autoregression comparison. Hoerl and Kennard (1970), *Ridge Regression: Biased
+Estimation for Nonorthogonal Problems*,
+https://doi.org/10.1080/00401706.1970.10488634, supplies the optional penalty.
+Hyndman and Koehler (2006), *Another Look at Measures of Forecast Accuracy*,
+https://doi.org/10.1016/j.ijforecast.2006.03.001, discusses naive/mean benchmarks.
+These are conventional baselines, not additional matrix-specific estimators.
+"""
 
 from dataclasses import dataclass
 
@@ -78,6 +90,15 @@ def fit_var(X, *, order=1, intercept=True, ridge=0.0):
     A common scale is removed before centering and fitting. Returned
     ``singular_values`` describe that scaled augmented design; multiply by
     ``design_scale`` to obtain the original units when representable.
+
+    References
+    ----------
+    Chen, Xiao and Yang (2021), *Autoregressive Models for Matrix-Valued Time
+    Series*, https://doi.org/10.1016/j.jeconom.2020.07.015 (vector baseline).
+    Optional ridge uses the quadratic penalty of Hoerl and Kennard (1970),
+    *Ridge Regression: Biased Estimation for Nonorthogonal Problems*,
+    https://doi.org/10.1080/00401706.1970.10488634. The matrix flattening,
+    unpenalized intercept and scale-safe SVD are implementation choices.
     """
     order = positive_int(order, "order")
     X = as_series(X, min_samples=order + 1)
@@ -133,7 +154,16 @@ class NaiveResult:
 
 
 def fit_naive(X, *, strategy="last"):
-    """Fit ``last`` (random walk), ``mean``, or ``zero`` baseline."""
+    """Fit ``last`` (random walk), ``mean``, or ``zero`` baseline.
+
+    References
+    ----------
+    Hyndman and Koehler (2006), *Another Look at Measures of Forecast Accuracy*,
+    https://doi.org/10.1016/j.ijforecast.2006.03.001, discusses random-walk and
+    historical-mean benchmarks. Applying them entrywise to matrices/tensors
+    and the fixed zero benchmark are elementary comparison conventions, not
+    distinct published matrix estimators.
+    """
     X = as_series(X, min_samples=1, ndim=None)
     if strategy == "last":
         value = X[-1].copy()

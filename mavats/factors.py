@@ -44,6 +44,14 @@ def eigenvalue_ratio(eigenvalues, max_rank=None):
     dividing by roundoff at an exact rank deficiency. A zero spectrum returns
     rank one; this heuristic does not test for absence of factors. Specify ranks
     explicitly for small dimensions or weak signals.
+
+    References
+    ----------
+    Wang, Liu and Chen (2019), Factor Models for Matrix-Valued
+    High-Dimensional Time Series, Section 3.
+    https://doi.org/10.1016/j.jeconom.2018.09.013
+    The numerical floor and zero-spectrum fallback are implementation
+    conventions, not a calibrated test of the absence of factors.
     """
     values = np.asarray(eigenvalues, dtype=float)
     if values.ndim != 1 or values.size == 0 or not np.isfinite(values).all():
@@ -115,14 +123,28 @@ class FactorResult:
         return tuple(loading.shape[1] for loading in self.loadings)
 
     def transform(self, X):
-        """Project new observations using the fitted loadings and training mean."""
+        """Project new observations using the fitted loadings and training mean.
+
+        References
+        ----------
+        Chen, Yang and Zhang (2022), Factor Models for High-Dimensional Tensor
+        Time Series. https://doi.org/10.1080/01621459.2021.1912757
+        This is fixed-loading Tucker projection, not a new forecasting fit.
+        """
         X = as_series(X, min_samples=1, ndim=len(self.loadings) + 1)
         if X.shape[1:] != self.mean.shape:
             raise ValueError("observation dimensions must match the fitted model")
         return _project(X - self.mean, self.loadings)
 
     def inverse_transform(self, factors):
-        """Reconstruct observations from core factors, adding the training mean."""
+        """Reconstruct observations from core factors, adding the training mean.
+
+        References
+        ----------
+        Chen, Yang and Zhang (2022), Factor Models for High-Dimensional Tensor
+        Time Series. https://doi.org/10.1080/01621459.2021.1912757
+        Restoring the optional training mean is an implementation convention.
+        """
         factors = as_series(factors, min_samples=1, ndim=len(self.loadings) + 1)
         if factors.shape[1:] != self.ranks:
             raise ValueError("factor dimensions must match fitted ranks")
@@ -193,8 +215,9 @@ def fit_alpha_pca(X, ranks=None, *, alpha=0.0, center=False):
 
     References
     ----------
-    Chen and Fan, Statistical Inference for High-Dimensional Matrix-Variate
-    Factor Models. https://doi.org/10.1080/01621459.2021.1970569
+    Chen and Fan (2023; online 2021), Statistical Inference for
+    High-Dimensional Matrix-Variate Factor Models.
+    https://doi.org/10.1080/01621459.2021.1970569
     """
     alpha = finite_scalar(alpha, "alpha", minimum=-1)
     X, work, mean, scale = _prepare(X, center)
@@ -227,7 +250,11 @@ def fit_projected_pca(X, ranks=None, *, max_iter=1, tol=1e-8, center=False):
     updates. Automatic ranks are selected once from the initial moments; this
     is not the paper's iterative rank selection algorithm.
 
-    Reference: https://arxiv.org/abs/2003.10285 (Algorithm 1).
+    References
+    ----------
+    Yu, He, Kong and Zhang (2022), Projected Estimation for Large-Dimensional
+    Matrix Factor Models, Algorithm 1. https://doi.org/10.1016/j.jeconom.2021.04.001
+    Author manuscript: https://arxiv.org/abs/2003.10285
     """
     max_iter = positive_int(max_iter, "max_iter")
     tol = finite_scalar(tol, "tol", minimum=0)
@@ -343,7 +370,11 @@ def fit_lagged_factor(X, ranks=None, *, lags=1, center=False):
     White measurement noise and serially informative factors are required for
     identification. With ``center=False`` the model assumes zero mean.
 
-    Reference: https://doi.org/10.1016/j.jeconom.2018.09.013
+    References
+    ----------
+    Wang, Liu and Chen (2019), Factor Models for Matrix-Valued
+    High-Dimensional Time Series, Section 3.
+    https://doi.org/10.1016/j.jeconom.2018.09.013
     """
     X, work, mean, scale = _prepare(X, center)
     ranks = _factor_ranks(ranks, X.shape[1:])

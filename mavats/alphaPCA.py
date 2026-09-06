@@ -1,3 +1,11 @@
+"""Legacy alpha-PCA and loading-covariance interfaces.
+
+References
+----------
+Chen and Fan (2023; online 2021), Statistical Inference for High-Dimensional
+Matrix-Variate Factor Models. https://doi.org/10.1080/01621459.2021.1970569
+"""
+
 import math
 from typing import Union
 
@@ -14,7 +22,7 @@ def estimate_alpha_PCA(
     r: Union[int, None] = None,
 ):
     r"""
-    Estimates the $\alpha$-PCA model in Chen and Fan 2021 (https://doi.org/10.1080/01621459.2021.1970569)
+    Estimate the alpha-PCA model through the legacy tuple-returning interface,
     where $Y_t = R F_t C^T + E_t$
 
     Parameters
@@ -39,6 +47,13 @@ def estimate_alpha_PCA(
     C : (q, r) ndarray
         The estimated back loading matrix.
 
+    References
+    ----------
+    Chen and Fan (2023; online 2021), Statistical Inference for
+    High-Dimensional Matrix-Variate Factor Models.
+    https://doi.org/10.1080/01621459.2021.1970569
+    This wrapper retains sqrt(d)-normalized loadings and legacy column order.
+    Automatic ranks use the numerical ratio convention of ``eigenvalue_ratio``.
     """
     result = fit_alpha_pca(Y, (k, r), alpha=alpha)
     p, q = result.signal.shape[1:]
@@ -102,6 +117,15 @@ def estimate_cov_Ri(
     -------
     Sig_Ri : (k, k) ndarray
         The estimated covariance matrix of the $i$-th row of $\hat{R}$.
+
+    References
+    ----------
+    Chen and Fan (2023; online 2021), Statistical Inference for
+    High-Dimensional Matrix-Variate Factor Models.
+    https://doi.org/10.1080/01621459.2021.1970569
+    Implements the Bartlett-weighted lag-covariance sandwich in the supplied
+    legacy loading basis. This helper alone does not validate the paper's
+    inferential assumptions or supply calibrated confidence intervals.
     """
     Y = as_series(Y)
     F = as_series(F)
@@ -211,6 +235,14 @@ def estimate_cov_Cj(
     -------
     Sig_Cj : (r, r) ndarray
         The estimated covariance matrix of the $j$-th row of $\hat{C}$.
+
+    References
+    ----------
+    Chen and Fan (2023; online 2021), Statistical Inference for
+    High-Dimensional Matrix-Variate Factor Models.
+    https://doi.org/10.1080/01621459.2021.1970569
+    Transposed counterpart of ``estimate_cov_Ri`` with the same Bartlett
+    sandwich and inferential limitations; not a confidence-interval procedure.
     """
     Y = as_series(Y)
     F = as_series(F)

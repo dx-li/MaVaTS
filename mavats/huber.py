@@ -121,7 +121,12 @@ def fit_huber_factor(
     With ``center=True``, a fixed ordinary sample mean is removed; that location
     estimate is not robust. Prefer a justified known offset for contaminated data.
 
-    Reference: https://arxiv.org/html/2112.04186v3, Sections 4.1 and 5.1.
+    References
+    ----------
+    He, Kong, Yu, Zhang and Zhao (2024; online 2023), Matrix Factor Analysis:
+    From Least Squares to Iterative Projection.
+    https://doi.org/10.1080/07350015.2023.2191676
+    Algorithm source: https://arxiv.org/html/2112.04186v3, Sections 4.1 and 5.1.
     """
     X, work, mean, scale = _prepare(X, center)
     ranks = ranks_tuple(ranks, X.shape[1:])

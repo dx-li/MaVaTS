@@ -1,5 +1,10 @@
 # MaVaTS
 
+Every public method has paper attribution in its API docstring and the
+[method-to-paper citation index](docs/citations.md). [BibTeX references](docs/references.bib)
+and [method notes](docs/methods.md) distinguish published algorithms from
+documented extensions, simulations and conventional baselines.
+
 Scientific Python methods for matrix- and tensor-valued time series: structured
 autoregression, cointegration, factor estimation, volatility, sequential monitoring,
 decorrelation, inference, simulation, and reproducible comparisons.

@@ -5,6 +5,25 @@ time-series methods, with scientific benchmarks, examples, stable numerics and
 an extensible Python library. This checkpoint is substantial implementation
 progress, not a declaration that the literature is fully covered.
 
+## Citation audit and integration
+
+Every public scientific function now has an explicit paper reference in its
+API docstring. The [citation index](citations.md) covers all 79 public functions
+and classes, plus the benchmark-only vector VECM and two Wilson-interval
+procedures. Shared-entry-point variants, result helpers, conventional baselines,
+simulation designs and package extensions have explicit attribution scopes.
+Four regression tests enforce API coverage, bibliography metadata, direct
+function references and canonical re-exports. Citation checking supplements,
+but cannot replace, review of whether a cited paper actually supports a method.
+The expanded suite passes 762 tests in both dependency environments, with 94%
+line coverage; source/wheel builds, API documentation and formatting pass.
+
+This audit changes documentation and adds citation tests; executable numerical
+ASTs match checkpoint `cf8948774929a75e52b1e9491154db3dacdb4d1c` after removing
+docstrings. Retained benchmark byte hashes describe that earlier implementation
+checkpoint, not these citation-edited source files. The raw artifacts are kept
+unchanged; documentation edits must not be disguised by replacing their hashes.
+
 ## Fourth checkpoint: cointegration, multi-term autoregression and entrywise robustness
 
 Added fixed-rank cointegrated matrix autoregression with LS and profiled

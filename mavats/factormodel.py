@@ -1,3 +1,11 @@
+"""Legacy interface to lagged matrix factor estimation.
+
+References
+----------
+Wang, Liu and Chen (2019), Factor Models for Matrix-Valued High-Dimensional
+Time Series. https://doi.org/10.1016/j.jeconom.2018.09.013
+"""
+
 from typing import Tuple, Union
 
 import numpy as np
@@ -17,7 +25,7 @@ def estimate_factor_model(
     X: np.ndarray, h0: int, k1: Union[int, None] = None, k2: Union[int, None] = None
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     r"""
-    Estimates the high-dimensional matrix factor model in Wang, Liu, Chen 2019 (https://doi.org/10.1016/j.jeconom.2018.09.013)
+    Estimate the lagged matrix factor model through the legacy tuple interface,
     where $X_t = R F_t C^T + E_t = Q_1 Z_t Q_2^T + E_t$
 
     Parameters
@@ -42,6 +50,12 @@ def estimate_factor_model(
     Q2 : (p2, k2) ndarray
         The estimated back loading matrix.
 
+    References
+    ----------
+    Wang, Liu and Chen (2019), Factor Models for Matrix-Valued
+    High-Dimensional Time Series, Section 3.
+    https://doi.org/10.1016/j.jeconom.2018.09.013
+    Automatic ranks follow the numerical ratio convention in ``eigenvalue_ratio``.
     """
     result = fit_lagged_factor(X, (k1, k2), lags=h0)
     return result.factors, result.signal, *result.loadings

@@ -1,9 +1,14 @@
 """Fixed-rank cointegrated matrix autoregression (Li and Xiao, 2024).
 
-Primary: https://arxiv.org/abs/2409.10860 (v1, equations 3--10).
 Alternating reduced-rank regressions implement the structured error-correction
 objective, including corrections to the manuscript's printed update formulas.
 This is not stationary reduced-rank MAR or a relabeled vector Johansen fit.
+Result spaces, likelihoods and forecasts evaluate this same fitted model.
+
+References
+----------
+Li, Z. and Xiao, H. (2024), "Cointegrated Matrix Autoregression Models",
+arXiv:2409.10860v1, https://arxiv.org/abs/2409.10860v1, equations (3)--(10).
 """
 
 from copy import deepcopy
@@ -326,6 +331,13 @@ def cmar_i1_diagnostics(
     diagnostic costs cubic time in p*q*(difference_lags+1). Its companion
     dimension cannot exceed max_dense_dimension (default 256) without an
     explicit caller override.
+
+    References
+    ----------
+    Li, Z. and Xiao, H. (2024), "Cointegrated Matrix Autoregression Models",
+    Assumption 2 and Theorem 1, https://arxiv.org/abs/2409.10860v1.
+    The tolerance-based numerical checks implement coefficient conditions;
+    they are not a paper-derived hypothesis test or an empirical I(1) proof.
     """
     raw1, raw2 = np.asarray(A1), np.asarray(A2)
     if (
@@ -431,6 +443,8 @@ class CMARResult:
     restores physical units and includes Gaussian constants. No ridge,
     covariance floor, stationarity projection, rank test or standard errors
     are silently applied. A converged local optimizer is not an I(1) certificate.
+    Spaces, diagnostics and forecasts inherit the model reference documented
+    in :func:`fit_cmar` and this module.
     """
 
     A1: np.ndarray
@@ -649,6 +663,15 @@ def fit_cmar(
     Global nonzero rescaling uses X/max(abs(X)); dimensionless coefficients and
     subspaces are unchanged up to numerical error. MLE covariance arrays must
     remain representable in physical units; otherwise rescale the input.
+
+    References
+    ----------
+    Li, Z. and Xiao, H. (2024), "Cointegrated Matrix Autoregression Models",
+    Sections 3.1--3.2, https://arxiv.org/abs/2409.10860v1.
+    The implementation follows the structured residual objectives with the
+    algebraic corrections recorded in docs/cointegration-notes.md; numerical
+    initialization, multistart selection and stopping rules are explicit
+    package choices, not additional rank-selection or inference results.
     """
     k = positive_int(difference_lags, "difference_lags", minimum=0)
     X = as_series(X, min_samples=k + 3)

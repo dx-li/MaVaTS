@@ -1,4 +1,12 @@
-"""Chronological out-of-sample evaluation, including all preprocessing."""
+"""Chronological out-of-sample evaluation, including all preprocessing.
+
+References
+----------
+Tashman (2000), *Out-of-Sample Tests of Forecasting Accuracy: An Analysis and
+Review*, https://doi.org/10.1016/S0169-2070(00)00065-0, discusses rolling origins,
+recalibration and fixed/rolling windows. This module implements that evaluation
+design; it does not claim a new matrix-specific estimator or an iid error test.
+"""
 
 from dataclasses import dataclass
 from time import perf_counter
@@ -34,6 +42,13 @@ def rolling_forecast(X, fit, *, initial_train_size, horizon=1, step=1, window=No
     Preprocessing and tuning belong inside the factory and can see only the
     supplied training data. Overlapping horizons are allowed and have dependent
     errors; this function does not attach iid standard errors to them.
+
+    References
+    ----------
+    Tashman (2000), *Out-of-Sample Tests of Forecasting Accuracy: An Analysis
+    and Review*, https://doi.org/10.1016/S0169-2070(00)00065-0. The callable
+    factory and arbitrary matrix/tensor output shapes are software extensions
+    of the rolling-origin evaluation design.
     """
     X = as_series(X, ndim=None)
     initial = positive_int(initial_train_size, "initial_train_size")

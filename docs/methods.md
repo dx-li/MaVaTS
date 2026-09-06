@@ -5,6 +5,8 @@ The scope is time-indexed matrices and tensors, with matrix methods taking prior
 References were checked against primary papers and author manuscripts on 2026-09-05.
 Machine-readable citations are in [references.bib](references.bib); implementation
 acceptance criteria and remaining work are in [roadmap.md](roadmap.md).
+The [method-to-paper index](citations.md) maps every public procedure and result
+class, including legacy APIs and utilities, to its applicable references.
 
 ## Shared notation and interpretation
 

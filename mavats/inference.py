@@ -1,9 +1,13 @@
 """Asymptotic MAR(1) inference from Chen, Xiao and Yang (2021).
 
-Theorems 2--4 and the specification test in Section 4.2:
-https://doi.org/10.1016/j.jeconom.2020.07.015.
+Theorems 2--4 and the specification test in Section 4.2 are implemented.
 These are fixed-dimension, large-sample results for stationary zero-mean
 MAR(1) with iid innovations, nonsingular coefficients and innovation covariance.
+
+References
+----------
+Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+Matrix-Valued Time Series", https://doi.org/10.1016/j.jeconom.2020.07.015.
 """
 
 from dataclasses import dataclass, replace
@@ -106,6 +110,8 @@ class MARInferenceResult:
     ``operator`` and ``operator_standard_errors`` have shape (m*n,m*n).
     The dense covariance of the operator is available only by explicit call.
     Intervals are marginal Wald intervals, not simultaneous confidence bands.
+    Covariance and standard-error accessors inherit the theorem references
+    in :func:`mar_inference` and this module.
     """
 
     result: MARResult
@@ -147,6 +153,14 @@ class MARInferenceResult:
 
         At products whose two underlying A/B entries both vanish, the first-order
         variance degenerates and ordinary Wald coverage is not justified.
+
+        References
+        ----------
+        Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+        Matrix-Valued Time Series", Theorems 2--4,
+        https://doi.org/10.1016/j.jeconom.2020.07.015.
+        These are plug-in marginal Wald intervals from the paper's normal
+        limits; operator intervals apply the first-order delta method.
         """
         level = finite_scalar(level, "level")
         if not 0 < level < 1:
@@ -198,6 +212,14 @@ def mar_inference(
     nonzero. A/B are jointly sign-flipped in a copied result to make this entry
     positive. This avoids the discontinuity of the estimator's largest-entry
     sign rule at tied opposite-signed entries. The caller's result is unchanged.
+
+    References
+    ----------
+    Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+    Matrix-Valued Time Series", Theorems 2--4,
+    https://doi.org/10.1016/j.jeconom.2020.07.015.
+    This is sample-moment plug-in inference with an explicit fixed sign
+    chart, not a finite-sample, HAC or post-selection extension.
     """
     X = as_series(X, min_samples=3)
     m, n = X.shape[1:]
@@ -341,6 +363,14 @@ def mar_specification_test(X, *, condition_limit=1e10, max_dimension=16):
     projected covariance and a pseudoinverse, an orthonormal basis of its
     known normal space gives an equivalent positive-definite solve. Dense
     covariance storage scales as (m*n)^4. Both modes must exceed one.
+
+    References
+    ----------
+    Chen, R., Xiao, H. and Yang, D. (2021), "Autoregressive Models for
+    Matrix-Valued Time Series", Section 4.2,
+    https://doi.org/10.1016/j.jeconom.2020.07.015.
+    The normal-space solve is an algebraic implementation of the paper's
+    statistic, not a differently calibrated test.
     """
     X = as_series(X, min_samples=3)
     m, n = X.shape[1:]

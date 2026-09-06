@@ -71,6 +71,14 @@ def _fit_vector_vecm(X, rank):
     no Kronecker restriction. Partial out short-run terms, whiten the full-rank
     regression residual covariance, and take the rank-r canonical projection.
     No rank test, stability restriction, ridge or standard errors are supplied.
+
+    References
+    ----------
+    Johansen (1991), Estimation and Hypothesis Testing of Cointegration Vectors
+    in Gaussian Vector Autoregressive Models, Econometrica 59, 1551--1580,
+    https://doi.org/10.2307/2938278. This implements the conditional Gaussian
+    reduced-rank estimation problem with the stated deterministic/lag choices,
+    not the paper's hypothesis tests or all deterministic specifications.
     """
     shape = X.shape[1:]
     flat = _flatten(X)[:, :, 0]
@@ -115,6 +123,12 @@ def forecast_scores(fit, X, n_train, *, order=2, horizon=5):
 
     Origins whose full five-step outcome is unavailable are excluded for both
     scores. Overlapping origins are not independent Monte Carlo replications.
+
+    References
+    ----------
+    Tashman (2000), Out-of-Sample Tests of Forecasting Accuracy: An Analysis
+    and Review, https://doi.org/10.1016/S0169-2070(00)00065-0. This is a
+    fixed-fit, common-origin evaluation design, not a new forecasting method.
     """
     predicted, actual = [], []
     for origin in range(n_train, len(X) - horizon + 1):

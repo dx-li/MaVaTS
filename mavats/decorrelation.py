@@ -6,6 +6,16 @@ https://arxiv.org/abs/2103.09411. No components are discarded. Graph edges
 are selected by an explicit correlation threshold or the ratio heuristic
 (11), with its search bound resolved from the authors' journal supplement;
 see ``docs/decorrelation-notes.md`` for scope and conventions.
+
+References
+----------
+Han, Y., Chen, R., Zhang, C.-H. and Yao, Q. (2024).
+Simultaneous Decorrelation of Matrix Time Series. JASA, 119, 957-969.
+https://doi.org/10.1080/01621459.2022.2151448
+Open manuscript: https://arxiv.org/abs/2103.09411
+Equations (5)-(11); the ratio search bound follows the authors'
+journal supplement, https://doi.org/10.6084/m9.figshare.21641763.v2.
+The fixed correlation-threshold default is an uncalibrated convenience.
 """
 
 from dataclasses import dataclass
@@ -202,6 +212,16 @@ class MatrixDecorrelationResult:
     ``series``; ``row_mixing @ series @ column_mixing.T + mean`` inverts it.
     Under positive global scaling by c, latent values scale by 1/c, as required
     by the two marginal normalizations in equation (8).
+
+    References
+    ----------
+    Han, Y., Chen, R., Zhang, C.-H. and Yao, Q. (2024).
+    Simultaneous Decorrelation of Matrix Time Series. JASA, 119, 957-969.
+    https://doi.org/10.1080/01621459.2022.2151448
+    Open manuscript: https://arxiv.org/abs/2103.09411
+    Equations (5)-(11); the ratio search bound follows the authors'
+    journal supplement, https://doi.org/10.6084/m9.figshare.21641763.v2.
+    The fixed correlation-threshold default is an uncalibrated convenience.
     """
 
     series: np.ndarray
@@ -255,7 +275,18 @@ class MatrixDecorrelationResult:
         return (self.column_root_scaled @ self.column_rotation) * self.data_scale
 
     def transform(self, X):
-        """Transform new data with the fitted mean and both fitted marginals."""
+        """Transform new data with the fitted mean and both fitted marginals.
+
+        References
+        ----------
+        Han, Y., Chen, R., Zhang, C.-H. and Yao, Q. (2024).
+        Simultaneous Decorrelation of Matrix Time Series. JASA, 119, 957-969.
+        https://doi.org/10.1080/01621459.2022.2151448
+        Open manuscript: https://arxiv.org/abs/2103.09411
+        Equations (5)-(11); the ratio search bound follows the authors'
+        journal supplement, https://doi.org/10.6084/m9.figshare.21641763.v2.
+        The fixed correlation-threshold default is an uncalibrated convenience.
+        """
         X = as_series(X, min_samples=1)
         if X.shape[1:] != self.mean.shape:
             raise ValueError("observation dimensions must match the fitted model")
@@ -275,7 +306,18 @@ class MatrixDecorrelationResult:
         return output
 
     def inverse_transform(self, series):
-        """Invert complete latent matrices, adding the training mean."""
+        """Invert complete latent matrices, adding the training mean.
+
+        References
+        ----------
+        Han, Y., Chen, R., Zhang, C.-H. and Yao, Q. (2024).
+        Simultaneous Decorrelation of Matrix Time Series. JASA, 119, 957-969.
+        https://doi.org/10.1080/01621459.2022.2151448
+        Open manuscript: https://arxiv.org/abs/2103.09411
+        Equations (5)-(11); the ratio search bound follows the authors'
+        journal supplement, https://doi.org/10.6084/m9.figshare.21641763.v2.
+        The fixed correlation-threshold default is an uncalibrated convenience.
+        """
         series = as_series(series, min_samples=1)
         if series.shape[1:] != self.mean.shape:
             raise ValueError("latent dimensions must match the fitted model")
@@ -297,6 +339,16 @@ class MatrixDecorrelationResult:
 
         With no argument, return the training blocks. Otherwise transform X
         with the fitted parameters and then extract its blocks.
+
+        References
+        ----------
+        Han, Y., Chen, R., Zhang, C.-H. and Yao, Q. (2024).
+        Simultaneous Decorrelation of Matrix Time Series. JASA, 119, 957-969.
+        https://doi.org/10.1080/01621459.2022.2151448
+        Open manuscript: https://arxiv.org/abs/2103.09411
+        Equations (5)-(11); the ratio search bound follows the authors'
+        journal supplement, https://doi.org/10.6084/m9.figshare.21641763.v2.
+        The fixed correlation-threshold default is an uncalibrated convenience.
         """
         series = self.series if X is None else self.transform(X)
         return tuple(
@@ -305,7 +357,18 @@ class MatrixDecorrelationResult:
         )
 
     def inverse_blocks(self, blocks):
-        """Reassemble and invert nested block predictions from ``blocks()``."""
+        """Reassemble and invert nested block predictions from ``blocks()``.
+
+        References
+        ----------
+        Han, Y., Chen, R., Zhang, C.-H. and Yao, Q. (2024).
+        Simultaneous Decorrelation of Matrix Time Series. JASA, 119, 957-969.
+        https://doi.org/10.1080/01621459.2022.2151448
+        Open manuscript: https://arxiv.org/abs/2103.09411
+        Equations (5)-(11); the ratio search bound follows the authors'
+        journal supplement, https://doi.org/10.6084/m9.figshare.21641763.v2.
+        The fixed correlation-threshold default is an uncalibrated convenience.
+        """
         try:
             block_rows = tuple(tuple(row) for row in blocks)
         except TypeError as exc:
@@ -410,6 +473,16 @@ def fit_matrix_decorrelation(
     Covariance computation streams one opposite-mode index at a time, using
     O(max(rows*columns**2, columns*rows**2)) temporary storage in addition to
     the data, with no (rows*columns)-square eigenproblem.
+
+    References
+    ----------
+    Han, Y., Chen, R., Zhang, C.-H. and Yao, Q. (2024).
+    Simultaneous Decorrelation of Matrix Time Series. JASA, 119, 957-969.
+    https://doi.org/10.1080/01621459.2022.2151448
+    Open manuscript: https://arxiv.org/abs/2103.09411
+    Equations (5)-(11); the ratio search bound follows the authors'
+    journal supplement, https://doi.org/10.6084/m9.figshare.21641763.v2.
+    The fixed correlation-threshold default is an uncalibrated convenience.
     """
     X = as_series(X)
     lags = positive_int(lags, "lags")

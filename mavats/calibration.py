@@ -3,6 +3,17 @@
 These are explicit extensions to the asymptotic boundaries in He et al. (2024),
 not finite-sample null guarantees for the matrix-data monitoring procedure.
 The Gaussian reference sets every data-dependent monitoring drift to zero.
+
+References
+----------
+He, Y., Kong, X., Trapani, L. and Yu, L. (2024).
+Online Change-Point Detection for Matrix-Valued Time Series with
+Latent Two-Way Factor Structure. Annals of Statistics, 52, 1646-1670.
+https://doi.org/10.1214/24-AOS2410
+This paper supplies the monitoring statistic, NOT the finite-horizon
+calibration implemented here. Exact Gaussian maxima and simulated
+zero-drift path quantiles are explicit package extensions; they do
+not establish finite-sample matrix-data false-alarm control.
 """
 
 from dataclasses import dataclass
@@ -22,6 +33,17 @@ class MonitorCalibration:
     false-alarm probability. Infinite endpoints indicate insufficient tail
     replications. No continuous-time Brownian supremum is approximated here:
     the discrete observation times and finite horizon are the target.
+
+    References
+    ----------
+    He, Y., Kong, X., Trapani, L. and Yu, L. (2024).
+    Online Change-Point Detection for Matrix-Valued Time Series with
+    Latent Two-Way Factor Structure. Annals of Statistics, 52, 1646-1670.
+    https://doi.org/10.1214/24-AOS2410
+    This paper supplies the monitoring statistic, NOT the finite-horizon
+    calibration implemented here. Exact Gaussian maxima and simulated
+    zero-drift path quantiles are explicit package extensions; they do
+    not establish finite-sample matrix-data false-alarm control.
     """
 
     critical_value: float
@@ -104,6 +126,17 @@ def calibrate_monitor(
     Multiple monitors, modes or restarts require separate multiplicity control.
     Memory is bounded by at most one million Gaussian draws per batch.
     Seed reproducibility is invariant to ``batch_size``.
+
+    References
+    ----------
+    He, Y., Kong, X., Trapani, L. and Yu, L. (2024).
+    Online Change-Point Detection for Matrix-Valued Time Series with
+    Latent Two-Way Factor Structure. Annals of Statistics, 52, 1646-1670.
+    https://doi.org/10.1214/24-AOS2410
+    This paper supplies the monitoring statistic, NOT the finite-horizon
+    calibration implemented here. Exact Gaussian maxima and simulated
+    zero-drift path quantiles are explicit package extensions; they do
+    not establish finite-sample matrix-data false-alarm control.
     """
     horizon = positive_int(horizon, "horizon")
     eta = finite_scalar(eta, "eta", minimum=0)

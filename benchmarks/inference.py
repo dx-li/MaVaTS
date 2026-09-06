@@ -117,6 +117,16 @@ def run_study(repeats=200, sample_sizes=(200, 800), seed=7123):
 
 
 def summary(rows):
+    """Aggregate independent-series experiments, retaining failures explicitly.
+
+    References
+    ----------
+    Wilson (1927), Probable Inference, the Law of Succession, and Statistical
+    Inference, https://doi.org/10.1080/01621459.1927.10502953, supplies the
+    binomial score interval for specification rejection counts. Coverage
+    averages instead receive replicate standard errors; correlated coefficient
+    entries are not counted as independent binomial trials.
+    """
     groups = {}
     for row in rows:
         key = (row["task"], row["n"], row["regime"], row["method"])

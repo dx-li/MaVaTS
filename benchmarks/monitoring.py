@@ -15,6 +15,14 @@ from mavats.monitoring import MatrixFactorMonitor
 
 
 def _wilson(success, total):
+    """Wilson 95% score interval for a binomial replication count.
+
+    References
+    ----------
+    Wilson (1927), Probable Inference, the Law of Succession, and Statistical
+    Inference, https://doi.org/10.1080/01621459.1927.10502953.
+    The interval concerns Monte Carlo series counts, not dependent time points.
+    """
     if not total:
         return None
     z = 1.959963984540054

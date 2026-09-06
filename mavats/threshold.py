@@ -145,7 +145,14 @@ class ThresholdFactorResult:
         return tuple(np.flatnonzero(self.regimes == i) for i in range(2))
 
     def classify(self, z):
-        """Assign observed ``z`` values; equality belongs to regime one (upper)."""
+        """Assign observed ``z`` values; equality belongs to regime one (upper).
+
+        References
+        ----------
+        Liu and Chen (2022), Identification and Estimation of Threshold
+        Matrix-Variate Factor Models. https://doi.org/10.1111/sjos.12576
+        This applies the fitted threshold; it does not predict future z.
+        """
         raw = np.asarray(z)
         if raw.ndim != 1:
             raise ValueError("z must be a one-dimensional vector")
@@ -157,6 +164,11 @@ class ThresholdFactorResult:
         Returns ``(lower_regime_cores, upper_regime_cores)`` in each regime's
         temporal order. The caller supplies contemporaneously available ``z``;
         this method never estimates a threshold or refits loading spaces.
+
+        References
+        ----------
+        Liu and Chen (2022), Identification and Estimation of Threshold
+        Matrix-Variate Factor Models. https://doi.org/10.1111/sjos.12576
         """
         X = as_series(X, min_samples=1)
         shape = tuple(q.shape[0] for q in self.loadings[0])
@@ -168,7 +180,14 @@ class ThresholdFactorResult:
         )
 
     def inverse_transform(self, factors, z):
-        """Reconstruct regime-specific cores into the time order specified by z."""
+        """Reconstruct regime-specific cores into the time order specified by z.
+
+        References
+        ----------
+        Liu and Chen (2022), Identification and Estimation of Threshold
+        Matrix-Variate Factor Models. https://doi.org/10.1111/sjos.12576
+        This is fitted model reconstruction, not threshold-variable forecasting.
+        """
         regimes = self.classify(z)
         try:
             factors = tuple(factors)
@@ -186,7 +205,14 @@ class ThresholdFactorResult:
         return signal
 
     def reconstruct(self, X, z):
-        """Return fitted common components for aligned new observations."""
+        """Return fitted common components for aligned new observations.
+
+        References
+        ----------
+        Liu and Chen (2022), Identification and Estimation of Threshold
+        Matrix-Variate Factor Models. https://doi.org/10.1111/sjos.12576
+        Contemporaneous projection uses observed X and z, not a forecast law.
+        """
         return self.inverse_transform(self.transform(X, z), z)
 
 
@@ -244,6 +270,11 @@ def fit_threshold_factors(
     *Identification and estimation of threshold matrix-variate factor models*,
     Scandinavian Journal of Statistics 49, 1383-1417 (2022),
     https://doi.org/10.1111/sjos.12576.
+
+    References
+    ----------
+    Liu and Chen (2022), Identification and Estimation of Threshold
+    Matrix-Variate Factor Models. https://doi.org/10.1111/sjos.12576
 
     For every source regime, temporal lag and pair of matrix columns, form
     ``Omega = sum_t X[t,:,u] X[t+h,:,v].T I(z[t] in regime) / T``.

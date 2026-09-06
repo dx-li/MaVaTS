@@ -2,6 +2,9 @@
 
 Time is always axis zero. Matrix vectorization uses column-major order, so
 ``vec(A @ X @ B.T) == kron(B, A) @ vec(X)``.
+
+References are given on each generator. These simulate the cited model
+families with documented user-selected designs, not exact paper experiments.
 """
 
 from dataclasses import dataclass
@@ -51,6 +54,13 @@ def matrix_normal(size, row_cov, column_cov, *, mean=None, random_state=None):
 
     Positive semidefinite (including singular) covariances are supported.
     The return shape is ``(size, rows, columns)``.
+
+    References
+    ----------
+    Dawid (1981), *Some Matrix-Variate Distribution Theory: Notational
+    Considerations and a Bayesian Application*,
+    https://doi.org/10.1093/biomet/68.1.265, develops matrix-normal notation.
+    The singular-covariance eigen-root extension is explicitly supported here.
     """
     size = positive_int(size, "size")
     row_cov = _square_matrix(row_cov, "row_cov")
@@ -94,6 +104,13 @@ def mar_spectral_radius(left, right):
 
     For one lag the Kronecker identity avoids constructing the full operator.
     Multiple lags require a dense ``(order*rows*columns)`` square companion.
+
+    References
+    ----------
+    Chen, Xiao and Yang (2021), *Autoregressive Models for Matrix-Valued Time
+    Series*, https://doi.org/10.1016/j.jeconom.2020.07.015, gives the MAR
+    Kronecker stability condition. Multiple lags use the standard vectorized
+    companion extension; this is a coefficient diagnostic, not a unit-root test.
     """
     left, right = _mar_coefficients(left, right)
     if len(left) == 1:
@@ -126,6 +143,13 @@ def simulate_mar(
     ``initial`` contains ``order`` matrices, oldest first; zeros by default.
     Burn-in reduces initialization effects but is not an exact stationary draw.
     Set ``check_stationarity=False`` deliberately to simulate explosive models.
+
+    References
+    ----------
+    Chen, Xiao and Yang (2021), *Autoregressive Models for Matrix-Valued Time
+    Series*, https://doi.org/10.1016/j.jeconom.2020.07.015. Multiple lags,
+    supplied intercept/initial conditions and burn-in are explicit simulation
+    design choices; this does not claim to reproduce a numbered paper design.
     """
     n_samples = positive_int(n_samples, "n_samples")
     burnin = positive_int(burnin, "burnin", minimum=0)
@@ -203,6 +227,14 @@ def simulate_factor(
     Core entries are independent, stationary unit-variance Gaussian AR(1)
     processes. Thus signal strength follows the usual pervasive-factor scaling.
     ``ar=0`` is useful for checking the limitations of lag-only estimators.
+
+    References
+    ----------
+    Chen, Yang and Zhang (2022), *Factor Models for High-Dimensional Tensor
+    Time Series*, https://doi.org/10.1080/01621459.2021.1912757, supplies the
+    multilinear factor model. Independent Gaussian AR(1) cores and this exact
+    loading/noise design are library simulation choices, not a claim of exact
+    reproduction of the paper's experiments.
     """
     n_samples = positive_int(n_samples, "n_samples")
     burnin = positive_int(burnin, "burnin", minimum=0)

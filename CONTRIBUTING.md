@@ -32,3 +32,14 @@ The old Poetry lock file was removed when the rebuild adopted standard Python
 project metadata and NumPy 1.26+/2.x compatibility. Runtime bounds live in
 `pyproject.toml`; minimum-dependency and current-dependency CI are separate.
 The previous lock remains recoverable from Git history.
+
+## Citation requirement
+
+Every public scientific procedure must include a `References` section in its
+docstring with author(s), paper title and primary DOI/manuscript link. Add its
+canonical name and attribution scope to [docs/citations.md](docs/citations.md),
+and complete BibTeX metadata to [docs/references.bib](docs/references.bib).
+Include all distinct paper variants behind a shared entry point. Result helpers
+inherit the creating model's references; generic utilities and package extensions
+must be identified honestly, without inventing a dedicated paper implementation.
+`tests/test_citations.py` checks public API/index coverage and citation metadata.

@@ -4,6 +4,12 @@ The transition at each lag is a sum of Kronecker products of square mode
 matrices, NOT a low-Tucker-rank transition tensor. Sections 3.1--3.3 supply
 alternating LS, separable Gaussian likelihood, and projection initialization.
 See docs/tensor-autoregression-notes.md for indexing corrections and limits.
+Result transitions, covariance accessors and forecasts evaluate this model.
+
+References
+----------
+Li, Z. and Xiao, H. (2021), "Multi-Linear Tensor Autoregressive Models",
+arXiv:2110.00928v1, https://arxiv.org/abs/2110.00928v1.
 """
 
 from dataclasses import dataclass, field
@@ -444,6 +450,8 @@ class TensorARResult:
     variance units. Stability is diagnosed, not enforced. Convergence refers
     to objective change, not global optimality, parameter identification or
     valid asymptotic inference. center=True is a fixed sample-mean extension.
+    All model-derived accessors inherit the reference and scope in
+    :func:`fit_tensor_ar` and this module.
     """
 
     coefficients: tuple
@@ -663,6 +671,15 @@ def fit_tensor_ar(
     tol controls relative SSE change for LS and change in mean negative log
     likelihood per observed scalar for MLE (invariant to unit log constants).
     Automatic order/rank selection and inference are not implemented.
+
+    References
+    ----------
+    Li, Z. and Xiao, H. (2021), "Multi-Linear Tensor Autoregressive Models",
+    Sections 3.1--3.3, https://arxiv.org/abs/2110.00928v1.
+    Fixed sample-mean centering, local CP-ALS projection, multistart choices
+    and optional covariance flooring are documented computational choices;
+    a local projection is not a certified best CP approximation. See
+    docs/tensor-autoregression-notes.md for manuscript indexing corrections.
     """
     X = as_series(X, min_samples=3, ndim=None)
     if X.ndim < 3:

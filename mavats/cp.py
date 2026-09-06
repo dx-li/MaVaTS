@@ -156,7 +156,14 @@ class CPResult:
         return self.loadings[1]
 
     def transform(self, X):
-        """Estimate scalar factors by joint least squares in the CP basis."""
+        """Estimate scalar factors by joint least squares in the CP basis.
+
+        References
+        ----------
+        Chang, He, Yang and Yao (2023), Modelling Matrix Time Series via a
+        Tensor CP-Decomposition. https://arxiv.org/abs/2112.15423
+        Uses fixed fitted loadings; this does not estimate a forecast law.
+        """
         X = as_series(X, min_samples=1)
         if X.shape[1:] != self.mean.shape:
             raise ValueError("observation dimensions must match the fitted CP model")
@@ -168,7 +175,14 @@ class CPResult:
         return scores * scale
 
     def inverse_transform(self, scores):
-        """Reconstruct matrices from scalar factors, adding the training mean."""
+        """Reconstruct matrices from scalar factors, adding the training mean.
+
+        References
+        ----------
+        Chang, He, Yang and Yao (2023), Modelling Matrix Time Series via a
+        Tensor CP-Decomposition. https://arxiv.org/abs/2112.15423
+        Restoring the optional training mean is an implementation convention.
+        """
         scores = as_series(scores, min_samples=1, ndim=2)
         if scores.shape[1] != self.rank:
             raise ValueError("score dimensions must match the fitted CP rank")
@@ -237,7 +251,9 @@ def fit_cp_factor(
     noisy finite sample may violate these requirements and raises
     ``CPIdentificationError`` instead of returning complex or unstable loadings.
 
-    Reference: Chang et al. (2023), Modelling Matrix Time Series via a Tensor
+    References
+    ----------
+    Chang, He, Yang and Yao (2023), Modelling Matrix Time Series via a Tensor
     CP-Decomposition. https://arxiv.org/abs/2112.15423
     """
     X = as_series(X, min_samples=4)

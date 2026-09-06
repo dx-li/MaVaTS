@@ -70,7 +70,11 @@ def fit_constrained_factor(
     then apply to deviations from that mean. No entrywise standardization is
     performed. ``lags`` and automatic ranks follow ``fit_lagged_factor``.
 
-    Reference: https://doi.org/10.1080/01621459.2019.1584899
+    References
+    ----------
+    Chen, Tsay and Chen (2020), Constrained Factor Models for High-Dimensional
+    Matrix-Variate Time Series, Sections 3.1--3.2.
+    https://doi.org/10.1080/01621459.2019.1584899
     """
     X, work, mean, scale = _prepare(X, center)
     row = _constraint_basis(row_constraints, X.shape[1], "row_constraints")

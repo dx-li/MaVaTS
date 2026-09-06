@@ -5,6 +5,15 @@ conditional Gaussian quasi-likelihood (12)--(13), of the accepted manuscript:
 https://doi.org/10.1080/01621459.2024.2415719 (online 2024).
 The earlier arXiv:2306.05169v1 lacks the accepted version's stationarity theorem.
 No QMLE standard errors, portmanteau test, or factor-GARCH inference are supplied.
+
+References
+----------
+Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+https://doi.org/10.1080/01621459.2024.2415719
+Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+optimizer diagnostics and state containers are implementation choices.
 """
 
 from dataclasses import dataclass
@@ -50,6 +59,15 @@ class MatrixGARCHParameters:
     alone does not imply stationarity. Scalar spatial modes have no identified
     shape dynamics: their intercept must be [[1]] and dynamics [[0]].
     Arrays are copied and made read-only.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
     """
 
     A0: np.ndarray
@@ -98,6 +116,15 @@ class MatrixGARCHParameters:
 
         This condition is not necessary. Its failure must not be called
         nonstationarity. It is stronger than separate BEKK spectral checks.
+
+        References
+        ----------
+        Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+        Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+        https://doi.org/10.1080/01621459.2024.2415719
+        Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+        Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+        optimizer diagnostics and state containers are implementation choices.
         """
         return float(
             np.sum(self.A1**2)
@@ -108,7 +135,17 @@ class MatrixGARCHParameters:
 
     @property
     def spectral_bounds(self):
-        """Assumption 3.3(i) row/column radii and alpha+beta, not a proof of stationarity."""
+        """Assumption 3.3(i) row/column radii and alpha+beta, not a proof of stationarity.
+
+        References
+        ----------
+        Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+        Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+        https://doi.org/10.1080/01621459.2024.2415719
+        Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+        Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+        optimizer diagnostics and state containers are implementation choices.
+        """
         radii = [
             float(np.max(np.abs(np.linalg.eigvals(np.kron(a, a) + np.kron(b, b)))))
             for a, b in ((self.A1, self.A2), (self.B1, self.B2))
@@ -123,6 +160,15 @@ class MatrixGARCHState:
     ``forecast_one`` uses only this state to calculate covariance at t+1.
     Shape states are not trace-normalized. Trace and last observation use
     original data units. A zero state is the paper's conditional initializer.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
     """
 
     row_shape: np.ndarray
@@ -282,7 +328,17 @@ def _dense_covariance(u, v):
 
 @dataclass
 class MatrixGARCHForecast:
-    """Exact conditional covariance for the next observation, in original units."""
+    """Exact conditional covariance for the next observation, in original units.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
+    """
 
     row_covariance: np.ndarray
     column_factor: np.ndarray
@@ -293,7 +349,17 @@ class MatrixGARCHForecast:
         return self.column_factor * self.trace
 
     def covariance(self):
-        """Materialize Cov(vec_F(X_next)): V_next kron U_next."""
+        """Materialize Cov(vec_F(X_next)): V_next kron U_next.
+
+        References
+        ----------
+        Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+        Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+        https://doi.org/10.1080/01621459.2024.2415719
+        Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+        Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+        optimizer diagnostics and state containers are implementation choices.
+        """
         return _dense_covariance(self.row_covariance, self.column_factor)
 
 
@@ -307,6 +373,15 @@ class MatrixGARCHFilterResult:
     from the paper's symmetric-root residual coordinates. No whiteness test
     or inferential calibration is implied. Histories precede their observation:
     the covariance at t cannot use X[t].
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
     """
 
     parameters: MatrixGARCHParameters
@@ -326,13 +401,33 @@ class MatrixGARCHFilterResult:
         return self.column_factors * self.traces[:, None, None]
 
     def covariance(self, index):
-        """Materialize one conditional covariance in column-major order."""
+        """Materialize one conditional covariance in column-major order.
+
+        References
+        ----------
+        Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+        Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+        https://doi.org/10.1080/01621459.2024.2415719
+        Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+        Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+        optimizer diagnostics and state containers are implementation choices.
+        """
         return _dense_covariance(
             self.row_covariances[index], self.column_factors[index]
         )
 
     def forecast_one(self):
-        """Exact one-step covariance; multistep expectations do not close."""
+        """Exact one-step covariance; multistep expectations do not close.
+
+        References
+        ----------
+        Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+        Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+        https://doi.org/10.1080/01621459.2024.2415719
+        Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+        Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+        optimizer diagnostics and state containers are implementation choices.
+        """
         s = self.state
         scale = max(
             float(np.max(np.abs(s.last_observation))),
@@ -363,6 +458,15 @@ def filter_matrix_garch(X, parameters, *, initial_state=None):
     Pass a previous result's ``state`` for chronological continuation. This
     does not refit parameters or estimate a mean. Gaussian constants are
     included in per-observation likelihoods, in the original data units.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
     """
     X = as_series(X, min_samples=1)
     if (
@@ -414,7 +518,17 @@ def filter_matrix_garch(X, parameters, *, initial_state=None):
 
 @dataclass
 class MatrixGARCHSimulation:
-    """Gaussian observations and the covariance states actually used to draw them."""
+    """Gaussian observations and the covariance states actually used to draw them.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
+    """
 
     observations: np.ndarray
     row_covariances: np.ndarray
@@ -432,6 +546,15 @@ def simulate_matrix_garch(n, parameters, *, burnin=300, random_state=None):
     is the post-burn-in state immediately preceding the retained observations,
     enabling an exact simulation/filter oracle. Innovations are standard matrix
     normal, not elementwise or matrix Student-t.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
     """
     n = positive_int(n, "n")
     burnin = positive_int(burnin, "burnin", minimum=0)
@@ -594,7 +717,17 @@ def _objective_gradient(X, p, codec, *, data_scale=None):
 
 @dataclass
 class MatrixGARCHOptimizationRun:
-    """One constrained optimization attempt; gradient norm is not a KKT residual."""
+    """One constrained optimization attempt; gradient norm is not a KKT residual.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
+    """
 
     objective: float
     converged: bool
@@ -622,6 +755,15 @@ class MatrixGARCHResult:
     establish a global minimum, identification, stationarity, or valid inference.
     Coefficient signs follow the selected start: compare covariance paths,
     not raw signed coefficients. No covariance floor is applied.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
     """
 
     parameters: MatrixGARCHParameters
@@ -645,10 +787,31 @@ class MatrixGARCHResult:
         return self.runs[self.selected_start].active_bounds
 
     def forecast_one(self):
+        """Return the exact next-observation conditional covariance.
+
+        References
+        ----------
+        Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+        Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+        https://doi.org/10.1080/01621459.2024.2415719
+        Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+        Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+        optimizer diagnostics and state containers are implementation choices.
+        """
         return self.filtered.forecast_one()
 
     def filter(self, X, *, continue_history=True):
-        """Filter new observations without refitting; continuation is chronological."""
+        """Filter new observations without refitting; continuation is chronological.
+
+        References
+        ----------
+        Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+        Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+        https://doi.org/10.1080/01621459.2024.2415719
+        Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+        Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+        optimizer diagnostics and state containers are implementation choices.
+        """
         if not isinstance(continue_history, (bool, np.bool_)):
             raise ValueError("continue_history must be boolean")
         return filter_matrix_garch(
@@ -703,6 +866,15 @@ def fit_matrix_garch(
 
     No standard errors, estimation-adjusted portmanteau test, matrix factor GARCH,
     or multistep covariance approximation is implemented. See volatility-notes.md.
+
+    References
+    ----------
+    Yu, C., Li, D., Jiang, F. and Zhu, K. (2025; online 2024).
+    Matrix GARCH Model: Inference and Application. JASA, 120, 1747-1762.
+    https://doi.org/10.1080/01621459.2024.2415719
+    Uses the revised accepted manuscript, equations (4)-(9), (12)-(13),
+    Theorem 1 and Assumption 3.3(i), not only arXiv v1. Numerical boxes,
+    optimizer diagnostics and state containers are implementation choices.
     """
     X = as_series(X, min_samples=3)
     if dynamics not in ("full", "diagonal"):

@@ -1,10 +1,16 @@
 """Spike-and-slab EM variable selection for Gaussian MAR(1).
 
-Based on Celani, Pagnottoni and Jones (2024), Sections 3--4 and Appendix C,
-https://doi.org/10.1007/s11222-024-10402-y. This implements the continuous
-normal-mixture EMVS posterior-mode branch, not MCMC or MAR*(P). Arbitrary
+This implements the continuous normal-mixture EMVS posterior-mode branch
+of the reference below, not MCMC or MAR*(P). Arbitrary
 factor rescaling in the paper's equation (8) is omitted: it changes the
 specified prior and can decrease the posterior. See docs/sparse-notes.md.
+Result support masks and forecasts are plug-in summaries of this model.
+
+References
+----------
+Celani, A., Pagnottoni, P. and Jones, G. (2024), "Bayesian Variable Selection
+for Matrix Autoregressive Models", Sections 3--4 and Appendix C,
+https://doi.org/10.1007/s11222-024-10402-y.
 """
 
 from dataclasses import dataclass, field
@@ -199,6 +205,8 @@ class SparseMARResult:
     0.5 slab-probability rule without changing forecasts. Proper priors set
     the factor scales. The likelihood alone identifies only B kron A and
     column_covariance kron row_covariance.
+    Model-derived summaries and forecasts inherit the reference and
+    corrected-EMVS scope of :func:`fit_sparse_mar` and this module.
     """
 
     A: np.ndarray
@@ -309,6 +317,15 @@ def fit_sparse_mar(
     This is the MAR(1) EMVS branch of Celani et al. (2024), with mathematical
     corrections described in docs/sparse-notes.md. MCMC posterior draws,
     credible intervals, and the paper's MAR*(P) branch are not implemented.
+
+    References
+    ----------
+    Celani, A., Pagnottoni, P. and Jones, G. (2024), "Bayesian Variable
+    Selection for Matrix Autoregressive Models", Sections 3--4 and Appendix C,
+    https://doi.org/10.1007/s11222-024-10402-y.
+    Exact conditional scale maximizations replace the paper's arbitrary
+    post-update rescaling, which would change the prior. The default uniform
+    Beta inclusion prior also differs from its simulation-specific settings.
     """
     X = as_series(X, min_samples=3)
     if np.array_equal(X, np.broadcast_to(X[0], X.shape)):
