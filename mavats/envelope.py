@@ -225,6 +225,9 @@ def fit_envelope_mar(
         in scaled-data units.
     initial_envelopes : (R, C), optional
         Orthonormal bases shaped (m,u), (n,v), used as extra first starts.
+        Without supplied bases, an unrestricted warmup also supplies leading
+        left singular vectors of its concatenated row/column coefficients.
+        These are additional numerical starts, not fixed envelope estimates.
     warmup_max_iter : int, default 100
         Unrestricted MAR-MLE initialization budget, separately diagnosed.
     max_dense_elements : int, default 10000000
@@ -320,6 +323,16 @@ def fit_envelope_mar(
         left, right = warmup.left.copy(), warmup.right.copy()
         covariances = [warmup.row_covariance.copy(), warmup.column_covariance.copy()]
         warmup_converged = warmup.converged
+        if initial_envelopes is None:
+            # Covariance-eigenvector starts alone can be trapped in immaterial
+            # directions when material variance is high. Use the training-only
+            # warmup's coefficient spaces as an additional first start.
+            bases = [
+                np.linalg.svd(np.concatenate(coef, axis=1), full_matrices=False)[0][
+                    :, :rank
+                ]
+                for coef, rank in zip((left, right), dims)
+            ]
     else:
         if len(initial) != 2:
             raise ValueError("initial must contain left and right coefficients")

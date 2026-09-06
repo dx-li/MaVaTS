@@ -102,6 +102,12 @@ operators applied to the separate lag means.
   its convergence is reported separately. User coefficient/covariance starts
   and initial envelope bases are supported. Large automatic projection
   warmups are replaced by identity coefficient initialization.
+  When initial envelopes are not supplied, the leading left singular vectors
+  of the warmup's concatenated lag coefficients provide an additional first
+  start for each space (using the warmup's documented per-lag gauges).
+  Covariance eigenvectors alone can get trapped in immaterial directions when
+  material variance is high. The warmup spaces remain merely initializers;
+  the logdet optimization and competing fresh starts are still performed.
 - Rank-deficient weighted designs and numerically singular residual moments
   raise. The latter uses a `10*eps*||S0||_2` eigenvalue threshold to reject
   saturated regressions with roundoff-sized residuals. Very ill-conditioned

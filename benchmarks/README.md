@@ -402,7 +402,8 @@ The oracle gets true parameters but no future innovations. All fits use only
 the training prefix, with no test-based tuning. EMAR uses three fresh Grassmann
 starts plus the preceding envelope, inner gradient tolerance 1e-6, 200 inner
 iterations and 100 outer iterations (40 in quick mode), likelihood tolerance
-1e-8 and a 100-iteration unrestricted MLE warmup. MAR baselines use 200 sweeps,
+1e-8 and a 100-iteration unrestricted MLE warmup. The warmup's coefficient spaces
+supply an additional first envelope start. MAR baselines use 200 sweeps,
 tol=1e-8, and no covariance floor. Timings include warmup and all optimization.
 
 Scores use the same 31 held-out origins at horizons 1, 3 and 5, updating observed

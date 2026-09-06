@@ -413,3 +413,28 @@ def test_numerically_increasing_sweep_rolls_back_and_is_not_convergence(monkeypa
     np.testing.assert_allclose(fit.coefficients, first.coefficients)
     np.testing.assert_allclose(fit.objective_history, first.objective_history)
     np.testing.assert_allclose(fit.fitted_values, first.fitted_values)
+
+
+def test_warmup_output_spaces_are_extra_starts_not_fixed_estimates():
+    data = _series(count=130)
+    warm = fit_mar(
+        data, method="mle", fit_intercept=True, max_iter=100, covariance_floor=0
+    )
+    bases = tuple(
+        np.linalg.svd(np.concatenate(coef, axis=1), full_matrices=False)[0][:, :2]
+        for coef in (warm.left, warm.right)
+    )
+    automatic = fit_envelope_mar(data, (2, 2), max_iter=10)
+    explicit = fit_envelope_mar(data, (2, 2), max_iter=10, initial_envelopes=bases)
+    for axis in ("row", "column"):
+        assert len(automatic.optimization_history[0][axis]["runs"]) == 4
+    np.testing.assert_allclose(
+        automatic.log_likelihood, explicit.log_likelihood, atol=1e-8
+    )
+    np.testing.assert_allclose(automatic.coefficients, explicit.coefficients, atol=1e-7)
+    assert (
+        np.linalg.norm(
+            automatic.row_envelope @ automatic.row_envelope.T - bases[0] @ bases[0].T
+        )
+        > 1e-4
+    )
