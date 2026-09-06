@@ -28,6 +28,7 @@ site/
 build/
 develop-eggs/
 dist/
+release-dist/
 downloads/
 eggs/
 .eggs/

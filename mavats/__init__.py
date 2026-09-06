@@ -85,7 +85,7 @@ from .volatility import (
     simulate_matrix_garch,
 )
 
-__version__ = "0.2.0.dev0"
+__version__ = "0.2.0a1"
 
 __all__ = [
     "EnvelopeMARResult",
