@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mavats"
-version = "0.2.0.dev0"
+version = "0.2.0a1"
 description = "Scientific methods for matrix- and tensor-valued time series"
 authors = [{name = "Daniel", email = "danlixuan@gmail.com"}]
 license = "MIT"
@@ -25,7 +25,7 @@ Documentation = "https://dx-li.github.io/MaVaTS/mavats.html"
 Issues = "https://github.com/dx-li/MaVaTS/issues"
 
 [project.optional-dependencies]
-dev = ["pytest>=8.2,<10", "pytest-cov>=5", "black>=24.4,<27", "isort>=5.13", "build>=1"]
+dev = ["pytest>=8.2,<10", "pytest-cov>=5", "black>=24.4,<27", "isort>=5.13", "build>=1", "twine>=6,<7"]
 docs = ["pdoc>=15"]
 
 [tool.setuptools.packages.find]
