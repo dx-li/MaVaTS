@@ -190,6 +190,16 @@ data, whose randomized scores retain a data-dependent drift. See the
 
 ## Methods, examples and comparisons
 
+`select_tensor_rank` implements Han, Chen and Zhang's (2022) IC/ER criteria
+for TOPUP, TIPUP and their iterative rank-reselecting variants. All five
+penalties per criterion are available; strength and physical-unit penalty
+constants are explicit. `tensor_rank_stability` evaluates supplied nested
+subsamples and penalty grids, retaining failed or unconverged fits and
+reporting when no admissible stability interval exists. See the
+[rank-selection example](examples/factor_rank_selection.py),
+[stability example](examples/rank_stability.py), and
+[paper-version and numerical scope](docs/rank-selection-notes.md).
+
 - [Scientific coverage and primary citations](docs/methods.md)
 - [Numerical conventions and compatibility](docs/numerics.md)
 - [Executable examples](examples/quickstart.py)

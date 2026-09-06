@@ -38,6 +38,8 @@ jobs:
       - run: python -m benchmarks.entrywise_robust --quick --repeats 1 --output benchmark-entrywise-smoke.json
       - run: python -m benchmarks.constrained_extensions --quick --repeats 1 --output benchmark-constrained-smoke.json
       - run: python -m benchmarks.marma --quick --repeats 1 --output benchmark-marma-smoke.json
+      - run: python -m benchmarks.factor_ranks --quick --repeats 1 --output benchmark-ranks-smoke.json
+      - run: python -m benchmarks.rank_stability --quick --repeats 1 --output benchmark-rank-stability-smoke.json
       - run: python -m examples.quickstart
       - run: python -m examples.method_gallery
       - run: python -m examples.sparse_mar
@@ -52,6 +54,8 @@ jobs:
       - run: python -m examples.entrywise_huber
       - run: python -m examples.partial_constraints
       - run: python -m examples.matrix_arma
+      - run: python -m examples.factor_rank_selection
+      - run: python -m examples.rank_stability
       - run: python -m build
       - uses: actions/upload-artifact@v4
         if: always()
@@ -69,6 +73,8 @@ jobs:
             benchmark-entrywise-smoke.json
             benchmark-constrained-smoke.json
             benchmark-marma-smoke.json
+            benchmark-ranks-smoke.json
+            benchmark-rank-stability-smoke.json
 
   minimum-dependencies:
     runs-on: ubuntu-latest

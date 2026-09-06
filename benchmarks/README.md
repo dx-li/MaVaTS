@@ -307,8 +307,70 @@ incorrect constraints or weak signal. The target is Chen, Tsay and Chen's
 accessible manuscript v3, with paper-version and algebraic-extension boundaries
 in [the constraint notes](../docs/partial-constraints-notes.md).
 
+## Published factor-rank criteria and penalty stability
+
+```bash
+python -m benchmarks.factor_ranks --repeats 10 --output benchmarks/results/factor-ranks.json
+python -m benchmarks.rank_stability --repeats 10 --output benchmarks/results/rank-stability.json
+```
+
+The rank study compares all 40 Han–Chen–Zhang (2022) combinations: TOPUP/TIPUP,
+noniterative/iterative rank reselection, IC/ER, and penalties 1–5. Training has
+300 matrices of size 10×12, with 30 held-out observations and true non-null
+ranks (2,2). Search caps are (4,4), centering is training-only, h0=1, c=1,
+c0=.1, nu=0, and iterations stop at 100 sweeps or rank/projector tolerance
+1e-8. Comparators are four matched-cap adjacent-ratio initializations with
+fixed ranks thereafter, known-loading projection (not known mean), and the
+training mean. Timings include rank selection, pilots and refits, but exclude
+simulation and scoring. All methods use identical data within each replicate.
+
+`rank_scenarios.py` independently generates orthogonal mode loadings scaled by
+sqrt(d_k), independent stationary unit-variance AR(.65) cores and white unit
+variance Gaussian noise. Weak designs divide each mode's second loading column
+by d_k**.25 (weakest strength exponent .5), keeping cores/noise paired with
+the strong design. Four extra IC2 fits receive this true nu=.5: these are
+extra-information comparisons, not estimated strength. Cancellation uses core
+AR coefficients .65*[[1,-1],[-1,1]], making both population lag-one TIPUP
+moments exactly zero while TOPUP remains rank two. A separate h0=2 comparison
+restores TIPUP's population information. White-factor cores have AR zero;
+all positive-lag signal moments vanish, violating dynamic identification.
+No-factor data have zero clean signal and true ranks (0,0). Serial-noise
+data use stationary entrywise AR(.5) measurement error, violating the white
+error assumption. Stationary starts plus 200 burn-in steps are used. Independent
+population-moment tests verify cancellation without reusing estimator algebra.
+
+Retained diagnostics include rank histories, canonical zero-signal ranks,
+projector changes, stopping reasons, normalized terminal spectra and physical
+log penalties. Rank accuracy compares raw mode selections to generating ranks;
+a mixed tuple containing zero still represents an identically zero centered
+signal. Held-out errors measure contemporaneous denoising, not forecasting.
+Absolute MSE remains defined in the no-factor design; relative error is omitted
+there. Statistical failure, convergence failure and execution failure are
+different outcomes, and none are silently discarded. These are integration
+stress designs, not replications of the paper's simulation tables.
+
+The stability study evaluates TIPUP and iTIPUP IC2 under strong, weak,
+lag-one cancellation and no-factor designs. Each path uses 25 geometrically
+spaced c values from .01 to 100 and three nested spatial prefixes of sizes
+(6,8), (8,10), (10,12), paired with time prefixes 100,200,300. Caps remain
+(4,4). The variance uses divisor three. Plateau selection requires zero
+empirical variance over at least two adjacent gridpoints and convergence of
+every subsample fit, rejects maximum-rank and zero-rank plateaus, and picks
+the lower-middle point of the first admissible interval per mode. This is an
+explicit finite-grid convention, not a guarantee or automatic grid search.
+When both modes yield choices, a joint full-training refit is evaluated; its
+ranks may differ from modewise path choices. Missing choices are retained
+without fallback. Each path also retains a separately timed fixed-c=1 fit;
+path time and joint-refit time are separate, and tuning cost must not be omitted
+from an end-to-end comparison. A no-factor run is a negative control for the positive-rank
+plateau convention, not an appropriate use of that convention as a null test.
+Full cell results require memory proportional to grid size times retained
+subsample arrays. Quick modes reduce dimensions, samples and grids and are
+execution checks only. Seeds start at 2573 for rank comparisons; each driver's
+report records its exact seed and configuration.
+
 These artifacts were generated locally during the rebuild. Rerun after changing
 algorithms or dependencies. Further benchmark coverage remains tracked in
-[the roadmap](../docs/roadmap.md): weak/no factors, deliberate TIPUP cancellation,
-near instability, broader nonseparable innovations, rank selection, broader inference,
+[the roadmap](../docs/roadmap.md): broader weak/no-factor and cancellation grids,
+near instability, nonseparable innovations, rank selection and inference,
 real datasets, and profiling across dimension grids.

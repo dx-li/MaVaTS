@@ -120,6 +120,19 @@ section with a primary-paper link. New APIs must update this index.
 | `mavats.volatility.MatrixGARCHResult` | [yu2024garch](#yu2024garch) | Accepted matrix GARCH model, filtering/simulation/QMLE/next-step forecasts; optimizer and constraint choices documented. |
 | `mavats.volatility.fit_matrix_garch` | [yu2024garch](#yu2024garch) | Accepted matrix GARCH model, filtering/simulation/QMLE/next-step forecasts; optimizer and constraint choices documented. |
 
+## Factor-rank selection and stability
+
+| Canonical API | Paper key(s) | Citation scope |
+| --- | --- | --- |
+| `mavats.rank_selection.RankSelectionStep` | [han2022rank](#han2022rank) | Physical-unit IC/ER spectra and criterion diagnostics, not an inferential result. |
+| `mavats.rank_selection.TensorRankSelectionResult` | [han2022rank](#han2022rank) | Equations (6)–(8), sequential rank/space updates and fixed-training-mean transforms; zero IC ranks allowed, ER searches positive ranks. |
+| `mavats.rank_selection.select_tensor_rank` | [han2022rank](#han2022rank) | All five IC and five ER penalties for TOPUP/TIPUP and iterative variants; supplied strength exponent and multipliers, no automatic strength estimate or factor-loading inference. |
+| `mavats.rank_stability.RankStabilityCell` | [han2022rank](#han2022rank) | Subsample IC result or retained numerical failure. |
+| `mavats.rank_stability.RankStabilityInterval` | [han2022rank](#han2022rank) | Explicit finite-grid stability interval; not a confidence interval. |
+| `mavats.rank_stability.RankStabilityChoice` | [han2022rank](#han2022rank) | Modewise finite-grid interpretation of Section 5.4; no choice is returned when no admissible interval exists. |
+| `mavats.rank_stability.TensorRankStabilityResult` | [han2022rank](#han2022rank) | Remark 8 empirical variance over explicit nested spatial/time subsamples, retaining every fitted cell. |
+| `mavats.rank_stability.tensor_rank_stability` | [han2022rank](#han2022rank) | Published empirical variance; supplied grids, variance tolerance and plateau conventions are documented software extensions, not a tuning optimality guarantee. |
+
 ## Benchmark-only scientific procedures
 
 Most benchmark code chooses data designs, invokes the cited package methods,
@@ -138,8 +151,15 @@ references, with exact coefficients and contamination documented in
 | `benchmarks.constrained_extensions._KnownLoadingProjection` | [chen2020constrained](#chen2020constrained) | Known-loading joint LS comparison in the paper's signal spaces; extra loading information, not a published loading estimator or universal error lower bound. |
 | `benchmarks.constrained_extensions._IndependentSum` | [chen2020constrained](#chen2020constrained) | Deliberately unadjusted sum of single-term fits illustrating overlap bias; not the paper's multi-term estimator. |
 | `benchmarks.advanced_matrix._gaussian_score` | [tsay2024marma](#tsay2024marma) | Conventional negative Gaussian density score with full constants and positive-definite covariance validation; applicable beyond MARMA, not a new estimator. |
+| `benchmarks.factor_ranks._Projection` | [han2022rank](#han2022rank), [hyndman2006accuracy](#hyndman2006accuracy) | Known-loading Tucker projection or empty-loading training mean; extra information or imposed null model, not automatic rank selection. |
+| `benchmarks.factor_ranks._adjacent_fit` | [wang2019matrixfactor](#wang2019matrixfactor), [han2022rank](#han2022rank) | Matched-cap adjacent-ratio initialization followed by fixed-rank loading iteration; not the published iterative rank-reselection criterion. |
+| `benchmarks.rank_scenarios.population_factor_lag_moment` | [han2022rank](#han2022rank) | Independent analytic signal-only lag-moment oracle for the benchmark's stationary AR cores; designs are not paper replications. |
 
 ## References
+
+### han2022rank
+
+Han, Yuefeng, Chen, Rong, and Zhang, Cun-Hui (2022). Rank Determination in Tensor Factor Model. *Electronic Journal of Statistics*, 16(1), 1726–1803. [Journal DOI](https://doi.org/10.1214/22-EJS1991); implementation equations and version scope follow the [accessible author manuscript v3](https://arxiv.org/html/2011.07131v3). See [rank-selection notes](rank-selection-notes.md) and [stability notes](rank-stability-notes.md).
 
 ### chen2021mar
 

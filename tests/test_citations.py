@@ -31,6 +31,9 @@ def _public_definitions():
         ("constrained_extensions", "_KnownLoadingProjection"),
         ("constrained_extensions", "_IndependentSum"),
         ("advanced_matrix", "_gaussian_score"),
+        ("factor_ranks", "_Projection"),
+        ("factor_ranks", "_adjacent_fit"),
+        ("rank_scenarios", "population_factor_lag_moment"),
     ):
         path = ROOT / f"benchmarks/{module}.py"
         tree = ast.parse(path.read_text(encoding="utf-8"))
