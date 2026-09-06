@@ -1,0 +1,6 @@
+# Source/data fingerprints must survive Windows checkouts unchanged.
+mavats/*.py text eol=lf
+examples/air_quality/*.py text eol=lf
+examples/air_quality/data/*.csv text eol=lf
+*.png binary
+*.npz binary

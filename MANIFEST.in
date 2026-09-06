@@ -1,6 +1,8 @@
 include CONTRIBUTING.md
 include CHANGELOG.md
 recursive-include docs *.md *.bib
+recursive-include docs/gallery *.png *.json *.npz
 recursive-include examples *.py
+recursive-include examples/air_quality/data *.csv *.json *.md
 recursive-include benchmarks *.py *.md
 prune docs/_build

@@ -5,6 +5,11 @@ dynamic factors and legacy submodules have their own documented normalizations.
 See the repository's
 docs/methods.md for assumptions, references and coverage gaps. This development
 release is not a claim of complete literature coverage.
+
+Start with the [real-world data protocol](https://github.com/dx-li/MaVaTS/blob/main/docs/real-world-examples.md)
+and [method-by-method visual gallery](https://github.com/dx-li/MaVaTS/blob/main/docs/gallery/index.md).
+These development-checkout examples distinguish forecasts from same-day
+reconstruction and retain failed fits and scientific applicability warnings.
 """
 
 from .autoregression import (

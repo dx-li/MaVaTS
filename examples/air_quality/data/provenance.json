@@ -1,0 +1,28 @@
+{
+  "dataset": "Chen, S. (2017). Beijing Multi-Site Air Quality. UCI.",
+  "doi": "https://doi.org/10.24432/C5RK5G",
+  "license": "CC-BY-4.0",
+  "source_url": "https://archive.ics.uci.edu/static/public/501/beijing%2Bmulti%2Bsite%2Bair%2Bquality%2Bdata.zip",
+  "source_sha256": "b04da438b2f331ac0ffd45aebdfec0d20d2367feb5f6948c4b1f7ce1191e33c4",
+  "extract_sha256": "1c2de310e89df67088ede19e52f50b4b3128245a9c364401327b89de988cdf48",
+  "stations": [
+    "Aotizhongxin",
+    "Changping",
+    "Dingling",
+    "Dongsi"
+  ],
+  "pollutants": [
+    "PM2.5",
+    "PM10",
+    "NO2"
+  ],
+  "units": "micrograms per cubic metre",
+  "shape": [
+    365,
+    4,
+    3,
+    2
+  ],
+  "train_end_exclusive": "2014-10-01",
+  "transformation": "2014 subset; observed-value half-day means and hourly counts; six decimal places; no imputation in extract"
+}
