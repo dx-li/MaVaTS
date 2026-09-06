@@ -27,6 +27,7 @@ Issues = "https://github.com/dx-li/MaVaTS/issues"
 [project.optional-dependencies]
 dev = ["pytest>=8.2,<10", "pytest-cov>=5", "black>=24.4,<27", "isort>=5.13", "build>=1", "twine>=6,<7"]
 docs = ["pdoc>=15"]
+examples = ["matplotlib>=3.8,<4"]
 
 [tool.setuptools.packages.find]
 include = ["mavats*"]

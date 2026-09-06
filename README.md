@@ -40,6 +40,28 @@ the wheel contains the importable library. The live API website tracks `main`.
 
 ## Forecast matrix observations
 
+### Real-world walkthroughs and figures (development docs)
+
+Start with the [air-quality data protocol](https://github.com/dx-li/MaVaTS/blob/main/docs/real-world-examples.md)
+and [method-by-method visual gallery](https://github.com/dx-li/MaVaTS/blob/main/docs/gallery/index.md).
+These new examples use openly licensed observed data, training-only preprocessing,
+explicit missingness, chronological evaluation and retained numerical diagnostics.
+Forecasts, same-day reconstruction, and assumption-sensitive inference are labelled
+separately. They are teaching applications, not a claim that every model fits this dataset.
+
+The gallery is newer than the `0.2.0a1` release. To reproduce it, use a current
+repository checkout (the released wheel does not include examples):
+
+```bash
+python -m pip install -e '.[examples]'
+python -m examples.air_quality --methods mar-als projected-pca --output /tmp/mavats-gallery
+```
+
+Omit `--methods` to rebuild every walkthrough; expensive local optimizers take
+longer. Existing synthetic examples remain useful where known truth is needed.
+
+### Minimal synthetic forecasting example
+
 ```python
 import numpy as np
 from mavats import fit_mar

@@ -8,6 +8,11 @@ acceptance criteria and remaining work are in [roadmap.md](roadmap.md).
 The [method-to-paper index](citations.md) maps every public procedure and result
 class, including legacy APIs and utilities, to its applicable references.
 
+For runnable observed-data applications and method-specific figures, start with
+the [real-world example protocol](real-world-examples.md) and
+[visual gallery](gallery/index.md). The gallery distinguishes execution coverage
+from statistical suitability: one dataset cannot validate every model below.
+
 ## Shared notation and interpretation
 
 A matrix series has shape `(T, m, n)`, with observation `X[t]`. A tensor series has
