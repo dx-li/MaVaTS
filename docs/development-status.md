@@ -5,6 +5,41 @@ time-series methods, with scientific benchmarks, examples, stable numerics and
 an extensible Python library. This checkpoint is substantial implementation
 progress, not a declaration that the literature is fully covered.
 
+## Seventh checkpoint: envelope matrix autoregression
+
+Added Samadi and De Alwis's (2026) fixed-dimension Gaussian EMAR(p), following
+equations (13), (15)–(16) and Algorithm 1. Shared output spaces reduce the
+innovation covariance factors; inputs are not incorrectly projected into
+those spaces. Joint-lag whitened SVD regressions and local Grassmann logdet
+optimization have explicit inner/outer/warmup diagnostics. Conditional intercepts,
+per-lag gauges, physical-unit scaling, singularity guards and bounded dense
+accessors are documented. Source-equation discrepancies are reconciled against
+the Gaussian density and checked with independent algebra.
+
+The citation index now covers 103 public package functions/classes and eleven
+benchmark procedures: 114 entries across 29 papers. The complete suite passes
+1,182 tests in current and minimum-dependency environments, with 94% package
+line coverage. Source/wheel builds, API docs and formatting pass. All 17
+examples run locally and against a separately installed wheel imported outside
+the checkout. The envelope example demonstrates supplied dimensions, reducing
+covariance blocks and conditional forecasts without claiming global optimality.
+
+An initial 720-fit development study exposed poor high-material-variance local
+solutions despite successful numerical convergence. Training-only coefficient
+spaces from the unrestricted warmup are now extra initial envelope starts.
+The initial raw artifact is retained at source
+`6b3f4d87fdd8add8d352dd437d7f11044ba865f1`; the paired rerun uses source
+`dbbd0b0af215ba99bce6df2e7d2e7f973caf17e5`. Both artifacts and uncertainty
+calculations are linked in the [envelope report](../benchmarks/results/envelope-summary.md).
+These 1,440 fit records reuse the same 80 generated series, not 1,440 independent
+experiments or an untouched validation set. Historical benchmark artifacts
+remain byte-identical; total retained outer records are now 15,190.
+
+This remains a scoped point-estimation checkpoint. Envelope dimension/order
+selection, sparse SEMAR, the distinct one-sided models, zero-dimensional
+boundaries and inferential APIs remain open, alongside broader matrix families,
+transition-rank tensor AR, real data and larger stress/performance grids.
+
 ## Sixth checkpoint: published factor-rank criteria and stability
 
 Added Han, Chen and Zhang's (2022) 40 TOPUP/TIPUP IC/ER variants, with

@@ -369,6 +369,58 @@ subsample arrays. Quick modes reduce dimensions, samples and grids and are
 execution checks only. Seeds start at 2573 for rank comparisons; each driver's
 report records its exact seed and configuration.
 
+## Envelope MAR
+
+[Retained results and initialization audit](results/envelope-summary.md) report
+both the initial and updated 720-fit studies, with source fingerprints and paired
+Monte Carlo uncertainty. The same 80 series are reused, not independent reruns.
+
+```bash
+python -m benchmarks.envelope --quick --repeats 1 --output benchmark-envelope-smoke.json
+python -m benchmarks.envelope --repeats 10 --output benchmarks/results/envelope.json
+```
+
+The full design crosses order 1/2 with high-immaterial variance,
+high-material variance, isotropic covariance and material/complement covariance
+coupling. Each of 80 generated series (10 seeds per cell) has shape `(385,4,5)`:
+350 training observations and 35 held out. Nine methods share each series,
+giving 720 fit records. The quick mode uses `(155,3,4)`, two regimes, and is
+an execution check, not statistical evidence.
+
+Shared nominal response spaces have dimensions `(2,2)`. Nonsymmetric,
+lag-specific coefficients include immaterial-past predictors, and are rescaled
+to `sum(||A_l||_2*||B_l||_2)=0.7` for a sufficient stability condition. Both
+covariance factors have trace equal to their dimension, holding the total
+innovation variance fixed. The coupled regime adds nonzero material/complement
+cross covariance while preserving positive definiteness; the nominal response
+spaces are then **not** reducing spaces. Space errors still target the nominal
+output spaces there, not the expanded true envelopes. These are controlled
+package designs, not reproductions of the paper's simulations.
+
+Comparators are EMAR with nominal, under-, over- and full dimensions; MAR MLE;
+MAR ALS; rank-bounded MAR ALS; unrestricted VAR; and a known-parameter oracle.
+All receive the true lag order; nominal envelope dimensions and low-rank bounds
+are also extra supplied information, not selected on the data. Multi-lag
+rank-bounded ALS is a documented extension of the first-order RR.LS estimator.
+The oracle gets true parameters but no future innovations. All fits use only
+the training prefix, with no test-based tuning. EMAR uses three fresh Grassmann
+starts plus the preceding envelope, inner gradient tolerance 1e-6, 200 inner
+iterations and 100 outer iterations (40 in quick mode), likelihood tolerance
+1e-8 and a 100-iteration unrestricted MLE warmup. The warmup's coefficient spaces
+supply an additional first envelope start. MAR baselines use 200 sweeps,
+tol=1e-8, and no covariance floor. Timings include warmup and all optimization.
+
+Scores use the same 31 held-out origins at horizons 1, 3 and 5, updating observed
+history without refitting. Raw entrywise MSE and error against the true
+conditional mean are both retained: raw MSE can obscure estimation differences
+when innovation noise dominates. The independent dense impulse recursion gives
+the exact Gaussian forecast noise floor. Operator error pools lag-specific
+Kronecker operators, not unidentified factor pairs. Covariance error compares
+full Kronecker covariance, not arbitrarily scaled row/column factors. Every
+failure, convergence flag, warmup flag and selected terminal gradient remains
+visible. Retained results and their paired Monte Carlo summaries are reported
+separately; convergence is not a claim of global likelihood optimality.
+
 These artifacts were generated locally during the rebuild. Rerun after changing
 algorithms or dependencies. Further benchmark coverage remains tracked in
 [the roadmap](../docs/roadmap.md): broader weak/no-factor and cancellation grids,

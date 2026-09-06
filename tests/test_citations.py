@@ -34,6 +34,7 @@ def _public_definitions():
         ("factor_ranks", "_Projection"),
         ("factor_ranks", "_adjacent_fit"),
         ("rank_scenarios", "population_factor_lag_moment"),
+        ("envelope", "_KnownEMAR"),
     ):
         path = ROOT / f"benchmarks/{module}.py"
         tree = ast.parse(path.read_text(encoding="utf-8"))

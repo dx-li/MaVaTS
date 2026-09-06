@@ -27,6 +27,7 @@ from .constrained import (
 from .cp import CPIdentificationError, CPResult, fit_cp_factor
 from .decorrelation import MatrixDecorrelationResult, fit_matrix_decorrelation
 from .dynamic import TwoWayDynamicResult, fit_two_way_dynamic
+from .envelope import EnvelopeMARResult, fit_envelope_mar
 from .factors import (
     FactorResult,
     eigenvalue_ratio,
@@ -87,6 +88,8 @@ from .volatility import (
 __version__ = "0.2.0.dev0"
 
 __all__ = [
+    "EnvelopeMARResult",
+    "fit_envelope_mar",
     "RankSelectionStep",
     "TensorRankSelectionResult",
     "select_tensor_rank",
