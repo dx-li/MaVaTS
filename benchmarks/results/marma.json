@@ -1,0 +1,6999 @@
+{
+  "schema_version": 1,
+  "configuration": {
+    "quick": false,
+    "repeats": 5,
+    "seed": 1973
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "mavats": "0.2.0.dev0",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.2.9\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    },\n    \"build\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    },\n    \"lapack\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/private/var/folders/g3/pffjr_y96bq06blnkf72x_hw0000gn/T/build-env-jzdn7by7/bin/python\",\n    \"version\": \"3.13\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"NEON\",\n      \"NEON_FP16\",\n      \"NEON_VFPV4\",\n      \"ASIMD\"\n    ],\n    \"found\": [\n      \"ASIMDHP\",\n      \"ASIMDDP\"\n    ],\n    \"not found\": [\n      \"ASIMDFHM\"\n    ]\n  }\n}\n",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "results": [
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1973,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.47883916599676,
+      "one_step_mse": 0.9145375796582952,
+      "five_step_mse": 1.6326768884172853,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.244289736777043,
+      "five_step_negative_gaussian_log_score": 9.827313110098448,
+      "innovation_covariance_error": 0.09439940927263205,
+      "ar_operator_error": 0.2726631090504995,
+      "ma_operator_error": 0.19037226810908073,
+      "ar_spectral_radius": 0.3607226484912924,
+      "ma_spectral_radius": 0.5947449555251629,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.096878277973614e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6392763515087081,
+        0.40525404447483626
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.2961115494871888,
+      "converged": true,
+      "iterations": 54,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1973,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 2.9243489583022892,
+      "one_step_mse": 0.9147740702646354,
+      "five_step_mse": 1.63258307411116,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.259048200011183,
+      "five_step_negative_gaussian_log_score": 9.875925291156678,
+      "innovation_covariance_error": 0.03056314372675519,
+      "ar_operator_error": 0.2713801700587087,
+      "ma_operator_error": 0.19171974550633897,
+      "ar_spectral_radius": 0.3621418692965642,
+      "ma_spectral_radius": 0.5968045121917178,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 5.6498503434707435e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6378571307034354,
+        0.40319448780828304
+      ],
+      "initialization_iterations": [
+        25,
+        27
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -0.5139699855976492,
+      "converged": true,
+      "iterations": 27,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0011205831542611122,
+      "one_step_mse": 0.9688447737366054,
+      "five_step_mse": 1.6271265472922911,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.0026085833087563515,
+      "one_step_mse": 0.9684368398443963,
+      "five_step_mse": 1.6278987638408224,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00014837458729743958,
+      "one_step_mse": 0.979225932899338,
+      "five_step_mse": 1.6124671672559598,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.00041908305138349533,
+      "one_step_mse": 0.9683309550869611,
+      "five_step_mse": 1.7002958840808813,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.0041985660791397e-05,
+      "one_step_mse": 1.5482433075974382,
+      "five_step_mse": 1.6245896862857097,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 1.0826624929904938e-06,
+      "one_step_mse": 0.9082236168888139,
+      "five_step_mse": 1.6467052032144514,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.238302049894477,
+      "five_step_negative_gaussian_log_score": 9.886837696494094,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1973,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.86548279132694,
+      "one_step_mse": 0.8747961070594318,
+      "five_step_mse": 1.7190179642673025,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.44655116648492,
+      "five_step_negative_gaussian_log_score": 9.046972954896248,
+      "innovation_covariance_error": 0.07979996819425135,
+      "ar_operator_error": 0.24789037938044065,
+      "ma_operator_error": 0.18880645910655836,
+      "ar_spectral_radius": 0.36727403399045605,
+      "ma_spectral_radius": 0.6297411645319148,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 1.6473008507197472e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6327249660095444,
+        0.3702578354680852
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.25783449209411957,
+      "converged": true,
+      "iterations": 73,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1973,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.5102557078935206,
+      "one_step_mse": 0.8777825218343808,
+      "five_step_mse": 1.7213681972195445,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.4586818066587615,
+      "five_step_negative_gaussian_log_score": 9.086183123968512,
+      "innovation_covariance_error": 0.0358883320888983,
+      "ar_operator_error": 0.2960010575220724,
+      "ma_operator_error": 0.19500857789312884,
+      "ar_spectral_radius": 0.37056982028262825,
+      "ma_spectral_radius": 0.6159843884349706,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.430412023076954e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6294291797173721,
+        0.3840146115650285
+      ],
+      "initialization_iterations": [
+        29,
+        36
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.684639921744239,
+      "converged": true,
+      "iterations": 33,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0011041252873837948,
+      "one_step_mse": 0.9244749221787916,
+      "five_step_mse": 1.694193674051937,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.0034716250374913216,
+      "one_step_mse": 0.9247765062443912,
+      "five_step_mse": 1.7021087807533064,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.0001567089930176735,
+      "one_step_mse": 0.9358335145995146,
+      "five_step_mse": 1.6884939506555965,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0004948750138282776,
+      "one_step_mse": 0.9472340965294551,
+      "five_step_mse": 1.8571844208570725,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.0124873369932175e-05,
+      "one_step_mse": 1.6267989679867059,
+      "five_step_mse": 1.716691027451431,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 1.000240445137024e-06,
+      "one_step_mse": 0.8786853703022403,
+      "five_step_mse": 1.7415864742150835,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.446344994763497,
+      "five_step_negative_gaussian_log_score": 9.101063033446012,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1973,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 9.096130792051554,
+      "one_step_mse": 0.8880903521486704,
+      "five_step_mse": 0.9377415413228827,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.456122864481156,
+      "five_step_negative_gaussian_log_score": 7.602378804111816,
+      "innovation_covariance_error": 0.09046103479019471,
+      "ar_operator_error": 6.581140231054267,
+      "ma_operator_error": 6.9653542867521905,
+      "ar_spectral_radius": 0.7670311523858775,
+      "ma_spectral_radius": 0.8224293147791849,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 1,
+      "failed_starts": 0,
+      "selected_gradient_norm": 0.00042944361858639766,
+      "selected_stopping_message": "Iteration limit reached",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.2329678476141238,
+        0.17756968522081573
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.4205041082146186,
+      "converged": false,
+      "iterations": 300,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1973,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 15.927068291697651,
+      "one_step_mse": 0.9228189809072772,
+      "five_step_mse": 0.9654012258880987,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.68041247431612,
+      "five_step_negative_gaussian_log_score": 7.745163565060055,
+      "innovation_covariance_error": 0.029988610529197154,
+      "ar_operator_error": 4.907206275678658,
+      "ma_operator_error": 5.075471366012166,
+      "ar_spectral_radius": 0.96162530743885,
+      "ma_spectral_radius": 0.9997944289443471,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 1,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.140870186542114,
+      "selected_stopping_message": "Iteration limit reached",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.03837369256115075,
+        0.00020457105565274691
+      ],
+      "initialization_iterations": [
+        7,
+        13
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -0.23506955961950338,
+      "converged": false,
+      "iterations": 300,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.003124500159174204,
+      "one_step_mse": 0.8966374793651182,
+      "five_step_mse": 0.941732554095693,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 11,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.011303584091365337,
+      "one_step_mse": 0.8899767751587736,
+      "five_step_mse": 0.9417384630213229,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 19,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00022008316591382027,
+      "one_step_mse": 0.8906286497706514,
+      "five_step_mse": 0.9417455960866123,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0004542921669781208,
+      "one_step_mse": 0.9360932009804038,
+      "five_step_mse": 0.9705199069511244,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 9.249895811080933e-06,
+      "one_step_mse": 0.8705355154780594,
+      "five_step_mse": 0.9383805539459535,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 5.00120222568512e-07,
+      "one_step_mse": 0.8786853703022403,
+      "five_step_mse": 0.9468031132329053,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.446344994763497,
+      "five_step_negative_gaussian_log_score": 7.618532348815948,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1973,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 3.6727766250260174,
+      "one_step_mse": 0.8282450611381827,
+      "five_step_mse": 1.708988534462187,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 6.871335826904767,
+      "five_step_negative_gaussian_log_score": 8.430161884434645,
+      "innovation_covariance_error": 0.05974717609532726,
+      "ar_operator_error": 0.29474057970625467,
+      "ma_operator_error": 0.28680386035149597,
+      "ar_spectral_radius": 0.3437698749115757,
+      "ma_spectral_radius": 0.6351638958644039,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.8114898046503083e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6562291250884236,
+        0.3648351041355955
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.15822825674621996,
+      "converged": true,
+      "iterations": 94,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1973,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 4.038787541911006,
+      "one_step_mse": 0.8299008848102132,
+      "five_step_mse": 1.712195554693515,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 6.818003601559354,
+      "five_step_negative_gaussian_log_score": 8.460745426841813,
+      "innovation_covariance_error": 0.199583140537649,
+      "ar_operator_error": 0.28011034533540136,
+      "ma_operator_error": 0.16262890707241395,
+      "ar_spectral_radius": 0.3706474138769555,
+      "ma_spectral_radius": 0.6137574983146178,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.212008166559465e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6293515861230444,
+        0.3862415016853816
+      ],
+      "initialization_iterations": [
+        30,
+        35
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -3.707772049268938,
+      "converged": true,
+      "iterations": 39,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.001349541824311018,
+      "one_step_mse": 0.8997455817919084,
+      "five_step_mse": 1.6856411347276556,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.004251500125974417,
+      "one_step_mse": 0.8962176184834608,
+      "five_step_mse": 1.6936765478292037,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.0001483340747654438,
+      "one_step_mse": 0.9080388037387307,
+      "five_step_mse": 1.6826148408433526,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0004821247421205044,
+      "one_step_mse": 0.9027315286216595,
+      "five_step_mse": 1.893315259109449,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.3333279639482498e-05,
+      "one_step_mse": 1.6291510631067865,
+      "five_step_mse": 1.7205470495059572,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 0,
+      "seed": 1973,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 5.00120222568512e-07,
+      "one_step_mse": 0.8429963500985447,
+      "five_step_mse": 1.7435835812482972,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 6.84245770231273,
+      "five_step_negative_gaussian_log_score": 8.492406002118045,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1974,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 3.154628333169967,
+      "one_step_mse": 0.9165565079898165,
+      "five_step_mse": 1.341164193359846,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.291948024984626,
+      "five_step_negative_gaussian_log_score": 9.429805902495634,
+      "innovation_covariance_error": 0.11129445499084122,
+      "ar_operator_error": 0.27468277409977054,
+      "ma_operator_error": 0.14719781414232133,
+      "ar_spectral_radius": 0.29491056715841824,
+      "ma_spectral_radius": 0.6434641663938958,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.254665664547268e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.7050884328415818,
+        0.35653483360610405
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.25141862749700783,
+      "converged": true,
+      "iterations": 67,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1974,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.6767950830981135,
+      "one_step_mse": 0.9163633818444218,
+      "five_step_mse": 1.341150324859552,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.257651226280883,
+      "five_step_negative_gaussian_log_score": 9.404325951317643,
+      "innovation_covariance_error": 0.05321407434383096,
+      "ar_operator_error": 0.27007141010704155,
+      "ma_operator_error": 0.1422636413872377,
+      "ar_spectral_radius": 0.2946280417926368,
+      "ma_spectral_radius": 0.643729158932426,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.2352441626975714e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.7053709582073633,
+        0.35626984106757387
+      ],
+      "initialization_iterations": [
+        28,
+        25
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.0054170749619091,
+      "converged": true,
+      "iterations": 33,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0016932087019085884,
+      "one_step_mse": 0.9854699465418841,
+      "five_step_mse": 1.3560081236564279,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.009743290953338146,
+      "one_step_mse": 0.9854285488480398,
+      "five_step_mse": 1.356023121153048,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.0002904576249420643,
+      "one_step_mse": 0.9940909394900004,
+      "five_step_mse": 1.3569199571203896,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0006341668777167797,
+      "one_step_mse": 0.9970247477130368,
+      "five_step_mse": 1.4387580773648243,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.3041775673627853e-05,
+      "one_step_mse": 1.3544110371322728,
+      "five_step_mse": 1.352654970765582,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 9.583309292793274e-07,
+      "one_step_mse": 0.8967038438139491,
+      "five_step_mse": 1.3318921230428242,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.203742730669884,
+      "five_step_negative_gaussian_log_score": 9.394237402685208,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1974,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 3.211301584262401,
+      "one_step_mse": 0.8362155276828415,
+      "five_step_mse": 1.3161116760981526,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.486465584999936,
+      "five_step_negative_gaussian_log_score": 8.679748089871218,
+      "innovation_covariance_error": 0.11193338597331028,
+      "ar_operator_error": 0.49794416920516227,
+      "ma_operator_error": 0.2664689201502544,
+      "ar_spectral_radius": 0.398215540285524,
+      "ma_spectral_radius": 0.5407935698221454,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.5159225179404955e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6017834597144764,
+        0.45920543017785476
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.276736842168043,
+      "converged": true,
+      "iterations": 64,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1974,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.6353929582983255,
+      "one_step_mse": 0.8381608659909912,
+      "five_step_mse": 1.3156993228783223,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.459356612510608,
+      "five_step_negative_gaussian_log_score": 8.665617200910612,
+      "innovation_covariance_error": 0.06280112461419203,
+      "ar_operator_error": 0.33923099144389707,
+      "ma_operator_error": 0.15546582795074784,
+      "ar_spectral_radius": 0.32046298982965027,
+      "ma_spectral_radius": 0.6065358948081845,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.0568055364600813e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6795360101703491,
+        0.39346310519181604
+      ],
+      "initialization_iterations": [
+        25,
+        32
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.4709424691627837,
+      "converged": true,
+      "iterations": 39,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0011560418643057346,
+      "one_step_mse": 0.8817521125277057,
+      "five_step_mse": 1.3247917215254628,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.0031372923403978348,
+      "one_step_mse": 0.8848980057957103,
+      "five_step_mse": 1.3225478303209364,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00015358300879597664,
+      "one_step_mse": 0.8868840822542511,
+      "five_step_mse": 1.3254412353549712,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.00043304217979311943,
+      "one_step_mse": 0.8892455190640062,
+      "five_step_mse": 1.3602045983826259,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.2875068932771683e-05,
+      "one_step_mse": 1.2991815565239262,
+      "five_step_mse": 1.3232795937899946,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 5.420297384262085e-07,
+      "one_step_mse": 0.8269823178330162,
+      "five_step_mse": 1.3007453178536712,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.411785675538902,
+      "five_step_negative_gaussian_log_score": 8.657922346983137,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1974,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 14.075768458191305,
+      "one_step_mse": 0.8600085370172947,
+      "five_step_mse": 0.9287795504748165,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.517966464772185,
+      "five_step_negative_gaussian_log_score": 7.598255059318187,
+      "innovation_covariance_error": 0.14544914504608691,
+      "ar_operator_error": 12.120586433932337,
+      "ma_operator_error": 12.745095777328604,
+      "ar_spectral_radius": 0.9915982885592114,
+      "ma_spectral_radius": 0.9999409142142448,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 1,
+      "failed_starts": 0,
+      "selected_gradient_norm": 0.4506516063677053,
+      "selected_stopping_message": "Iteration limit reached",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.0084007114407878,
+        5.808578575561274e-05
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.30972033200072463,
+      "converged": false,
+      "iterations": 300,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1974,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 17.845202708616853,
+      "one_step_mse": 0.8255892009152964,
+      "five_step_mse": 0.8866899644323704,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.408525039980579,
+      "five_step_negative_gaussian_log_score": 7.469560929805453,
+      "innovation_covariance_error": 0.0681408010873287,
+      "ar_operator_error": 4.010400350709092,
+      "ma_operator_error": 4.269137805458096,
+      "ar_spectral_radius": 0.9722398727433911,
+      "ma_spectral_radius": 0.9998941898136454,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 0,
+      "failed_starts": 0,
+      "selected_gradient_norm": 6.646049738006442,
+      "selected_stopping_message": "Iteration limit reached",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.027759127256609673,
+        0.00010481018635599693
+      ],
+      "initialization_iterations": [
+        10,
+        19
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.0737214961094979,
+      "converged": false,
+      "iterations": 300,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.002050624694675207,
+      "one_step_mse": 0.8356505682625908,
+      "five_step_mse": 0.8844903762201151,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 7,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.0071023330092430115,
+      "one_step_mse": 0.8323654938505162,
+      "five_step_mse": 0.8844422536602486,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 11,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00015474995598196983,
+      "one_step_mse": 0.8551571147697984,
+      "five_step_mse": 0.8844808861663295,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.00038683414459228516,
+      "one_step_mse": 0.9201723024945481,
+      "five_step_mse": 0.9205200998674993,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 7.4999406933784485e-06,
+      "one_step_mse": 0.841979903353362,
+      "five_step_mse": 0.8952965519426487,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 6.249174475669861e-07,
+      "one_step_mse": 0.8269823178330162,
+      "five_step_mse": 0.882645937373513,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.411785675538902,
+      "five_step_negative_gaussian_log_score": 7.4707525089322075,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1974,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.910844791214913,
+      "one_step_mse": 0.8150308842246509,
+      "five_step_mse": 1.1909289110381809,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.126822289819069,
+      "five_step_negative_gaussian_log_score": 8.325777961974655,
+      "innovation_covariance_error": 0.08285291608413439,
+      "ar_operator_error": 0.5570736819658987,
+      "ma_operator_error": 0.25860871175907674,
+      "ar_spectral_radius": 0.40641605312937507,
+      "ma_spectral_radius": 0.554900992695485,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.5872224995505258e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.5935829468706253,
+        0.4450980073045142
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.2653033338846939,
+      "converged": true,
+      "iterations": 61,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1974,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.627126291859895,
+      "one_step_mse": 0.8133878692292831,
+      "five_step_mse": 1.1914074683339524,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.465224928889088,
+      "five_step_negative_gaussian_log_score": 8.499348475265194,
+      "innovation_covariance_error": 0.46737731182419895,
+      "ar_operator_error": 0.4558052999881766,
+      "ma_operator_error": 0.20667181002670845,
+      "ar_spectral_radius": 0.36068727599198225,
+      "ma_spectral_radius": 0.6016653901357893,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 1.7768284349182258e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6393117240080173,
+        0.3983336098642112
+      ],
+      "initialization_iterations": [
+        27,
+        31
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.5982022754929228,
+      "converged": true,
+      "iterations": 38,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0017262091860175133,
+      "one_step_mse": 0.8534904024739531,
+      "five_step_mse": 1.196446934006673,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 5,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.0040362500585615635,
+      "one_step_mse": 0.8555284517058963,
+      "five_step_mse": 1.1942796282769157,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00017512496560811996,
+      "one_step_mse": 0.8561840311362471,
+      "five_step_mse": 1.2016278077499607,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0003998330794274807,
+      "one_step_mse": 0.8650888270885883,
+      "five_step_mse": 1.2590132959072189,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.3582874089479446e-05,
+      "one_step_mse": 1.2036093474494036,
+      "five_step_mse": 1.2047395720157346,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 1,
+      "seed": 1974,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 7.082708179950714e-07,
+      "one_step_mse": 0.8120098773758637,
+      "five_step_mse": 1.1825103725026125,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.067020824189134,
+      "five_step_negative_gaussian_log_score": 8.307674291926906,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1975,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.1463514589704573,
+      "one_step_mse": 0.9096914162909334,
+      "five_step_mse": 1.392071366820615,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.29899469712228,
+      "five_step_negative_gaussian_log_score": 9.539595012068489,
+      "innovation_covariance_error": 0.1106595498066317,
+      "ar_operator_error": 0.287233549582977,
+      "ma_operator_error": 0.20247510973681807,
+      "ar_spectral_radius": 0.3555632197523499,
+      "ma_spectral_radius": 0.6288115066657239,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.814541845962853e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6444357802476502,
+        0.37118749333427437
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.25659911627329424,
+      "converged": true,
+      "iterations": 53,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1975,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 2.9067348330281675,
+      "one_step_mse": 0.9104924868953265,
+      "five_step_mse": 1.392026353330007,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.282795229828917,
+      "five_step_negative_gaussian_log_score": 9.50114271315267,
+      "innovation_covariance_error": 0.07663005104300993,
+      "ar_operator_error": 0.29149158844547957,
+      "ma_operator_error": 0.20230580115342262,
+      "ar_spectral_radius": 0.3511943098215283,
+      "ma_spectral_radius": 0.6302269662154971,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.429836064679573e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.648804690178471,
+        0.3697720337845034
+      ],
+      "initialization_iterations": [
+        27,
+        22
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -0.948219816757149,
+      "converged": true,
+      "iterations": 30,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0011992501094937325,
+      "one_step_mse": 0.9434097949729116,
+      "five_step_mse": 1.384031765464323,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.0029610409401357174,
+      "one_step_mse": 0.9439241042686416,
+      "five_step_mse": 1.3843242438856305,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.0001332499086856842,
+      "one_step_mse": 0.9593445583962543,
+      "five_step_mse": 1.3802376079020222,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0003898339346051216,
+      "one_step_mse": 0.9481643134297665,
+      "five_step_mse": 1.4571487550844864,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.091696321964264e-05,
+      "one_step_mse": 1.405692744037715,
+      "five_step_mse": 1.413358940745282,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 4.577450454235077e-07,
+      "one_step_mse": 0.8933107855957955,
+      "five_step_mse": 1.3921895315388992,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.193563556015421,
+      "five_step_negative_gaussian_log_score": 9.474701632930206,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1975,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.7842138749547303,
+      "one_step_mse": 0.8588101067962335,
+      "five_step_mse": 1.4455909086073602,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.482539900003698,
+      "five_step_negative_gaussian_log_score": 8.789028862698421,
+      "innovation_covariance_error": 0.07601528157011984,
+      "ar_operator_error": 0.22607230276696774,
+      "ma_operator_error": 0.2293458049650618,
+      "ar_spectral_radius": 0.3878075478694056,
+      "ma_spectral_radius": 0.6434714671305751,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.9571138039028875e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6121914521305942,
+        0.35652753286942584
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.2953521821471198,
+      "converged": true,
+      "iterations": 65,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1975,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.21801370754838,
+      "one_step_mse": 0.8651349442611935,
+      "five_step_mse": 1.4465498870471973,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.478465005177905,
+      "five_step_negative_gaussian_log_score": 8.757784424323535,
+      "innovation_covariance_error": 0.07938119281396161,
+      "ar_operator_error": 0.2798080151652762,
+      "ma_operator_error": 0.2341366911597616,
+      "ar_spectral_radius": 0.3764603861568846,
+      "ma_spectral_radius": 0.6498795269706029,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 4.7206723355537085e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6235386138431152,
+        0.35011947302939783
+      ],
+      "initialization_iterations": [
+        24,
+        27
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.3182482794131385,
+      "converged": true,
+      "iterations": 33,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0011523747816681862,
+      "one_step_mse": 0.872984626655089,
+      "five_step_mse": 1.4317664402752668,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.00289162527769804,
+      "one_step_mse": 0.8746122750749117,
+      "five_step_mse": 1.434435731524409,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00016066711395978928,
+      "one_step_mse": 0.8915192987004263,
+      "five_step_mse": 1.4385086881624103,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0004108748398721218,
+      "one_step_mse": 0.9031181734371926,
+      "five_step_mse": 1.5527583551071698,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 7.458031177520752e-06,
+      "one_step_mse": 1.420534392568301,
+      "five_step_mse": 1.4829532417782423,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 3.7532299757003784e-07,
+      "one_step_mse": 0.8551317364047428,
+      "five_step_mse": 1.4570188466815706,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.401606500884441,
+      "five_step_negative_gaussian_log_score": 8.746985203308265,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1975,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 13.55184470815584,
+      "one_step_mse": 0.8820704296228078,
+      "five_step_mse": 0.8527489776659993,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.517963841740563,
+      "five_step_negative_gaussian_log_score": 7.367950797544599,
+      "innovation_covariance_error": 0.08462873350389795,
+      "ar_operator_error": 9.29356276556247,
+      "ma_operator_error": 9.768524189091018,
+      "ar_spectral_radius": 0.9660815785805842,
+      "ma_spectral_radius": 0.9998393261889555,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 1,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.2233705136383533,
+      "selected_stopping_message": "Iteration limit reached",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.03391742141941234,
+        0.0001596738110457574
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.36697584255595445,
+      "converged": false,
+      "iterations": 300,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1975,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 13.09688395820558,
+      "one_step_mse": 0.8766523511384854,
+      "five_step_mse": 0.8371608171634841,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.519144250253453,
+      "five_step_negative_gaussian_log_score": 7.313391017458987,
+      "innovation_covariance_error": 0.07957634360074783,
+      "ar_operator_error": 5.685904822179735,
+      "ma_operator_error": 6.010202166589927,
+      "ar_spectral_radius": 0.6771657601109254,
+      "ma_spectral_radius": 0.6723423356352956,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 1,
+      "failed_starts": 0,
+      "selected_gradient_norm": 0.00044320423552686103,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.3228332398890743,
+        0.327656664364705
+      ],
+      "initialization_iterations": [
+        5,
+        14
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -0.6282194832780226,
+      "converged": true,
+      "iterations": 136,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0020781662315130234,
+      "one_step_mse": 0.8675990313894935,
+      "five_step_mse": 0.8391789159823111,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.014653666876256466,
+      "one_step_mse": 0.8708515009242431,
+      "five_step_mse": 0.8391882682923353,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 25,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.0001604999415576458,
+      "one_step_mse": 0.8771545088437854,
+      "five_step_mse": 0.8391831007417221,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.00048408424481749535,
+      "one_step_mse": 0.8843362488185675,
+      "five_step_mse": 0.8641947761639206,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 7.458031177520752e-06,
+      "one_step_mse": 0.8684560511199907,
+      "five_step_mse": 0.8545490427875194,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 3.748573362827301e-07,
+      "one_step_mse": 0.8551317364047428,
+      "five_step_mse": 0.840645084246837,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.401606500884441,
+      "five_step_negative_gaussian_log_score": 7.280224167844536,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1975,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 3.048224332742393,
+      "one_step_mse": 0.9087325347420103,
+      "five_step_mse": 1.4922961592098065,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.225360233595281,
+      "five_step_negative_gaussian_log_score": 8.519296214677189,
+      "innovation_covariance_error": 0.12724611094289412,
+      "ar_operator_error": 0.21415488038169017,
+      "ma_operator_error": 0.20614440046791002,
+      "ar_spectral_radius": 0.39061606233460966,
+      "ma_spectral_radius": 0.647328045202549,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.074441342601055e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6093829376653903,
+        0.3526709547974516
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.1253510240591869,
+      "converged": true,
+      "iterations": 74,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1975,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.7277968749403954,
+      "one_step_mse": 0.9048473259416763,
+      "five_step_mse": 1.493410979715966,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.764871088825036,
+      "five_step_negative_gaussian_log_score": 8.989284341197633,
+      "innovation_covariance_error": 0.6173644003979926,
+      "ar_operator_error": 0.16107816186068047,
+      "ma_operator_error": 0.2052127463698426,
+      "ar_spectral_radius": 0.386776341919111,
+      "ma_spectral_radius": 0.6716591402218555,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.053891566133374e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6132226580808895,
+        0.32833985977814495
+      ],
+      "initialization_iterations": [
+        36,
+        26
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -3.7747441844120906,
+      "converged": true,
+      "iterations": 37,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0013096248731017113,
+      "one_step_mse": 0.9378926671923925,
+      "five_step_mse": 1.4838966371877014,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.004195500165224075,
+      "one_step_mse": 0.938117327435603,
+      "five_step_mse": 1.4867140883082264,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00013200007379055023,
+      "one_step_mse": 0.9551715436050693,
+      "five_step_mse": 1.494751936850687,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0004170420579612255,
+      "one_step_mse": 0.9769174048437005,
+      "five_step_mse": 1.5795954436417754,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.0250136256217957e-05,
+      "one_step_mse": 1.4961486099391175,
+      "five_step_mse": 1.5359495001009609,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 2,
+      "seed": 1975,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 8.326023817062378e-07,
+      "one_step_mse": 0.8955739000698386,
+      "five_step_mse": 1.514996639730816,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.1311324095219994,
+      "five_step_negative_gaussian_log_score": 8.481656236384248,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1976,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.561670749913901,
+      "one_step_mse": 1.1433395776326163,
+      "five_step_mse": 1.5673320113323357,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 9.000815512992585,
+      "five_step_negative_gaussian_log_score": 9.853874386108002,
+      "innovation_covariance_error": 0.1328281034864192,
+      "ar_operator_error": 0.3016868328134769,
+      "ma_operator_error": 0.21122189427387264,
+      "ar_spectral_radius": 0.38364269861642436,
+      "ma_spectral_radius": 0.539158193116987,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.593097791580502e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6163563013835756,
+        0.4608408068830123
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.30053151263913624,
+      "converged": true,
+      "iterations": 73,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1976,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 2.6982436669059098,
+      "one_step_mse": 1.1431225496459776,
+      "five_step_mse": 1.56744661249996,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.966654736406964,
+      "five_step_negative_gaussian_log_score": 9.835104154618117,
+      "innovation_covariance_error": 0.06933286657293732,
+      "ar_operator_error": 0.2992457742173831,
+      "ma_operator_error": 0.21363098749221784,
+      "ar_spectral_radius": 0.38838134033670313,
+      "ma_spectral_radius": 0.537389883828379,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.048037634867384e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6116176596632967,
+        0.46260911617162115
+      ],
+      "initialization_iterations": [
+        20,
+        24
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -0.47516918512891904,
+      "converged": true,
+      "iterations": 26,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0011231251992285252,
+      "one_step_mse": 1.1906665203967874,
+      "five_step_mse": 1.596995648563931,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.002897375263273716,
+      "one_step_mse": 1.1911686909375276,
+      "five_step_mse": 1.5967801622541558,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00014745816588401794,
+      "one_step_mse": 1.21312251453194,
+      "five_step_mse": 1.6069514101510798,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0003637499175965786,
+      "one_step_mse": 1.2904154210000007,
+      "five_step_mse": 1.6341403165896047,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 8.20821151137352e-06,
+      "one_step_mse": 1.5891641707210242,
+      "five_step_mse": 1.5764544981586746,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 4.996545612812042e-07,
+      "one_step_mse": 1.1324652405361118,
+      "five_step_mse": 1.5625070465687654,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.911026920836374,
+      "five_step_negative_gaussian_log_score": 9.793056491374855,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1976,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.8851941670291126,
+      "one_step_mse": 1.099783337946962,
+      "five_step_mse": 1.4216368767609486,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.20148056256144,
+      "five_step_negative_gaussian_log_score": 9.210630502293212,
+      "innovation_covariance_error": 0.1282091248696943,
+      "ar_operator_error": 0.37205601270401684,
+      "ma_operator_error": 0.2425969864221664,
+      "ar_spectral_radius": 0.40796271677364415,
+      "ma_spectral_radius": 0.5022215199108325,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 1.6639199419875945e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.5920362832263558,
+        0.49777748008916733
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.3065563433724336,
+      "converged": true,
+      "iterations": 87,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1976,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.3108303751796484,
+      "one_step_mse": 1.0951615988088368,
+      "five_step_mse": 1.4225975336060879,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.159041525053658,
+      "five_step_negative_gaussian_log_score": 9.203295668007007,
+      "innovation_covariance_error": 0.08582384521040963,
+      "ar_operator_error": 0.2605137104136531,
+      "ma_operator_error": 0.2659938841350373,
+      "ar_spectral_radius": 0.4473786870672471,
+      "ma_spectral_radius": 0.5361100479532966,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 1.4273518040937354e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.552620312932752,
+        0.4638889520467032
+      ],
+      "initialization_iterations": [
+        23,
+        27
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.3130067965530738,
+      "converged": true,
+      "iterations": 36,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0012446250766515732,
+      "one_step_mse": 1.1060769221569826,
+      "five_step_mse": 1.4493637021331967,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.002712666057050228,
+      "one_step_mse": 1.108539404615036,
+      "five_step_mse": 1.4496777790979367,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00014483416453003883,
+      "one_step_mse": 1.1190619586326545,
+      "five_step_mse": 1.457725959810934,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0004176660440862179,
+      "one_step_mse": 1.233212002963636,
+      "five_step_mse": 1.51663342524455,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 9.000301361083984e-06,
+      "one_step_mse": 1.4782438808072493,
+      "five_step_mse": 1.4313440260145558,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 5.420297384262085e-07,
+      "one_step_mse": 1.0944981577350998,
+      "five_step_mse": 1.4193626072927847,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.119069865705393,
+      "five_step_negative_gaussian_log_score": 9.155271542412455,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1976,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 9.196684749796987,
+      "one_step_mse": 1.1070173466526294,
+      "five_step_mse": 1.0779989705724722,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.251224294548045,
+      "five_step_negative_gaussian_log_score": 8.193158546898317,
+      "innovation_covariance_error": 0.11917481169450714,
+      "ar_operator_error": 16.893300072471273,
+      "ma_operator_error": 17.730909579256558,
+      "ar_spectral_radius": 0.9829348388889294,
+      "ma_spectral_radius": 0.9999970292497212,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 1,
+      "failed_starts": 0,
+      "selected_gradient_norm": 1.0604916863540257,
+      "selected_stopping_message": "Iteration limit reached; returned best strictly feasible iterate",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.017064161111068454,
+        1.9707502788568476e-06
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.3792349726220529,
+      "converged": false,
+      "iterations": 300,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1976,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 16.859474082943052,
+      "one_step_mse": 1.1208874186590774,
+      "five_step_mse": 1.0839680807894678,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.315143158572212,
+      "five_step_negative_gaussian_log_score": 8.150458951376043,
+      "innovation_covariance_error": 0.0794945762055099,
+      "ar_operator_error": 6.84732117137329,
+      "ma_operator_error": 7.322299203255488,
+      "ar_spectral_radius": 0.7376972271704202,
+      "ma_spectral_radius": 0.8293920172965507,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 1,
+      "failed_starts": 0,
+      "selected_gradient_norm": 0.0006222825750693967,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.26230177282958,
+        0.17060698270344998
+      ],
+      "initialization_iterations": [
+        6,
+        14
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -0.6585088992183064,
+      "converged": true,
+      "iterations": 295,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.003868249710649252,
+      "one_step_mse": 1.1082146289477532,
+      "five_step_mse": 1.074344848076559,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 15,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.006419959012418985,
+      "one_step_mse": 1.1003480635834892,
+      "five_step_mse": 1.0743257921295628,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 10,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00015358394011855125,
+      "one_step_mse": 1.1173112036645776,
+      "five_step_mse": 1.0743287733512208,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0004552076570689678,
+      "one_step_mse": 1.2219994869549693,
+      "five_step_mse": 1.1168871461164047,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.00000761449337e-05,
+      "one_step_mse": 1.099497044646684,
+      "five_step_mse": 1.0815989623338258,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 7.083173841238022e-06,
+      "one_step_mse": 1.0944981577350998,
+      "five_step_mse": 1.0722989684395343,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.119069865705393,
+      "five_step_negative_gaussian_log_score": 8.093214199992879,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1976,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.5871721669100225,
+      "one_step_mse": 1.120582792116733,
+      "five_step_mse": 1.332346345881073,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.972176328980129,
+      "five_step_negative_gaussian_log_score": 8.874704399121686,
+      "innovation_covariance_error": 0.09929233475650581,
+      "ar_operator_error": 0.34768441767046554,
+      "ma_operator_error": 0.2540376814002397,
+      "ar_spectral_radius": 0.3941938926943659,
+      "ma_spectral_radius": 0.5187077985560801,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.2807263945244954e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6058051073056342,
+        0.4812912014439198
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.2814855330675736,
+      "converged": true,
+      "iterations": 65,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1976,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.198570125270635,
+      "one_step_mse": 1.1156788342523223,
+      "five_step_mse": 1.3329726366040033,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.256332700239785,
+      "five_step_negative_gaussian_log_score": 9.02057031958008,
+      "innovation_covariance_error": 0.4540928006511725,
+      "ar_operator_error": 0.25198315093586704,
+      "ma_operator_error": 0.26065529637665497,
+      "ar_spectral_radius": 0.3711228871140248,
+      "ma_spectral_radius": 0.5267091533568673,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 3.1988533526385566e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6288761128859756,
+        0.47328984664313234
+      ],
+      "initialization_iterations": [
+        24,
+        26
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.39207822291687,
+      "converged": true,
+      "iterations": 34,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0014748750254511833,
+      "one_step_mse": 1.1164537517173072,
+      "five_step_mse": 1.3561013723145607,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.003877541981637478,
+      "one_step_mse": 1.1175769106673612,
+      "five_step_mse": 1.3589203410729507,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00017616664990782738,
+      "one_step_mse": 1.1480587233069193,
+      "five_step_mse": 1.353235705713484,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.00038287509232759476,
+      "one_step_mse": 1.2406415731153437,
+      "five_step_mse": 1.4267089099637351,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.1000316590070724e-05,
+      "one_step_mse": 1.4689714091094523,
+      "five_step_mse": 1.3521029239775324,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 3,
+      "seed": 1976,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 4.591420292854309e-07,
+      "one_step_mse": 1.1156540534879478,
+      "five_step_mse": 1.3365681956857443,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.858633216091746,
+      "five_step_negative_gaussian_log_score": 8.82602250616571,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1977,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.3057332918979228,
+      "one_step_mse": 1.0920873474827395,
+      "five_step_mse": 1.6731648158317247,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.769722438241383,
+      "five_step_negative_gaussian_log_score": 9.997938176058582,
+      "innovation_covariance_error": 0.14846795567953744,
+      "ar_operator_error": 0.3339295702164637,
+      "ma_operator_error": 0.20028680014826747,
+      "ar_spectral_radius": 0.34991099688828353,
+      "ma_spectral_radius": 0.5786193951938257,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 1.9158157613921353e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6500880031117167,
+        0.4213796048061752
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.2743392611805248,
+      "converged": true,
+      "iterations": 57,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1977,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.164929000195116,
+      "one_step_mse": 1.0919450344370567,
+      "five_step_mse": 1.673194951395897,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.767188624829322,
+      "five_step_negative_gaussian_log_score": 9.990016551589063,
+      "innovation_covariance_error": 0.09482574162063383,
+      "ar_operator_error": 0.33346832075713895,
+      "ma_operator_error": 0.1988206024493808,
+      "ar_spectral_radius": 0.3481047793525751,
+      "ma_spectral_radius": 0.5829598775689602,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 8.359637434396871e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6518942206474245,
+        0.41703912243104
+      ],
+      "initialization_iterations": [
+        31,
+        35
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -0.7520961159902386,
+      "converged": true,
+      "iterations": 26,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0011113747023046017,
+      "one_step_mse": 1.2958386699275837,
+      "five_step_mse": 1.6996355134418497,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.0027720415964722633,
+      "one_step_mse": 1.2951468543481643,
+      "five_step_mse": 1.6994523054795314,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00015862518921494484,
+      "one_step_mse": 1.3144800179586966,
+      "five_step_mse": 1.682267419005798,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.00044608302414417267,
+      "one_step_mse": 1.162288094961389,
+      "five_step_mse": 1.6782177435923884,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 7.4999406933784485e-06,
+      "one_step_mse": 1.74092297293062,
+      "five_step_mse": 1.6633377450954407,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "isotropic",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 5.420297384262085e-07,
+      "one_step_mse": 1.0764400141395452,
+      "five_step_mse": 1.679625735917804,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.74295124164667,
+      "five_step_negative_gaussian_log_score": 9.994272798845135,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1977,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.703250457998365,
+      "one_step_mse": 1.1258014030150316,
+      "five_step_mse": 1.7102133181568628,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.995182625676191,
+      "five_step_negative_gaussian_log_score": 9.295018265641868,
+      "innovation_covariance_error": 0.13174832667464262,
+      "ar_operator_error": 0.46814696219800506,
+      "ma_operator_error": 0.4518655759164392,
+      "ar_spectral_radius": 0.3636558455764618,
+      "ma_spectral_radius": 0.5491788387498795,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 4.1562916338552976e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6363431544235384,
+        0.45082016125012014
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.28047265587624237,
+      "converged": true,
+      "iterations": 64,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1977,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.8120341249741614,
+      "one_step_mse": 1.1142881873345776,
+      "five_step_mse": 1.7112071881457231,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.967590785245575,
+      "five_step_negative_gaussian_log_score": 9.278711842607589,
+      "innovation_covariance_error": 0.09832592989910273,
+      "ar_operator_error": 0.4217653527129127,
+      "ma_operator_error": 0.32564619583073595,
+      "ar_spectral_radius": 0.3657531170076572,
+      "ma_spectral_radius": 0.6070017881947637,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 1.3766626923262994e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.634245882992343,
+        0.3929972118052363
+      ],
+      "initialization_iterations": [
+        29,
+        40
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.5568261970347148,
+      "converged": true,
+      "iterations": 38,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.001109374687075615,
+      "one_step_mse": 1.3192953594969627,
+      "five_step_mse": 1.7587029645284673,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 3,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.003068624995648861,
+      "one_step_mse": 1.3060805730280471,
+      "five_step_mse": 1.7512014761359254,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.000224333256483078,
+      "one_step_mse": 1.3360985520943711,
+      "five_step_mse": 1.738089858404414,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.0004120422527194023,
+      "one_step_mse": 1.1888030881186902,
+      "five_step_mse": 1.7094963440831454,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 8.500181138515472e-06,
+      "one_step_mse": 1.8657671505917635,
+      "five_step_mse": 1.7193416164305497,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "separable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 5.830079317092896e-07,
+      "one_step_mse": 1.1040301248766353,
+      "five_step_mse": 1.7413883584537138,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.9509941865156915,
+      "five_step_negative_gaussian_log_score": 9.2861030127449,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1977,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 13.05568129196763,
+      "one_step_mse": 1.3655695834513077,
+      "five_step_mse": 1.1821615125591984,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.248504650356058,
+      "five_step_negative_gaussian_log_score": 8.026653250888321,
+      "innovation_covariance_error": 0.10913305253851815,
+      "ar_operator_error": 3.8280856788247464,
+      "ma_operator_error": 4.147445025279903,
+      "ar_spectral_radius": 0.9285115043613876,
+      "ma_spectral_radius": 0.9999581701094031,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 1,
+      "successful_starts": 1,
+      "failed_starts": 0,
+      "selected_gradient_norm": 0.7449502637578129,
+      "selected_stopping_message": "Iteration limit reached",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.07148749563861101,
+        4.082989059617237e-05
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.4508637447783323,
+      "converged": false,
+      "iterations": 300,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1977,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 14.639921416062862,
+      "one_step_mse": 1.1080477606508383,
+      "five_step_mse": 1.0272444798409868,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.951120112250353,
+      "five_step_negative_gaussian_log_score": 7.829294970799624,
+      "innovation_covariance_error": 0.09636407666395279,
+      "ar_operator_error": 4.112663899730832,
+      "ma_operator_error": 4.355494814585458,
+      "ar_spectral_radius": 0.9217250852605987,
+      "ma_spectral_radius": 0.9638718965852403,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 0.0003339070170755784,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.07827391473940282,
+        0.03612710341476011
+      ],
+      "initialization_iterations": [
+        8,
+        13
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -0.09229385905807375,
+      "converged": true,
+      "iterations": 262,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0028848331421613693,
+      "one_step_mse": 1.1177816354760963,
+      "five_step_mse": 1.0305696213174689,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 10,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.00677091721445322,
+      "one_step_mse": 1.1116952581483446,
+      "five_step_mse": 1.0305752308281528,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 11,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00012395810335874557,
+      "one_step_mse": 1.1279524685613194,
+      "five_step_mse": 1.030566945501332,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.00045725004747509956,
+      "one_step_mse": 1.1906906878751742,
+      "five_step_mse": 1.0218310838150992,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 6.9998204708099365e-06,
+      "one_step_mse": 1.101045245615986,
+      "five_step_mse": 1.0300365774741123,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "near-cancellation",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": true,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 5.420297384262085e-07,
+      "one_step_mse": 1.104030124876635,
+      "five_step_mse": 1.0363417860296058,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.9509941865156915,
+      "five_step_negative_gaussian_log_score": 7.868081937737745,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "ls",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1977,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-ls-known-orders",
+      "fit_seconds": 2.815533791203052,
+      "one_step_mse": 1.2612264438342569,
+      "five_step_mse": 1.8133264162135327,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.859675233404095,
+      "five_step_negative_gaussian_log_score": 9.00680400017556,
+      "innovation_covariance_error": 0.10880328979072304,
+      "ar_operator_error": 0.42855182413445475,
+      "ma_operator_error": 0.29776257502958453,
+      "ar_spectral_radius": 0.3522526596517672,
+      "ma_spectral_radius": 0.564128105913109,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.391938789978766e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6477463403482329,
+        0.4358708940868906
+      ],
+      "initialization_iterations": [
+        0,
+        0
+      ],
+      "initialization_converged": [
+        null,
+        null
+      ],
+      "initialization_messages": [
+        null,
+        null
+      ],
+      "objective": 0.25015107790415936,
+      "converged": true,
+      "iterations": 63,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "ar_order": 1,
+        "ma_order": 1,
+        "intercept": true,
+        "n_starts": 2,
+        "max_iter": 300,
+        "tol": 1e-08,
+        "random_state": 1977,
+        "enforce_admissibility": true,
+        "stability_margin": 1e-06
+      },
+      "method": "marma-mle-known-orders",
+      "fit_seconds": 3.849926041904837,
+      "one_step_mse": 1.254398499493033,
+      "five_step_mse": 1.8149173499868894,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 8.632843004434422,
+      "five_step_negative_gaussian_log_score": 9.676314317489057,
+      "innovation_covariance_error": 0.50913020658916,
+      "ar_operator_error": 0.4540000858384512,
+      "ma_operator_error": 0.24625578902387543,
+      "ar_spectral_radius": 0.34715792235616133,
+      "ma_spectral_radius": 0.6075593104593172,
+      "is_stable": true,
+      "is_invertible": true,
+      "structural_identification_certified": false,
+      "n_starts": 2,
+      "selected_start": 0,
+      "successful_starts": 2,
+      "failed_starts": 0,
+      "selected_gradient_norm": 2.033234645316633e-05,
+      "selected_stopping_message": "Optimization terminated successfully",
+      "selected_optimizer": "SLSQP",
+      "selected_feasible": true,
+      "selected_constraint_residuals": [
+        0.6528410776438394,
+        0.39243968954068287
+      ],
+      "initialization_iterations": [
+        29,
+        45
+      ],
+      "initialization_converged": [
+        true,
+        true
+      ],
+      "initialization_messages": [
+        "Optimization terminated successfully",
+        "Optimization terminated successfully"
+      ],
+      "objective": -1.6275722391124003,
+      "converged": true,
+      "iterations": 37,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "als",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-als-order-one",
+      "fit_seconds": 0.0012979158200323582,
+      "one_step_mse": 1.5003290078412779,
+      "five_step_mse": 1.8545764467430246,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 4,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "method": "mle",
+        "order": 1,
+        "fit_intercept": true
+      },
+      "method": "mar-mle-order-one",
+      "fit_seconds": 0.004056166857481003,
+      "one_step_mse": 1.4866880312512807,
+      "five_step_mse": 1.8570517382873768,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 6,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 1,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-one",
+      "fit_seconds": 0.00014079175889492035,
+      "one_step_mse": 1.524246288213831,
+      "five_step_mse": 1.8388725512467239,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "order": 5,
+        "intercept": true,
+        "ridge": 0
+      },
+      "method": "var-order-five",
+      "fit_seconds": 0.00048012472689151764,
+      "one_step_mse": 1.3194366902337127,
+      "five_step_mse": 1.8273768628334972,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "strategy": "zero"
+      },
+      "method": "zero",
+      "fit_seconds": 1.3125129044055939e-05,
+      "one_step_mse": 1.888076993127904,
+      "five_step_mse": 1.7946567754888663,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    },
+    {
+      "task": "matrix-arma-forecast",
+      "regime": "nonseparable",
+      "replicate": 4,
+      "seed": 1977,
+      "shape": [
+        2,
+        3
+      ],
+      "n_train": 500,
+      "n_test": 50,
+      "true_orders": [
+        1,
+        1
+      ],
+      "covariance_separable": false,
+      "forecasting_task": "fixed-fit-common-origin-one-and-five-step",
+      "options": {
+        "extra_information": "true-parameters-and-past-innovations"
+      },
+      "method": "known-parameter-latent-innovation-oracle",
+      "fit_seconds": 6.668269634246826e-07,
+      "one_step_mse": 1.224059537544566,
+      "five_step_mse": 1.8198602271385023,
+      "origins": 46,
+      "forecast_horizon": 5,
+      "one_step_negative_gaussian_log_score": 7.766586544537913,
+      "five_step_negative_gaussian_log_score": 8.974034746827842,
+      "innovation_covariance_error": 0.0,
+      "converged": true,
+      "iterations": 0,
+      "status": "ok",
+      "warnings": []
+    }
+  ],
+  "source_sha256": {
+    "benchmarks/advanced_matrix.py": "84bf6a70e410d56472553f5f709d76050922feaa93c21fdccf78a410927a5cbb",
+    "benchmarks/marma.py": "41dad95637584eac6ff9c6bf89aeffc44881f592f5396a6bb596312891965f0b",
+    "benchmarks/marma_scenarios.py": "c04e22db70dcb45267435662fb5c5e9b8ba4484ca07b6edb86d7fda5489e4a3e",
+    "benchmarks/run.py": "c659ed699acb8442c0011e6df4191eca22b2a46ffdb2281949d02d325675ee90",
+    "mavats/MAR.py": "00b4f156bc161761341eb792c72baf71185a54d11aa6685ff4fb003de9771356",
+    "mavats/__init__.py": "f74bbb1a6d0cc55024aa8493796e454d7ac8cb9750ad36409ac64ec3aedda314",
+    "mavats/_validation.py": "a2a8d09990cd0d4c28f5d7a4fb5ee2ae08acf62e4d764e46db9c6060ed7143b3",
+    "mavats/alphaPCA.py": "afff3be6730f54590396d7650a2827f236163da3192388aeb7b8581f6bf1ac27",
+    "mavats/autoregression.py": "b92748d81ff4b92547e1da8d315a9987e3aa1fe018e5bc246bcf075ac50b989c",
+    "mavats/baselines.py": "5ad0eba0fc1562f520140f279b4f631a3535fefed666979717a2b579a008616d",
+    "mavats/calibration.py": "17320646b7a5fa3fa2e586f9b3203cf44b9a49c8025d2d285633a5690f0a26bb",
+    "mavats/cointegration.py": "551537b0860a22da07008c2fd5a39a66f865a1957bf4b9dc67403044be7a8d0c",
+    "mavats/constrained.py": "4f742ebf165f2c6f14c353056ac728fe1583a9bae8c62f785bfe654ec49a8f49",
+    "mavats/cp.py": "3b1f80d2d4802945e6863e672c4612ae860bd557f40e6cb91502fbb79e14f07c",
+    "mavats/decorrelation.py": "e98b306c5a5c2bb461df6daa6928d703ff78b776f96a14bd6ed1d1c856b9d236",
+    "mavats/dynamic.py": "cbbdd32cdfd64f9c137d040f42515fba6120ae7789ac5a0f0b109aad12328b07",
+    "mavats/factormodel.py": "c4bf05b35b9e82001e7b212d2aad55e9b01de08082c92c69c4908e52f92d10fa",
+    "mavats/factors.py": "99081196a059b40e5abdd8da8d00850f0b7aadefd7110378f12386c1db5145e0",
+    "mavats/huber.py": "55e6fce0d05bf28021601169a03523116f2ae746e5a5fc7d2e8635e22358b2f5",
+    "mavats/ihr.py": "9aba546b6829226ae13dbe70a7c1739478db7e5a23bd98a0b1ac47d136fdf650",
+    "mavats/inference.py": "02900cc16d2257b9b06dd1f69836721a39198addfa128fb84195b5eacd080ff8",
+    "mavats/marma.py": "0cf26f57caf960eef753a740cb8ccd0fbf68b7af22daf1c55a22c3b77c9729bb",
+    "mavats/metrics.py": "f413dfb0380d4abe724f760212832fd04a37db1774121011157add471b9ee669",
+    "mavats/model_selection.py": "6d4f448254b50de20033f50800cab285ce083a2f995adb17e47b50d4e0a9aaab",
+    "mavats/monitoring.py": "3501520423562ca7f832ee40710884424e9c4dd426cf426ae4df65281e5cceae",
+    "mavats/robust.py": "0793495b540e474b01803ec0c7f6935750bb4a849cf942a9990669f3781645c0",
+    "mavats/simulation.py": "ce2e6489c4150ccdb4eea5cd76299aee79dade348ba417972e9ef4b2b2b84002",
+    "mavats/sparse.py": "36f535601f388ae110077348a61af1183f3b47d75bb6643178e1a87a73655c29",
+    "mavats/tensor.py": "9acdab82c753fcd997d190fc69c228d5d0394dd72984637f11d2405f5219197f",
+    "mavats/tensor_autoregression.py": "c08ccc357102fc0d2849621c2a704b1e758e2f0a2b4df55f5580100c5f8e6339",
+    "mavats/threshold.py": "eaec49d62a713638e965cbd7c213decc0733148b31f3a748083fd83db46254b0",
+    "mavats/volatility.py": "55517ae29defd96c54bbfe3bcacac0701957604b58f8d00b0295a8f2ce243820"
+  },
+  "source_changed_during_run": []
+}

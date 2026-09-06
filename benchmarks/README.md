@@ -221,6 +221,9 @@ projection/optimizer/rank-pilot limits.
 
 ## Matrix ARMA and partial/overlapping constraints
 
+The [retained results and limitations](results/marma-constraints-summary.md)
+report paired series-level errors and explicit optimizer/identification limits.
+
 ```bash
 python -m benchmarks.marma --repeats 5 --output benchmarks/results/marma.json
 python -m benchmarks.constrained_extensions --repeats 10 --output benchmarks/results/constrained-extensions.json

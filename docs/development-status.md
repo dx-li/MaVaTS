@@ -31,6 +31,13 @@ remain mandatory for additions. Independent tests use dense conditional
 Gaussian systems, all-coordinate finite-difference gradients, future shock maps,
 nested-loop block moments, complete projectors and overlapping joint designs.
 
+The expanded suite passes 886 tests in both Python 3.13/current dependencies
+and Python 3.10/minimum dependencies, with 94% line coverage. All 14 examples
+pass locally and from an independently installed wheel. Source/wheel builds,
+API documentation, formatting and whitespace checks pass. Independent review
+also verified that existing fully constrained numerical definitions are unchanged
+after stripping docstrings.
+
 New benchmarks compare fixed-fit ARMA forecasts under covariance misspecification
 and near cancellation, and constrained-factor denoising under cross-block
 interactions, weak complement signal, wrong priors and near-overlapping terms.
@@ -38,6 +45,18 @@ The Gaussian scorer now validates positive definiteness through Cholesky rather
 than determinant sign alone. This is a benchmark safeguard change, not a change
 to the older fitted models. Historical raw benchmark fingerprints are retained
 unchanged; new studies fingerprint this checkpoint's sources separately.
+
+The new retained studies contain 590 records: 430 constrained-factor runs with
+no errors or unconverged outcomes, and 160 MARMA comparisons with no execution
+errors but seven selected fits at the iteration limit. All seven concern near
+AR/MA cancellation; all selected MARMA fits remain feasible. Covariance
+misspecification degrades separable Gaussian scores despite similar point
+forecasts. Wrong constraint/rank priors impair denoising, and partial fits do
+not outperform projected PCA in the correctly specified retained designs.
+The [results and limits](../benchmarks/results/marma-constraints-summary.md)
+include paired uncertainty, rank-search limitations and extra-information
+comparator scopes. Together with the historical studies, 10,410 raw benchmark
+records are retained; this count is not a literature-coverage measure.
 
 Remaining work includes multiple-Kronecker ARMA, structural identification and
 order selection, transition-rank tensor AR, broader rank/inference procedures,
