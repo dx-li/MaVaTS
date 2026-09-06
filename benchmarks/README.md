@@ -57,7 +57,7 @@ an integration sample, not strong statistical evidence.
 
 ## Retained artifacts
 
-The retained studies were generated at implementation checkpoint
+The eight original retained studies were generated at implementation checkpoint
 `cf8948774929a75e52b1e9491154db3dacdb4d1c`. Subsequent citation-only source edits
 change byte-level hashes; removing docstrings leaves identical executable ASTs.
 Their original source fingerprints remain unmodified and must not be read as
@@ -218,6 +218,94 @@ do not establish broad dominance or reproduce every paper experiment.
 See [structured and entrywise results](results/structured-summary.md) for
 retained accuracy, paired differences, covariance misspecification and explicit
 projection/optimizer/rank-pilot limits.
+
+## Matrix ARMA and partial/overlapping constraints
+
+The [retained results and limitations](results/marma-constraints-summary.md)
+report paired series-level errors and explicit optimizer/identification limits.
+
+```bash
+python -m benchmarks.marma --repeats 5 --output benchmarks/results/marma.json
+python -m benchmarks.constrained_extensions --repeats 10 --output benchmarks/results/constrained-extensions.json
+```
+
+These new reports fingerprint their own source tree, separately from the eight
+historical reports above. `--quick` reduces the designs for execution checks;
+it is not the retained accuracy study. The generators build dense vector
+recurrences or Kronecker signal designs independently of the fitted APIs.
+
+### Conditional MARMA forecasts
+
+Five paired replications use 500 training and 50 held-out 2×3 matrices from a
+stable/invertible MARMA(1,1), with 300 burn-in observations. AR and MA operators
+do not commute. The four regimes are isotropic, separable correlated innovations,
+near AR/MA cancellation, and nonseparable covariance. All parameters and the
+covariance construction are explicit in `marma_scenarios.py`; no test-set tuning
+is performed. The sign convention is `X[t]=C+Phi X[t-1]+E[t]-Theta E[t-1]` in
+column-major vectorization.
+
+Known-order conditional MARMA LS and separable Gaussian MLE are compared with
+MAR ALS/MLE, unrestricted VAR(1)/VAR(5), zero forecasts, and true-parameter
+forecasts with extra latent past innovations. That last comparator has more
+information than a fitted zero-prefix conditional filter, not just better
+parameter estimates. Every method is trained once. At the same 46 held-out
+origins, horizons one and five use only the observed prefix; MARMA refilters
+that prefix but does not refit. Horizon-five forecasts do not observe the four
+intervening outcomes. Forecast covariance and Gaussian scores omit parameter
+uncertainty. A near-cancelling model can forecast well while identifying its
+separate AR and MA operators poorly.
+
+MARMA uses two local starts, 300 final iterations, tolerance 1e-8, and explicit
+full-companion stability/invertibility bounds `rho <= 1-1e-6`. Each MLE start
+has a separate LS warm-up of at most 100 iterations. Timings include all starts
+and initialization but exclude forecast scoring. Final convergence, raw gradient
+norm, feasibility, constraint residuals, and initialization stopping flags are
+separate fields. SLSQP success is neither a global-optimum nor a structural
+identification certificate. All finite unconverged outcomes remain in accuracy
+summaries and are separately counted. The protocol targets Tsay (2024), not an
+exact replication of its simulation table or an exact stationary likelihood.
+
+### Constrained-factor denoising
+
+Ten paired replications use 400 training and 30 held-out 8×10 matrices with
+Gaussian white measurement noise of standard deviation .8. The partial model
+has supplied/complement row ranks (1,2), column ranks (2,1), AR(.55) cores and
+200 burn-in observations. Four regimes retain all cross-factor interactions,
+remove them, weaken complement factors, or rotate the supplied constraints
+away from the true spans. The last regime uses exactly the same observations
+as the full-interaction regime: only the prior constraints are wrong. Its
+nominal supplied/complement ranks are therefore also misspecified. Metadata
+distinguishes generating ranks (1,2)/(2,1) from the actual ranks relative to
+the wrong supplied spans, (1,3)/(2,2). Fixed-group-rank labels refer to the
+generating groups, not knowledge of the rotated projection ranks.
+
+Known-group-rank, ratio-selected, and diagonal-only partial fits are compared
+with a fully constrained fit, unconstrained lagged factors, projected PCA,
+and known-loading projection. Known ranks and constraints are extra information.
+The diagonal-only fit imposes an additional scientific restriction that is
+correct only in the matching regime. The known-loading comparator knows the
+full Tucker loading spaces but **not** the diagonal-only zero cross blocks;
+it is not a universal error lower bound. Automatic group-rank search is capped
+by the available block dimensions. In the smaller quick design its column
+constraint search cannot reach the generating rank two; quick is smoke-only.
+
+Three additional regimes have two rank-(1,1) terms with two-dimensional
+constraint spans: orthogonal, overlapping (cosine .7), and near-overlapping
+(cosine .98). Competing-span estimation with joint scores is compared with
+unadjusted independent single-term fits summed together, lagged factors,
+projected PCA, and known-loading joint projection. The independent sum is a
+deliberately unadjusted comparator, **not** the paper's multi-term estimator.
+The generators align the actual loading directions, not merely unused parts
+of the constraint spaces. Component recovery, total signal recovery, surviving
+loading ranks and joint score conditioning are distinct diagnostics.
+
+All held-out factor errors measure **contemporaneous denoising**, using the
+current noisy matrix with frozen training loadings; they are not forecasts.
+Errors target the clean common signal. Direct linear-algebra procedures report
+`converged=True, n_iter=0`; this says nothing about statistical recovery under
+incorrect constraints or weak signal. The target is Chen, Tsay and Chen's
+accessible manuscript v3, with paper-version and algebraic-extension boundaries
+in [the constraint notes](../docs/partial-constraints-notes.md).
 
 These artifacts were generated locally during the rebuild. Rerun after changing
 algorithms or dependencies. Further benchmark coverage remains tracked in

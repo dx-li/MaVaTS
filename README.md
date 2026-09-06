@@ -61,6 +61,15 @@ MLE inference additionally requires a separable innovation covariance. They do
 not provide post-selection inference for sparse or reduced-rank fits, and a
 large specification-test p-value does not establish the model.
 
+`fit_marma(X, ar_order=1, ma_order=1, method="mle")` adds bilinear moving-average
+terms, using the paper's minus-MA sign convention. Conditional LS and separable
+Gaussian likelihood use local multistart optimization; full-polynomial stability
+and invertibility are enforced by default. These checks do not establish minimal
+orders or structural identification. Forecasts refilter supplied history without
+refitting, and covariance forecasts condition on fitted parameters. See the
+[matrix ARMA example](examples/matrix_arma.py) and
+[conditioning and optimization notes](docs/marma-notes.md).
+
 ## Recover factor spaces
 
 ```python
@@ -86,6 +95,14 @@ TOPUP, TIPUP, iTOPUP and iTIPUP accept matrices and higher-order tensors.
 Modern Tucker results use orthonormal loadings and expose scores, signal,
 residuals and transformations. Compare loading **spaces**, since individual
 factor coordinates are not identified.
+
+`fit_partial_constrained_factor` estimates shared loading groups inside and
+outside supplied constraint spaces, including their cross-factor blocks.
+`fit_multiterm_constrained_factor` separates identifiable overlapping constrained
+components and solves their scores jointly. Transforming held-out observations
+is contemporaneous denoising, not forecasting. See the
+[partial-constraint example](examples/partial_constraints.py) and
+[paper-version, rank and identification limits](docs/partial-constraints-notes.md).
 
 `fit_two_way_dynamic` fits the additive model `X[t] = F[t] L.T + Lambda G[t].T`.
 It combines covariance quasi-likelihood, conditional scores and pooled scalar

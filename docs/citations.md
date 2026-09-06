@@ -45,6 +45,20 @@ section with a primary-paper link. New APIs must update this index.
 | `mavats.cointegration.CMARResult` | [li2024cointegration](#li2024cointegration) | 2024 manuscript; fixed ranks, full-complement numerical I(1) checks, explicit manuscript corrections; no rank test. |
 | `mavats.cointegration.fit_cmar` | [li2024cointegration](#li2024cointegration) | 2024 manuscript; fixed ranks, full-complement numerical I(1) checks, explicit manuscript corrections; no rank test. |
 | `mavats.constrained.fit_constrained_factor` | [chen2020constrained](#chen2020constrained) | Single-term fully constrained branch only. |
+| `mavats.constrained.PartialConstrainedFactorResult` | [chen2020constrained](#chen2020constrained) | Shared four-block partial factor model and optional zero cross blocks; accessible manuscript v3 Sections 3.3–3.4, with journal-version boundary documented. |
+| `mavats.constrained.fit_partial_constrained_factor` | [chen2020constrained](#chen2020constrained) | Separate block lag moments summed for shared groups; explicit/heuristic ranks, not calibrated no-factor tests. |
+| `mavats.constrained.MultiTermConstrainedFactorResult` | [chen2020constrained](#chen2020constrained) | Orthogonal/overlapping term spaces and joint score reconstruction; joint LS and more-than-two-term annihilation are explicit extensions. |
+| `mavats.constrained.fit_multiterm_constrained_factor` | [chen2020constrained](#chen2020constrained) | Section 3.3/Remark 3 direct or competing-complement loading estimation, with projection-survival and joint-design diagnostics. |
+| `mavats.marma.MARMAParameters` | [tsay2024marma](#tsay2024marma) | Rank-one-per-lag minus-MA model, normalization and covariance conventions. |
+| `mavats.marma.MARMADiagnostics` | [tsay2024marma](#tsay2024marma) | Full-polynomial stability/invertibility; does not certify left coprimeness or minimal orders. |
+| `mavats.marma.marma_diagnostics` | [tsay2024marma](#tsay2024marma) | Numerical companion-root checks for the complete AR and MA polynomials. |
+| `mavats.marma.MARMAFilterResult` | [tsay2024marma](#tsay2024marma) | Conditional innovations, fixed-parameter forecasts and impulse-response covariance; no parameter/presample uncertainty. |
+| `mavats.marma.filter_marma` | [tsay2024marma](#tsay2024marma) | First max(p,q) observations conditioned on, their innovations fixed zero; not exact stationary/Kalman filtering. |
+| `mavats.marma.MARMAOptimizationRun` | [tsay2024marma](#tsay2024marma) | Local numerical solve and explicit initialization diagnostics, not a global optimization certificate. |
+| `mavats.marma.MARMAResult` | [tsay2024marma](#tsay2024marma) | Fitted conditional model and result operations inherit its paper and implementation scope. |
+| `mavats.marma.fit_marma` | [tsay2024marma](#tsay2024marma) | Rank-one conditional LS/Gaussian MLE, complete innovation recursion and explicit numerical optimizer; corrected Gaussian one-half factor. |
+| `mavats.marma.MARMASimulation` | [tsay2024marma](#tsay2024marma) | Model simulation outputs; burn-in is not an exact stationary draw. |
+| `mavats.marma.simulate_marma` | [tsay2024marma](#tsay2024marma) | Supplied-parameter MARMA simulation, not an exact paper experiment. |
 | `mavats.cp.CPIdentificationError` | [chang2023cp](#chang2023cp) | Unthresholded refined CP estimator and identification diagnostics. |
 | `mavats.cp.CPResult` | [chang2023cp](#chang2023cp) | Unthresholded refined CP estimator and identification diagnostics. |
 | `mavats.cp.fit_cp_factor` | [chang2023cp](#chang2023cp) | Unthresholded refined CP estimator and identification diagnostics. |
@@ -120,6 +134,10 @@ references, with exact coefficients and contamination documented in
 | `benchmarks.structured_ar._fit_vector_vecm` | [johansen1991vecm](#johansen1991vecm) | Conditional Gaussian reduced-rank VECM, one difference lag and unrestricted intercept; fixed supplied rank, no rank test or inferential API. |
 | `benchmarks.monitoring._wilson` | [wilson1927interval](#wilson1927interval) | Wilson score intervals for independent-series alarm/detection counts; not dependent monitoring time points. |
 | `benchmarks.inference.summary` | [wilson1927interval](#wilson1927interval) | Wilson score intervals for specification rejection counts; coverage averages use replicate SEs, not binomial pooling of coefficients. |
+| `benchmarks.marma._TrueMARMA` | [tsay2024marma](#tsay2024marma) | Known-parameter conditional mean and impulse-response covariance under the paper's minus-MA model; extra latent past innovations, not an estimated procedure. |
+| `benchmarks.constrained_extensions._KnownLoadingProjection` | [chen2020constrained](#chen2020constrained) | Known-loading joint LS comparison in the paper's signal spaces; extra loading information, not a published loading estimator or universal error lower bound. |
+| `benchmarks.constrained_extensions._IndependentSum` | [chen2020constrained](#chen2020constrained) | Deliberately unadjusted sum of single-term fits illustrating overlap bias; not the paper's multi-term estimator. |
+| `benchmarks.advanced_matrix._gaussian_score` | [tsay2024marma](#tsay2024marma) | Conventional negative Gaussian density score with full constants and positive-definite covariance validation; applicable beyond MARMA, not a new estimator. |
 
 ## References
 
@@ -226,3 +244,7 @@ references, with exact coefficients and contamination documented in
 ### wilson1927interval
 
 [Wilson (1927). Probable Inference, the Law of Succession, and Statistical Inference.](https://doi.org/10.1080/01621459.1927.10502953)
+
+### tsay2024marma
+
+[Tsay (2024; online 2023). Matrix-Variate Time Series Analysis: A Brief Review and Some New Developments.](https://doi.org/10.1111/insr.12558)

@@ -5,10 +5,69 @@ time-series methods, with scientific benchmarks, examples, stable numerics and
 an extensible Python library. This checkpoint is substantial implementation
 progress, not a declaration that the literature is fully covered.
 
-## Citation audit and integration
+## Fifth checkpoint: conditional ARMA and constrained-factor extensions
 
-Every public scientific function now has an explicit paper reference in its
-API docstring. The [citation index](citations.md) covers all 79 public functions
+Added rank-one-per-lag matrix ARMA conditional LS and separable Gaussian MLE,
+full recursive innovation gradients, local multistart optimization, exact
+full-polynomial stability/invertibility constraints, chronological filtering,
+simulation, and noncommuting impulse-response forecast covariance. The target
+is Tsay (2024), including an explicitly documented correction to the Gaussian
+one-half factor in equation (30). Structural identification, minimality,
+automatic order selection and exact stationary likelihood remain unimplemented.
+
+Added partially constrained factors with shared loading groups and separate
+block moments, plus identifiable multi-term factors with competing-span
+annihilation and joint score reconstruction. The implementation identifies the
+accessible Chen, Tsay and Chen manuscript v3; exact journal-version equivalence
+is unverified. More-than-two-term annihilation and joint score completion are
+labeled algebraic extensions. The original fully constrained estimator's
+executable code is unchanged. Forecasting is not implied by held-out denoising.
+
+The citation index now covers 93 public functions/classes and seven separately
+implemented benchmark procedures: 100 entries across 27 paper references.
+New methods, result operations, oracle information and deliberately unadjusted
+comparators all have explicit attribution scopes. Citation regression tests
+remain mandatory for additions. Independent tests use dense conditional
+Gaussian systems, all-coordinate finite-difference gradients, future shock maps,
+nested-loop block moments, complete projectors and overlapping joint designs.
+
+The expanded suite passes 886 tests in both Python 3.13/current dependencies
+and Python 3.10/minimum dependencies, with 94% line coverage. All 14 examples
+pass locally and from an independently installed wheel. Source/wheel builds,
+API documentation, formatting and whitespace checks pass. Independent review
+also verified that existing fully constrained numerical definitions are unchanged
+after stripping docstrings.
+
+New benchmarks compare fixed-fit ARMA forecasts under covariance misspecification
+and near cancellation, and constrained-factor denoising under cross-block
+interactions, weak complement signal, wrong priors and near-overlapping terms.
+The Gaussian scorer now validates positive definiteness through Cholesky rather
+than determinant sign alone. This is a benchmark safeguard change, not a change
+to the older fitted models. Historical raw benchmark fingerprints are retained
+unchanged; new studies fingerprint this checkpoint's sources separately.
+
+The new retained studies contain 590 records: 430 constrained-factor runs with
+no errors or unconverged outcomes, and 160 MARMA comparisons with no execution
+errors but seven selected fits at the iteration limit. All seven concern near
+AR/MA cancellation; all selected MARMA fits remain feasible. Covariance
+misspecification degrades separable Gaussian scores despite similar point
+forecasts. Wrong constraint/rank priors impair denoising, and partial fits do
+not outperform projected PCA in the correctly specified retained designs.
+The [results and limits](../benchmarks/results/marma-constraints-summary.md)
+include paired uncertainty, rank-search limitations and extra-information
+comparator scopes. Together with the historical studies, 10,410 raw benchmark
+records are retained; this count is not a literature-coverage measure.
+
+Remaining work includes multiple-Kronecker ARMA, structural identification and
+order selection, transition-rank tensor AR, broader rank/inference procedures,
+accepted-IHR reconciliation, real-data studies and comprehensive stress and
+performance grids. Implemented point estimation does not imply a paper's full
+inferential theory or simulation replication. The broad rebuild goal stays active.
+
+## Citation audit and integration (retained history)
+
+Every public scientific function gained an explicit paper reference in its
+API docstring. At that checkpoint the [citation index](citations.md) covered 79 public functions
 and classes, plus the benchmark-only vector VECM and two Wilson-interval
 procedures. Shared-entry-point variants, result helpers, conventional baselines,
 simulation designs and package extensions have explicit attribution scopes.
@@ -71,10 +130,10 @@ two paired IHR records share an unfinished held-out score solve. Those flags
 remain explicit. IHR improves scattered-entry denoising in this design, but
 does not outperform matrixwise Huber under whole-matrix contamination.
 
-This remains an incomplete development library. Matrix ARMA, partially
+At that checkpoint, open families included matrix ARMA, partially
 constrained and multi-term factor models, transition-rank tensor AR, broader
 rank/inference procedures, accepted-IHR reconciliation, real-data studies and
-comprehensive performance/stress grids remain open. Published estimation,
+comprehensive performance/stress grids. Published estimation,
 automatic model selection and inferential theory are separate deliverables.
 
 ## Third checkpoint: additive dynamics, volatility and online monitoring (retained history)

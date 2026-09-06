@@ -17,7 +17,13 @@ from .autoregression import (
 from .baselines import VARResult, fit_naive, fit_var
 from .calibration import MonitorCalibration, calibrate_monitor
 from .cointegration import CMARI1Diagnostics, CMARResult, cmar_i1_diagnostics, fit_cmar
-from .constrained import fit_constrained_factor
+from .constrained import (
+    MultiTermConstrainedFactorResult,
+    PartialConstrainedFactorResult,
+    fit_constrained_factor,
+    fit_multiterm_constrained_factor,
+    fit_partial_constrained_factor,
+)
 from .cp import CPIdentificationError, CPResult, fit_cp_factor
 from .decorrelation import MatrixDecorrelationResult, fit_matrix_decorrelation
 from .dynamic import TwoWayDynamicResult, fit_two_way_dynamic
@@ -35,6 +41,18 @@ from .inference import (
     MARSpecificationResult,
     mar_inference,
     mar_specification_test,
+)
+from .marma import (
+    MARMADiagnostics,
+    MARMAFilterResult,
+    MARMAOptimizationRun,
+    MARMAParameters,
+    MARMAResult,
+    MARMASimulation,
+    filter_marma,
+    fit_marma,
+    marma_diagnostics,
+    simulate_marma,
 )
 from .monitoring import MatrixFactorMonitor, MonitorStep
 from .robust import fit_matrix_kendall, matrix_kendall
@@ -57,6 +75,20 @@ from .volatility import (
 __version__ = "0.2.0.dev0"
 
 __all__ = [
+    "MultiTermConstrainedFactorResult",
+    "PartialConstrainedFactorResult",
+    "fit_multiterm_constrained_factor",
+    "fit_partial_constrained_factor",
+    "MARMADiagnostics",
+    "MARMAFilterResult",
+    "MARMAOptimizationRun",
+    "MARMAParameters",
+    "MARMAResult",
+    "MARMASimulation",
+    "filter_marma",
+    "fit_marma",
+    "marma_diagnostics",
+    "simulate_marma",
     "CMARI1Diagnostics",
     "CMARResult",
     "cmar_i1_diagnostics",
