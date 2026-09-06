@@ -55,6 +55,18 @@ from .marma import (
     simulate_marma,
 )
 from .monitoring import MatrixFactorMonitor, MonitorStep
+from .rank_selection import (
+    RankSelectionStep,
+    TensorRankSelectionResult,
+    select_tensor_rank,
+)
+from .rank_stability import (
+    RankStabilityCell,
+    RankStabilityChoice,
+    RankStabilityInterval,
+    TensorRankStabilityResult,
+    tensor_rank_stability,
+)
 from .robust import fit_matrix_kendall, matrix_kendall
 from .sparse import SparseMARResult, fit_sparse_mar
 from .tensor import fit_tensor_factor
@@ -75,6 +87,14 @@ from .volatility import (
 __version__ = "0.2.0.dev0"
 
 __all__ = [
+    "RankSelectionStep",
+    "TensorRankSelectionResult",
+    "select_tensor_rank",
+    "RankStabilityCell",
+    "RankStabilityChoice",
+    "RankStabilityInterval",
+    "TensorRankStabilityResult",
+    "tensor_rank_stability",
     "MultiTermConstrainedFactorResult",
     "PartialConstrainedFactorResult",
     "fit_multiterm_constrained_factor",

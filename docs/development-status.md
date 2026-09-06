@@ -5,6 +5,43 @@ time-series methods, with scientific benchmarks, examples, stable numerics and
 an extensible Python library. This checkpoint is substantial implementation
 progress, not a declaration that the literature is fully covered.
 
+## Sixth checkpoint: published factor-rank criteria and stability
+
+Added Han, Chen and Zhang's (2022) 40 TOPUP/TIPUP IC/ER variants, with
+sequential rank and loading-space updates. The implementation follows author
+manuscript v3 equations (6)–(8) and Remark 5. Original spatial dimensions stay
+in projected penalties; physical-unit log scaling, stable criterion comparisons,
+IC empty cores and per-observation held-out arithmetic have explicit tests.
+ER remains positive-rank only; automatic strength estimation, full-mode-rank
+search and factor-loading inference remain absent.
+
+Added Remark 8's explicit nested-subsample IC stability paths and a separately
+documented Section 5.4 finite-grid plateau convention. Failed cells and
+unconverged fits remain visible, grid-boundary intervals are flagged, and a
+missing admissible interval produces no choice rather than a fallback. Modewise
+path choices are distinguished from a jointly refitted model. These are not
+rank confidence intervals or finite-sample recovery guarantees.
+
+The citation index covers 101 public package functions/classes and ten
+benchmark procedures: 111 entries across 28 papers. Independent tests use
+dense indexed lag moments, original-dimension penalty formulas, high-precision
+ER comparisons, exact two-mode cancellation and analytic subsample spectra.
+The two new examples demonstrate rank selection and explicit stability tuning;
+all 16 examples run successfully. Historical raw benchmark fingerprints are
+preserved; new studies are recorded against their own frozen sources.
+
+The complete suite passes 1,128 tests in both current and minimum dependency
+environments, with 94% coverage. Builds, API docs, formatting and all 16 examples
+against an independently installed wheel pass. New retained studies contain
+3,260 rank-comparison records and 80 paths containing 6,000 subsample cells,
+with no execution errors. They preserve 137 unconverged comparison fits,
+47 unconverged path cells and 28 incomplete tuning choices. All 52 selected
+joint refits converged. See the [results and uncertainty](../benchmarks/results/factor-rank-summary.md).
+
+The broad rebuild remains active. Missing major matrix families, transition-rank
+tensor autoregression, broader inference, real-data studies and larger statistical
+and performance grids remain on the roadmap.
+
 ## Fifth checkpoint: conditional ARMA and constrained-factor extensions
 
 Added rank-one-per-lag matrix ARMA conditional LS and separable Gaussian MLE,

@@ -64,6 +64,19 @@ and tuning conditions hold. The default cannot detect a zero-factor model.
 Use fixed ranks when comparing methods at equal information, and separate oracle
 rank results from data-selected ranks.
 
+`select_tensor_rank` implements the separate published IC/ER criteria. IC
+includes zero; ER searches positive ranks and is not a no-factor test. Moment
+spectra carry a fourth-power physical-unit log scale, and penalties retain the
+original dimensions throughout projected updates. IC uses adjacent objective
+increments to avoid subtracting large common tails; ER compares improvements
+from one to distinguish ratios that round to one. Joint rank/projector stopping
+is not a guarantee of correct rank recovery. Held-out transforms scale each
+observation separately for arithmetic safety, without changing the common
+training normalization or allowing a later observation to erase earlier small
+values. See [rank-selection notes](rank-selection-notes.md). Stability paths
+retain every cell's arrays, so memory grows with the supplied grid and subsamples;
+they are not a streaming or large-grid optimization.
+
 Threshold factors retain the original time indices when masking lag origins.
 Their moment eigenvalues and threshold profile scores use normalized fourth-order
 units; reconstructed signals use original units. Decorrelation is invertible,

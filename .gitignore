@@ -13,6 +13,8 @@ benchmark-structured-smoke.json
 benchmark-entrywise-smoke.json
 benchmark-constrained-smoke.json
 benchmark-marma-smoke.json
+benchmark-ranks-smoke.json
+benchmark-rank-stability-smoke.json
 benchmark-results.json
 site/
 *.py[cod]
