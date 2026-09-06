@@ -1,7 +1,7 @@
 # MaVaTS
 
 Scientific Python methods for matrix- and tensor-valued time series: structured
-autoregression, factor estimation, volatility, sequential monitoring,
+autoregression, cointegration, factor estimation, volatility, sequential monitoring,
 decorrelation, inference, simulation, and reproducible comparisons.
 
 This is the **0.2 development rebuild**. The aim is broad, dependable coverage
@@ -104,6 +104,33 @@ and requires at least three coordinates in each nontrivial mode. `blocks()` and
 `inverse_blocks()` connect separate component models with reconstruction; the
 estimator does not fit those forecasting models itself. See the
 [decorrelation notes](docs/decorrelation-notes.md) for equations and limitations.
+
+## Cointegration and multi-term autoregression
+
+`fit_cmar` fits a matrix error-correction model with bilinear cointegrating
+spaces, lagged differences and an optional unrestricted intercept. Least-squares
+and separable Gaussian likelihood fits are distinct options. Its forecasts are
+matrix **levels**, not differences. `i1_diagnostics()` checks the full companion
+and cointegration rank condition; it is not a statistical test or an automatic
+stationarity constraint. Ranks must be specified. See the
+[cointegration example](examples/cointegrated_mar.py) and
+[assumptions and conventions](docs/cointegration-notes.md).
+
+`fit_tensor_ar` supports multiple Kronecker terms at each specified lag for
+matrices and higher-order tensors. `terms=(2,1)` means two terms at lag one and
+one term at lag two. Projection, least squares and separable likelihood have
+different objectives. Higher-order projection uses local CP approximation and
+retains its own convergence diagnostics; it is not a globally best CP guarantee.
+See the [tensor autoregression example](examples/tensor_autoregression.py) and
+[identification and allocation limits](docs/tensor-autoregression-notes.md).
+
+`fit_ihr_factor` separately fits entrywise Huber regressions for loadings **and**
+factor scores, with robust out-of-sample transforms. `select_ihr_ranks` exposes
+the preprint's oversized-pilot rank rules. This implementation explicitly targets
+the 2023 IHR preprint; equivalence with the renamed accepted work remains
+unverified. It supplies no inferential standard errors. See the
+[entrywise contamination example](examples/entrywise_huber.py) and
+[version boundary and threshold policy](docs/ihr-notes.md).
 
 ## Model conditional covariance
 

@@ -1,7 +1,8 @@
 """Scientific methods for matrix- and tensor-valued time series.
 
-Arrays are time-first. Modern factor estimators use orthonormal loadings;
-legacy submodules retain their documented conventions. See the repository's
+Arrays are time-first. Tucker factor results use orthonormal loadings; additive
+dynamic factors and legacy submodules have their own documented normalizations.
+See the repository's
 docs/methods.md for assumptions, references and coverage gaps. This development
 release is not a claim of complete literature coverage.
 """
@@ -15,6 +16,7 @@ from .autoregression import (
 )
 from .baselines import VARResult, fit_naive, fit_var
 from .calibration import MonitorCalibration, calibrate_monitor
+from .cointegration import CMARI1Diagnostics, CMARResult, cmar_i1_diagnostics, fit_cmar
 from .constrained import fit_constrained_factor
 from .cp import CPIdentificationError, CPResult, fit_cp_factor
 from .decorrelation import MatrixDecorrelationResult, fit_matrix_decorrelation
@@ -27,6 +29,7 @@ from .factors import (
     fit_projected_pca,
 )
 from .huber import HuberFactorResult, fit_huber_factor
+from .ihr import IHRFactorResult, IHRRankResult, fit_ihr_factor, select_ihr_ranks
 from .inference import (
     MARInferenceResult,
     MARSpecificationResult,
@@ -37,6 +40,7 @@ from .monitoring import MatrixFactorMonitor, MonitorStep
 from .robust import fit_matrix_kendall, matrix_kendall
 from .sparse import SparseMARResult, fit_sparse_mar
 from .tensor import fit_tensor_factor
+from .tensor_autoregression import TensorARResult, fit_tensor_ar
 from .threshold import ThresholdFactorResult, fit_threshold_factors
 from .volatility import (
     MatrixGARCHFilterResult,
@@ -53,6 +57,16 @@ from .volatility import (
 __version__ = "0.2.0.dev0"
 
 __all__ = [
+    "CMARI1Diagnostics",
+    "CMARResult",
+    "cmar_i1_diagnostics",
+    "fit_cmar",
+    "IHRFactorResult",
+    "IHRRankResult",
+    "fit_ihr_factor",
+    "select_ihr_ranks",
+    "TensorARResult",
+    "fit_tensor_ar",
     "MatrixFactorMonitor",
     "MonitorStep",
     "MonitorCalibration",

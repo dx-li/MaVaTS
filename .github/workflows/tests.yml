@@ -34,6 +34,8 @@ jobs:
       - run: python -m benchmarks.inference --repeats 2 --sample-sizes 200 --output benchmark-inference-smoke.json
       - run: python -m benchmarks.advanced_matrix --quick --repeats 1 --output benchmark-advanced-smoke.json
       - run: python -m benchmarks.monitoring --quick --repeats 1 --calibration-repeats 99 --output benchmark-monitoring-smoke.json
+      - run: python -m benchmarks.structured_ar --quick --repeats 1 --output benchmark-structured-smoke.json
+      - run: python -m benchmarks.entrywise_robust --quick --repeats 1 --output benchmark-entrywise-smoke.json
       - run: python -m examples.quickstart
       - run: python -m examples.method_gallery
       - run: python -m examples.sparse_mar
@@ -43,6 +45,9 @@ jobs:
       - run: python -m examples.two_way_dynamic
       - run: python -m examples.matrix_garch
       - run: python -m examples.online_monitoring
+      - run: python -m examples.cointegrated_mar
+      - run: python -m examples.tensor_autoregression
+      - run: python -m examples.entrywise_huber
       - run: python -m build
       - uses: actions/upload-artifact@v4
         if: always()
@@ -56,6 +61,8 @@ jobs:
             benchmark-advanced-smoke.json
             benchmark-monitoring-smoke.json
             benchmark-monitoring-smoke.jsonl
+            benchmark-structured-smoke.json
+            benchmark-entrywise-smoke.json
 
   minimum-dependencies:
     runs-on: ubuntu-latest

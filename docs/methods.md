@@ -31,6 +31,8 @@ and empirical evidence.
 | `fit_mar(method="als")` | Bilinear conditional mean | Same paper | Conditional point estimation; scale-invariant ridge is an optional extension |
 | `fit_mar(method="mle")` | Bilinear mean and separable innovation covariance | Same paper | Covariance flooring, if applied, produces a stabilized likelihood estimate; diagnostics report it |
 | `fit_mar(order=p)` | Sum of lag-specific bilinear operators | MAR extension | One Kronecker term per lag; no stationarity constraint |
+| `fit_cmar` | Bilinear cointegrating spaces and short-run matrix error correction | Li & Xiao (2024 manuscript), `li2024cointegration` | Fixed ranks; LS and separable Gaussian MLE, unrestricted difference intercept and level forecasts; no rank tests, coefficient intervals or imposed I(1) constraint |
+| `fit_tensor_ar` | Multiple Kronecker terms per lag for matrices and higher-order tensors | Li & Xiao (2021 manuscript), `li2021tenar` | Projection/LS/separable MLE, explicit lag/term counts; local higher-order CP initialization, not a global approximation guarantee; no automatic term selection or inference |
 | `fit_mar(ranks=(r,s))` | Reduced-rank bilinear mean via ALS | Xiao et al. manuscript, `xiao2022rrmar` | RR.LS for order one/ridge zero; the distinct RR.CC estimator is absent |
 | `fit_sparse_mar` | Continuous spike-and-slab EM variable selection for MAR(1) | Celani, Pagnottoni & Jones (2024), `celani2024sparse` | Zero-mean, separable Gaussian innovations; posterior-mode estimation with documented prior-preserving scale updates; no MCMC or credible intervals |
 | `mar_inference` | MAR(1) coefficient/operator plug-in covariance and marginal Wald intervals | Chen, Xiao & Yang (2021), Theorems 2–4 | Projection, ALS, separable MLE; stationary unconstrained fits without intercept/ridge or active covariance flooring; iid innovations; no HAC or post-selection inference |
@@ -47,6 +49,7 @@ and empirical evidence.
 | `fit_constrained_factor` | Loading spaces within supplied row/column spans | Chen, Tsay & Chen (2020), `chen2020constrained` | Single-term fully constrained model; partial and multi-term estimators are absent |
 | `fit_cp_factor` | Nonorthogonal rank-one matrix components via refined generalized eigenanalysis | Chang et al. (2023), `chang2023cp` | Specified rank, unthresholded moments; rejects singular, complex or unseparated eigenproblems |
 | `fit_huber_factor` | Matrixwise Huber factor loss with weighted projection | He et al., `he2024huber` | Fixed threshold and explicit ranks; simultaneous paper update has a documented sequential descent safeguard; entrywise Huber inference is absent |
+| `fit_ihr_factor`, `select_ihr_ranks` | Entrywise robust loading/core regressions and oversized-pilot rank rules | He et al. (2023 preprint v1), `he2023ihr` | Fixed pilot-calibrated threshold, robust transforms, two rank criteria; no adaptive block-MAD or inference; equivalence with renamed accepted work unverified |
 | `fit_matrix_garch` | Trace-identified first-order conditional covariance QMLE | Yu, Li, Jiang & Zhu, `yu2024garch` | Full or diagonal dynamic matrices, multiple starts and constraint diagnostics; zero conditional mean; no QMLE standard errors, factor-GARCH or estimation-adjusted portmanteau test |
 | `filter_matrix_garch`, `simulate_matrix_garch` | Fixed-parameter covariance recursion, Gaussian simulation and exact next-step covariance | Same paper, accepted equations (4)–(9) | Zero-state conditional initialization or supplied chronological state; no closed-form multistep covariance forecast |
 | `MatrixFactorMonitor` | Sequential randomized test of increases in factor rank or joint loading span | He, Kong, Trapani & Yu (2024), `he2024breaks` | Journal power transformation and per-window PCA; fixed ranks/horizon, maximum/partial-sum procedures, first-alarm stopping and resumable state; no disappearing-factor branch or simultaneous-mode calibration |
@@ -147,6 +150,54 @@ across time disappears in the population lag covariance; serially correlated
 idiosyncratic noise can therefore invalidate the identifying argument. Taking
 only `sum_t X[t] @ X[t+h].T` contracts column pairs and changes the estimator.
 [Wang, Liu & Chen](https://arxiv.org/abs/1610.01889).
+
+### Cointegrated matrix autoregression
+
+`fit_cmar` fits `Delta X[t] = A1 X[t-1] A2.T +
+sum(B1[i] Delta X[t-i] B2[i].T) + D + E[t]`, with supplied mode ranks
+`rank(A1)=r1`, `rank(A2)=r2`. The full cointegration rank is r1*r2; the
+cointegrating vectors are the **right** singular spaces beta1/beta2, giving
+stationary combinations `beta1.T X[t] beta2` under the model assumptions.
+An ordinary stationary reduced-rank MAR does not implement this model.
+
+Mode-block LS residualizes nuisance regressors and uses a reduced-rank
+least-squares projection. Gaussian MLE profiles the current-mode covariance
+while whitening the opposite mode; merely applying the LS rank projection to
+weighted data changes that likelihood update. SVD solves, covariance checks,
+normalization, starts and rejected-update diagnostics are explicit. An optional
+unrestricted intercept belongs in the difference equation. Forecasts recursively
+return levels from the last difference_lags+1 observations.
+
+The full vectorized companion and `alpha_perp.T Gamma beta_perp` condition are
+checked by a bounded dense diagnostic. Full complements cannot be replaced by
+Kronecker products of the mode-wise complements. Unit-root tolerance and fitted
+rank conditioning are numerical diagnostics, not statistical evidence for an
+I(1) population. Automatic cointegration ranks, restrictions on deterministic
+terms, I(2) models and asymptotic coefficient inference remain absent.
+[Primary manuscript](https://arxiv.org/html/2409.10860v1) and
+[implementation notes](cointegration-notes.md).
+
+### Entrywise iterative Huber regression
+
+`fit_ihr_factor` alternates separate row, column and factor Huber regressions,
+using the new loading blocks sequentially. Every new observation's robust core
+is also obtained from a Huber regression. Matrixwise Huber and Kendall loading
+estimators instead retain ordinary projected factor scores. These methods
+therefore respond differently to scattered entry and whole-matrix outliers.
+
+The default freezes a projected-pilot residual MAD threshold from preprint
+Section 4.4. The repeatedly updated block-specific MAD variant is distinct and
+not implemented. SVD normalization preserves the signal; public loadings are
+orthonormal, while rank-criterion spectra retain the paper's dimension-scaled
+loading convention. Rank-pilot convergence and final-fit convergence are
+separate. Direct piecewise loss differences resolve inner IRLS roundoff without
+weakening the requested score tolerance or clipping objective histories.
+
+This explicitly targets [arXiv:2306.03317v1](https://arxiv.org/html/2306.03317v1).
+The author lists a renamed accepted **Winsorized Mean Matrix Factor Model**;
+the accepted text was unavailable for reconciliation. No accepted-equivalence,
+standard-error, adaptive-threshold or post-selection inference claim is made.
+See [version boundary, assumptions and diagnostics](ihr-notes.md).
 
 ### Additive two-way dynamic factors
 
@@ -332,7 +383,7 @@ separate deliverables. An implemented branch does not cover an entire family.
 | --- | --- | --- |
 | Robust matrix Kendall factors | Pairwise normalized matrix differences under matrix-elliptical structure; [He et al.](https://arxiv.org/abs/2207.09633), `he2025kendall` | Exact small-sample pair sum; translation/scale invariance; duplicate observations; heavy-tailed loading-space recovery; explicit pair-subsampling semantics |
 | Huber matrix factors | Huber loss on matrix residual norms with weighted projection; [He et al.](https://arxiv.org/abs/2112.04186), `he2024huber` | Actual Huber objective descent, threshold calibration, Gaussian and contamination comparisons; entrywise Huber regression must have a different label |
-| Iterative Huber regression | Entrywise robust regression for factor/loadings inference; [He et al.](https://arxiv.org/abs/2306.03317), `he2023ihr` | Validate each block update and associated inference; not interchangeable with matrixwise residual reweighting |
+| Iterative Huber regression | Fixed-threshold entrywise regression and preprint rank criteria implemented; [He et al. v1](https://arxiv.org/abs/2306.03317v1), `he2023ihr` | Remaining: accepted-version reconciliation, adaptive block-MAD, robust centering and inferential APIs; not interchangeable with matrixwise residual reweighting |
 | Reduced-rank MAR | Rank-constrained left/right autoregressive matrices; [Xiao, Han, Chen & Liu manuscript](https://yuefenghan.github.io/papers/Reduced_Rank_MAR.pdf), `xiao2022rrmar` | Whitened reduced-rank regression against a dense reference; rank preservation; rank-selection recovery; ordinary truncation of the fitted coefficient is not the weighted solution |
 | Sparse and Bayesian MAR | Continuous-normal-mixture MAR(1) EMVS implemented; [Celani, Pagnottoni & Jones (2024)](https://doi.org/10.1007/s11222-024-10402-y), `celani2024sparse` | Remaining: spike-and-slab MCMC, posterior interval coverage, lag-factor MAR*(P), tensor variants, and broader prior/local-mode sensitivity comparisons |
 | CP matrix factors | `X_t = sum_j f_jt a_j b_j.T + E_t`; generalized eigenanalysis with reduced-space refinement; [Chang et al. (2023)](https://arxiv.org/abs/2112.15423), `chang2023cp` | Nonorthogonal identifiable components up to permutation/scale; generalized-eigen residuals; repeated-root diagnostics; compare published refined estimator |
@@ -349,10 +400,19 @@ disagree on its publication status; no unverified journal DOI is asserted here.
 
 ## Tensor extensions and emerging branches
 
-Multilinear tensor autoregression uses a sum of lagged mode products. The
-projection, least-squares, and matrix-normal/tensor-normal likelihood estimators
-are distinct targets. [Li & Xiao (2021 manuscript)](https://arxiv.org/abs/2110.00928),
-`li2021tenar`.
+`fit_tensor_ar` implements multilinear tensor autoregression as a sum of lagged
+mode products, with independently specified term counts per lag. Projection,
+least-squares and tensor-normal likelihood are distinct targets. For two spatial
+modes, multi-term transition rearrangements have an exact SVD projection and
+orthogonal canonical representation. Higher-order projection instead uses local
+CP-ALS; a best low-rank tensor approximation may not exist. Initial projection
+convergence, final-fit convergence, term cancellation and identification
+diagnostics are retained separately. Bounded dense accessors diagnose stability
+of the **sum** of all lag terms; component-wise stability is insufficient.
+Dense projection can be bypassed by explicit or random initialization.
+Term/lag selection, inferential covariance, and global CP optimization are not
+provided. [Li & Xiao (2021 manuscript)](https://arxiv.org/abs/2110.00928),
+`li2021tenar`; [implementation notes](tensor-autoregression-notes.md).
 
 Low-rank tensor autoregression instead constrains the **transition tensor**,
 with separate input and output loading modes. Its nuclear-norm estimators and
@@ -365,8 +425,8 @@ dynamic factors, with a specialized high-order projection procedure. Generic
 CP-ALS on the complete space-time array does not implement this method.
 [Han et al. (2024)](https://arxiv.org/abs/2110.15517), `han2024cp`.
 
-Other tracked branches include cointegrated MAR with bilinear cointegrating
-spaces ([Li & Xiao manuscript](https://arxiv.org/abs/2409.10860), `li2024cointegration`),
+Cointegrated MAR now has the fixed-rank branch described above; its rank tests
+and asymptotic inference remain open. Other tracked branches include
 time-varying factors ([Chen et al. manuscript](https://arxiv.org/abs/2404.01546)),
 EM/Kalman matrix factor estimation
 ([Barigozzi & Trapin manuscript](https://arxiv.org/abs/2502.04112)), and

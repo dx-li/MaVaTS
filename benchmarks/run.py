@@ -48,15 +48,20 @@ def _measure(method, function, score, metadata):
     with warnings.catch_warnings(record=True) as caught:
         warnings.simplefilter("always")
         start = perf_counter()
+        phase = "fit"
         try:
             fit = function()
             record["fit_seconds"] = perf_counter() - start
+            phase = "score"
             record.update(score(fit))
+            phase = "diagnostics"
             record["converged"] = bool(getattr(fit, "converged", True))
             record["iterations"] = int(getattr(fit, "n_iter", 0))
             record["status"] = "ok"
         except Exception as exc:
-            record["fit_seconds"] = perf_counter() - start
+            if "fit_seconds" not in record:
+                record["fit_seconds"] = perf_counter() - start
+            record["failure_phase"] = phase
             record["status"] = "error"
             record["error"] = f"{type(exc).__name__}: {exc}"
         record["warnings"] = [str(w.message) for w in caught]

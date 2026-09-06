@@ -21,14 +21,15 @@
   },
   "source_sha256": {
     "benchmarks/matrix_extensions.py": "8ec5e01a6ebfdea26647c488938a7830aadc48f10643e6c467bd6a6852020804",
-    "benchmarks/run.py": "f497a85e467b1e6f783a7e040aaf8faad30143b00db197263a5bb1fd13699d78",
+    "benchmarks/run.py": "c659ed699acb8442c0011e6df4191eca22b2a46ffdb2281949d02d325675ee90",
     "mavats/MAR.py": "72a7f8966ab95ade19666b5919a806f7fb554367c6e8f886bf484a12441a7300",
-    "mavats/__init__.py": "7cbb98f2ce11ac64026bfe5935a26d5cd3da1f0f807857e5e693ea2c97eca705",
+    "mavats/__init__.py": "6b95a98c2ac37090a2c51e90d0d962ccccb85ce5688a30245784447e80728848",
     "mavats/_validation.py": "a2a8d09990cd0d4c28f5d7a4fb5ee2ae08acf62e4d764e46db9c6060ed7143b3",
     "mavats/alphaPCA.py": "c977552665e7e86870e5d3078a549fb079bcc8fa7328633f92b22bc84e9a93c4",
     "mavats/autoregression.py": "2bb7646004c187678db9db597fe68ae7ac5ff296704e0066e06220c62439d909",
     "mavats/baselines.py": "b022919fbc37fa3c741e97d6b13ab2a2aaf3d57f1b8591b8fa48795193b91eb6",
     "mavats/calibration.py": "d4b6ed75f7a91b8681e561433474b830efe22a3ae7a9cfcd3cdd2e583eea1993",
+    "mavats/cointegration.py": "244c6a7ad0555470fd28dadad52a4a2bb7ef8b4e088dff1f9202561ab14662cf",
     "mavats/constrained.py": "c15a8b7c8d304ed425324098ab2773e5e9b3038855cd28914b878706264ecec3",
     "mavats/cp.py": "ab9ce6d1494a2b4799ff32894d1be13af2300250c6118b592e39a945601997df",
     "mavats/decorrelation.py": "64f8368f3b89892be3d296f9692be19fea63af70454c48d8165cc816a0f9b05c",
@@ -36,6 +37,7 @@
     "mavats/factormodel.py": "48bb8d788b1d365c8a7a61c447e3ad5d4779d78a6b275a27c4e7c5176f173360",
     "mavats/factors.py": "8d9e4b0388805a774737538b6b6274834c97c01901d940237b552740096590dc",
     "mavats/huber.py": "cdd803f9ffd4f6f53c3dc116e8c5fef2d9c22c9a74b8026647d15bafac355187",
+    "mavats/ihr.py": "71823d39a923e2f4dd461739776347b3b15784553d5d6d8679954ba25578c049",
     "mavats/inference.py": "8527030fa69388ed42c2731bb528e599fc2e8c6a7b84bf9e85ffdd720398cc83",
     "mavats/metrics.py": "61a183ff671192eaae6f2bccd6b5c192dc095c31c6abaf869e3341c6f670e597",
     "mavats/model_selection.py": "35be477fc2f464f11504cde1b5b5b845e9c99d8130a90f848aa057715304b3ef",
@@ -44,6 +46,7 @@
     "mavats/simulation.py": "8c10dc97feda7b0cbc5370717bc02f62fa5906202aab53201cb1de0e449b8c0c",
     "mavats/sparse.py": "982abec64c3b858ae302b9d8bff8161ab73ef0d8ead37a405c569b3cf0f6814d",
     "mavats/tensor.py": "d428d252911ef70e60c5e894c5996656cfa32fd1ba01d246320fbfbecce34092",
+    "mavats/tensor_autoregression.py": "a80335fa5dd08406e030696a08ee1b41a2833069c3ecbda7e42b9771fd8403c6",
     "mavats/threshold.py": "c6bedefdc30a14531b891ef45d58b3a59ea40f9872faa626abb9b4cd1b38983a",
     "mavats/volatility.py": "2716e519464aca5a00e7b82fe909afa7ab32eb84cf368b2c858197e571e4b125"
   },
@@ -68,7 +71,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04389700014144182,
+      "fit_seconds": 0.051575249992311,
       "forecast_mse": 0.9866200298358514,
       "operator_error": 0.04963464853416802,
       "support_error": 0.0,
@@ -91,7 +94,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0026214588433504105,
+      "fit_seconds": 0.0024886666797101498,
       "forecast_mse": 0.9871887685150681,
       "operator_error": 0.061120924820617116,
       "converged": true,
@@ -111,7 +114,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.006378416437655687,
+      "fit_seconds": 0.008788167033344507,
       "forecast_mse": 0.9872174516441056,
       "operator_error": 0.06073767316500868,
       "converged": true,
@@ -131,7 +134,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00023370888084173203,
+      "fit_seconds": 0.00026175007224082947,
       "forecast_mse": 0.9894122093772957,
       "operator_error": 0.12222407030133349,
       "converged": true,
@@ -158,7 +161,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11751745780929923,
+      "fit_seconds": 0.18276545917615294,
       "signal_error": 0.023448841610533715,
       "held_out_signal_error": 0.10508968929943902,
       "subspace_error": 0.0037232197971948738,
@@ -204,7 +207,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.000769707839936018,
+      "fit_seconds": 0.0007107499986886978,
       "signal_error": 0.023448841610533715,
       "held_out_signal_error": 0.022820513328947866,
       "subspace_error": 0.0037232197971948738,
@@ -243,7 +246,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0005827499553561211,
+      "fit_seconds": 0.0006013750098645687,
       "signal_error": 0.04878961303627417,
       "held_out_signal_error": 0.04536465960381718,
       "converged": true,
@@ -269,7 +272,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.028051416855305433,
+      "fit_seconds": 0.030551999807357788,
       "forecast_mse": 0.9809595656160394,
       "row_groups": [
         [
@@ -318,7 +321,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018315874971449375,
+      "fit_seconds": 0.02173520904034376,
       "forecast_mse": 0.9795742135690277,
       "row_groups": [
         [
@@ -358,7 +361,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003938333131372929,
+      "fit_seconds": 0.006462249904870987,
       "forecast_mse": 0.983349884912441,
       "converged": true,
       "iterations": 0,
@@ -384,7 +387,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.041990917176008224,
+      "fit_seconds": 0.04832366667687893,
       "forecast_mse": 1.003081047120536,
       "operator_error": 0.039981638842863876,
       "support_error": 0.0,
@@ -407,7 +410,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0018794997595250607,
+      "fit_seconds": 0.001969417091459036,
       "forecast_mse": 1.0033282318586116,
       "operator_error": 0.04467240791714503,
       "converged": true,
@@ -427,7 +430,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.004966791719198227,
+      "fit_seconds": 0.00545854214578867,
       "forecast_mse": 1.0032700370996779,
       "operator_error": 0.044622881466769924,
       "converged": true,
@@ -447,7 +450,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00022191694006323814,
+      "fit_seconds": 0.00029395800083875656,
       "forecast_mse": 0.9983664396071397,
       "operator_error": 0.09459474818926025,
       "converged": true,
@@ -474,7 +477,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11635912489145994,
+      "fit_seconds": 0.22740645799785852,
       "signal_error": 0.025045107850335747,
       "held_out_signal_error": 0.138727344491259,
       "subspace_error": 0.0040001073130532085,
@@ -520,7 +523,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0006825421005487442,
+      "fit_seconds": 0.0007455828599631786,
       "signal_error": 0.025045107850335747,
       "held_out_signal_error": 0.028914987907212128,
       "subspace_error": 0.0040001073130532085,
@@ -559,7 +562,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.00048133404925465584,
+      "fit_seconds": 0.0005494579672813416,
       "signal_error": 0.05136740533826412,
       "held_out_signal_error": 0.055951585502975125,
       "converged": true,
@@ -585,7 +588,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.02651599980890751,
+      "fit_seconds": 0.0352049577049911,
       "forecast_mse": 0.8903292329179283,
       "row_groups": [
         [
@@ -634,7 +637,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018249500077217817,
+      "fit_seconds": 0.025069667026400566,
       "forecast_mse": 0.8896630827311025,
       "row_groups": [
         [
@@ -674,7 +677,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00379362516105175,
+      "fit_seconds": 0.004118999931961298,
       "forecast_mse": 0.8907536109086607,
       "converged": true,
       "iterations": 0,
@@ -700,7 +703,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04182020900771022,
+      "fit_seconds": 0.06205812515690923,
       "forecast_mse": 1.055344963009099,
       "operator_error": 0.052352987189727584,
       "support_error": 0.0,
@@ -723,7 +726,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.002593791112303734,
+      "fit_seconds": 0.0025446247309446335,
       "forecast_mse": 1.0569242558619247,
       "operator_error": 0.062495033845766816,
       "converged": true,
@@ -743,7 +746,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.005252084229141474,
+      "fit_seconds": 0.006472333800047636,
       "forecast_mse": 1.0568845157698596,
       "operator_error": 0.06260098409715335,
       "converged": true,
@@ -763,7 +766,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0002199173904955387,
+      "fit_seconds": 0.00024245819076895714,
       "forecast_mse": 1.0694317220530978,
       "operator_error": 0.11195213473578496,
       "converged": true,
@@ -790,7 +793,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11669966671615839,
+      "fit_seconds": 0.15948979137465358,
       "signal_error": 0.024016151645333047,
       "held_out_signal_error": 0.022980978960127966,
       "subspace_error": 0.003080116309425037,
@@ -836,7 +839,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0007498329505324364,
+      "fit_seconds": 0.0014720838516950607,
       "signal_error": 0.024016151645333047,
       "held_out_signal_error": 0.022980978960127966,
       "subspace_error": 0.003080116309425037,
@@ -875,7 +878,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0005025835707783699,
+      "fit_seconds": 0.0007574171759188175,
       "signal_error": 0.04835950474045898,
       "held_out_signal_error": 0.05348747562467102,
       "converged": true,
@@ -901,7 +904,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.02522387495264411,
+      "fit_seconds": 0.03978704195469618,
       "forecast_mse": 0.9649778371986221,
       "row_groups": [
         [
@@ -950,7 +953,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.01862554205581546,
+      "fit_seconds": 0.026240292005240917,
       "forecast_mse": 0.9636968539792413,
       "row_groups": [
         [
@@ -990,7 +993,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003817957825958729,
+      "fit_seconds": 0.006695374846458435,
       "forecast_mse": 0.963196269557866,
       "converged": true,
       "iterations": 0,
@@ -1016,7 +1019,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.041144624818116426,
+      "fit_seconds": 0.0740992920473218,
       "forecast_mse": 1.138010979851156,
       "operator_error": 0.04382895131552837,
       "support_error": 0.0,
@@ -1039,7 +1042,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0024933330714702606,
+      "fit_seconds": 0.002925457898527384,
       "forecast_mse": 1.1407239691402353,
       "operator_error": 0.05894519537777403,
       "converged": true,
@@ -1059,7 +1062,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.006408833898603916,
+      "fit_seconds": 0.009867709130048752,
       "forecast_mse": 1.1407719797451483,
       "operator_error": 0.058651913898533845,
       "converged": true,
@@ -1079,7 +1082,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0002320832572877407,
+      "fit_seconds": 0.00024341698735952377,
       "forecast_mse": 1.145592626405023,
       "operator_error": 0.11727994495110232,
       "converged": true,
@@ -1106,7 +1109,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11710141692310572,
+      "fit_seconds": 0.18498974991962314,
       "signal_error": 0.025410749864298563,
       "held_out_signal_error": 0.02873397559603708,
       "subspace_error": 0.004876362293282291,
@@ -1152,7 +1155,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0007564160041511059,
+      "fit_seconds": 0.001174457836896181,
       "signal_error": 0.025410749864298563,
       "held_out_signal_error": 0.02873397559603708,
       "subspace_error": 0.004876362293282291,
@@ -1191,7 +1194,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0005551250651478767,
+      "fit_seconds": 0.0005397917702794075,
       "signal_error": 0.05093506165182335,
       "held_out_signal_error": 0.055623550850019375,
       "converged": true,
@@ -1217,7 +1220,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025988624896854162,
+      "fit_seconds": 0.03075020806863904,
       "forecast_mse": 0.9352574488835963,
       "row_groups": [
         [
@@ -1266,7 +1269,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018279041163623333,
+      "fit_seconds": 0.021635625045746565,
       "forecast_mse": 0.9361544290533997,
       "row_groups": [
         [
@@ -1306,7 +1309,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003751958254724741,
+      "fit_seconds": 0.003828624729067087,
       "forecast_mse": 0.9360130524067904,
       "converged": true,
       "iterations": 0,
@@ -1332,7 +1335,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.041550416965037584,
+      "fit_seconds": 0.0544815412722528,
       "forecast_mse": 0.9296423576460593,
       "operator_error": 0.04852352411416135,
       "support_error": 0.0,
@@ -1355,7 +1358,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0018774578347802162,
+      "fit_seconds": 0.0019189161248505116,
       "forecast_mse": 0.9308590940751154,
       "operator_error": 0.05788427271571394,
       "converged": true,
@@ -1375,7 +1378,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.006233207881450653,
+      "fit_seconds": 0.008594125043600798,
       "forecast_mse": 0.9307360487910582,
       "operator_error": 0.057891207845460216,
       "converged": true,
@@ -1395,7 +1398,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00024337461218237877,
+      "fit_seconds": 0.00030741700902581215,
       "forecast_mse": 0.9384248135412402,
       "operator_error": 0.11828568682828752,
       "converged": true,
@@ -1422,7 +1425,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11597866611555219,
+      "fit_seconds": 0.13958883378654718,
       "signal_error": 0.02575318134203158,
       "held_out_signal_error": 0.0257420312679254,
       "subspace_error": 0.0042414439189167345,
@@ -1468,7 +1471,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0006708330474793911,
+      "fit_seconds": 0.001404749695211649,
       "signal_error": 0.02575318134203158,
       "held_out_signal_error": 0.0257420312679254,
       "subspace_error": 0.0042414439189167345,
@@ -1507,7 +1510,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0004565417766571045,
+      "fit_seconds": 0.012118249665945768,
       "signal_error": 0.05437685050357654,
       "held_out_signal_error": 0.05014309500477324,
       "converged": true,
@@ -1533,7 +1536,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025402583181858063,
+      "fit_seconds": 0.04641037480905652,
       "forecast_mse": 0.9348230968599506,
       "row_groups": [
         [
@@ -1582,7 +1585,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018628666177392006,
+      "fit_seconds": 0.03444308275356889,
       "forecast_mse": 0.9347623952488437,
       "row_groups": [
         [
@@ -1622,7 +1625,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003849208354949951,
+      "fit_seconds": 0.008191791828721762,
       "forecast_mse": 0.9392303088499959,
       "converged": true,
       "iterations": 0,
@@ -1648,7 +1651,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04360445775091648,
+      "fit_seconds": 0.055808874778449535,
       "forecast_mse": 1.0740283230758398,
       "operator_error": 0.04511715930567246,
       "support_error": 0.0,
@@ -1671,7 +1674,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0023734159767627716,
+      "fit_seconds": 0.0028133331798017025,
       "forecast_mse": 1.0746730556518338,
       "operator_error": 0.05549508926952874,
       "converged": true,
@@ -1691,7 +1694,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.005074166227132082,
+      "fit_seconds": 0.005341209005564451,
       "forecast_mse": 1.0746483245141254,
       "operator_error": 0.05570991715950287,
       "converged": true,
@@ -1711,7 +1714,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00021458324044942856,
+      "fit_seconds": 0.00023620901629328728,
       "forecast_mse": 1.0729474537795756,
       "operator_error": 0.10931366754415162,
       "converged": true,
@@ -1738,7 +1741,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11631275014951825,
+      "fit_seconds": 0.2854706668294966,
       "signal_error": 0.024599839439828856,
       "held_out_signal_error": 0.2022574794634167,
       "subspace_error": 0.003825161958682121,
@@ -1784,7 +1787,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0007764999754726887,
+      "fit_seconds": 0.0006966246291995049,
       "signal_error": 0.024599839439828856,
       "held_out_signal_error": 0.01619934274901332,
       "subspace_error": 0.003825161958682121,
@@ -1823,7 +1826,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0004681251011788845,
+      "fit_seconds": 0.00045733293518424034,
       "signal_error": 0.0506505227071347,
       "held_out_signal_error": 0.03282748172304199,
       "converged": true,
@@ -1849,7 +1852,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025645332876592875,
+      "fit_seconds": 0.03103287471458316,
       "forecast_mse": 0.9657448299687793,
       "row_groups": [
         [
@@ -1898,7 +1901,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.0179882082156837,
+      "fit_seconds": 0.04320933436974883,
       "forecast_mse": 0.9684170911177046,
       "row_groups": [
         [
@@ -1938,7 +1941,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003777707926928997,
+      "fit_seconds": 0.0047555831260979176,
       "forecast_mse": 0.9687787747519857,
       "converged": true,
       "iterations": 0,
@@ -1964,7 +1967,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04154316568747163,
+      "fit_seconds": 0.04771400010213256,
       "forecast_mse": 0.9933689759130935,
       "operator_error": 0.05937346342303139,
       "support_error": 0.0,
@@ -1987,7 +1990,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0018010418862104416,
+      "fit_seconds": 0.0020480831153690815,
       "forecast_mse": 0.9941709906339739,
       "operator_error": 0.07122621685933045,
       "converged": true,
@@ -2007,7 +2010,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.006173792295157909,
+      "fit_seconds": 0.007340749725699425,
       "forecast_mse": 0.9944544609727562,
       "operator_error": 0.07188320132270729,
       "converged": true,
@@ -2027,7 +2030,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00022320915013551712,
+      "fit_seconds": 0.00023870915174484253,
       "forecast_mse": 0.9995444166561962,
       "operator_error": 0.11969339930986748,
       "converged": true,
@@ -2054,7 +2057,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11709704203531146,
+      "fit_seconds": 0.15188937494531274,
       "signal_error": 0.023590858278707022,
       "held_out_signal_error": 0.023921826286766465,
       "subspace_error": 0.0036602197605683047,
@@ -2100,7 +2103,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0007845410145819187,
+      "fit_seconds": 0.0006806659512221813,
       "signal_error": 0.023590858278707022,
       "held_out_signal_error": 0.023921826286766465,
       "subspace_error": 0.0036602197605683047,
@@ -2139,7 +2142,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0004741246812045574,
+      "fit_seconds": 0.0004687081091105938,
       "signal_error": 0.05001307508701482,
       "held_out_signal_error": 0.054714877640834374,
       "converged": true,
@@ -2165,7 +2168,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025976584292948246,
+      "fit_seconds": 0.05187433399260044,
       "forecast_mse": 0.8900076228071253,
       "row_groups": [
         [
@@ -2214,7 +2217,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018589040730148554,
+      "fit_seconds": 0.02409616718068719,
       "forecast_mse": 0.8905835228872991,
       "row_groups": [
         [
@@ -2254,7 +2257,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003855832852423191,
+      "fit_seconds": 0.005627832841128111,
       "forecast_mse": 0.8914116764782571,
       "converged": true,
       "iterations": 0,
@@ -2280,7 +2283,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.0423055412247777,
+      "fit_seconds": 0.0492205829359591,
       "forecast_mse": 0.9558089909364921,
       "operator_error": 0.05275043911392757,
       "support_error": 0.0,
@@ -2303,7 +2306,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.002524083014577627,
+      "fit_seconds": 0.00240733427926898,
       "forecast_mse": 0.955054779276426,
       "operator_error": 0.06044754707644648,
       "converged": true,
@@ -2323,7 +2326,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.006387416273355484,
+      "fit_seconds": 0.0064451247453689575,
       "forecast_mse": 0.9550413794322157,
       "operator_error": 0.060292839955825406,
       "converged": true,
@@ -2343,7 +2346,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0002282499335706234,
+      "fit_seconds": 0.0003176252357661724,
       "forecast_mse": 0.9602639074385615,
       "operator_error": 0.10419254761924174,
       "converged": true,
@@ -2370,7 +2373,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11651520803570747,
+      "fit_seconds": 0.157451291102916,
       "signal_error": 0.027066312448109146,
       "held_out_signal_error": 0.023668926249910908,
       "subspace_error": 0.004916038215279686,
@@ -2416,7 +2419,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0007415418513119221,
+      "fit_seconds": 0.0007394999265670776,
       "signal_error": 0.027066312448109146,
       "held_out_signal_error": 0.023668926249910908,
       "subspace_error": 0.004916038215279686,
@@ -2455,7 +2458,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.00045783305540680885,
+      "fit_seconds": 0.000695166178047657,
       "signal_error": 0.05482793329421866,
       "held_out_signal_error": 0.047126607456718,
       "converged": true,
@@ -2481,7 +2484,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025926416739821434,
+      "fit_seconds": 0.03841345803812146,
       "forecast_mse": 0.9477031410598541,
       "row_groups": [
         [
@@ -2530,7 +2533,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.01853754185140133,
+      "fit_seconds": 0.03259416576474905,
       "forecast_mse": 0.9481520378586229,
       "row_groups": [
         [
@@ -2570,7 +2573,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.004047082737088203,
+      "fit_seconds": 0.004827667027711868,
       "forecast_mse": 0.9511219085618677,
       "converged": true,
       "iterations": 0,
@@ -2596,7 +2599,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.041150583885610104,
+      "fit_seconds": 0.0528247500769794,
       "forecast_mse": 0.9023089135665427,
       "operator_error": 0.0432364727068489,
       "support_error": 0.0,
@@ -2619,7 +2622,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0018161656334996223,
+      "fit_seconds": 0.0018935841508209705,
       "forecast_mse": 0.9025117607383403,
       "operator_error": 0.05160881248912681,
       "converged": true,
@@ -2639,7 +2642,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.004976124968379736,
+      "fit_seconds": 0.007037833798676729,
       "forecast_mse": 0.9025894989681716,
       "operator_error": 0.051119569555133276,
       "converged": true,
@@ -2659,7 +2662,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00022237515076994896,
+      "fit_seconds": 0.00024841586127877235,
       "forecast_mse": 0.9057398595289812,
       "operator_error": 0.09487288111121052,
       "converged": true,
@@ -2686,7 +2689,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11802137503400445,
+      "fit_seconds": 0.15161937521770597,
       "signal_error": 0.040634060461911634,
       "held_out_signal_error": 0.07437984726910567,
       "subspace_error": 0.004118439131982075,
@@ -2732,7 +2735,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0006772917695343494,
+      "fit_seconds": 0.0007115001790225506,
       "signal_error": 0.024094918738333696,
       "held_out_signal_error": 0.024538674251362885,
       "subspace_error": 0.004129568202977942,
@@ -2771,7 +2774,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.00045125000178813934,
+      "fit_seconds": 0.00048079201951622963,
       "signal_error": 0.050841789410754824,
       "held_out_signal_error": 0.05370846423565196,
       "converged": true,
@@ -2797,7 +2800,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.02908416697755456,
+      "fit_seconds": 0.028236541897058487,
       "forecast_mse": 0.9269644922890863,
       "row_groups": [
         [
@@ -2846,7 +2849,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.019102124962955713,
+      "fit_seconds": 0.022876749746501446,
       "forecast_mse": 0.928333619563788,
       "row_groups": [
         [
@@ -2886,7 +2889,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003899207804352045,
+      "fit_seconds": 0.004042666405439377,
       "forecast_mse": 0.9254944700704877,
       "converged": true,
       "iterations": 0,
@@ -2912,7 +2915,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.042179042007774115,
+      "fit_seconds": 0.04936787532642484,
       "forecast_mse": 1.0936551971222106,
       "operator_error": 0.05642576929667337,
       "support_error": 0.0,
@@ -2935,7 +2938,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0017836657352745533,
+      "fit_seconds": 0.001889707986265421,
       "forecast_mse": 1.0939284791459276,
       "operator_error": 0.06384258522892329,
       "converged": true,
@@ -2955,7 +2958,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.005174083169549704,
+      "fit_seconds": 0.006315791048109531,
       "forecast_mse": 1.0939186499152622,
       "operator_error": 0.06315841111159737,
       "converged": true,
@@ -2975,7 +2978,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00024120789021253586,
+      "fit_seconds": 0.0002537500113248825,
       "forecast_mse": 1.0962166546834202,
       "operator_error": 0.11740757888568153,
       "converged": true,
@@ -3002,7 +3005,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.13620575005188584,
+      "fit_seconds": 0.12625620886683464,
       "signal_error": 0.024904996112755838,
       "held_out_signal_error": 0.023293673628833157,
       "subspace_error": 0.003241744014284424,
@@ -3048,7 +3051,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0008315420709550381,
+      "fit_seconds": 0.0011061658151447773,
       "signal_error": 0.024904996112755838,
       "held_out_signal_error": 0.023293673628833157,
       "subspace_error": 0.003241744014284424,
@@ -3087,7 +3090,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0004864162765443325,
+      "fit_seconds": 0.0005129170604050159,
       "signal_error": 0.05221272273620723,
       "held_out_signal_error": 0.05366543358595332,
       "converged": true,
@@ -3113,7 +3116,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.027060292195528746,
+      "fit_seconds": 0.026078582741320133,
       "forecast_mse": 0.9847839695628979,
       "row_groups": [
         [
@@ -3162,7 +3165,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.019145332742482424,
+      "fit_seconds": 0.02548341592773795,
       "forecast_mse": 0.9837632588500255,
       "row_groups": [
         [
@@ -3202,7 +3205,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0041953749023377895,
+      "fit_seconds": 0.0053877090103924274,
       "forecast_mse": 0.9829486644317901,
       "converged": true,
       "iterations": 0,
@@ -3228,7 +3231,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04451279202476144,
+      "fit_seconds": 0.04753366718068719,
       "forecast_mse": 1.0983303059772223,
       "operator_error": 0.03737020063640112,
       "support_error": 0.0,
@@ -3251,7 +3254,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0033951252698898315,
+      "fit_seconds": 0.002424249891191721,
       "forecast_mse": 1.0980720843034943,
       "operator_error": 0.05252441347385643,
       "converged": true,
@@ -3271,7 +3274,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.005643832962960005,
+      "fit_seconds": 0.006809708196669817,
       "forecast_mse": 1.0981820596960024,
       "operator_error": 0.0526494036279674,
       "converged": true,
@@ -3291,7 +3294,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00023808283731341362,
+      "fit_seconds": 0.00024062534794211388,
       "forecast_mse": 1.100720346968942,
       "operator_error": 0.09897327888763635,
       "converged": true,
@@ -3318,7 +3321,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11949275014922023,
+      "fit_seconds": 0.18652200000360608,
       "signal_error": 0.023996437290619604,
       "held_out_signal_error": 0.025830541902484006,
       "subspace_error": 0.004438381518263045,
@@ -3364,7 +3367,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0006807921454310417,
+      "fit_seconds": 0.0009457496926188469,
       "signal_error": 0.023996437290619604,
       "held_out_signal_error": 0.025830541902484006,
       "subspace_error": 0.004438381518263045,
@@ -3403,7 +3406,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.00046070804819464684,
+      "fit_seconds": 0.0005306671373546124,
       "signal_error": 0.04966948496834212,
       "held_out_signal_error": 0.048134050594721374,
       "converged": true,
@@ -3429,7 +3432,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025872208178043365,
+      "fit_seconds": 0.030502334237098694,
       "forecast_mse": 0.9584128345536637,
       "row_groups": [
         [
@@ -3478,7 +3481,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.0185695830732584,
+      "fit_seconds": 0.027197500225156546,
       "forecast_mse": 0.9564809788522466,
       "row_groups": [
         [
@@ -3518,7 +3521,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.004128667060285807,
+      "fit_seconds": 0.006242500152438879,
       "forecast_mse": 0.9556148026122482,
       "converged": true,
       "iterations": 0,
@@ -3544,7 +3547,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04368308326229453,
+      "fit_seconds": 0.04821699997410178,
       "forecast_mse": 0.9975404275360928,
       "operator_error": 0.055175081167567676,
       "support_error": 0.0,
@@ -3567,7 +3570,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.001964250113815069,
+      "fit_seconds": 0.0018835002556443214,
       "forecast_mse": 0.9985444531896329,
       "operator_error": 0.06691014148003172,
       "converged": true,
@@ -3587,7 +3590,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.005037290975451469,
+      "fit_seconds": 0.0061912499368190765,
       "forecast_mse": 0.9982813456902356,
       "operator_error": 0.06778805655869374,
       "converged": true,
@@ -3607,7 +3610,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00023504206910729408,
+      "fit_seconds": 0.0002536247484385967,
       "forecast_mse": 1.0026075987660898,
       "operator_error": 0.10857594340138993,
       "converged": true,
@@ -3634,7 +3637,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11688637500628829,
+      "fit_seconds": 0.13842254085466266,
       "signal_error": 0.02601181218839095,
       "held_out_signal_error": 0.021962922719251782,
       "subspace_error": 0.0037366338353639807,
@@ -3680,7 +3683,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0008106660097837448,
+      "fit_seconds": 0.0009448337368667126,
       "signal_error": 0.02601181218839095,
       "held_out_signal_error": 0.021962922719251782,
       "subspace_error": 0.0037366338353639807,
@@ -3719,7 +3722,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.000464125070720911,
+      "fit_seconds": 0.0005055000074207783,
       "signal_error": 0.054925229312637235,
       "held_out_signal_error": 0.04582694804699601,
       "converged": true,
@@ -3745,7 +3748,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.054593083914369345,
+      "fit_seconds": 0.034436834044754505,
       "forecast_mse": 0.9857681624285816,
       "row_groups": [
         [
@@ -3794,7 +3797,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.026689833961427212,
+      "fit_seconds": 0.02012245776131749,
       "forecast_mse": 0.9848447530653005,
       "row_groups": [
         [
@@ -3834,7 +3837,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.004097666125744581,
+      "fit_seconds": 0.003817582968622446,
       "forecast_mse": 0.9862489070572314,
       "converged": true,
       "iterations": 0,
@@ -3860,7 +3863,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04348516697064042,
+      "fit_seconds": 0.04804291622713208,
       "forecast_mse": 1.04150596161124,
       "operator_error": 0.03671627432594965,
       "support_error": 0.0,
@@ -3883,7 +3886,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0024959170259535313,
+      "fit_seconds": 0.0024775839410722256,
       "forecast_mse": 1.0433952080540259,
       "operator_error": 0.04909097001891996,
       "converged": true,
@@ -3903,7 +3906,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.006252790801227093,
+      "fit_seconds": 0.006565083283931017,
       "forecast_mse": 1.0433263887086908,
       "operator_error": 0.048568398603831664,
       "converged": true,
@@ -3923,7 +3926,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00021620793268084526,
+      "fit_seconds": 0.00022979220375418663,
       "forecast_mse": 1.045436491671794,
       "operator_error": 0.11119363136516167,
       "converged": true,
@@ -3950,7 +3953,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11612295778468251,
+      "fit_seconds": 0.13893245812505484,
       "signal_error": 0.024726694479655927,
       "held_out_signal_error": 0.020798633172881522,
       "subspace_error": 0.0041430454787318195,
@@ -3996,7 +3999,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0006771660409867764,
+      "fit_seconds": 0.0008108331821858883,
       "signal_error": 0.024726694479655927,
       "held_out_signal_error": 0.020798633172881522,
       "subspace_error": 0.0041430454787318195,
@@ -4035,7 +4038,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0004454157315194607,
+      "fit_seconds": 0.0006254580803215504,
       "signal_error": 0.05154718913516396,
       "held_out_signal_error": 0.0411706796703204,
       "converged": true,
@@ -4061,7 +4064,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025589500088244677,
+      "fit_seconds": 0.03927425015717745,
       "forecast_mse": 0.925353032237527,
       "row_groups": [
         [
@@ -4110,7 +4113,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018896709196269512,
+      "fit_seconds": 0.021037208382040262,
       "forecast_mse": 0.9251532709032001,
       "row_groups": [
         [
@@ -4150,7 +4153,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.004319916013628244,
+      "fit_seconds": 0.006530582904815674,
       "forecast_mse": 0.9256504170370784,
       "converged": true,
       "iterations": 0,
@@ -4176,7 +4179,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04282516706734896,
+      "fit_seconds": 0.04814224969595671,
       "forecast_mse": 0.9812683300799455,
       "operator_error": 0.0511971938434851,
       "support_error": 0.0,
@@ -4199,7 +4202,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0025979578495025635,
+      "fit_seconds": 0.0026833340525627136,
       "forecast_mse": 0.981618016070288,
       "operator_error": 0.060687996743490014,
       "converged": true,
@@ -4219,7 +4222,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.00506024993956089,
+      "fit_seconds": 0.004961250349879265,
       "forecast_mse": 0.9815957521876757,
       "operator_error": 0.06075501162081291,
       "converged": true,
@@ -4239,7 +4242,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00022129202261567116,
+      "fit_seconds": 0.00033175013959407806,
       "forecast_mse": 0.9885531532056099,
       "operator_error": 0.0893398011261576,
       "converged": true,
@@ -4266,7 +4269,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.117057875264436,
+      "fit_seconds": 0.149079916998744,
       "signal_error": 0.024148677740140047,
       "held_out_signal_error": 0.023456023097730483,
       "subspace_error": 0.0033618529663702254,
@@ -4312,7 +4315,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0007997918874025345,
+      "fit_seconds": 0.0007551247254014015,
       "signal_error": 0.024148677740140047,
       "held_out_signal_error": 0.023456023097730483,
       "subspace_error": 0.0033618529663702254,
@@ -4351,7 +4354,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0004882910288870335,
+      "fit_seconds": 0.00075495894998312,
       "signal_error": 0.05064131873141771,
       "held_out_signal_error": 0.05000621517331478,
       "converged": true,
@@ -4377,7 +4380,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.026295249816030264,
+      "fit_seconds": 0.034262499772012234,
       "forecast_mse": 0.9638651739271827,
       "row_groups": [
         [
@@ -4426,7 +4429,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.017868375405669212,
+      "fit_seconds": 0.028809374663978815,
       "forecast_mse": 0.9656568800561135,
       "row_groups": [
         [
@@ -4466,7 +4469,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0038229580968618393,
+      "fit_seconds": 0.0055364579893648624,
       "forecast_mse": 0.9687104119680483,
       "converged": true,
       "iterations": 0,
@@ -4492,7 +4495,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04223341727629304,
+      "fit_seconds": 0.04303012462332845,
       "forecast_mse": 0.9783620753634922,
       "operator_error": 0.06989674241768719,
       "support_error": 0.0,
@@ -4515,7 +4518,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.001890332903712988,
+      "fit_seconds": 0.0018043750897049904,
       "forecast_mse": 0.9784513346789991,
       "operator_error": 0.07913861819464625,
       "converged": true,
@@ -4535,7 +4538,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.005253209266811609,
+      "fit_seconds": 0.006898332852870226,
       "forecast_mse": 0.9784911891230441,
       "operator_error": 0.07875898757811897,
       "converged": true,
@@ -4555,7 +4558,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00022295815870165825,
+      "fit_seconds": 0.00024016620591282845,
       "forecast_mse": 0.9810517873630895,
       "operator_error": 0.12463438400494933,
       "converged": true,
@@ -4582,7 +4585,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11642254190519452,
+      "fit_seconds": 0.12648879224434495,
       "signal_error": 0.029084525160594635,
       "held_out_signal_error": 0.023469345502029608,
       "subspace_error": 0.0035903691535173967,
@@ -4628,7 +4631,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0006859577260911465,
+      "fit_seconds": 0.0006947498768568039,
       "signal_error": 0.02474053149569002,
       "held_out_signal_error": 0.023471030866345423,
       "subspace_error": 0.0035975339447549097,
@@ -4667,7 +4670,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.00047945883125066757,
+      "fit_seconds": 0.00045895902439951897,
       "signal_error": 0.05244938797331837,
       "held_out_signal_error": 0.04793248590485034,
       "converged": true,
@@ -4693,7 +4696,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.02647562511265278,
+      "fit_seconds": 0.03688916610553861,
       "forecast_mse": 0.8954568245582564,
       "row_groups": [
         [
@@ -4742,7 +4745,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018314499873667955,
+      "fit_seconds": 0.027877666987478733,
       "forecast_mse": 0.8967229701122963,
       "row_groups": [
         [
@@ -4782,7 +4785,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003899625036865473,
+      "fit_seconds": 0.00591283431276679,
       "forecast_mse": 0.8956740147195634,
       "converged": true,
       "iterations": 0,
@@ -4808,7 +4811,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.043585790786892176,
+      "fit_seconds": 0.05937658390030265,
       "forecast_mse": 0.9906359118906867,
       "operator_error": 0.03819569972878536,
       "support_error": 0.0,
@@ -4831,7 +4834,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.002666083164513111,
+      "fit_seconds": 0.0027834577485919,
       "forecast_mse": 0.9915353968639317,
       "operator_error": 0.046597286487468456,
       "converged": true,
@@ -4851,7 +4854,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.0050158328376710415,
+      "fit_seconds": 0.006194458808749914,
       "forecast_mse": 0.9915383052444985,
       "operator_error": 0.04623366822703375,
       "converged": true,
@@ -4871,7 +4874,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.00023199990391731262,
+      "fit_seconds": 0.00027512526139616966,
       "forecast_mse": 0.9973907656981522,
       "operator_error": 0.09439795249915285,
       "converged": true,
@@ -4898,7 +4901,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11615383392199874,
+      "fit_seconds": 0.1446773330681026,
       "signal_error": 0.025453986363914535,
       "held_out_signal_error": 0.02718172270693964,
       "subspace_error": 0.004576203516043852,
@@ -4944,7 +4947,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0006897500716149807,
+      "fit_seconds": 0.0008200830779969692,
       "signal_error": 0.025453986363914535,
       "held_out_signal_error": 0.02718172270693964,
       "subspace_error": 0.004576203516043852,
@@ -4983,7 +4986,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.000494333915412426,
+      "fit_seconds": 0.0005135419778525829,
       "signal_error": 0.05453007631287773,
       "held_out_signal_error": 0.05707391838214638,
       "converged": true,
@@ -5009,7 +5012,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.02616404229775071,
+      "fit_seconds": 0.029495082795619965,
       "forecast_mse": 0.9497511902447179,
       "row_groups": [
         [
@@ -5058,7 +5061,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018746249843388796,
+      "fit_seconds": 0.02235120814293623,
       "forecast_mse": 0.9503605976240879,
       "row_groups": [
         [
@@ -5098,7 +5101,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003770750015974045,
+      "fit_seconds": 0.0043913330882787704,
       "forecast_mse": 0.9512208208498998,
       "converged": true,
       "iterations": 0,
@@ -5124,7 +5127,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04334679106250405,
+      "fit_seconds": 0.04913612501695752,
       "forecast_mse": 1.165079202094609,
       "operator_error": 0.04558822005562686,
       "support_error": 0.0,
@@ -5147,7 +5150,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0025359168648719788,
+      "fit_seconds": 0.0025986251421272755,
       "forecast_mse": 1.1653163165289042,
       "operator_error": 0.05593046440291437,
       "converged": true,
@@ -5167,7 +5170,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.006237833295017481,
+      "fit_seconds": 0.006513957865536213,
       "forecast_mse": 1.1651960708396316,
       "operator_error": 0.05499409767089502,
       "converged": true,
@@ -5187,7 +5190,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0002187080681324005,
+      "fit_seconds": 0.000224958173930645,
       "forecast_mse": 1.1736230358137303,
       "operator_error": 0.10975067129545898,
       "converged": true,
@@ -5214,7 +5217,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.14501899993047118,
+      "fit_seconds": 0.16802458371967077,
       "signal_error": 0.025595031347022117,
       "held_out_signal_error": 0.024250179774229847,
       "subspace_error": 0.005029354911362357,
@@ -5260,7 +5263,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.000677207950502634,
+      "fit_seconds": 0.0009273751638829708,
       "signal_error": 0.025595031347022117,
       "held_out_signal_error": 0.024250179774229847,
       "subspace_error": 0.005029354911362357,
@@ -5299,7 +5302,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.00044499989598989487,
+      "fit_seconds": 0.0005538752302527428,
       "signal_error": 0.052479125023469055,
       "held_out_signal_error": 0.05274241167516519,
       "converged": true,
@@ -5325,7 +5328,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.02627179166302085,
+      "fit_seconds": 0.029390541836619377,
       "forecast_mse": 0.9830409023452166,
       "row_groups": [
         [
@@ -5374,7 +5377,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.01848783390596509,
+      "fit_seconds": 0.019501041620969772,
       "forecast_mse": 0.9843416396833314,
       "row_groups": [
         [
@@ -5414,7 +5417,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003833540715277195,
+      "fit_seconds": 0.0064634159207344055,
       "forecast_mse": 0.9817183419673345,
       "converged": true,
       "iterations": 0,
@@ -5440,7 +5443,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04342108312994242,
+      "fit_seconds": 0.045804459135979414,
       "forecast_mse": 0.9209449821372375,
       "operator_error": 0.04967930864249836,
       "support_error": 0.0,
@@ -5463,7 +5466,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0024622920900583267,
+      "fit_seconds": 0.002743542194366455,
       "forecast_mse": 0.9209167379112053,
       "operator_error": 0.0642913728287927,
       "converged": true,
@@ -5483,7 +5486,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.006458125077188015,
+      "fit_seconds": 0.0069169579073786736,
       "forecast_mse": 0.9210030231843596,
       "operator_error": 0.06330152810556275,
       "converged": true,
@@ -5503,7 +5506,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0002327919937670231,
+      "fit_seconds": 0.00023124972358345985,
       "forecast_mse": 0.9303249723148924,
       "operator_error": 0.11930076253782189,
       "converged": true,
@@ -5530,7 +5533,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.1164915831759572,
+      "fit_seconds": 0.1507697501219809,
       "signal_error": 0.024993055497665697,
       "held_out_signal_error": 0.03102028105246269,
       "subspace_error": 0.004270254770044148,
@@ -5576,7 +5579,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0009286249987781048,
+      "fit_seconds": 0.0009427918121218681,
       "signal_error": 0.024993055497665697,
       "held_out_signal_error": 0.03102028105246269,
       "subspace_error": 0.004270254770044148,
@@ -5615,7 +5618,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.00048608332872390747,
+      "fit_seconds": 0.0004883334040641785,
       "signal_error": 0.05181174952919256,
       "held_out_signal_error": 0.06237228201209646,
       "converged": true,
@@ -5641,7 +5644,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025973166804760695,
+      "fit_seconds": 0.04434462497010827,
       "forecast_mse": 0.971843486427986,
       "row_groups": [
         [
@@ -5690,7 +5693,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.019061208236962557,
+      "fit_seconds": 0.029667957685887814,
       "forecast_mse": 0.9713147563811539,
       "row_groups": [
         [
@@ -5730,7 +5733,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003958542365580797,
+      "fit_seconds": 0.004115625284612179,
       "forecast_mse": 0.9698003579256915,
       "converged": true,
       "iterations": 0,
@@ -5756,7 +5759,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.042618250008672476,
+      "fit_seconds": 0.0509787080809474,
       "forecast_mse": 1.0314564635540076,
       "operator_error": 0.04750419574541045,
       "support_error": 0.0,
@@ -5779,7 +5782,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0019417498260736465,
+      "fit_seconds": 0.001974166836589575,
       "forecast_mse": 1.0305461868458248,
       "operator_error": 0.05638234155439987,
       "converged": true,
@@ -5799,7 +5802,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.005123500246554613,
+      "fit_seconds": 0.004870917182415724,
       "forecast_mse": 1.0305336704111163,
       "operator_error": 0.05657150657204274,
       "converged": true,
@@ -5819,7 +5822,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0002259998582303524,
+      "fit_seconds": 0.00022033369168639183,
       "forecast_mse": 1.035090462595972,
       "operator_error": 0.09866112240631592,
       "converged": true,
@@ -5846,7 +5849,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11707429168745875,
+      "fit_seconds": 0.12762425001710653,
       "signal_error": 0.026403008046596996,
       "held_out_signal_error": 0.027603327041827937,
       "subspace_error": 0.005783820739823744,
@@ -5892,7 +5895,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0006882920861244202,
+      "fit_seconds": 0.000690957996994257,
       "signal_error": 0.026403008046596996,
       "held_out_signal_error": 0.027603327041827937,
       "subspace_error": 0.005783820739823744,
@@ -5931,7 +5934,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.00044408300891518593,
+      "fit_seconds": 0.0004563331604003906,
       "signal_error": 0.052987085393982544,
       "held_out_signal_error": 0.06234847227149159,
       "converged": true,
@@ -5957,7 +5960,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025631082709878683,
+      "fit_seconds": 0.027087082620710135,
       "forecast_mse": 1.005434457542347,
       "row_groups": [
         [
@@ -6006,7 +6009,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.01778150023892522,
+      "fit_seconds": 0.019422291312366724,
       "forecast_mse": 1.0061389701729186,
       "row_groups": [
         [
@@ -6046,7 +6049,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003992666956037283,
+      "fit_seconds": 0.003972124774008989,
       "forecast_mse": 1.0069676862710955,
       "converged": true,
       "iterations": 0,
@@ -6072,7 +6075,7 @@
         ]
       },
       "method": "sparse-emvs",
-      "fit_seconds": 0.04218254191800952,
+      "fit_seconds": 0.04431208269670606,
       "forecast_mse": 1.1980415849916621,
       "operator_error": 0.059106743266176605,
       "support_error": 0.0,
@@ -6095,7 +6098,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-als",
-      "fit_seconds": 0.0017937500961124897,
+      "fit_seconds": 0.0018097087740898132,
       "forecast_mse": 1.198260189169986,
       "operator_error": 0.06631859686233059,
       "converged": true,
@@ -6115,7 +6118,7 @@
       "n_train": 1100,
       "options": {},
       "method": "mar-mle",
-      "fit_seconds": 0.004917749669402838,
+      "fit_seconds": 0.004923666827380657,
       "forecast_mse": 1.1983843557301288,
       "operator_error": 0.06646921976592352,
       "converged": true,
@@ -6135,7 +6138,7 @@
       "n_train": 1100,
       "options": {},
       "method": "var",
-      "fit_seconds": 0.0002506254240870476,
+      "fit_seconds": 0.00021966686472296715,
       "forecast_mse": 1.194528989970175,
       "operator_error": 0.10107411658047179,
       "converged": true,
@@ -6162,7 +6165,7 @@
         "ranks": null
       },
       "method": "threshold-estimated",
-      "fit_seconds": 0.11696741683408618,
+      "fit_seconds": 0.14257354196161032,
       "signal_error": 0.024324980266857425,
       "held_out_signal_error": 0.02207039047816084,
       "subspace_error": 0.004352885483292213,
@@ -6208,7 +6211,7 @@
         ]
       },
       "method": "threshold-known-oracle",
-      "fit_seconds": 0.0007082917727530003,
+      "fit_seconds": 0.0007825000211596489,
       "signal_error": 0.024324980266857425,
       "held_out_signal_error": 0.02207039047816084,
       "subspace_error": 0.004352885483292213,
@@ -6247,7 +6250,7 @@
         ]
       },
       "method": "global-factor-union-ranks",
-      "fit_seconds": 0.0004990417510271072,
+      "fit_seconds": 0.0004841247573494911,
       "signal_error": 0.05154960964171382,
       "held_out_signal_error": 0.04423351289619005,
       "converged": true,
@@ -6273,7 +6276,7 @@
         "grouping": "threshold"
       },
       "method": "decorrelated-block-var",
-      "fit_seconds": 0.025910458993166685,
+      "fit_seconds": 0.02848141686990857,
       "forecast_mse": 0.9069085230954903,
       "row_groups": [
         [
@@ -6322,7 +6325,7 @@
         "grouping": "ratio"
       },
       "method": "ratio-decorrelated-block-var",
-      "fit_seconds": 0.018430542200803757,
+      "fit_seconds": 0.022497375030070543,
       "forecast_mse": 0.9065239102138015,
       "row_groups": [
         [
@@ -6362,7 +6365,7 @@
       "timing_scope": "fit transformation and predictors plus one-step predictions",
       "options": {},
       "method": "var",
-      "fit_seconds": 0.003978125285357237,
+      "fit_seconds": 0.004151000175625086,
       "forecast_mse": 0.9072091411197243,
       "converged": true,
       "iterations": 0,

@@ -5,7 +5,60 @@ time-series methods, with scientific benchmarks, examples, stable numerics and
 an extensible Python library. This checkpoint is substantial implementation
 progress, not a declaration that the literature is fully covered.
 
-## Third checkpoint: additive dynamics, volatility and online monitoring
+## Fourth checkpoint: cointegration, multi-term autoregression and entrywise robustness
+
+Added fixed-rank cointegrated matrix autoregression with LS and profiled
+separable Gaussian MLE, lagged differences, an unrestricted intercept, level
+forecasts and complete I(1) coefficient diagnostics. Added multilinear tensor
+autoregression with multiple terms/lags, projection/LS/MLE, matrix multi-term
+canonicalization, local higher-order CP projection, and full-sum companion
+stability. Added entrywise iterative Huber regressions for both loadings and
+factor scores, robust held-out transforms and the preprint's rank criteria.
+
+All three methods explicitly identify their primary manuscript versions.
+In particular IHR targets the 2023 preprint, not an unverified equivalent of
+the renamed accepted work. Optional numerical choices and missing inference
+are documented rather than inherited from an estimator's name.
+
+The suite passes 758 tests in both dependency environments below, with 94%
+line coverage. Independent reviewers checked reduced-rank likelihood blocks,
+whitened intercepts, full cointegration complements, tensor multi-term updates,
+rank-normalization conventions and robust loss differences. Regressions cover
+translation-invariant convergence, near-limit covariances, compensating tensor
+coefficient/covariance scales and amplitude-invariant cancellation diagnostics.
+All 12 examples pass locally and from an independently installed wheel.
+Source/wheel builds, API docs and formatting checks pass.
+
+New benchmark drivers compare common-origin one- and five-step forecasts,
+including a vector VECM with the same total cointegration rank, and distinguish
+entrywise from whole-matrix contamination. Known ranks and term counts supply
+extra information and are labeled. Projection initialization, oversized rank
+pilots, final optimizers and held-out robust-score solves have separate
+convergence diagnostics. The timing recorder now preserves fitting-only time
+even when later scoring fails and identifies the failure phase.
+
+The retained structured-autoregression study has 540 records and no execution
+errors. Four final records remain unconverged: two higher-order CP projections
+and two tensor LS/MLE fits at the 200-sweep limit. Ten selected records have an
+unfinished CP initialization/projection, separately from final convergence.
+Weak adjustment challenges cointegrating-space recovery; underfit tensor models
+remain competitive; nonseparable noise exposes large separable covariance errors.
+All 9,100 older benchmark records were refreshed without changes to non-timing
+results. See the [new results and limits](../benchmarks/results/structured-summary.md).
+
+The entrywise robustness study adds 180 records with no execution errors and
+all final fits converged. Five oversized rank pilots hit their iteration limit;
+two paired IHR records share an unfinished held-out score solve. Those flags
+remain explicit. IHR improves scattered-entry denoising in this design, but
+does not outperform matrixwise Huber under whole-matrix contamination.
+
+This remains an incomplete development library. Matrix ARMA, partially
+constrained and multi-term factor models, transition-rank tensor AR, broader
+rank/inference procedures, accepted-IHR reconciliation, real-data studies and
+comprehensive performance/stress grids remain open. Published estimation,
+automatic model selection and inferential theory are separate deliverables.
+
+## Third checkpoint: additive dynamics, volatility and online monitoring (retained history)
 
 Added additive two-way dynamic factors with automatic spatial rank selection,
 conditional latent-factor scoring and forecasting; Matrix GARCH filtering,

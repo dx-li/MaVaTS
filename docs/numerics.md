@@ -109,6 +109,32 @@ explicit and are not delay-corrected change-point estimates. Finite-horizon
 Gaussian reference [calibration](calibration-notes.md) is separate from the
 paper's asymptotic matrix-data validity conditions.
 
+Cointegrated matrix autoregression fits differences but forecasts levels. Full
+cointegration complements and summed level operators are required for I(1)
+diagnostics; mode-wise roots do not suffice. Dense accessors and initialization
+have explicit allocation guards. Equivalent reciprocal coefficient gauges are
+normalized with exponent-balanced scale transfer, not squared norms. Near-limit
+physical covariances are scaled before symmetrization. LS stopping is relative
+to residual loss, while MLE uses per-entry likelihood increments, so an
+unrestricted level shift does not turn the stopping rule into an absolute
+small-loss cutoff. See [cointegration notes](cointegration-notes.md).
+
+Multi-term tensor autoregression contracts each lag/term separately without
+materializing the vector transition during fitting. Matrix multi-term
+canonicalization uses a small QR/SVD representation; higher-order CP projection
+is explicitly local. Initial projection, final optimization, identification and
+stability are separate diagnostics. Coefficient and covariance scale transfer
+must consider every mode together to preserve compensating extreme gauges.
+See [tensor autoregression notes](tensor-autoregression-notes.md).
+
+Entrywise IHR solves convex loading and factor regressions, including held-out
+cores. Its inner descent check evaluates the piecewise loss difference directly
+instead of subtracting nearly equal total losses. The requested score tolerance
+is retained. Per-observation transform scaling prevents a later extreme matrix
+from changing an earlier observation's stopping criterion. Paper-normalized
+rank spectra, public orthonormal loadings and physical threshold units are
+distinguished in [IHR notes](ihr-notes.md).
+
 ## Migration from 0.1
 
 Legacy imports from `mavats.MAR`, `mavats.alphaPCA` and `mavats.factormodel` remain.

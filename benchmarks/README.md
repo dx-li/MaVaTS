@@ -152,6 +152,65 @@ See [advanced matrix results](results/advanced-summary.md) for retained outcomes
 and limitations. Strong alternatives here do not establish local power,
 disappearing-factor detection, or robustness to weak factors/heavy tails.
 
+## Cointegration, multi-term autoregression and entrywise robustness
+
+```bash
+python -m benchmarks.structured_ar --repeats 10 --output benchmarks/results/structured-ar.json
+python -m benchmarks.entrywise_robust --repeats 10 --output benchmarks/results/entrywise-robust.json
+```
+
+The structured driver uses independent dense simulation transitions, checked
+against indexed matrix/tensor recurrences. It fits once on the training period
+and scores one- and five-step forecasts at the same 46 origins in a 50-observation
+holdout. Five-step scores concern the terminal forecast, not an average of
+one-step forecasts supplied with future observations. Overlapping origins are
+not treated as independent replications for uncertainty summaries.
+
+CMAR designs have 600 training matrices of size 3×4, cointegrating ranks (1,2),
+one lagged difference and an unrestricted intercept. Common-trend directions
+have unit roots, while cointegrating coordinates have stable AR(2) roots.
+Isotropic, separable and weak-adjustment regimes are paired. Compared methods
+are CMAR LS/MLE given the true mode ranks, a vector Gaussian VECM given the
+same total rank, unrestricted VAR(2), random walk and known-parameter oracle.
+The vector VECM baseline partials out short-run terms and profiles residual
+covariance; its full-rank limit is tested against unrestricted VAR. CMAR's fitted
+I(1) compatibility diagnostic is distinct from optimizer convergence.
+
+Multi-term autoregression designs have 500 training observations, matrix shape
+3×4 or tensor shape 2×3×2, and term counts (2,1) at lags one and two.
+Nonsymmetric coefficient matrices obey a conservative sum-of-norms stationarity
+bound. Isotropic, separable and nonseparable innovation regimes are explicit;
+the last violates the likelihood fit's covariance assumption. Projection/LS/MLE
+fits with true term counts are compared with under-specified (1,1) LS, unrestricted VAR
+and known-transition oracle. Projection initialization, final optimization,
+covariance regularization and term-cancellation diagnostics remain separate.
+These are not tests of automatic term selection or global CP approximation.
+
+The entrywise study has 250 training and 30 held-out 8×10 matrices, true ranks
+(2,2), Gaussian AR factors and Gaussian entry noise of standard deviation .5.
+It compares no contamination, independently corrupted 5% of entries, and
+whole-matrix corruption at 5% of times; additive corruption has standard
+deviation 8. All regimes share the underlying signal and clean noise.
+
+IHR with known ranks and with oversized-pilot ratio rank selection is compared
+with known-rank matrixwise Huber, matrix Kendall, alpha=0 PCA and projected PCA.
+Default thresholds are fixed using training pilots; entrywise thresholds and
+matrix Frobenius thresholds have different units and are not equated. Auto-rank
+timings include oversized fitting and refitting the selected ranks. Pilot
+convergence, final convergence and held-out robust-score convergence are all
+reported. Reconstruction errors include contaminated observations and target
+the clean common signal. Held-out reconstruction is contemporaneous denoising,
+not forecasting. Rank pilots may exhaust their budget even when the selected
+final fit converges; that outcome is not silently relabeled successful.
+
+Both drivers offer `--quick` for execution checks. Known ranks/term counts and
+oracle coefficients supply extra information and are labeled accordingly.
+Retain failures and Monte Carlo uncertainty; these fixed synthetic designs
+do not establish broad dominance or reproduce every paper experiment.
+See [structured and entrywise results](results/structured-summary.md) for
+retained accuracy, paired differences, covariance misspecification and explicit
+projection/optimizer/rank-pilot limits.
+
 These artifacts were generated locally during the rebuild. Rerun after changing
 algorithms or dependencies. Further benchmark coverage remains tracked in
 [the roadmap](../docs/roadmap.md): weak/no factors, deliberate TIPUP cancellation,
